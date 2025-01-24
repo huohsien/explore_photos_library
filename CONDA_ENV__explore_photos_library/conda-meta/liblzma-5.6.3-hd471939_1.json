@@ -1,0 +1,47 @@
+{
+  "arch": "x86_64",
+  "build": "hd471939_1",
+  "build_number": 1,
+  "channel": "https://conda.anaconda.org/conda-forge/osx-64",
+  "constrains": [
+    "xz ==5.6.3=*_1"
+  ],
+  "depends": [
+    "__osx >=10.13"
+  ],
+  "extracted_package_dir": "/Users/huohsien/anaconda2/pkgs/liblzma-5.6.3-hd471939_1",
+  "features": "",
+  "files": [
+    "lib/liblzma.5.dylib"
+  ],
+  "fn": "liblzma-5.6.3-hd471939_1.conda",
+  "license": "0BSD",
+  "link": {
+    "source": "/Users/huohsien/anaconda2/pkgs/liblzma-5.6.3-hd471939_1",
+    "type": 1
+  },
+  "md5": "f9e9205fed9c664421c1c09f0b90ce6d",
+  "name": "liblzma",
+  "package_tarball_full_path": "/Users/huohsien/anaconda2/pkgs/liblzma-5.6.3-hd471939_1.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/liblzma.5.dylib",
+        "path_type": "hardlink",
+        "sha256": "829b639d8c63159997380b3031ec0dc2d013db3456c5d5563a7bf058bc201a7d",
+        "sha256_in_prefix": "829b639d8c63159997380b3031ec0dc2d013db3456c5d5563a7bf058bc201a7d",
+        "size_in_bytes": 186120
+      }
+    ],
+    "paths_version": 1
+  },
+  "platform": "darwin",
+  "requested_spec": "conda-forge/osx-64::liblzma==5.6.3=hd471939_1",
+  "sha256": "c70639ff3cb034a8e31cb081c907879b6a639bb12b0e090069a68eb69125b10e",
+  "size": 103745,
+  "subdir": "osx-64",
+  "timestamp": 1733407504892,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/osx-64/liblzma-5.6.3-hd471939_1.conda",
+  "version": "5.6.3"
+}

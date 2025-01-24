@@ -1,0 +1,5 @@
+#!/Users/huohsien/anaconda2/envs/explore_photos_library/bin/python3.12
+
+from idlelib.pyshell import main
+if __name__ == '__main__':
+    main()

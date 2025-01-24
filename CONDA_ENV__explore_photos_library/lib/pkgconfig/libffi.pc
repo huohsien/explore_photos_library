@@ -1,0 +1,11 @@
+prefix=/Users/huohsien/anaconda2/envs/explore_photos_library
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+toolexeclibdir=${libdir}
+includedir=/Users/huohsien/anaconda2/envs/explore_photos_library/include
+
+Name: libffi
+Description: Library supporting Foreign Function Interfaces
+Version: 3.4.2
+Libs: -L${toolexeclibdir} -lffi
+Cflags: -I${includedir}
