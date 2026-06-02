@@ -1,13 +1,18 @@
+# Python cache
 __pycache__/
 **/__pycache__/
 *.py[cod]
-# Python cache inside tracked conda env
-__pycache__/
-**/__pycache__/
-*.py[cod]
+*.pyo
 
 # Jupyter cache
 .ipynb_checkpoints/
+**/.ipynb_checkpoints/
 
 # macOS
 .DS_Store
+**/.DS_Store
+
+# Temporary editor files
+*~
+*.swp
+*.swo

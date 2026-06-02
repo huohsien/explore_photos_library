@@ -1,0 +1,5 @@
+#!/Users/huohsien/anaconda3/envs/explore_photos_library/bin/python3.11
+
+import pydoc
+if __name__ == '__main__':
+    pydoc.cli()
