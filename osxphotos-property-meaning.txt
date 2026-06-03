@@ -1,0 +1,271 @@
+# Photos Library Metadata-Based Ultimate Thorough Merge
+# osxphotos properties / project properties / remarks
+# Version: field-review-2026-06-03
+
+## Asset-level properties
+
+asset_uuid
+- osxphotos source: photo.uuid
+- meaning: Apple Photos asset 的唯一識別碼。
+- project use: 核心 identity。比較兩份 Photos Library 是否有同一個 asset，第一優先用這個。
+- remark: 這是 asset-level 最重要欄位。PowerPhotos 手動修復時，人眼不容易用 UUID 找，但程式比對需要它。
+
+filename
+- osxphotos source: photo.filename
+- meaning: osxphotos / Photos Library 目前看到的檔名；在實測中常常是 UUID-based filename。
+- project use: snapshot 保存、debug、輔助顯示。
+- remark: 實測例子顯示 filename 可能是 CE32A1E3-C42A-4419-8CC6-60D9ED738581.heic 這種 UUID 檔名，不一定是原始相機檔名。
+
+original_filename
+- osxphotos source: photo.original_filename
+- meaning: 原始匯入 Photos 時的檔名，例如 IMG_0344.HEIC / IMG_0857.PNG / ScreenRecording_xxx.mp4。
+- project use: report 顯示時比 filename 更適合人看；PowerPhotos / Photos 手動查找時也比較有意義。
+- remark: snapshot 要保留；comparison report 建議優先顯示 original_filename，沒有時再 fallback 到 filename。
+
+path
+- osxphotos source: photo.path
+- meaning: Photos Library package 裡原始檔案目前所在路徑。
+- project use: snapshot / debug / 檢查檔案是否真的存在。
+- remark: 不是 metadata merge 的核心，但對 rollback、驗證、檔案存在性檢查有價值。
+
+path_exists
+- osxphotos source: derived from photo.path + filesystem check
+- meaning: photo.path 指向的檔案在 filesystem 上是否存在。
+- project use: snapshot / debug。
+- remark: 不是 Photos metadata 本身，是我們自己計算出來的輔助欄位。
+
+file_size
+- osxphotos source: derived from filesystem path if available
+- meaning: 實際檔案大小。
+- project use: snapshot / debug / 疑似重複或 missing file 檢查。
+- remark: file_size 不代表照片或影片一定能正常開啟，只是檔案層級輔助資料。
+
+asset_kind
+- osxphotos source: derived from photo.isphoto / photo.ismovie
+- meaning: asset 類型，例如 photo / movie / other。
+- project use: snapshot summary；可用來跟 Apple Photos UI 的 total assets / videos 數量 double-check。
+- remark: 比 isphoto + ismovie 兩個 boolean 更乾淨。merge 本身不一定需要，但 snapshot summary 有用。
+
+isphoto
+- osxphotos source: photo.isphoto
+- meaning: 這個 asset 是否是 photo。
+- project use: 可被 asset_kind 取代。
+- remark: 若 snapshot 想完整保留 osxphotos 原始 boolean，可留；comparison model 不必用它。
+
+ismovie
+- osxphotos source: photo.ismovie
+- meaning: 這個 asset 是否是 movie/video。
+- project use: 可被 asset_kind 取代；也可用來跟 Apple Photos 的 video count 對照。
+- remark: merge 主線不靠它，但 summary 有用。
+
+ismissing
+- osxphotos source: photo.ismissing
+- meaning: Photos metadata 中有此 asset，但原始檔可能 missing。
+- project use: snapshot / debug。
+- remark: 目前 metadata merge 不靠它；若未來做 iCloud original completeness 檢查才會變重要。
+
+date
+- osxphotos source: photo.date
+- meaning: asset 的拍攝/建立時間。
+- project use: snapshot / debug / future fuzzy matching。
+- remark: 目前如果 asset_uuid 穩定，date 不是核心；若未來遇到 UUID 對不上但疑似同一張照片，date 會有用。
+
+date_added
+- osxphotos source: photo.date_added
+- meaning: asset 加入 Photos Library 的時間。
+- project use: snapshot / debug。
+- remark: 可幫助判斷 crash 前後新增資料，但不是第一階段 repair report 核心。
+
+title
+- osxphotos source: photo.title
+- meaning: Photos asset 的 title 欄位。
+- project use: snapshot 保存即可；目前不是核心。
+- observed result: 71607 assets 裡 title_count = 0。
+- remark: 在你的實際資料裡完全沒有使用。保留在 snapshot 是為了完整性，但 comparison report 不需要把它當重點。
+
+caption
+- osxphotos source: photo.description
+- meaning: Apple Photos asset 的 caption / description，也就是 iPhone Photos 往上滑後可填寫的文字。
+- project use: 核心 user metadata。需要比較 A/B 是否一致。
+- observed result: 71607 assets 裡 caption_count = 728；max caption length = 955。
+- remark: 這是 asset-level 文字描述的核心欄位。欄位名稱建議在 project 裡叫 caption，但註明 osxphotos source 是 photo.description。
+
+description
+- osxphotos source: photo.description
+- meaning: osxphotos 的 property 名稱；實際上對應 Apple Photos caption。
+- project use: 不建議 project schema 叫 description，避免跟 album diary text 混淆。
+- remark: 在程式讀取時用 photo.description，在我們自己的 model 裡命名成 caption。
+
+keywords
+- osxphotos source: photo.keywords
+- meaning: asset keywords，Python 裡是 list-like structure。
+- project use: 核心 metadata，尤其是 HIDE / NSFW 系列。
+- observed result: assets with any keywords = 23758；unique keywords = 38。
+- remark: Python memory comparison 裡應保留為 list/tuple/set，不要先轉 string。
+
+keywords_json
+- osxphotos source: derived from photo.keywords
+- meaning: 把 keywords list serialize 成 JSON array string，供 SQLite snapshot 保存。
+- project use: snapshot SQLite 欄位。
+- remark: 只有寫入 SQLite/CSV 時才需要。Python memory 裡不要用 keywords_json 比較，直接用 keywords list/set 比較。
+
+has_hide_keyword
+- osxphotos source: derived from "HIDE" in photo.keywords
+- meaning: asset 是否有 HIDE keyword。
+- project use: 你實際使用 keyword 的主要目的之一；report / summary 可直接用。
+- observed result: assets with HIDE = 23745。
+- remark: 這是 derived convenience field，不是 osxphotos 原始 property。
+
+favorite
+- osxphotos source: photo.favorite
+- meaning: Apple Photos 的愛心 favorite。
+- project use: 核心 metadata。需要比較 A/B 是否一致。
+- observed result: favorite_count = 699。
+- remark: iPhone/Photos 裡你按愛心就是這個。
+
+likes
+- osxphotos source: photo.likes
+- meaning: osxphotos 提供的 likes 欄位；目前資料中為空 list / 無使用。
+- project use: snapshot 可保存；comparison core 可忽略。
+- observed result: likes_count = 0。
+- remark: 不要把 likes 跟 favorite 混在一起。你的實際使用是 favorite，不是 likes。
+
+albums
+- osxphotos source: photo.albums
+- meaning: asset 所屬 album title list。
+- project use: 快速 debug / human-readable summary。
+- remark: 只靠 photo.albums 不夠，因為同名 album 可能在不同 folder。正式關係應該用 photo.album_info 產生 album_asset links。
+
+album_info
+- osxphotos source: photo.album_info
+- meaning: asset 所屬 album 的完整資訊，每個 AlbumInfo 包含 album title、uuid、folder_names 等。
+- project use: 建立 albums、folders、album_assets 的核心來源。
+- remark: 這是重建 Folder → Album → Asset 關係最重要的 osxphotos property。
+
+
+## Folder-level properties
+
+folder_names
+- osxphotos source: album_info.folder_names
+- meaning: album 所在 folder path 的 component list，例如 ["出國旅遊", "#北海道便宜團 2024年9月17~9月21日"]。
+- project use: Python memory 裡保留原始 list；可用來產生 folder_path。
+- remark: folder_names 是原始結構，比單純用 "/" join 的 string 更可逆。
+
+folder_path
+- osxphotos source: derived from album_info.folder_names
+- meaning: 用 "/" 把 folder_names 串起來的人類可讀路徑，例如 出國旅遊/#北海道便宜團 2024年9月17~9月21日。
+- project use: 核心 comparison key；用來比較 A/B 哪些 folder 消失。
+- remark: folder_path 不是 osxphotos 原始欄位，是我們為比較和 report 建立的 derived field。
+
+folder_names_json
+- osxphotos source: derived from album_info.folder_names
+- meaning: 把 folder_names list serialize 成 JSON string，供 SQLite snapshot 保存。
+- project use: snapshot SQLite 欄位。
+- remark: Python memory 裡用 folder_names list；只有 SQLite snapshot 需要 folder_names_json。
+
+
+## Album-level properties
+
+album_uuid
+- osxphotos source: album_info.uuid
+- meaning: Apple Photos album 的 UUID。
+- project use: snapshot 保存；同一份 library 內識別 album 很有用。
+- remark: 跨 library 比較時，不能完全假設 album_uuid 穩定；實際 comparison key 可能要用 folder_path + album_title。
+
+album_title
+- osxphotos source: album_info.title
+- meaning: album 名稱。對你的實際用法來說，這常常是 diary / event description。
+- project use: 核心 metadata。需要比較 A/B 是否有相同 album，也需要在 repair report 裡顯示。
+- observed result: 實測例子中 album_title 可非常長，已看到 2809 字、2651 字等。
+- remark: 對你的 library 來說，album_title 不是普通短名稱，而是大量 diary metadata 的主要承載位置。
+
+album_title_length
+- osxphotos source: derived from len(album_info.title)
+- meaning: album title 字數。
+- project use: exploration / validation / debug。
+- remark: 不一定要進正式 snapshot；但可以在探索 cell 裡保留，用來確認 diary album 的長度分布。
+
+album_key
+- osxphotos source: derived from folder_path + album_title
+- meaning: 跨 library 比較 album 時的 natural key。
+- project use: Python memory comparison 核心 key。
+- remark: 建議用 (folder_path, album_title) 作為 comparison key，因為 album_uuid 跨 library 是否穩定不保證。
+
+album_asset_link
+- osxphotos source: derived from photo.uuid + each album_info
+- meaning: 某個 asset 屬於某個 album 的關係。
+- project use: 核心 comparison object。用來找 A 有、B 沒有的 album membership。
+- remark: 對你的 merge 目標最重要，因為 crash 可能讓 folder/album/membership 消失，但 asset 本身還在。
+
+album_asset_key
+- osxphotos source: derived from album_key + asset_uuid
+- meaning: 一筆 Album → Asset relationship 的比較 key。
+- project use: Python set diff。
+- remark: 例如 ((folder_path, album_title), asset_uuid)。這可直接找 missing album membership。
+
+
+## Snapshot-only / export-only properties
+
+snapshot_created_at
+- source: generated by our notebook
+- meaning: 這份 metadata snapshot SQLite 建立時間。
+- project use: rollback / provenance。
+- remark: 每個 snapshot SQLite 都應該寫入這個資訊，至少存在 metadata table 或 snapshot_info table。
+
+source_photos_library_path
+- source: notebook config
+- meaning: 這份 snapshot 對應的 .photoslibrary 路徑。
+- project use: rollback / provenance。
+- remark: snapshot SQLite 不需要 library_key，但需要記錄自己是從哪個 Photos Library path 產生。
+
+source_photos_library_label
+- source: notebook config
+- meaning: 人類可讀標籤，例如 current_20260529_090331 或 backup_20250317_before_icloud_crash。
+- project use: provenance / report display。
+- remark: 比 A/B 更清楚；A/B 只適合在單次比較流程裡當變數名。
+
+
+## Comparison-report properties
+
+missing_folder
+- source: derived by comparing backup/current folder_path sets
+- meaning: old backup 有、current 沒有的 folder。
+- project use: repair report。
+- remark: 用來判斷 crash 後 folder structure 少了什麼。
+
+missing_album
+- source: derived by comparing album_key sets
+- meaning: old backup 有、current 沒有的 album。
+- project use: repair report。
+- remark: 對你最重要，因為你的 diary metadata 很多在 album_title 裡。
+
+missing_album_asset_link
+- source: derived by comparing album_asset_key sets
+- meaning: old backup 裡某 asset 屬於某 album，但 current 裡這個 membership 不見了。
+- project use: PowerPhotos 手動修復清單。
+- remark: report 應顯示 folder_path、album_title、asset_uuid、original_filename。
+
+asset_caption_difference
+- source: compare asset.caption by asset_uuid
+- meaning: 同一 asset 在兩份 library 裡 caption 不一致。
+- project use: repair report。
+- remark: caption 在你的資料中有 728 筆，應比較。
+
+asset_keywords_difference
+- source: compare sorted keywords by asset_uuid
+- meaning: 同一 asset 在兩份 library 裡 keywords 不一致。
+- project use: repair report。
+- remark: 尤其注意 HIDE / NSFW 系列。
+
+asset_favorite_difference
+- source: compare favorite by asset_uuid
+- meaning: 同一 asset 在兩份 library 裡 favorite 不一致。
+- project use: repair report。
+- remark: favorite 有 699 筆，應比較。
+
+asset_title_difference
+- source: compare title by asset_uuid
+- meaning: 同一 asset 在兩份 library 裡 title 不一致。
+- project use: 目前可忽略或低優先。
+- observed result: title_count = 0。
+- remark: snapshot 保留 title，但 comparison report 暫時不用重點處理。
