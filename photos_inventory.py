@@ -9,11 +9,16 @@ import gzip
 import os
 import pickle
 import time
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 
 __all__ = [
     "build_inventory",
     "print_inventory_summary",
+
+    "fill_photo_library_asset_unique_ids",
+    "audit_photo_library_asset_unique_ids",
 
     "find_folders_by_title_keyword",
     "find_albums_by_title_keyword",
@@ -54,6 +59,103 @@ def _get_attr(obj, name, default=None):
 
     return value
 
+# ------------------------------------------------------------
+# Internal Photo Library asset unique ID helpers
+# ------------------------------------------------------------
+
+_PHOTO_LIBRARY_ASSET_UNIQUE_ID_TIMEZONE = ZoneInfo("Asia/Taipei")
+
+
+def _parse_datetime_value(value):
+    # Parse datetime-like values used by inventory assets.
+    if value is None:
+        return None
+
+    if isinstance(value, datetime):
+        return value
+
+    return datetime.fromisoformat(str(value))
+
+
+def _to_taipei_datetime(value):
+    # Convert datetime-like value to Asia/Taipei timezone.
+    dt = _parse_datetime_value(value)
+
+    if dt is None:
+        return None
+
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=_PHOTO_LIBRARY_ASSET_UNIQUE_ID_TIMEZONE)
+
+    return dt.astimezone(_PHOTO_LIBRARY_ASSET_UNIQUE_ID_TIMEZONE)
+
+
+def _format_no_year_taipei_datetime(value):
+    # Format asset capture date for matching.
+    #
+    # Year is removed because the user may intentionally change years
+    # for Photos sorting.
+    dt = _to_taipei_datetime(value)
+
+    if dt is None:
+        return None
+
+    return (
+        f"{dt.month:02d}-"
+        f"{dt.day:02d} "
+        f"{dt.hour:02d}:"
+        f"{dt.minute:02d}:"
+        f"{dt.second:02d}."
+        f"{dt.microsecond:06d}"
+    )
+
+
+def _format_full_taipei_datetime(value):
+    # Format full date_added for matching.
+    dt = _to_taipei_datetime(value)
+
+    if dt is None:
+        return None
+
+    return (
+        f"{dt.year:04d}-"
+        f"{dt.month:02d}-"
+        f"{dt.day:02d} "
+        f"{dt.hour:02d}:"
+        f"{dt.minute:02d}:"
+        f"{dt.second:02d}."
+        f"{dt.microsecond:06d}"
+    )
+
+
+def _make_photo_library_asset_unique_id(
+    original_filename,
+    filename,
+    date,
+    date_added,
+):
+    # Current proposed Photo Library asset unique ID.
+    #
+    # Scheme:
+    #   1. full original_filename
+    #   2. capture date converted to Asia/Taipei, year removed
+    #   3. date_added converted to Asia/Taipei, full timestamp kept
+    #
+    # This function is the single place to strengthen the scheme later.
+    # For example: add file_size, partial SHA, or full SHA if needed.
+    filename_for_id = original_filename or filename
+
+    no_year_datetime = _format_no_year_taipei_datetime(date)
+    date_added_datetime = _format_full_taipei_datetime(date_added)
+
+    if filename_for_id is None or no_year_datetime is None or date_added_datetime is None:
+        return None
+
+    return (
+        filename_for_id,
+        no_year_datetime,
+        date_added_datetime,
+    )
 
 def _folder_path_from_titles(folder_titles):
     # Build human-readable folder path.
@@ -77,17 +179,29 @@ def _assert_same_field(existing_object, new_object, field_name, object_type):
 
 def _create_asset_object(osx_asset):
     # Create one Asset object from one osxphotos asset.
+    filename = osx_asset.filename
+    original_filename = osx_asset.original_filename
+    date = _to_iso_string(osx_asset.date)
+    date_added = _to_iso_string(osx_asset.date_added)
+
     return {
         "uuid": osx_asset.uuid,
 
-        "filename": osx_asset.filename,
-        "original_filename": osx_asset.original_filename,
+        "filename": filename,
+        "original_filename": original_filename,
         "path": str(osx_asset.path) if osx_asset.path else None,
 
         "is_movie": bool(osx_asset.ismovie),
 
-        "date": _to_iso_string(osx_asset.date),
-        "date_added": _to_iso_string(osx_asset.date_added),
+        "date": date,
+        "date_added": date_added,
+
+        "photo_library_asset_unique_id": _make_photo_library_asset_unique_id(
+            original_filename=original_filename,
+            filename=filename,
+            date=date,
+            date_added=date_added,
+        ),
 
         "description": osx_asset.description,
         "keywords": tuple(osx_asset.keywords),
@@ -97,7 +211,6 @@ def _create_asset_object(osx_asset):
         "albums": {},   # album_uuid -> Album object
         "folders": {},  # folder_uuid -> Folder object
     }
-
 
 def _create_album_object(album_info):
     # Create one Album object from one osxphotos AlbumInfo object.
@@ -287,6 +400,94 @@ def print_inventory_summary(inventory):
     print("descriptions:", description_count)
     print("keywords:", keyword_count)
 
+# ------------------------------------------------------------
+# Public Photo Library asset unique ID helpers
+# ------------------------------------------------------------
+
+def fill_photo_library_asset_unique_ids(inventory):
+    # Fill or refresh photo_library_asset_unique_id for all assets.
+    #
+    # This is useful for old cached inventories or after changing the
+    # unique ID algorithm.
+    for asset in inventory["assets"]:
+        asset["photo_library_asset_unique_id"] = _make_photo_library_asset_unique_id(
+            original_filename=asset.get("original_filename"),
+            filename=asset.get("filename"),
+            date=asset.get("date"),
+            date_added=asset.get("date_added"),
+        )
+
+
+def audit_photo_library_asset_unique_ids(
+    inventory,
+    label="Photos Library",
+    max_duplicate_groups_to_print=20,
+):
+    # Check whether photo_library_asset_unique_id is unique inside one library.
+    key_to_assets = {}
+    assets_without_unique_id = []
+
+    for asset in inventory["assets"]:
+        unique_id = asset.get("photo_library_asset_unique_id")
+
+        if unique_id is None:
+            assets_without_unique_id.append(asset)
+            continue
+
+        if unique_id not in key_to_assets:
+            key_to_assets[unique_id] = []
+
+        key_to_assets[unique_id].append(asset)
+
+    duplicate_groups = {
+        unique_id: group
+        for unique_id, group in key_to_assets.items()
+        if len(group) > 1
+    }
+
+    duplicate_asset_count = sum(
+        len(group)
+        for group in duplicate_groups.values()
+    )
+
+    is_unique = (
+        len(assets_without_unique_id) == 0
+        and len(duplicate_groups) == 0
+    )
+
+    print(label)
+    print("-" * 80)
+    print("total asset count:", len(inventory["assets"]))
+    print("generated unique ID count:", len(key_to_assets))
+    print("assets without unique ID:", len(assets_without_unique_id))
+    print("duplicate unique ID group count:", len(duplicate_groups))
+    print("duplicate asset count:", duplicate_asset_count)
+    print("is Photo Library asset unique ID scheme unique:", is_unique)
+
+    if duplicate_groups:
+        print()
+        print("Duplicate unique ID groups")
+        print("-" * 80)
+
+        for index, (unique_id, group) in enumerate(duplicate_groups.items()):
+            if index >= max_duplicate_groups_to_print:
+                print("... more duplicate groups not printed")
+                break
+
+            print("photo_library_asset_unique_id:", unique_id)
+            print("asset count:", len(group))
+
+            for asset in group:
+                print("  uuid:", asset["uuid"])
+                print("  filename:", asset["filename"])
+                print("  original_filename:", asset["original_filename"])
+                print("  date:", asset["date"])
+                print("  date_added:", asset["date_added"])
+                print("  path:", asset["path"])
+
+            print("-" * 80)
+
+    return is_unique
 
 # ------------------------------------------------------------
 # Public search helpers
