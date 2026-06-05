@@ -16,6 +16,7 @@ from zoneinfo import ZoneInfo
 __all__ = [
     "build_inventory",
     "print_inventory_summary",
+    "classify_asset_path_scope",
 
     "fill_photo_library_asset_unique_ids",
     "audit_photo_library_asset_unique_ids",
@@ -58,6 +59,45 @@ def _get_attr(obj, name, default=None):
         return value()
 
     return value
+
+def _classify_asset_path_string(path):
+    # Classify where an asset file lives inside a Photos Library.
+    #
+    # NORMAL_ORIGINALS:
+    #   Regular Photos Library originals that should participate in
+    #   backup-vs-current comparison.
+    #
+    # SCOPES_SYNDICATION:
+    #   Shared-with-You / Messages syndicated items stored under
+    #   Photos Library.photoslibrary/scopes/syndication/.
+    #   These are visible through Photos-related UI but are not normal
+    #   saved Photos Library originals, so they must not participate in
+    #   the main repair comparison.
+    #
+    # PATH_NONE:
+    #   Photos database has an asset record, but osxphotos did not provide
+    #   a local file path. Keep this in assets for now; investigate later.
+    #
+    # UNKNOWN_PATH:
+    #   Any path pattern we have not explicitly classified yet. Do not
+    #   silently treat this as a normal original.
+    if path is None:
+        return "PATH_NONE"
+
+    path_string = str(path)
+
+    if "/scopes/syndication/" in path_string:
+        return "SCOPES_SYNDICATION"
+
+    if "/originals/" in path_string:
+        return "NORMAL_ORIGINALS"
+
+    return "UNKNOWN_PATH"
+
+
+def classify_asset_path_scope(asset):
+    # Public helper for already-built inventory asset objects.
+    return _classify_asset_path_string(asset.get("path"))
 
 # ------------------------------------------------------------
 # Internal Photo Library asset unique ID helpers
@@ -179,29 +219,21 @@ def _assert_same_field(existing_object, new_object, field_name, object_type):
 
 def _create_asset_object(osx_asset):
     # Create one Asset object from one osxphotos asset.
-    filename = osx_asset.filename
-    original_filename = osx_asset.original_filename
-    date = _to_iso_string(osx_asset.date)
-    date_added = _to_iso_string(osx_asset.date_added)
+    path = str(osx_asset.path) if osx_asset.path else None
+    asset_scope = _classify_asset_path_string(path)
 
     return {
         "uuid": osx_asset.uuid,
 
-        "filename": filename,
-        "original_filename": original_filename,
-        "path": str(osx_asset.path) if osx_asset.path else None,
+        "filename": osx_asset.filename,
+        "original_filename": osx_asset.original_filename,
+        "path": path,
+        "asset_scope": asset_scope,
 
         "is_movie": bool(osx_asset.ismovie),
 
-        "date": date,
-        "date_added": date_added,
-
-        "photo_library_asset_unique_id": _make_photo_library_asset_unique_id(
-            original_filename=original_filename,
-            filename=filename,
-            date=date,
-            date_added=date_added,
-        ),
+        "date": _to_iso_string(osx_asset.date),
+        "date_added": _to_iso_string(osx_asset.date_added),
 
         "description": osx_asset.description,
         "keywords": tuple(osx_asset.keywords),
@@ -311,18 +343,43 @@ def _get_folder_objects_from_album_info(inventory, album_info):
 
 def build_inventory(osx_assets):
     # Build inventory from osxphotos assets.
+    #
+    # Important boundary:
+    # inventory["assets"] is the main comparison input and should only contain
+    # normal Photos Library assets plus unresolved PATH_NONE records for now.
+    #
+    # SCOPES_SYNDICATION assets are kept separately because they are
+    # Shared-with-You / Messages syndicated records, not normal saved Photos
+    # Library originals. Including them in inventory["assets"] pollutes
+    # unique-ID audit and backup-vs-current repair comparison.
     inventory = {
-        "assets": [],    # list[Asset object]
-        "albums": {},    # album_uuid -> Album object
-        "folders": {},   # folder_uuid -> Folder object
+        "assets": [],          # list[Asset object] for formal comparison
+        "special_assets": {
+            "SCOPES_SYNDICATION": [],
+        },
+        "albums": {},          # album_uuid -> Album object
+        "folders": {},         # folder_uuid -> Folder object
         "errors": [],
     }
 
     seen_asset_uuids = set()
+    seen_syndication_asset_uuids = set()
 
     for index, osx_asset in enumerate(osx_assets, start=1):
         asset = _create_asset_object(osx_asset)
         asset_uuid = asset["uuid"]
+
+        if asset["asset_scope"] == "SCOPES_SYNDICATION":
+            if asset_uuid in seen_syndication_asset_uuids:
+                raise RuntimeError(f"Duplicate syndication asset UUID: {asset_uuid}")
+
+            seen_syndication_asset_uuids.add(asset_uuid)
+            inventory["special_assets"]["SCOPES_SYNDICATION"].append(asset)
+
+            if index % 10000 == 0:
+                print("processed assets:", index)
+
+            continue
 
         if asset_uuid in seen_asset_uuids:
             raise RuntimeError(f"Duplicate asset UUID: {asset_uuid}")
@@ -352,7 +409,6 @@ def build_inventory(osx_assets):
             print("processed assets:", index)
 
     return inventory
-
 
 # ------------------------------------------------------------
 # Public inventory summary
