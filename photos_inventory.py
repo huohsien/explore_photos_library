@@ -172,31 +172,42 @@ def _make_photo_library_asset_unique_id(
     original_filename,
     filename,
     date,
-    date_added,
+    file_size_bytes,
 ):
     # Current proposed Photo Library asset unique ID.
     #
     # Scheme:
     #   1. full original_filename
     #   2. capture date converted to Asia/Taipei, year removed
-    #   3. date_added converted to Asia/Taipei, full timestamp kept
+    #   3. original file size in bytes
     #
-    # This function is the single place to strengthen the scheme later.
-    # For example: add file_size, partial SHA, or full SHA if needed.
+    # date_added is intentionally excluded because repair/import operations
+    # create a new date_added value.
     filename_for_id = original_filename or filename
 
     no_year_datetime = _format_no_year_taipei_datetime(date)
-    date_added_datetime = _format_full_taipei_datetime(date_added)
 
-    if filename_for_id is None or no_year_datetime is None or date_added_datetime is None:
+    if filename_for_id is None or no_year_datetime is None or file_size_bytes is None:
         return None
 
     return (
         filename_for_id,
         no_year_datetime,
-        date_added_datetime,
+        file_size_bytes,
     )
 
+
+def _get_file_size_bytes_from_asset(asset):
+    path = asset.get("path")
+
+    if path is None:
+        return None
+
+    try:
+        return os.path.getsize(path)
+    except OSError:
+        return None
+    
 def _folder_path_from_titles(folder_titles):
     # Build human-readable folder path.
     return "/".join(folder_titles)
@@ -463,16 +474,24 @@ def print_inventory_summary(inventory):
 def fill_photo_library_asset_unique_ids(inventory):
     # Fill or refresh photo_library_asset_unique_id for all assets.
     #
-    # This is useful for old cached inventories or after changing the
-    # unique ID algorithm.
+    # Current scheme uses:
+    #   1. original_filename or filename
+    #   2. capture date converted to Asia/Taipei, year removed
+    #   3. original file size in bytes
+    #
+    # date_added is intentionally not used because repaired/imported assets
+    # receive a new date_added value.
     for asset in inventory["assets"]:
+        file_size_bytes = _get_file_size_bytes_from_asset(asset)
+
+        asset["file_size_bytes"] = file_size_bytes
+
         asset["photo_library_asset_unique_id"] = _make_photo_library_asset_unique_id(
             original_filename=asset.get("original_filename"),
             filename=asset.get("filename"),
             date=asset.get("date"),
-            date_added=asset.get("date_added"),
+            file_size_bytes=file_size_bytes,
         )
-
 
 def audit_photo_library_asset_unique_ids(
     inventory,
