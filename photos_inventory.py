@@ -47,6 +47,43 @@ def _to_iso_string(value):
 
     return str(value)
 
+def _to_serializable_string(value):
+    # Convert osxphotos objects / metadata values into a stable string
+    # for inventory snapshots and reports.
+    #
+    # Used for location/place-like objects whose exact type may vary by
+    # osxphotos version or Photos database content.
+    if value is None:
+        return None
+
+    if isinstance(value, (str, int, float, bool)):
+        return value
+
+    if isinstance(value, (list, tuple)):
+        return tuple(
+            _to_serializable_string(item)
+            for item in value
+        )
+
+    if isinstance(value, dict):
+        return {
+            str(key): _to_serializable_string(item)
+            for key, item in value.items()
+        }
+
+    if hasattr(value, "asdict"):
+        try:
+            return _to_serializable_string(value.asdict())
+        except Exception:
+            pass
+
+    if hasattr(value, "_asdict"):
+        try:
+            return _to_serializable_string(value._asdict())
+        except Exception:
+            pass
+
+    return repr(value)
 
 def _get_attr(obj, name, default=None):
     # Safely get an attribute from an osxphotos object.
@@ -233,6 +270,17 @@ def _create_asset_object(osx_asset):
     path = str(osx_asset.path) if osx_asset.path else None
     asset_scope = _classify_asset_path_string(path)
 
+    path_live_photo = _get_attr(osx_asset, "path_live_photo", default=None)
+    path_live_photo = str(path_live_photo) if path_live_photo else None
+
+    live_photo_value = _get_attr(osx_asset, "live_photo", default=None)
+    is_live_photo = bool(live_photo_value) or bool(path_live_photo)
+
+    latitude = _get_attr(osx_asset, "latitude", default=None)
+    longitude = _get_attr(osx_asset, "longitude", default=None)
+    location = _get_attr(osx_asset, "location", default=None)
+    place = _get_attr(osx_asset, "place", default=None)
+
     return {
         "uuid": osx_asset.uuid,
 
@@ -250,6 +298,20 @@ def _create_asset_object(osx_asset):
         "keywords": tuple(osx_asset.keywords),
         "favorite": bool(osx_asset.favorite),
         "hidden": _get_attr(osx_asset, "hidden", default=None),
+
+        # Safety-rule metadata for duplicate cleanup.
+        #
+        # Location is not part of photo_library_asset_unique_id,
+        # but it affects keep/delete safety decisions.
+        "latitude": latitude,
+        "longitude": longitude,
+        "location": _to_serializable_string(location),
+        "place": _to_serializable_string(place),
+
+        # Live Photo is not part of photo_library_asset_unique_id,
+        # but Live Photo candidates must not be auto-deleted in v1.
+        "is_live_photo": is_live_photo,
+        "path_live_photo": path_live_photo,
 
         "albums": {},   # album_uuid -> Album object
         "folders": {},  # folder_uuid -> Folder object
