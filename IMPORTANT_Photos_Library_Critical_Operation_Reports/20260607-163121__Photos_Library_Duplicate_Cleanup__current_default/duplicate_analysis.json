@@ -1,0 +1,3346 @@
+[
+  {
+    "unique_id_repr": "(('IMG_4982.MOV', '06-30 11:05:36.000000', 3047941792), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ('2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了',)), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "4818605864ba9bb19de41a9c734f97c594a0ac2c29a4f28763077381c2f10e60": [
+        {
+          "uuid": "4C6C5B1E-B0AF-4708-89C2-5CDA30A59497",
+          "original_filename": "IMG_4982.MOV",
+          "filename": "4C6C5B1E-B0AF-4708-89C2-5CDA30A59497.mov",
+          "date": "2022-06-30T11:05:36+08:00",
+          "date_added": "2022-06-30T11:10:05.050800+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/4/4C6C5B1E-B0AF-4708-89C2-5CDA30A59497.mov",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 3047941792,
+          "content_sha256": "4818605864ba9bb19de41a9c734f97c594a0ac2c29a4f28763077381c2f10e60",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "88ACF87B-2767-4200-AF08-81F9AD569C5D",
+          "original_filename": "IMG_4982.MOV",
+          "filename": "88ACF87B-2767-4200-AF08-81F9AD569C5D.mov",
+          "date": "2022-06-30T11:05:36+08:00",
+          "date_added": "2023-11-05T16:55:08.727065+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/8/88ACF87B-2767-4200-AF08-81F9AD569C5D.mov",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 3047941792,
+          "content_sha256": "4818605864ba9bb19de41a9c734f97c594a0ac2c29a4f28763077381c2f10e60",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "4C6C5B1E-B0AF-4708-89C2-5CDA30A59497",
+        "original_filename": "IMG_4982.MOV",
+        "filename": "4C6C5B1E-B0AF-4708-89C2-5CDA30A59497.mov",
+        "date": "2022-06-30T11:05:36+08:00",
+        "date_added": "2022-06-30T11:10:05.050800+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/4/4C6C5B1E-B0AF-4708-89C2-5CDA30A59497.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3047941792,
+        "content_sha256": "4818605864ba9bb19de41a9c734f97c594a0ac2c29a4f28763077381c2f10e60",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "88ACF87B-2767-4200-AF08-81F9AD569C5D",
+        "original_filename": "IMG_4982.MOV",
+        "filename": "88ACF87B-2767-4200-AF08-81F9AD569C5D.mov",
+        "date": "2022-06-30T11:05:36+08:00",
+        "date_added": "2023-11-05T16:55:08.727065+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/8/88ACF87B-2767-4200-AF08-81F9AD569C5D.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3047941792,
+        "content_sha256": "4818605864ba9bb19de41a9c734f97c594a0ac2c29a4f28763077381c2f10e60",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "4C6C5B1E-B0AF-4708-89C2-5CDA30A59497",
+        "original_filename": "IMG_4982.MOV",
+        "filename": "4C6C5B1E-B0AF-4708-89C2-5CDA30A59497.mov",
+        "date": "2022-06-30T11:05:36+08:00",
+        "date_added": "2022-06-30T11:10:05.050800+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/4/4C6C5B1E-B0AF-4708-89C2-5CDA30A59497.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3047941792,
+        "content_sha256": "4818605864ba9bb19de41a9c734f97c594a0ac2c29a4f28763077381c2f10e60",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "88ACF87B-2767-4200-AF08-81F9AD569C5D",
+        "original_filename": "IMG_4982.MOV",
+        "filename": "88ACF87B-2767-4200-AF08-81F9AD569C5D.mov",
+        "date": "2022-06-30T11:05:36+08:00",
+        "date_added": "2023-11-05T16:55:08.727065+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/8/88ACF87B-2767-4200-AF08-81F9AD569C5D.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3047941792,
+        "content_sha256": "4818605864ba9bb19de41a9c734f97c594a0ac2c29a4f28763077381c2f10e60",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_0106.JPG', '12-15 19:26:48.808220', 4442330), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ('2021年12月15日 跟林欒菲還有林艾蓮 去她弟弟公司附近的 林艾蓮很愛吃的 七輪燒肉！吃了一個半小時就很飽，因為中間有點個鍋巴…橫膈膜不好吃因為是台灣牛，或許是這個關係，其他都很好吃！總共花了$3234！林艾蓮一個人喝啤酒就花了$360！然後還說很便宜！金錢觀價值觀差好多！ 上次一個人就要2000多塊吃不飽。這次我沒事幹嘛裝大方，這個錢都可以買一個精英頭盔電池版本。VR群組的人都捨不得買的！ 一頓飯就沒了！最雞歪的就是那個酒了！那個一小杯啤酒要$120！他媽的貴！',)), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "b28e8ea1a14d0f4c69190e1128877468b7688dc95d436c74e251056355433ef4": [
+        {
+          "uuid": "14A8F1D8-2906-4068-8760-E89903F2AE58",
+          "original_filename": "IMG_0106.JPG",
+          "filename": "14A8F1D8-2906-4068-8760-E89903F2AE58.jpeg",
+          "date": "2021-12-15T19:26:48.808220+08:00",
+          "date_added": "2021-12-15T21:51:40.174364+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/1/14A8F1D8-2906-4068-8760-E89903F2AE58.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 4442330,
+          "content_sha256": "b28e8ea1a14d0f4c69190e1128877468b7688dc95d436c74e251056355433ef4",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2021年12月15日 跟林欒菲還有林艾蓮 去她弟弟公司附近的 林艾蓮很愛吃的 七輪燒肉！吃了一個半小時就很飽，因為中間有點個鍋巴…橫膈膜不好吃因為是台灣牛，或許是這個關係，其他都很好吃！總共花了$3234！林艾蓮一個人喝啤酒就花了$360！然後還說很便宜！金錢觀價值觀差好多！ 上次一個人就要2000多塊吃不飽。這次我沒事幹嘛裝大方，這個錢都可以買一個精英頭盔電池版本。VR群組的人都捨不得買的！ 一頓飯就沒了！最雞歪的就是那個酒了！那個一小杯啤酒要$120！他媽的貴！"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "AC408AAA-DD22-4340-B4B9-B9CE2D104627",
+          "original_filename": "IMG_0106.JPG",
+          "filename": "AC408AAA-DD22-4340-B4B9-B9CE2D104627.jpeg",
+          "date": "2021-12-15T19:26:48.808220+08:00",
+          "date_added": "2021-12-15T19:26:49.506998+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/AC408AAA-DD22-4340-B4B9-B9CE2D104627.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 4442330,
+          "content_sha256": "b28e8ea1a14d0f4c69190e1128877468b7688dc95d436c74e251056355433ef4",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2021年12月15日 跟林欒菲還有林艾蓮 去她弟弟公司附近的 林艾蓮很愛吃的 七輪燒肉！吃了一個半小時就很飽，因為中間有點個鍋巴…橫膈膜不好吃因為是台灣牛，或許是這個關係，其他都很好吃！總共花了$3234！林艾蓮一個人喝啤酒就花了$360！然後還說很便宜！金錢觀價值觀差好多！ 上次一個人就要2000多塊吃不飽。這次我沒事幹嘛裝大方，這個錢都可以買一個精英頭盔電池版本。VR群組的人都捨不得買的！ 一頓飯就沒了！最雞歪的就是那個酒了！那個一小杯啤酒要$120！他媽的貴！"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "AC408AAA-DD22-4340-B4B9-B9CE2D104627",
+        "original_filename": "IMG_0106.JPG",
+        "filename": "AC408AAA-DD22-4340-B4B9-B9CE2D104627.jpeg",
+        "date": "2021-12-15T19:26:48.808220+08:00",
+        "date_added": "2021-12-15T19:26:49.506998+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/AC408AAA-DD22-4340-B4B9-B9CE2D104627.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 4442330,
+        "content_sha256": "b28e8ea1a14d0f4c69190e1128877468b7688dc95d436c74e251056355433ef4",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年12月15日 跟林欒菲還有林艾蓮 去她弟弟公司附近的 林艾蓮很愛吃的 七輪燒肉！吃了一個半小時就很飽，因為中間有點個鍋巴…橫膈膜不好吃因為是台灣牛，或許是這個關係，其他都很好吃！總共花了$3234！林艾蓮一個人喝啤酒就花了$360！然後還說很便宜！金錢觀價值觀差好多！ 上次一個人就要2000多塊吃不飽。這次我沒事幹嘛裝大方，這個錢都可以買一個精英頭盔電池版本。VR群組的人都捨不得買的！ 一頓飯就沒了！最雞歪的就是那個酒了！那個一小杯啤酒要$120！他媽的貴！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "14A8F1D8-2906-4068-8760-E89903F2AE58",
+        "original_filename": "IMG_0106.JPG",
+        "filename": "14A8F1D8-2906-4068-8760-E89903F2AE58.jpeg",
+        "date": "2021-12-15T19:26:48.808220+08:00",
+        "date_added": "2021-12-15T21:51:40.174364+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/1/14A8F1D8-2906-4068-8760-E89903F2AE58.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 4442330,
+        "content_sha256": "b28e8ea1a14d0f4c69190e1128877468b7688dc95d436c74e251056355433ef4",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年12月15日 跟林欒菲還有林艾蓮 去她弟弟公司附近的 林艾蓮很愛吃的 七輪燒肉！吃了一個半小時就很飽，因為中間有點個鍋巴…橫膈膜不好吃因為是台灣牛，或許是這個關係，其他都很好吃！總共花了$3234！林艾蓮一個人喝啤酒就花了$360！然後還說很便宜！金錢觀價值觀差好多！ 上次一個人就要2000多塊吃不飽。這次我沒事幹嘛裝大方，這個錢都可以買一個精英頭盔電池版本。VR群組的人都捨不得買的！ 一頓飯就沒了！最雞歪的就是那個酒了！那個一小杯啤酒要$120！他媽的貴！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "14A8F1D8-2906-4068-8760-E89903F2AE58",
+        "original_filename": "IMG_0106.JPG",
+        "filename": "14A8F1D8-2906-4068-8760-E89903F2AE58.jpeg",
+        "date": "2021-12-15T19:26:48.808220+08:00",
+        "date_added": "2021-12-15T21:51:40.174364+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/1/14A8F1D8-2906-4068-8760-E89903F2AE58.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 4442330,
+        "content_sha256": "b28e8ea1a14d0f4c69190e1128877468b7688dc95d436c74e251056355433ef4",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年12月15日 跟林欒菲還有林艾蓮 去她弟弟公司附近的 林艾蓮很愛吃的 七輪燒肉！吃了一個半小時就很飽，因為中間有點個鍋巴…橫膈膜不好吃因為是台灣牛，或許是這個關係，其他都很好吃！總共花了$3234！林艾蓮一個人喝啤酒就花了$360！然後還說很便宜！金錢觀價值觀差好多！ 上次一個人就要2000多塊吃不飽。這次我沒事幹嘛裝大方，這個錢都可以買一個精英頭盔電池版本。VR群組的人都捨不得買的！ 一頓飯就沒了！最雞歪的就是那個酒了！那個一小杯啤酒要$120！他媽的貴！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "AC408AAA-DD22-4340-B4B9-B9CE2D104627",
+        "original_filename": "IMG_0106.JPG",
+        "filename": "AC408AAA-DD22-4340-B4B9-B9CE2D104627.jpeg",
+        "date": "2021-12-15T19:26:48.808220+08:00",
+        "date_added": "2021-12-15T19:26:49.506998+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/AC408AAA-DD22-4340-B4B9-B9CE2D104627.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 4442330,
+        "content_sha256": "b28e8ea1a14d0f4c69190e1128877468b7688dc95d436c74e251056355433ef4",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年12月15日 跟林欒菲還有林艾蓮 去她弟弟公司附近的 林艾蓮很愛吃的 七輪燒肉！吃了一個半小時就很飽，因為中間有點個鍋巴…橫膈膜不好吃因為是台灣牛，或許是這個關係，其他都很好吃！總共花了$3234！林艾蓮一個人喝啤酒就花了$360！然後還說很便宜！金錢觀價值觀差好多！ 上次一個人就要2000多塊吃不飽。這次我沒事幹嘛裝大方，這個錢都可以買一個精英頭盔電池版本。VR群組的人都捨不得買的！ 一頓飯就沒了！最雞歪的就是那個酒了！那個一小杯啤酒要$120！他媽的貴！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_2344.PNG', '09-29 21:22:02.000000', 503845), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ()), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "09006fe11cabf57fda6fe7f325ed25cc615fd55c7abe3b23e605aa4f33d71933": [
+        {
+          "uuid": "09E67C6F-DADE-4EA0-BDD7-8431A2A973A4",
+          "original_filename": "IMG_2344.PNG",
+          "filename": "09E67C6F-DADE-4EA0-BDD7-8431A2A973A4.png",
+          "date": "2017-09-29T21:22:02+08:00",
+          "date_added": "2017-10-13T13:28:35.838223+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/0/09E67C6F-DADE-4EA0-BDD7-8431A2A973A4.png",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 503845,
+          "content_sha256": "09006fe11cabf57fda6fe7f325ed25cc615fd55c7abe3b23e605aa4f33d71933",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "619A9181-35A4-4FA0-A385-1F6A49CBDA40",
+          "original_filename": "IMG_2344.PNG",
+          "filename": "619A9181-35A4-4FA0-A385-1F6A49CBDA40.png",
+          "date": "2017-09-29T21:22:02+08:00",
+          "date_added": "2017-09-29T21:22:03.102223+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/619A9181-35A4-4FA0-A385-1F6A49CBDA40.png",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 503845,
+          "content_sha256": "09006fe11cabf57fda6fe7f325ed25cc615fd55c7abe3b23e605aa4f33d71933",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "619A9181-35A4-4FA0-A385-1F6A49CBDA40",
+        "original_filename": "IMG_2344.PNG",
+        "filename": "619A9181-35A4-4FA0-A385-1F6A49CBDA40.png",
+        "date": "2017-09-29T21:22:02+08:00",
+        "date_added": "2017-09-29T21:22:03.102223+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/619A9181-35A4-4FA0-A385-1F6A49CBDA40.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 503845,
+        "content_sha256": "09006fe11cabf57fda6fe7f325ed25cc615fd55c7abe3b23e605aa4f33d71933",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "09E67C6F-DADE-4EA0-BDD7-8431A2A973A4",
+        "original_filename": "IMG_2344.PNG",
+        "filename": "09E67C6F-DADE-4EA0-BDD7-8431A2A973A4.png",
+        "date": "2017-09-29T21:22:02+08:00",
+        "date_added": "2017-10-13T13:28:35.838223+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/0/09E67C6F-DADE-4EA0-BDD7-8431A2A973A4.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 503845,
+        "content_sha256": "09006fe11cabf57fda6fe7f325ed25cc615fd55c7abe3b23e605aa4f33d71933",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "09E67C6F-DADE-4EA0-BDD7-8431A2A973A4",
+        "original_filename": "IMG_2344.PNG",
+        "filename": "09E67C6F-DADE-4EA0-BDD7-8431A2A973A4.png",
+        "date": "2017-09-29T21:22:02+08:00",
+        "date_added": "2017-10-13T13:28:35.838223+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/0/09E67C6F-DADE-4EA0-BDD7-8431A2A973A4.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 503845,
+        "content_sha256": "09006fe11cabf57fda6fe7f325ed25cc615fd55c7abe3b23e605aa4f33d71933",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "619A9181-35A4-4FA0-A385-1F6A49CBDA40",
+        "original_filename": "IMG_2344.PNG",
+        "filename": "619A9181-35A4-4FA0-A385-1F6A49CBDA40.png",
+        "date": "2017-09-29T21:22:02+08:00",
+        "date_added": "2017-09-29T21:22:03.102223+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/619A9181-35A4-4FA0-A385-1F6A49CBDA40.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 503845,
+        "content_sha256": "09006fe11cabf57fda6fe7f325ed25cc615fd55c7abe3b23e605aa4f33d71933",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_4980.MOV', '06-30 10:43:45.000000', 9065316678), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ('2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了',)), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "0b2be3da44ed0e536a0219ae10b464fdd50e9f3bb5dbdf842ab5b0742705cb3c": [
+        {
+          "uuid": "CBD108F3-31B0-443C-BB89-6C3044786938",
+          "original_filename": "IMG_4980.MOV",
+          "filename": "CBD108F3-31B0-443C-BB89-6C3044786938.mov",
+          "date": "2022-06-30T10:43:45+08:00",
+          "date_added": "2022-06-30T11:02:34.295527+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/C/CBD108F3-31B0-443C-BB89-6C3044786938.mov",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 9065316678,
+          "content_sha256": "0b2be3da44ed0e536a0219ae10b464fdd50e9f3bb5dbdf842ab5b0742705cb3c",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "F9496917-1F03-4B35-B608-9E9EBA9E688E",
+          "original_filename": "IMG_4980.MOV",
+          "filename": "F9496917-1F03-4B35-B608-9E9EBA9E688E.mov",
+          "date": "2022-06-30T10:43:45+08:00",
+          "date_added": "2023-11-05T16:54:59.163527+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/F/F9496917-1F03-4B35-B608-9E9EBA9E688E.mov",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 9065316678,
+          "content_sha256": "0b2be3da44ed0e536a0219ae10b464fdd50e9f3bb5dbdf842ab5b0742705cb3c",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "CBD108F3-31B0-443C-BB89-6C3044786938",
+        "original_filename": "IMG_4980.MOV",
+        "filename": "CBD108F3-31B0-443C-BB89-6C3044786938.mov",
+        "date": "2022-06-30T10:43:45+08:00",
+        "date_added": "2022-06-30T11:02:34.295527+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/C/CBD108F3-31B0-443C-BB89-6C3044786938.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 9065316678,
+        "content_sha256": "0b2be3da44ed0e536a0219ae10b464fdd50e9f3bb5dbdf842ab5b0742705cb3c",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "F9496917-1F03-4B35-B608-9E9EBA9E688E",
+        "original_filename": "IMG_4980.MOV",
+        "filename": "F9496917-1F03-4B35-B608-9E9EBA9E688E.mov",
+        "date": "2022-06-30T10:43:45+08:00",
+        "date_added": "2023-11-05T16:54:59.163527+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/F/F9496917-1F03-4B35-B608-9E9EBA9E688E.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 9065316678,
+        "content_sha256": "0b2be3da44ed0e536a0219ae10b464fdd50e9f3bb5dbdf842ab5b0742705cb3c",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "CBD108F3-31B0-443C-BB89-6C3044786938",
+        "original_filename": "IMG_4980.MOV",
+        "filename": "CBD108F3-31B0-443C-BB89-6C3044786938.mov",
+        "date": "2022-06-30T10:43:45+08:00",
+        "date_added": "2022-06-30T11:02:34.295527+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/C/CBD108F3-31B0-443C-BB89-6C3044786938.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 9065316678,
+        "content_sha256": "0b2be3da44ed0e536a0219ae10b464fdd50e9f3bb5dbdf842ab5b0742705cb3c",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "F9496917-1F03-4B35-B608-9E9EBA9E688E",
+        "original_filename": "IMG_4980.MOV",
+        "filename": "F9496917-1F03-4B35-B608-9E9EBA9E688E.mov",
+        "date": "2022-06-30T10:43:45+08:00",
+        "date_added": "2023-11-05T16:54:59.163527+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/F/F9496917-1F03-4B35-B608-9E9EBA9E688E.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 9065316678,
+        "content_sha256": "0b2be3da44ed0e536a0219ae10b464fdd50e9f3bb5dbdf842ab5b0742705cb3c",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_0234.PNG', '11-19 00:23:16.639491', 408582), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ()), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "9c711a04be7bac97c599c0c3cb45ad4301f0679b66fa364402277964a9fda1d4": [
+        {
+          "uuid": "956623AF-8FEF-4032-948E-816E52B2EE6F",
+          "original_filename": "IMG_0234.PNG",
+          "filename": "956623AF-8FEF-4032-948E-816E52B2EE6F.png",
+          "date": "2020-11-19T00:23:16.639491+08:00",
+          "date_added": "2020-11-19T00:23:29.247762+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/956623AF-8FEF-4032-948E-816E52B2EE6F.png",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 408582,
+          "content_sha256": "9c711a04be7bac97c599c0c3cb45ad4301f0679b66fa364402277964a9fda1d4",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "B0741FE1-65FE-421D-8080-BE4CE96F85F1",
+          "original_filename": "IMG_0234.PNG",
+          "filename": "B0741FE1-65FE-421D-8080-BE4CE96F85F1.png",
+          "date": "2020-11-19T00:23:16.639491+08:00",
+          "date_added": "2020-11-19T00:23:16.642755+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/B0741FE1-65FE-421D-8080-BE4CE96F85F1.png",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 408582,
+          "content_sha256": "9c711a04be7bac97c599c0c3cb45ad4301f0679b66fa364402277964a9fda1d4",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "B0741FE1-65FE-421D-8080-BE4CE96F85F1",
+        "original_filename": "IMG_0234.PNG",
+        "filename": "B0741FE1-65FE-421D-8080-BE4CE96F85F1.png",
+        "date": "2020-11-19T00:23:16.639491+08:00",
+        "date_added": "2020-11-19T00:23:16.642755+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/B0741FE1-65FE-421D-8080-BE4CE96F85F1.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 408582,
+        "content_sha256": "9c711a04be7bac97c599c0c3cb45ad4301f0679b66fa364402277964a9fda1d4",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "956623AF-8FEF-4032-948E-816E52B2EE6F",
+        "original_filename": "IMG_0234.PNG",
+        "filename": "956623AF-8FEF-4032-948E-816E52B2EE6F.png",
+        "date": "2020-11-19T00:23:16.639491+08:00",
+        "date_added": "2020-11-19T00:23:29.247762+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/956623AF-8FEF-4032-948E-816E52B2EE6F.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 408582,
+        "content_sha256": "9c711a04be7bac97c599c0c3cb45ad4301f0679b66fa364402277964a9fda1d4",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "956623AF-8FEF-4032-948E-816E52B2EE6F",
+        "original_filename": "IMG_0234.PNG",
+        "filename": "956623AF-8FEF-4032-948E-816E52B2EE6F.png",
+        "date": "2020-11-19T00:23:16.639491+08:00",
+        "date_added": "2020-11-19T00:23:29.247762+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/956623AF-8FEF-4032-948E-816E52B2EE6F.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 408582,
+        "content_sha256": "9c711a04be7bac97c599c0c3cb45ad4301f0679b66fa364402277964a9fda1d4",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "B0741FE1-65FE-421D-8080-BE4CE96F85F1",
+        "original_filename": "IMG_0234.PNG",
+        "filename": "B0741FE1-65FE-421D-8080-BE4CE96F85F1.png",
+        "date": "2020-11-19T00:23:16.639491+08:00",
+        "date_added": "2020-11-19T00:23:16.642755+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/B0741FE1-65FE-421D-8080-BE4CE96F85F1.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 408582,
+        "content_sha256": "9c711a04be7bac97c599c0c3cb45ad4301f0679b66fa364402277964a9fda1d4",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('3320474716416102425.mp4', '07-15 17:39:24.000000', 18221849), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ()), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "4445c0547b76166bc7db3ee08a478349e4e186315a9a7aee063d579682793e33": [
+        {
+          "uuid": "2FD3FF73-4C44-4665-9028-5BB8FE1F70DE",
+          "original_filename": "3320474716416102425.mp4",
+          "filename": "2FD3FF73-4C44-4665-9028-5BB8FE1F70DE.mp4",
+          "date": "2020-07-15T17:39:24+08:00",
+          "date_added": "2020-07-16T12:50:56.411404+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/2/2FD3FF73-4C44-4665-9028-5BB8FE1F70DE.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 18221849,
+          "content_sha256": "4445c0547b76166bc7db3ee08a478349e4e186315a9a7aee063d579682793e33",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "6AEE4B90-469E-4DC4-881B-D92532402C5E",
+          "original_filename": "3320474716416102425.mp4",
+          "filename": "6AEE4B90-469E-4DC4-881B-D92532402C5E.mp4",
+          "date": "2020-07-15T17:39:24+08:00",
+          "date_added": "2020-07-16T12:52:03.116081+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/6AEE4B90-469E-4DC4-881B-D92532402C5E.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 18221849,
+          "content_sha256": "4445c0547b76166bc7db3ee08a478349e4e186315a9a7aee063d579682793e33",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "2FD3FF73-4C44-4665-9028-5BB8FE1F70DE",
+        "original_filename": "3320474716416102425.mp4",
+        "filename": "2FD3FF73-4C44-4665-9028-5BB8FE1F70DE.mp4",
+        "date": "2020-07-15T17:39:24+08:00",
+        "date_added": "2020-07-16T12:50:56.411404+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/2/2FD3FF73-4C44-4665-9028-5BB8FE1F70DE.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 18221849,
+        "content_sha256": "4445c0547b76166bc7db3ee08a478349e4e186315a9a7aee063d579682793e33",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "6AEE4B90-469E-4DC4-881B-D92532402C5E",
+        "original_filename": "3320474716416102425.mp4",
+        "filename": "6AEE4B90-469E-4DC4-881B-D92532402C5E.mp4",
+        "date": "2020-07-15T17:39:24+08:00",
+        "date_added": "2020-07-16T12:52:03.116081+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/6AEE4B90-469E-4DC4-881B-D92532402C5E.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 18221849,
+        "content_sha256": "4445c0547b76166bc7db3ee08a478349e4e186315a9a7aee063d579682793e33",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "2FD3FF73-4C44-4665-9028-5BB8FE1F70DE",
+        "original_filename": "3320474716416102425.mp4",
+        "filename": "2FD3FF73-4C44-4665-9028-5BB8FE1F70DE.mp4",
+        "date": "2020-07-15T17:39:24+08:00",
+        "date_added": "2020-07-16T12:50:56.411404+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/2/2FD3FF73-4C44-4665-9028-5BB8FE1F70DE.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 18221849,
+        "content_sha256": "4445c0547b76166bc7db3ee08a478349e4e186315a9a7aee063d579682793e33",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "6AEE4B90-469E-4DC4-881B-D92532402C5E",
+        "original_filename": "3320474716416102425.mp4",
+        "filename": "6AEE4B90-469E-4DC4-881B-D92532402C5E.mp4",
+        "date": "2020-07-15T17:39:24+08:00",
+        "date_added": "2020-07-16T12:52:03.116081+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/6AEE4B90-469E-4DC4-881B-D92532402C5E.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 18221849,
+        "content_sha256": "4445c0547b76166bc7db3ee08a478349e4e186315a9a7aee063d579682793e33",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('-479944577823611629.mp4', '07-29 23:28:42.000000', 40728528), (('description', None), ('keywords', ('HIDE', 'NSFW')), ('favorite', False), ('hidden', False), ('album_titles', ()), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "51edd590b192b00542a6e15b6d7956e4b5d59138bd7aea7e9723180e52e858ef": [
+        {
+          "uuid": "6CDCCDF9-F7D7-433C-88CD-82CF4D112801",
+          "original_filename": "-479944577823611629.mp4",
+          "filename": "6CDCCDF9-F7D7-433C-88CD-82CF4D112801.mp4",
+          "date": "2021-07-29T23:28:42+08:00",
+          "date_added": "2024-03-17T07:28:53.735383+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/6CDCCDF9-F7D7-433C-88CD-82CF4D112801.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 40728528,
+          "content_sha256": "51edd590b192b00542a6e15b6d7956e4b5d59138bd7aea7e9723180e52e858ef",
+          "description": null,
+          "keywords": [
+            "HIDE",
+            "NSFW"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "D0B8F1CA-BED0-4448-81BF-62E831EDBAC1",
+          "original_filename": "-479944577823611629.mp4",
+          "filename": "D0B8F1CA-BED0-4448-81BF-62E831EDBAC1.mp4",
+          "date": "2021-07-29T23:28:42+08:00",
+          "date_added": "2024-03-17T07:18:03.627472+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/D0B8F1CA-BED0-4448-81BF-62E831EDBAC1.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 40728528,
+          "content_sha256": "51edd590b192b00542a6e15b6d7956e4b5d59138bd7aea7e9723180e52e858ef",
+          "description": null,
+          "keywords": [
+            "HIDE",
+            "NSFW"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "D0B8F1CA-BED0-4448-81BF-62E831EDBAC1",
+        "original_filename": "-479944577823611629.mp4",
+        "filename": "D0B8F1CA-BED0-4448-81BF-62E831EDBAC1.mp4",
+        "date": "2021-07-29T23:28:42+08:00",
+        "date_added": "2024-03-17T07:18:03.627472+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/D0B8F1CA-BED0-4448-81BF-62E831EDBAC1.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 40728528,
+        "content_sha256": "51edd590b192b00542a6e15b6d7956e4b5d59138bd7aea7e9723180e52e858ef",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "6CDCCDF9-F7D7-433C-88CD-82CF4D112801",
+        "original_filename": "-479944577823611629.mp4",
+        "filename": "6CDCCDF9-F7D7-433C-88CD-82CF4D112801.mp4",
+        "date": "2021-07-29T23:28:42+08:00",
+        "date_added": "2024-03-17T07:28:53.735383+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/6CDCCDF9-F7D7-433C-88CD-82CF4D112801.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 40728528,
+        "content_sha256": "51edd590b192b00542a6e15b6d7956e4b5d59138bd7aea7e9723180e52e858ef",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "6CDCCDF9-F7D7-433C-88CD-82CF4D112801",
+        "original_filename": "-479944577823611629.mp4",
+        "filename": "6CDCCDF9-F7D7-433C-88CD-82CF4D112801.mp4",
+        "date": "2021-07-29T23:28:42+08:00",
+        "date_added": "2024-03-17T07:28:53.735383+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/6CDCCDF9-F7D7-433C-88CD-82CF4D112801.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 40728528,
+        "content_sha256": "51edd590b192b00542a6e15b6d7956e4b5d59138bd7aea7e9723180e52e858ef",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "D0B8F1CA-BED0-4448-81BF-62E831EDBAC1",
+        "original_filename": "-479944577823611629.mp4",
+        "filename": "D0B8F1CA-BED0-4448-81BF-62E831EDBAC1.mp4",
+        "date": "2021-07-29T23:28:42+08:00",
+        "date_added": "2024-03-17T07:18:03.627472+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/D0B8F1CA-BED0-4448-81BF-62E831EDBAC1.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 40728528,
+        "content_sha256": "51edd590b192b00542a6e15b6d7956e4b5d59138bd7aea7e9723180e52e858ef",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_4983.MOV', '06-30 11:11:08.000000', 226701950), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ('2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了',)), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "a0adebc29ceeb6d0fe3bb681f56bdfc1532b4bacb5e7e7c42c0a9320ef324d02": [
+        {
+          "uuid": "68715E39-BC14-49E5-8857-FC915AE8BAAE",
+          "original_filename": "IMG_4983.MOV",
+          "filename": "68715E39-BC14-49E5-8857-FC915AE8BAAE.mov",
+          "date": "2022-06-30T11:11:08+08:00",
+          "date_added": "2022-06-30T11:11:52.168589+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/68715E39-BC14-49E5-8857-FC915AE8BAAE.mov",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 226701950,
+          "content_sha256": "a0adebc29ceeb6d0fe3bb681f56bdfc1532b4bacb5e7e7c42c0a9320ef324d02",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "BF15C6A0-9E09-450B-BA8D-A1C3A4B6ACC8",
+          "original_filename": "IMG_4983.MOV",
+          "filename": "BF15C6A0-9E09-450B-BA8D-A1C3A4B6ACC8.mov",
+          "date": "2022-06-30T11:11:08+08:00",
+          "date_added": "2023-11-05T16:55:16.135964+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/BF15C6A0-9E09-450B-BA8D-A1C3A4B6ACC8.mov",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 226701950,
+          "content_sha256": "a0adebc29ceeb6d0fe3bb681f56bdfc1532b4bacb5e7e7c42c0a9320ef324d02",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "68715E39-BC14-49E5-8857-FC915AE8BAAE",
+        "original_filename": "IMG_4983.MOV",
+        "filename": "68715E39-BC14-49E5-8857-FC915AE8BAAE.mov",
+        "date": "2022-06-30T11:11:08+08:00",
+        "date_added": "2022-06-30T11:11:52.168589+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/68715E39-BC14-49E5-8857-FC915AE8BAAE.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 226701950,
+        "content_sha256": "a0adebc29ceeb6d0fe3bb681f56bdfc1532b4bacb5e7e7c42c0a9320ef324d02",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "BF15C6A0-9E09-450B-BA8D-A1C3A4B6ACC8",
+        "original_filename": "IMG_4983.MOV",
+        "filename": "BF15C6A0-9E09-450B-BA8D-A1C3A4B6ACC8.mov",
+        "date": "2022-06-30T11:11:08+08:00",
+        "date_added": "2023-11-05T16:55:16.135964+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/BF15C6A0-9E09-450B-BA8D-A1C3A4B6ACC8.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 226701950,
+        "content_sha256": "a0adebc29ceeb6d0fe3bb681f56bdfc1532b4bacb5e7e7c42c0a9320ef324d02",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "68715E39-BC14-49E5-8857-FC915AE8BAAE",
+        "original_filename": "IMG_4983.MOV",
+        "filename": "68715E39-BC14-49E5-8857-FC915AE8BAAE.mov",
+        "date": "2022-06-30T11:11:08+08:00",
+        "date_added": "2022-06-30T11:11:52.168589+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/68715E39-BC14-49E5-8857-FC915AE8BAAE.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 226701950,
+        "content_sha256": "a0adebc29ceeb6d0fe3bb681f56bdfc1532b4bacb5e7e7c42c0a9320ef324d02",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "BF15C6A0-9E09-450B-BA8D-A1C3A4B6ACC8",
+        "original_filename": "IMG_4983.MOV",
+        "filename": "BF15C6A0-9E09-450B-BA8D-A1C3A4B6ACC8.mov",
+        "date": "2022-06-30T11:11:08+08:00",
+        "date_added": "2023-11-05T16:55:16.135964+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/BF15C6A0-9E09-450B-BA8D-A1C3A4B6ACC8.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 226701950,
+        "content_sha256": "a0adebc29ceeb6d0fe3bb681f56bdfc1532b4bacb5e7e7c42c0a9320ef324d02",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('PDF document-1.jpeg', '04-17 17:15:02.617726', 3898033), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ('2021年4月17日，小乖說我有病，買了3000兩百多的漁夫鮮撈... $3000免運費打九二折省兩百多！結果他媽的收到訂購失敗通知。浪費了我一個小時的時間！我就寫Line過去罵人…看看他們怎麼處理！',)), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "bd46bd338deed3201ccaef428b17ea88c5535978b654a76ea1c25a7a766cb3de": [
+        {
+          "uuid": "DB2B39A8-5207-457E-842D-BA96E16FB59C",
+          "original_filename": "PDF document-1.jpeg",
+          "filename": "DB2B39A8-5207-457E-842D-BA96E16FB59C.jpeg",
+          "date": "2021-04-17T17:15:02.617726+08:00",
+          "date_added": "2021-04-17T17:15:03.404507+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DB2B39A8-5207-457E-842D-BA96E16FB59C.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 3898033,
+          "content_sha256": "bd46bd338deed3201ccaef428b17ea88c5535978b654a76ea1c25a7a766cb3de",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2021年4月17日，小乖說我有病，買了3000兩百多的漁夫鮮撈... $3000免運費打九二折省兩百多！結果他媽的收到訂購失敗通知。浪費了我一個小時的時間！我就寫Line過去罵人…看看他們怎麼處理！"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "629EDA1F-9AB8-4B0E-8639-F1600B5ACDA2",
+          "original_filename": "PDF document-1.jpeg",
+          "filename": "629EDA1F-9AB8-4B0E-8639-F1600B5ACDA2.jpeg",
+          "date": "2021-04-17T17:15:02.617726+08:00",
+          "date_added": "2021-04-17T17:15:44.660951+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/629EDA1F-9AB8-4B0E-8639-F1600B5ACDA2.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 3898033,
+          "content_sha256": "bd46bd338deed3201ccaef428b17ea88c5535978b654a76ea1c25a7a766cb3de",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2021年4月17日，小乖說我有病，買了3000兩百多的漁夫鮮撈... $3000免運費打九二折省兩百多！結果他媽的收到訂購失敗通知。浪費了我一個小時的時間！我就寫Line過去罵人…看看他們怎麼處理！"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "DB2B39A8-5207-457E-842D-BA96E16FB59C",
+        "original_filename": "PDF document-1.jpeg",
+        "filename": "DB2B39A8-5207-457E-842D-BA96E16FB59C.jpeg",
+        "date": "2021-04-17T17:15:02.617726+08:00",
+        "date_added": "2021-04-17T17:15:03.404507+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DB2B39A8-5207-457E-842D-BA96E16FB59C.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3898033,
+        "content_sha256": "bd46bd338deed3201ccaef428b17ea88c5535978b654a76ea1c25a7a766cb3de",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年4月17日，小乖說我有病，買了3000兩百多的漁夫鮮撈... $3000免運費打九二折省兩百多！結果他媽的收到訂購失敗通知。浪費了我一個小時的時間！我就寫Line過去罵人…看看他們怎麼處理！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "629EDA1F-9AB8-4B0E-8639-F1600B5ACDA2",
+        "original_filename": "PDF document-1.jpeg",
+        "filename": "629EDA1F-9AB8-4B0E-8639-F1600B5ACDA2.jpeg",
+        "date": "2021-04-17T17:15:02.617726+08:00",
+        "date_added": "2021-04-17T17:15:44.660951+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/629EDA1F-9AB8-4B0E-8639-F1600B5ACDA2.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3898033,
+        "content_sha256": "bd46bd338deed3201ccaef428b17ea88c5535978b654a76ea1c25a7a766cb3de",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年4月17日，小乖說我有病，買了3000兩百多的漁夫鮮撈... $3000免運費打九二折省兩百多！結果他媽的收到訂購失敗通知。浪費了我一個小時的時間！我就寫Line過去罵人…看看他們怎麼處理！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "DB2B39A8-5207-457E-842D-BA96E16FB59C",
+        "original_filename": "PDF document-1.jpeg",
+        "filename": "DB2B39A8-5207-457E-842D-BA96E16FB59C.jpeg",
+        "date": "2021-04-17T17:15:02.617726+08:00",
+        "date_added": "2021-04-17T17:15:03.404507+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DB2B39A8-5207-457E-842D-BA96E16FB59C.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3898033,
+        "content_sha256": "bd46bd338deed3201ccaef428b17ea88c5535978b654a76ea1c25a7a766cb3de",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年4月17日，小乖說我有病，買了3000兩百多的漁夫鮮撈... $3000免運費打九二折省兩百多！結果他媽的收到訂購失敗通知。浪費了我一個小時的時間！我就寫Line過去罵人…看看他們怎麼處理！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "629EDA1F-9AB8-4B0E-8639-F1600B5ACDA2",
+        "original_filename": "PDF document-1.jpeg",
+        "filename": "629EDA1F-9AB8-4B0E-8639-F1600B5ACDA2.jpeg",
+        "date": "2021-04-17T17:15:02.617726+08:00",
+        "date_added": "2021-04-17T17:15:44.660951+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/629EDA1F-9AB8-4B0E-8639-F1600B5ACDA2.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3898033,
+        "content_sha256": "bd46bd338deed3201ccaef428b17ea88c5535978b654a76ea1c25a7a766cb3de",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年4月17日，小乖說我有病，買了3000兩百多的漁夫鮮撈... $3000免運費打九二折省兩百多！結果他媽的收到訂購失敗通知。浪費了我一個小時的時間！我就寫Line過去罵人…看看他們怎麼處理！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_0361.mp4', '07-27 00:37:58.000000', 413958), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ()), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "0f7496c0b624acb5277e84ff8d98cbe993f921534772ecd8543b376bb2ad803a": [
+        {
+          "uuid": "39E70DAE-4AEF-4D56-A36F-5B4735001942",
+          "original_filename": "IMG_0361.mp4",
+          "filename": "39E70DAE-4AEF-4D56-A36F-5B4735001942.mp4",
+          "date": "2020-07-27T00:37:58+08:00",
+          "date_added": "2021-06-11T19:44:17.297069+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/39E70DAE-4AEF-4D56-A36F-5B4735001942.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 413958,
+          "content_sha256": "0f7496c0b624acb5277e84ff8d98cbe993f921534772ecd8543b376bb2ad803a",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "38FD5C2F-9B8C-479D-B628-F60DDC92374F",
+          "original_filename": "IMG_0361.mp4",
+          "filename": "38FD5C2F-9B8C-479D-B628-F60DDC92374F.mp4",
+          "date": "2020-07-27T00:37:58+08:00",
+          "date_added": "2021-06-11T08:48:04.500060+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/38FD5C2F-9B8C-479D-B628-F60DDC92374F.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 413958,
+          "content_sha256": "0f7496c0b624acb5277e84ff8d98cbe993f921534772ecd8543b376bb2ad803a",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "38FD5C2F-9B8C-479D-B628-F60DDC92374F",
+        "original_filename": "IMG_0361.mp4",
+        "filename": "38FD5C2F-9B8C-479D-B628-F60DDC92374F.mp4",
+        "date": "2020-07-27T00:37:58+08:00",
+        "date_added": "2021-06-11T08:48:04.500060+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/38FD5C2F-9B8C-479D-B628-F60DDC92374F.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 413958,
+        "content_sha256": "0f7496c0b624acb5277e84ff8d98cbe993f921534772ecd8543b376bb2ad803a",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "39E70DAE-4AEF-4D56-A36F-5B4735001942",
+        "original_filename": "IMG_0361.mp4",
+        "filename": "39E70DAE-4AEF-4D56-A36F-5B4735001942.mp4",
+        "date": "2020-07-27T00:37:58+08:00",
+        "date_added": "2021-06-11T19:44:17.297069+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/39E70DAE-4AEF-4D56-A36F-5B4735001942.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 413958,
+        "content_sha256": "0f7496c0b624acb5277e84ff8d98cbe993f921534772ecd8543b376bb2ad803a",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "39E70DAE-4AEF-4D56-A36F-5B4735001942",
+        "original_filename": "IMG_0361.mp4",
+        "filename": "39E70DAE-4AEF-4D56-A36F-5B4735001942.mp4",
+        "date": "2020-07-27T00:37:58+08:00",
+        "date_added": "2021-06-11T19:44:17.297069+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/39E70DAE-4AEF-4D56-A36F-5B4735001942.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 413958,
+        "content_sha256": "0f7496c0b624acb5277e84ff8d98cbe993f921534772ecd8543b376bb2ad803a",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "38FD5C2F-9B8C-479D-B628-F60DDC92374F",
+        "original_filename": "IMG_0361.mp4",
+        "filename": "38FD5C2F-9B8C-479D-B628-F60DDC92374F.mp4",
+        "date": "2020-07-27T00:37:58+08:00",
+        "date_added": "2021-06-11T08:48:04.500060+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/38FD5C2F-9B8C-479D-B628-F60DDC92374F.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 413958,
+        "content_sha256": "0f7496c0b624acb5277e84ff8d98cbe993f921534772ecd8543b376bb2ad803a",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('tmp_v4738285297258698482.mp4', '10-23 13:13:20.000000', 17906144), (('description', None), ('keywords', ('HIDE',)), ('favorite', False), ('hidden', False), ('album_titles', ('Sex Fun Clips - 情色打掃 奶子露出來漂亮',)), ('folder_paths', ('HIDE',))))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "20ffb66163bc259b4bea720827f3edc2499712e42c740cb905c85a73e34004fd": [
+        {
+          "uuid": "A636FFA1-F0CB-4C72-B28F-C573C607F222",
+          "original_filename": "tmp_v4738285297258698482.mp4",
+          "filename": "A636FFA1-F0CB-4C72-B28F-C573C607F222.mp4",
+          "date": "2019-10-23T13:13:20+08:00",
+          "date_added": "2019-11-24T21:37:44.736078+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/A636FFA1-F0CB-4C72-B28F-C573C607F222.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 17906144,
+          "content_sha256": "20ffb66163bc259b4bea720827f3edc2499712e42c740cb905c85a73e34004fd",
+          "description": null,
+          "keywords": [
+            "HIDE"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "Sex Fun Clips - 情色打掃 奶子露出來漂亮"
+          ],
+          "folder_paths": [
+            "HIDE"
+          ],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "98D402D7-5414-4E5D-956E-58AB8813513E",
+          "original_filename": "tmp_v4738285297258698482.mp4",
+          "filename": "98D402D7-5414-4E5D-956E-58AB8813513E.mp4",
+          "date": "2019-10-23T13:13:20+08:00",
+          "date_added": "2019-12-03T08:35:59.897215+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/98D402D7-5414-4E5D-956E-58AB8813513E.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 17906144,
+          "content_sha256": "20ffb66163bc259b4bea720827f3edc2499712e42c740cb905c85a73e34004fd",
+          "description": null,
+          "keywords": [
+            "HIDE"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "Sex Fun Clips - 情色打掃 奶子露出來漂亮"
+          ],
+          "folder_paths": [
+            "HIDE"
+          ],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "A636FFA1-F0CB-4C72-B28F-C573C607F222",
+        "original_filename": "tmp_v4738285297258698482.mp4",
+        "filename": "A636FFA1-F0CB-4C72-B28F-C573C607F222.mp4",
+        "date": "2019-10-23T13:13:20+08:00",
+        "date_added": "2019-11-24T21:37:44.736078+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/A636FFA1-F0CB-4C72-B28F-C573C607F222.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 17906144,
+        "content_sha256": "20ffb66163bc259b4bea720827f3edc2499712e42c740cb905c85a73e34004fd",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Sex Fun Clips - 情色打掃 奶子露出來漂亮"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "98D402D7-5414-4E5D-956E-58AB8813513E",
+        "original_filename": "tmp_v4738285297258698482.mp4",
+        "filename": "98D402D7-5414-4E5D-956E-58AB8813513E.mp4",
+        "date": "2019-10-23T13:13:20+08:00",
+        "date_added": "2019-12-03T08:35:59.897215+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/98D402D7-5414-4E5D-956E-58AB8813513E.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 17906144,
+        "content_sha256": "20ffb66163bc259b4bea720827f3edc2499712e42c740cb905c85a73e34004fd",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Sex Fun Clips - 情色打掃 奶子露出來漂亮"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "A636FFA1-F0CB-4C72-B28F-C573C607F222",
+        "original_filename": "tmp_v4738285297258698482.mp4",
+        "filename": "A636FFA1-F0CB-4C72-B28F-C573C607F222.mp4",
+        "date": "2019-10-23T13:13:20+08:00",
+        "date_added": "2019-11-24T21:37:44.736078+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/A636FFA1-F0CB-4C72-B28F-C573C607F222.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 17906144,
+        "content_sha256": "20ffb66163bc259b4bea720827f3edc2499712e42c740cb905c85a73e34004fd",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Sex Fun Clips - 情色打掃 奶子露出來漂亮"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "98D402D7-5414-4E5D-956E-58AB8813513E",
+        "original_filename": "tmp_v4738285297258698482.mp4",
+        "filename": "98D402D7-5414-4E5D-956E-58AB8813513E.mp4",
+        "date": "2019-10-23T13:13:20+08:00",
+        "date_added": "2019-12-03T08:35:59.897215+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/98D402D7-5414-4E5D-956E-58AB8813513E.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 17906144,
+        "content_sha256": "20ffb66163bc259b4bea720827f3edc2499712e42c740cb905c85a73e34004fd",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Sex Fun Clips - 情色打掃 奶子露出來漂亮"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_0079.JPG', '09-22 14:10:56.383182', 167961), (('description', None), ('keywords', ('HIDE', 'NSFW')), ('favorite', False), ('hidden', False), ('album_titles', ()), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "c546496a8095c93b1d5922357850befdd1a8e162399859cf146e92f562fd4e0e": [
+        {
+          "uuid": "5A2E5787-8A1B-4510-A0F2-BE7320168F7D",
+          "original_filename": "IMG_0079.JPG",
+          "filename": "5A2E5787-8A1B-4510-A0F2-BE7320168F7D.jpeg",
+          "date": "2019-09-22T14:10:56.383182+08:00",
+          "date_added": "2022-04-09T23:38:35.780856+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/5A2E5787-8A1B-4510-A0F2-BE7320168F7D.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 167961,
+          "content_sha256": "c546496a8095c93b1d5922357850befdd1a8e162399859cf146e92f562fd4e0e",
+          "description": null,
+          "keywords": [
+            "HIDE",
+            "NSFW"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "BF6F742E-5BFF-4408-8F20-E410787AE260",
+          "original_filename": "IMG_0079.JPG",
+          "filename": "BF6F742E-5BFF-4408-8F20-E410787AE260.jpeg",
+          "date": "2019-09-22T14:10:56.383182+08:00",
+          "date_added": "2019-09-22T14:10:56.385130+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/BF6F742E-5BFF-4408-8F20-E410787AE260.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 167961,
+          "content_sha256": "c546496a8095c93b1d5922357850befdd1a8e162399859cf146e92f562fd4e0e",
+          "description": null,
+          "keywords": [
+            "HIDE",
+            "NSFW"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "BF6F742E-5BFF-4408-8F20-E410787AE260",
+        "original_filename": "IMG_0079.JPG",
+        "filename": "BF6F742E-5BFF-4408-8F20-E410787AE260.jpeg",
+        "date": "2019-09-22T14:10:56.383182+08:00",
+        "date_added": "2019-09-22T14:10:56.385130+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/BF6F742E-5BFF-4408-8F20-E410787AE260.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 167961,
+        "content_sha256": "c546496a8095c93b1d5922357850befdd1a8e162399859cf146e92f562fd4e0e",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "5A2E5787-8A1B-4510-A0F2-BE7320168F7D",
+        "original_filename": "IMG_0079.JPG",
+        "filename": "5A2E5787-8A1B-4510-A0F2-BE7320168F7D.jpeg",
+        "date": "2019-09-22T14:10:56.383182+08:00",
+        "date_added": "2022-04-09T23:38:35.780856+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/5A2E5787-8A1B-4510-A0F2-BE7320168F7D.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 167961,
+        "content_sha256": "c546496a8095c93b1d5922357850befdd1a8e162399859cf146e92f562fd4e0e",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "5A2E5787-8A1B-4510-A0F2-BE7320168F7D",
+        "original_filename": "IMG_0079.JPG",
+        "filename": "5A2E5787-8A1B-4510-A0F2-BE7320168F7D.jpeg",
+        "date": "2019-09-22T14:10:56.383182+08:00",
+        "date_added": "2022-04-09T23:38:35.780856+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/5A2E5787-8A1B-4510-A0F2-BE7320168F7D.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 167961,
+        "content_sha256": "c546496a8095c93b1d5922357850befdd1a8e162399859cf146e92f562fd4e0e",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "BF6F742E-5BFF-4408-8F20-E410787AE260",
+        "original_filename": "IMG_0079.JPG",
+        "filename": "BF6F742E-5BFF-4408-8F20-E410787AE260.jpeg",
+        "date": "2019-09-22T14:10:56.383182+08:00",
+        "date_added": "2019-09-22T14:10:56.385130+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/BF6F742E-5BFF-4408-8F20-E410787AE260.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 167961,
+        "content_sha256": "c546496a8095c93b1d5922357850befdd1a8e162399859cf146e92f562fd4e0e",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_0245.JPG', '11-11 22:43:53.965508', 106373), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ('2022年11月11日 周思慧 番外篇 今天突然想念她，上微信沒看到她的信息。覺得自己該放下了。但是忍不住又問她最近過得怎麼樣。然後我正在寫這段話的時候她好像回應了！ 唉！結果從10:46聊到11:08，22分鐘！我見好就收！',)), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "16513ad8bb541e8ac629be4d05e9f986b26bc5085a3caae33d7be84574a5e204": [
+        {
+          "uuid": "DCF4AF03-B192-402A-BAE6-CDEC2D5BBFC7",
+          "original_filename": "IMG_0245.JPG",
+          "filename": "DCF4AF03-B192-402A-BAE6-CDEC2D5BBFC7.jpeg",
+          "date": "2022-11-11T22:43:53.965508+08:00",
+          "date_added": "2022-11-11T22:43:53.966928+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DCF4AF03-B192-402A-BAE6-CDEC2D5BBFC7.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 106373,
+          "content_sha256": "16513ad8bb541e8ac629be4d05e9f986b26bc5085a3caae33d7be84574a5e204",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2022年11月11日 周思慧 番外篇 今天突然想念她，上微信沒看到她的信息。覺得自己該放下了。但是忍不住又問她最近過得怎麼樣。然後我正在寫這段話的時候她好像回應了！ 唉！結果從10:46聊到11:08，22分鐘！我見好就收！"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "438BDAC5-356C-4336-A28C-7E1C8C36011B",
+          "original_filename": "IMG_0245.JPG",
+          "filename": "438BDAC5-356C-4336-A28C-7E1C8C36011B.jpeg",
+          "date": "2022-11-11T22:43:53.965508+08:00",
+          "date_added": "2022-11-13T04:54:03.277919+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/4/438BDAC5-356C-4336-A28C-7E1C8C36011B.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 106373,
+          "content_sha256": "16513ad8bb541e8ac629be4d05e9f986b26bc5085a3caae33d7be84574a5e204",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2022年11月11日 周思慧 番外篇 今天突然想念她，上微信沒看到她的信息。覺得自己該放下了。但是忍不住又問她最近過得怎麼樣。然後我正在寫這段話的時候她好像回應了！ 唉！結果從10:46聊到11:08，22分鐘！我見好就收！"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "DCF4AF03-B192-402A-BAE6-CDEC2D5BBFC7",
+        "original_filename": "IMG_0245.JPG",
+        "filename": "DCF4AF03-B192-402A-BAE6-CDEC2D5BBFC7.jpeg",
+        "date": "2022-11-11T22:43:53.965508+08:00",
+        "date_added": "2022-11-11T22:43:53.966928+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DCF4AF03-B192-402A-BAE6-CDEC2D5BBFC7.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 106373,
+        "content_sha256": "16513ad8bb541e8ac629be4d05e9f986b26bc5085a3caae33d7be84574a5e204",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年11月11日 周思慧 番外篇 今天突然想念她，上微信沒看到她的信息。覺得自己該放下了。但是忍不住又問她最近過得怎麼樣。然後我正在寫這段話的時候她好像回應了！ 唉！結果從10:46聊到11:08，22分鐘！我見好就收！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "438BDAC5-356C-4336-A28C-7E1C8C36011B",
+        "original_filename": "IMG_0245.JPG",
+        "filename": "438BDAC5-356C-4336-A28C-7E1C8C36011B.jpeg",
+        "date": "2022-11-11T22:43:53.965508+08:00",
+        "date_added": "2022-11-13T04:54:03.277919+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/4/438BDAC5-356C-4336-A28C-7E1C8C36011B.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 106373,
+        "content_sha256": "16513ad8bb541e8ac629be4d05e9f986b26bc5085a3caae33d7be84574a5e204",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年11月11日 周思慧 番外篇 今天突然想念她，上微信沒看到她的信息。覺得自己該放下了。但是忍不住又問她最近過得怎麼樣。然後我正在寫這段話的時候她好像回應了！ 唉！結果從10:46聊到11:08，22分鐘！我見好就收！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "DCF4AF03-B192-402A-BAE6-CDEC2D5BBFC7",
+        "original_filename": "IMG_0245.JPG",
+        "filename": "DCF4AF03-B192-402A-BAE6-CDEC2D5BBFC7.jpeg",
+        "date": "2022-11-11T22:43:53.965508+08:00",
+        "date_added": "2022-11-11T22:43:53.966928+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DCF4AF03-B192-402A-BAE6-CDEC2D5BBFC7.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 106373,
+        "content_sha256": "16513ad8bb541e8ac629be4d05e9f986b26bc5085a3caae33d7be84574a5e204",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年11月11日 周思慧 番外篇 今天突然想念她，上微信沒看到她的信息。覺得自己該放下了。但是忍不住又問她最近過得怎麼樣。然後我正在寫這段話的時候她好像回應了！ 唉！結果從10:46聊到11:08，22分鐘！我見好就收！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "438BDAC5-356C-4336-A28C-7E1C8C36011B",
+        "original_filename": "IMG_0245.JPG",
+        "filename": "438BDAC5-356C-4336-A28C-7E1C8C36011B.jpeg",
+        "date": "2022-11-11T22:43:53.965508+08:00",
+        "date_added": "2022-11-13T04:54:03.277919+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/4/438BDAC5-356C-4336-A28C-7E1C8C36011B.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 106373,
+        "content_sha256": "16513ad8bb541e8ac629be4d05e9f986b26bc5085a3caae33d7be84574a5e204",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年11月11日 周思慧 番外篇 今天突然想念她，上微信沒看到她的信息。覺得自己該放下了。但是忍不住又問她最近過得怎麼樣。然後我正在寫這段話的時候她好像回應了！ 唉！結果從10:46聊到11:08，22分鐘！我見好就收！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('RPReplay_Final1602716023.mp4', '10-15 06:53:43.000000', 2247805300), (('description', None), ('keywords', ('HIDE', 'NSFW')), ('favorite', False), ('hidden', False), ('album_titles', ('Chaturbate',)), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "03d93831b9ec2ffd971ffeb2e56fc43f7b14ed874fd82cd895daad56530a3eb4": [
+        {
+          "uuid": "DCCDD6A4-5A25-43A8-B140-BDFFE1C1B9F5",
+          "original_filename": "RPReplay_Final1602716023.mp4",
+          "filename": "DCCDD6A4-5A25-43A8-B140-BDFFE1C1B9F5.mp4",
+          "date": "2020-10-15T06:53:43+08:00",
+          "date_added": "2020-10-15T06:54:42.757358+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DCCDD6A4-5A25-43A8-B140-BDFFE1C1B9F5.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 2247805300,
+          "content_sha256": "03d93831b9ec2ffd971ffeb2e56fc43f7b14ed874fd82cd895daad56530a3eb4",
+          "description": null,
+          "keywords": [
+            "HIDE",
+            "NSFW"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "Chaturbate"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "C5B0CD8C-6288-4F77-AD76-2C0E828633DB",
+          "original_filename": "RPReplay_Final1602716023.mp4",
+          "filename": "C5B0CD8C-6288-4F77-AD76-2C0E828633DB.mp4",
+          "date": "2020-10-15T06:53:43+08:00",
+          "date_added": "2020-10-28T14:10:42.324452+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/C/C5B0CD8C-6288-4F77-AD76-2C0E828633DB.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 2247805300,
+          "content_sha256": "03d93831b9ec2ffd971ffeb2e56fc43f7b14ed874fd82cd895daad56530a3eb4",
+          "description": null,
+          "keywords": [
+            "HIDE",
+            "NSFW"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "Chaturbate"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "DCCDD6A4-5A25-43A8-B140-BDFFE1C1B9F5",
+        "original_filename": "RPReplay_Final1602716023.mp4",
+        "filename": "DCCDD6A4-5A25-43A8-B140-BDFFE1C1B9F5.mp4",
+        "date": "2020-10-15T06:53:43+08:00",
+        "date_added": "2020-10-15T06:54:42.757358+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DCCDD6A4-5A25-43A8-B140-BDFFE1C1B9F5.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 2247805300,
+        "content_sha256": "03d93831b9ec2ffd971ffeb2e56fc43f7b14ed874fd82cd895daad56530a3eb4",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Chaturbate"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "C5B0CD8C-6288-4F77-AD76-2C0E828633DB",
+        "original_filename": "RPReplay_Final1602716023.mp4",
+        "filename": "C5B0CD8C-6288-4F77-AD76-2C0E828633DB.mp4",
+        "date": "2020-10-15T06:53:43+08:00",
+        "date_added": "2020-10-28T14:10:42.324452+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/C/C5B0CD8C-6288-4F77-AD76-2C0E828633DB.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 2247805300,
+        "content_sha256": "03d93831b9ec2ffd971ffeb2e56fc43f7b14ed874fd82cd895daad56530a3eb4",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Chaturbate"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "DCCDD6A4-5A25-43A8-B140-BDFFE1C1B9F5",
+        "original_filename": "RPReplay_Final1602716023.mp4",
+        "filename": "DCCDD6A4-5A25-43A8-B140-BDFFE1C1B9F5.mp4",
+        "date": "2020-10-15T06:53:43+08:00",
+        "date_added": "2020-10-15T06:54:42.757358+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DCCDD6A4-5A25-43A8-B140-BDFFE1C1B9F5.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 2247805300,
+        "content_sha256": "03d93831b9ec2ffd971ffeb2e56fc43f7b14ed874fd82cd895daad56530a3eb4",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Chaturbate"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "C5B0CD8C-6288-4F77-AD76-2C0E828633DB",
+        "original_filename": "RPReplay_Final1602716023.mp4",
+        "filename": "C5B0CD8C-6288-4F77-AD76-2C0E828633DB.mp4",
+        "date": "2020-10-15T06:53:43+08:00",
+        "date_added": "2020-10-28T14:10:42.324452+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/C/C5B0CD8C-6288-4F77-AD76-2C0E828633DB.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 2247805300,
+        "content_sha256": "03d93831b9ec2ffd971ffeb2e56fc43f7b14ed874fd82cd895daad56530a3eb4",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Chaturbate"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('tmp_v4738122593335909120.mp4', '04-14 09:54:04.082973', 34109764), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ()), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "15ea4ee1eff78a5c02bdcccd0bde9944e0b9bececf258ffa4bc7528ecc2bb1f9": [
+        {
+          "uuid": "9199B232-49A2-4065-A98E-82A01F8001E5",
+          "original_filename": "tmp_v4738122593335909120.mp4",
+          "filename": "9199B232-49A2-4065-A98E-82A01F8001E5.mp4",
+          "date": "2019-04-14T09:54:04.082973+08:00",
+          "date_added": "2019-04-14T09:55:36.001581+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/9199B232-49A2-4065-A98E-82A01F8001E5.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 34109764,
+          "content_sha256": "15ea4ee1eff78a5c02bdcccd0bde9944e0b9bececf258ffa4bc7528ecc2bb1f9",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "A8C53182-8A95-4210-9D15-F4AF57C8E028",
+          "original_filename": "tmp_v4738122593335909120.mp4",
+          "filename": "A8C53182-8A95-4210-9D15-F4AF57C8E028.mp4",
+          "date": "2019-04-14T09:54:04.082973+08:00",
+          "date_added": "2019-04-14T09:54:23.832120+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/A8C53182-8A95-4210-9D15-F4AF57C8E028.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 34109764,
+          "content_sha256": "15ea4ee1eff78a5c02bdcccd0bde9944e0b9bececf258ffa4bc7528ecc2bb1f9",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "A8C53182-8A95-4210-9D15-F4AF57C8E028",
+        "original_filename": "tmp_v4738122593335909120.mp4",
+        "filename": "A8C53182-8A95-4210-9D15-F4AF57C8E028.mp4",
+        "date": "2019-04-14T09:54:04.082973+08:00",
+        "date_added": "2019-04-14T09:54:23.832120+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/A8C53182-8A95-4210-9D15-F4AF57C8E028.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 34109764,
+        "content_sha256": "15ea4ee1eff78a5c02bdcccd0bde9944e0b9bececf258ffa4bc7528ecc2bb1f9",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "9199B232-49A2-4065-A98E-82A01F8001E5",
+        "original_filename": "tmp_v4738122593335909120.mp4",
+        "filename": "9199B232-49A2-4065-A98E-82A01F8001E5.mp4",
+        "date": "2019-04-14T09:54:04.082973+08:00",
+        "date_added": "2019-04-14T09:55:36.001581+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/9199B232-49A2-4065-A98E-82A01F8001E5.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 34109764,
+        "content_sha256": "15ea4ee1eff78a5c02bdcccd0bde9944e0b9bececf258ffa4bc7528ecc2bb1f9",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "9199B232-49A2-4065-A98E-82A01F8001E5",
+        "original_filename": "tmp_v4738122593335909120.mp4",
+        "filename": "9199B232-49A2-4065-A98E-82A01F8001E5.mp4",
+        "date": "2019-04-14T09:54:04.082973+08:00",
+        "date_added": "2019-04-14T09:55:36.001581+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/9199B232-49A2-4065-A98E-82A01F8001E5.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 34109764,
+        "content_sha256": "15ea4ee1eff78a5c02bdcccd0bde9944e0b9bececf258ffa4bc7528ecc2bb1f9",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "A8C53182-8A95-4210-9D15-F4AF57C8E028",
+        "original_filename": "tmp_v4738122593335909120.mp4",
+        "filename": "A8C53182-8A95-4210-9D15-F4AF57C8E028.mp4",
+        "date": "2019-04-14T09:54:04.082973+08:00",
+        "date_added": "2019-04-14T09:54:23.832120+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/A8C53182-8A95-4210-9D15-F4AF57C8E028.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 34109764,
+        "content_sha256": "15ea4ee1eff78a5c02bdcccd0bde9944e0b9bececf258ffa4bc7528ecc2bb1f9",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_9550.JPG', '05-31 14:36:03.136722', 120255), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ()), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "62fae1feefd8643be90d84a8ca48311d3c4e0ba2e723b5be01ca3f403c31fa22": [
+        {
+          "uuid": "92253988-3661-4E06-BEA1-BE1AA9430067",
+          "original_filename": "IMG_9550.JPG",
+          "filename": "92253988-3661-4E06-BEA1-BE1AA9430067.jpeg",
+          "date": "2025-05-31T14:36:03.136722+08:00",
+          "date_added": "2025-05-31T14:36:03.144587+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/92253988-3661-4E06-BEA1-BE1AA9430067.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 120255,
+          "content_sha256": "62fae1feefd8643be90d84a8ca48311d3c4e0ba2e723b5be01ca3f403c31fa22",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "252102B5-D87B-4AF0-A032-EEE2681C3DA4",
+          "original_filename": "IMG_9550.JPG",
+          "filename": "252102B5-D87B-4AF0-A032-EEE2681C3DA4.jpeg",
+          "date": "2025-05-31T14:36:03.136722+08:00",
+          "date_added": "2025-05-31T14:36:56.945782+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/2/252102B5-D87B-4AF0-A032-EEE2681C3DA4.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 120255,
+          "content_sha256": "62fae1feefd8643be90d84a8ca48311d3c4e0ba2e723b5be01ca3f403c31fa22",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "92253988-3661-4E06-BEA1-BE1AA9430067",
+        "original_filename": "IMG_9550.JPG",
+        "filename": "92253988-3661-4E06-BEA1-BE1AA9430067.jpeg",
+        "date": "2025-05-31T14:36:03.136722+08:00",
+        "date_added": "2025-05-31T14:36:03.144587+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/92253988-3661-4E06-BEA1-BE1AA9430067.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 120255,
+        "content_sha256": "62fae1feefd8643be90d84a8ca48311d3c4e0ba2e723b5be01ca3f403c31fa22",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "252102B5-D87B-4AF0-A032-EEE2681C3DA4",
+        "original_filename": "IMG_9550.JPG",
+        "filename": "252102B5-D87B-4AF0-A032-EEE2681C3DA4.jpeg",
+        "date": "2025-05-31T14:36:03.136722+08:00",
+        "date_added": "2025-05-31T14:36:56.945782+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/2/252102B5-D87B-4AF0-A032-EEE2681C3DA4.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 120255,
+        "content_sha256": "62fae1feefd8643be90d84a8ca48311d3c4e0ba2e723b5be01ca3f403c31fa22",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "92253988-3661-4E06-BEA1-BE1AA9430067",
+        "original_filename": "IMG_9550.JPG",
+        "filename": "92253988-3661-4E06-BEA1-BE1AA9430067.jpeg",
+        "date": "2025-05-31T14:36:03.136722+08:00",
+        "date_added": "2025-05-31T14:36:03.144587+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/92253988-3661-4E06-BEA1-BE1AA9430067.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 120255,
+        "content_sha256": "62fae1feefd8643be90d84a8ca48311d3c4e0ba2e723b5be01ca3f403c31fa22",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "252102B5-D87B-4AF0-A032-EEE2681C3DA4",
+        "original_filename": "IMG_9550.JPG",
+        "filename": "252102B5-D87B-4AF0-A032-EEE2681C3DA4.jpeg",
+        "date": "2025-05-31T14:36:03.136722+08:00",
+        "date_added": "2025-05-31T14:36:56.945782+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/2/252102B5-D87B-4AF0-A032-EEE2681C3DA4.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 120255,
+        "content_sha256": "62fae1feefd8643be90d84a8ca48311d3c4e0ba2e723b5be01ca3f403c31fa22",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_0392.PNG', '03-07 00:40:11.000000', 3671922), (('description', None), ('keywords', ('HIDE',)), ('favorite', False), ('hidden', False), ('album_titles', ('妖狐 girls',)), ('folder_paths', ('HIDE',))))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "7035d90206261f20a9abc393d88352de414a23dee8f7ac8a2640f97e12cc7bdf": [
+        {
+          "uuid": "150C5972-7C68-4A29-8530-D7FBDD95C246",
+          "original_filename": "IMG_0392.PNG",
+          "filename": "150C5972-7C68-4A29-8530-D7FBDD95C246.png",
+          "date": "2019-03-07T00:40:11+08:00",
+          "date_added": "2019-03-07T00:40:12.267183+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/1/150C5972-7C68-4A29-8530-D7FBDD95C246.png",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 3671922,
+          "content_sha256": "7035d90206261f20a9abc393d88352de414a23dee8f7ac8a2640f97e12cc7bdf",
+          "description": null,
+          "keywords": [
+            "HIDE"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "妖狐 girls"
+          ],
+          "folder_paths": [
+            "HIDE"
+          ],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "59044129-5534-4969-9D33-7632E619E3FB",
+          "original_filename": "IMG_0392.PNG",
+          "filename": "59044129-5534-4969-9D33-7632E619E3FB.png",
+          "date": "2019-03-07T00:40:11+08:00",
+          "date_added": "2019-03-07T00:40:11.743988+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/59044129-5534-4969-9D33-7632E619E3FB.png",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 3671922,
+          "content_sha256": "7035d90206261f20a9abc393d88352de414a23dee8f7ac8a2640f97e12cc7bdf",
+          "description": null,
+          "keywords": [
+            "HIDE"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "妖狐 girls"
+          ],
+          "folder_paths": [
+            "HIDE"
+          ],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "59044129-5534-4969-9D33-7632E619E3FB",
+        "original_filename": "IMG_0392.PNG",
+        "filename": "59044129-5534-4969-9D33-7632E619E3FB.png",
+        "date": "2019-03-07T00:40:11+08:00",
+        "date_added": "2019-03-07T00:40:11.743988+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/59044129-5534-4969-9D33-7632E619E3FB.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3671922,
+        "content_sha256": "7035d90206261f20a9abc393d88352de414a23dee8f7ac8a2640f97e12cc7bdf",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "妖狐 girls"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "150C5972-7C68-4A29-8530-D7FBDD95C246",
+        "original_filename": "IMG_0392.PNG",
+        "filename": "150C5972-7C68-4A29-8530-D7FBDD95C246.png",
+        "date": "2019-03-07T00:40:11+08:00",
+        "date_added": "2019-03-07T00:40:12.267183+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/1/150C5972-7C68-4A29-8530-D7FBDD95C246.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3671922,
+        "content_sha256": "7035d90206261f20a9abc393d88352de414a23dee8f7ac8a2640f97e12cc7bdf",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "妖狐 girls"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "150C5972-7C68-4A29-8530-D7FBDD95C246",
+        "original_filename": "IMG_0392.PNG",
+        "filename": "150C5972-7C68-4A29-8530-D7FBDD95C246.png",
+        "date": "2019-03-07T00:40:11+08:00",
+        "date_added": "2019-03-07T00:40:12.267183+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/1/150C5972-7C68-4A29-8530-D7FBDD95C246.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3671922,
+        "content_sha256": "7035d90206261f20a9abc393d88352de414a23dee8f7ac8a2640f97e12cc7bdf",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "妖狐 girls"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "59044129-5534-4969-9D33-7632E619E3FB",
+        "original_filename": "IMG_0392.PNG",
+        "filename": "59044129-5534-4969-9D33-7632E619E3FB.png",
+        "date": "2019-03-07T00:40:11+08:00",
+        "date_added": "2019-03-07T00:40:11.743988+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/59044129-5534-4969-9D33-7632E619E3FB.png",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3671922,
+        "content_sha256": "7035d90206261f20a9abc393d88352de414a23dee8f7ac8a2640f97e12cc7bdf",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "妖狐 girls"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('ScreenRecording_10-13-2020 19-04-56_1.MP4', '10-13 19:04:57.000000', 24142549378), (('description', None), ('keywords', ('HIDE', 'NSFW')), ('favorite', False), ('hidden', False), ('album_titles', ('Chaturbate',)), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "9ac191d433f0e13d5f894dce2f03d4210555c6ce120cea9570a9a889923f5d0b": [
+        {
+          "uuid": "8E6FE27B-101A-4D93-BBFA-40C3052BAB65",
+          "original_filename": "ScreenRecording_10-13-2020 19-04-56_1.MP4",
+          "filename": "8E6FE27B-101A-4D93-BBFA-40C3052BAB65.mp4",
+          "date": "2020-10-13T19:04:57+08:00",
+          "date_added": "2020-10-14T20:02:28.177526+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/8/8E6FE27B-101A-4D93-BBFA-40C3052BAB65.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 24142549378,
+          "content_sha256": "9ac191d433f0e13d5f894dce2f03d4210555c6ce120cea9570a9a889923f5d0b",
+          "description": null,
+          "keywords": [
+            "HIDE",
+            "NSFW"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "Chaturbate"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "5B3262D3-324E-488B-8DC6-F7DD54EB2F7B",
+          "original_filename": "ScreenRecording_10-13-2020 19-04-56_1.MP4",
+          "filename": "5B3262D3-324E-488B-8DC6-F7DD54EB2F7B.mp4",
+          "date": "2020-10-13T19:04:57+08:00",
+          "date_added": "2020-10-14T09:26:43.421278+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/5B3262D3-324E-488B-8DC6-F7DD54EB2F7B.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 24142549378,
+          "content_sha256": "9ac191d433f0e13d5f894dce2f03d4210555c6ce120cea9570a9a889923f5d0b",
+          "description": null,
+          "keywords": [
+            "HIDE",
+            "NSFW"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "Chaturbate"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "5B3262D3-324E-488B-8DC6-F7DD54EB2F7B",
+        "original_filename": "ScreenRecording_10-13-2020 19-04-56_1.MP4",
+        "filename": "5B3262D3-324E-488B-8DC6-F7DD54EB2F7B.mp4",
+        "date": "2020-10-13T19:04:57+08:00",
+        "date_added": "2020-10-14T09:26:43.421278+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/5B3262D3-324E-488B-8DC6-F7DD54EB2F7B.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 24142549378,
+        "content_sha256": "9ac191d433f0e13d5f894dce2f03d4210555c6ce120cea9570a9a889923f5d0b",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Chaturbate"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "8E6FE27B-101A-4D93-BBFA-40C3052BAB65",
+        "original_filename": "ScreenRecording_10-13-2020 19-04-56_1.MP4",
+        "filename": "8E6FE27B-101A-4D93-BBFA-40C3052BAB65.mp4",
+        "date": "2020-10-13T19:04:57+08:00",
+        "date_added": "2020-10-14T20:02:28.177526+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/8/8E6FE27B-101A-4D93-BBFA-40C3052BAB65.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 24142549378,
+        "content_sha256": "9ac191d433f0e13d5f894dce2f03d4210555c6ce120cea9570a9a889923f5d0b",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Chaturbate"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "8E6FE27B-101A-4D93-BBFA-40C3052BAB65",
+        "original_filename": "ScreenRecording_10-13-2020 19-04-56_1.MP4",
+        "filename": "8E6FE27B-101A-4D93-BBFA-40C3052BAB65.mp4",
+        "date": "2020-10-13T19:04:57+08:00",
+        "date_added": "2020-10-14T20:02:28.177526+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/8/8E6FE27B-101A-4D93-BBFA-40C3052BAB65.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 24142549378,
+        "content_sha256": "9ac191d433f0e13d5f894dce2f03d4210555c6ce120cea9570a9a889923f5d0b",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Chaturbate"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "5B3262D3-324E-488B-8DC6-F7DD54EB2F7B",
+        "original_filename": "ScreenRecording_10-13-2020 19-04-56_1.MP4",
+        "filename": "5B3262D3-324E-488B-8DC6-F7DD54EB2F7B.mp4",
+        "date": "2020-10-13T19:04:57+08:00",
+        "date_added": "2020-10-14T09:26:43.421278+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/5B3262D3-324E-488B-8DC6-F7DD54EB2F7B.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 24142549378,
+        "content_sha256": "9ac191d433f0e13d5f894dce2f03d4210555c6ce120cea9570a9a889923f5d0b",
+        "description": null,
+        "keywords": [
+          "HIDE",
+          "NSFW"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "Chaturbate"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_4979.MOV', '06-30 10:36:56.000000', 3979998295), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ('2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了',)), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "d5ac585e4fd25cf566a6380f00eb6a00adebb3ca97c14f0b7ab865ecd0bc8e31": [
+        {
+          "uuid": "DE9D8C6B-D52A-48F5-9B78-4005036A3A91",
+          "original_filename": "IMG_4979.MOV",
+          "filename": "DE9D8C6B-D52A-48F5-9B78-4005036A3A91.mov",
+          "date": "2022-06-30T10:36:56+08:00",
+          "date_added": "2023-11-05T16:54:48.800297+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DE9D8C6B-D52A-48F5-9B78-4005036A3A91.mov",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 3979998295,
+          "content_sha256": "d5ac585e4fd25cf566a6380f00eb6a00adebb3ca97c14f0b7ab865ecd0bc8e31",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "0B0688FA-A4F0-42F1-AEFC-B64DD5E8C5BB",
+          "original_filename": "IMG_4979.MOV",
+          "filename": "0B0688FA-A4F0-42F1-AEFC-B64DD5E8C5BB.mov",
+          "date": "2022-06-30T10:36:56+08:00",
+          "date_added": "2022-06-30T10:43:24.404582+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/0/0B0688FA-A4F0-42F1-AEFC-B64DD5E8C5BB.mov",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 3979998295,
+          "content_sha256": "d5ac585e4fd25cf566a6380f00eb6a00adebb3ca97c14f0b7ab865ecd0bc8e31",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "0B0688FA-A4F0-42F1-AEFC-B64DD5E8C5BB",
+        "original_filename": "IMG_4979.MOV",
+        "filename": "0B0688FA-A4F0-42F1-AEFC-B64DD5E8C5BB.mov",
+        "date": "2022-06-30T10:36:56+08:00",
+        "date_added": "2022-06-30T10:43:24.404582+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/0/0B0688FA-A4F0-42F1-AEFC-B64DD5E8C5BB.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3979998295,
+        "content_sha256": "d5ac585e4fd25cf566a6380f00eb6a00adebb3ca97c14f0b7ab865ecd0bc8e31",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "DE9D8C6B-D52A-48F5-9B78-4005036A3A91",
+        "original_filename": "IMG_4979.MOV",
+        "filename": "DE9D8C6B-D52A-48F5-9B78-4005036A3A91.mov",
+        "date": "2022-06-30T10:36:56+08:00",
+        "date_added": "2023-11-05T16:54:48.800297+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DE9D8C6B-D52A-48F5-9B78-4005036A3A91.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3979998295,
+        "content_sha256": "d5ac585e4fd25cf566a6380f00eb6a00adebb3ca97c14f0b7ab865ecd0bc8e31",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "DE9D8C6B-D52A-48F5-9B78-4005036A3A91",
+        "original_filename": "IMG_4979.MOV",
+        "filename": "DE9D8C6B-D52A-48F5-9B78-4005036A3A91.mov",
+        "date": "2022-06-30T10:36:56+08:00",
+        "date_added": "2023-11-05T16:54:48.800297+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/D/DE9D8C6B-D52A-48F5-9B78-4005036A3A91.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3979998295,
+        "content_sha256": "d5ac585e4fd25cf566a6380f00eb6a00adebb3ca97c14f0b7ab865ecd0bc8e31",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "0B0688FA-A4F0-42F1-AEFC-B64DD5E8C5BB",
+        "original_filename": "IMG_4979.MOV",
+        "filename": "0B0688FA-A4F0-42F1-AEFC-B64DD5E8C5BB.mov",
+        "date": "2022-06-30T10:36:56+08:00",
+        "date_added": "2022-06-30T10:43:24.404582+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/0/0B0688FA-A4F0-42F1-AEFC-B64DD5E8C5BB.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3979998295,
+        "content_sha256": "d5ac585e4fd25cf566a6380f00eb6a00adebb3ca97c14f0b7ab865ecd0bc8e31",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題。原來有一堆螺絲需要上潤滑油 WD40 然後他幫我上了一下皮帶的潤滑油，之後就是要自己付錢$1000保養。所以也教了我怎麼樣自己基本調整，要買恐龍跑步機潤滑油然後升到套袋最裡面整個從頭到尾噴一遍左右各一次！然後跑帶鬆掉要旋轉螺絲。在跑步機尾端的滾筒旁邊兩個螺絲順時針進去的話滾筒會往外往後退。兩邊的螺絲分別控制滾筒的兩邊前後。所以如果跑帶鬆掉的話兩邊都要轉進去順時鐘轉進去½圈，如果搞到一兩圈都不行的話，就需要找維修技師。如果跑帶偏ㄧ邊的話，先可以用時速10，人不要站在上面，讓跑步機自己運轉一下，看他會不會歸位。不行的話就看跑帶偏哪一邊。假設偏右邊就是轉右邊的螺絲！另外就是啟動跑步機的時候最好站在跑帶旁邊的台子上，因為時間久了可能馬達會爆衝，很危險！另外判斷是否需要潤滑，在跑完之後可以摸一下跑袋的溫度，如果比平常上升許多，那就是需要潤滑了"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('PDF document.jpeg', '05-23 13:17:57.524092', 3332532), (('description', None), ('keywords', ()), ('favorite', True), ('hidden', False), ('album_titles', ('#IBKR #開戶  2025年5月23日 中午申請下午就成功了！ 產生從台灣銀行匯款到IBKR的匯款資料', '#台股 #台幣升值 #換匯 #IBKR開戶成功 #看盤 #順藥漲停板 #元大台灣50反1 #大盤開高走低尾盤拉回 #小跌18.72 #IBKR開戶  2025年5月23日 一開盤就看到順藥漲停板！真刺眼！ 然後看到股市爆料同學會的駐哥Po文才知道可以買個台灣50反1。不過開盤開低走高這一段沒有操作！現在又跌下來了！台積電今天上下波動也蠻大的至少到現在10點半左右！11點開始花了兩個多小時開IBKR帳戶！拖了一年！今天美元指數一直往下跑，台幣繼續升值... 我太早買了！還好只是測試？！用$30.06的匯率換了台幣10萬元…下午2:12 從玉山銀行轉五萬元台幣到台灣銀行來測試一下換美金！沒有約定只能轉五萬元！下午3:23台幣又升值到最高$29.796！永豐銀行那邊換匯只有$30.049！想要看看台灣銀行怎麼樣？沒想到拖到時間已經3:38 ，如果早8分鐘就可以測試了！台灣3:30之後銀行就關門！但是表定價格是$30.05跟永豐差不多就不知道真正換的時候會不會又打折？星期一不知道是繼續大升級呢還是怎麼樣？！今天這樣總共換了20萬元！10萬元是在永豐銀行用$30.06換的！另外10萬元是在台灣銀行用$30.025換的！今天三大法人賣超36.45億元！外資賣超大約30億元！投信跟自營商幾乎抵銷！投信買了62自營商賣了68億元⋯空單口數又增加了！這張圖表給的這三個資訊我都不知道該怎麼解讀…下午4:30發現 IBKR 帳戶已經通過了而且叫我盡快匯款…但是臣妾辦不到啊！在台灣這個蠻荒之地，銀行3:30就關門結算！')), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "de36874326a24427fd183181b0ca4a63aafb3f67f8f0cdd3faa75440ff9bb224": [
+        {
+          "uuid": "EBAE94CB-31C6-46C0-99A2-31662C4C2883",
+          "original_filename": "PDF document.jpeg",
+          "filename": "EBAE94CB-31C6-46C0-99A2-31662C4C2883.jpeg",
+          "date": "2025-05-23T13:17:57.524092+08:00",
+          "date_added": "2025-05-23T13:24:26.810386+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/E/EBAE94CB-31C6-46C0-99A2-31662C4C2883.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 3332532,
+          "content_sha256": "de36874326a24427fd183181b0ca4a63aafb3f67f8f0cdd3faa75440ff9bb224",
+          "description": null,
+          "keywords": [],
+          "favorite": true,
+          "hidden": false,
+          "album_titles": [
+            "#IBKR #開戶  2025年5月23日 中午申請下午就成功了！ 產生從台灣銀行匯款到IBKR的匯款資料",
+            "#台股 #台幣升值 #換匯 #IBKR開戶成功 #看盤 #順藥漲停板 #元大台灣50反1 #大盤開高走低尾盤拉回 #小跌18.72 #IBKR開戶  2025年5月23日 一開盤就看到順藥漲停板！真刺眼！ 然後看到股市爆料同學會的駐哥Po文才知道可以買個台灣50反1。不過開盤開低走高這一段沒有操作！現在又跌下來了！台積電今天上下波動也蠻大的至少到現在10點半左右！11點開始花了兩個多小時開IBKR帳戶！拖了一年！今天美元指數一直往下跑，台幣繼續升值... 我太早買了！還好只是測試？！用$30.06的匯率換了台幣10萬元…下午2:12 從玉山銀行轉五萬元台幣到台灣銀行來測試一下換美金！沒有約定只能轉五萬元！下午3:23台幣又升值到最高$29.796！永豐銀行那邊換匯只有$30.049！想要看看台灣銀行怎麼樣？沒想到拖到時間已經3:38 ，如果早8分鐘就可以測試了！台灣3:30之後銀行就關門！但是表定價格是$30.05跟永豐差不多就不知道真正換的時候會不會又打折？星期一不知道是繼續大升級呢還是怎麼樣？！今天這樣總共換了20萬元！10萬元是在永豐銀行用$30.06換的！另外10萬元是在台灣銀行用$30.025換的！今天三大法人賣超36.45億元！外資賣超大約30億元！投信跟自營商幾乎抵銷！投信買了62自營商賣了68億元⋯空單口數又增加了！這張圖表給的這三個資訊我都不知道該怎麼解讀…下午4:30發現 IBKR 帳戶已經通過了而且叫我盡快匯款…但是臣妾辦不到啊！在台灣這個蠻荒之地，銀行3:30就關門結算！"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "34DA432D-CC8B-4FD2-904A-F79627580A90",
+          "original_filename": "PDF document.jpeg",
+          "filename": "34DA432D-CC8B-4FD2-904A-F79627580A90.jpeg",
+          "date": "2025-05-23T13:17:57.524092+08:00",
+          "date_added": "2025-05-23T13:17:57.924947+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/34DA432D-CC8B-4FD2-904A-F79627580A90.jpeg",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 3332532,
+          "content_sha256": "de36874326a24427fd183181b0ca4a63aafb3f67f8f0cdd3faa75440ff9bb224",
+          "description": null,
+          "keywords": [],
+          "favorite": true,
+          "hidden": false,
+          "album_titles": [
+            "#IBKR #開戶  2025年5月23日 中午申請下午就成功了！ 產生從台灣銀行匯款到IBKR的匯款資料",
+            "#台股 #台幣升值 #換匯 #IBKR開戶成功 #看盤 #順藥漲停板 #元大台灣50反1 #大盤開高走低尾盤拉回 #小跌18.72 #IBKR開戶  2025年5月23日 一開盤就看到順藥漲停板！真刺眼！ 然後看到股市爆料同學會的駐哥Po文才知道可以買個台灣50反1。不過開盤開低走高這一段沒有操作！現在又跌下來了！台積電今天上下波動也蠻大的至少到現在10點半左右！11點開始花了兩個多小時開IBKR帳戶！拖了一年！今天美元指數一直往下跑，台幣繼續升值... 我太早買了！還好只是測試？！用$30.06的匯率換了台幣10萬元…下午2:12 從玉山銀行轉五萬元台幣到台灣銀行來測試一下換美金！沒有約定只能轉五萬元！下午3:23台幣又升值到最高$29.796！永豐銀行那邊換匯只有$30.049！想要看看台灣銀行怎麼樣？沒想到拖到時間已經3:38 ，如果早8分鐘就可以測試了！台灣3:30之後銀行就關門！但是表定價格是$30.05跟永豐差不多就不知道真正換的時候會不會又打折？星期一不知道是繼續大升級呢還是怎麼樣？！今天這樣總共換了20萬元！10萬元是在永豐銀行用$30.06換的！另外10萬元是在台灣銀行用$30.025換的！今天三大法人賣超36.45億元！外資賣超大約30億元！投信跟自營商幾乎抵銷！投信買了62自營商賣了68億元⋯空單口數又增加了！這張圖表給的這三個資訊我都不知道該怎麼解讀…下午4:30發現 IBKR 帳戶已經通過了而且叫我盡快匯款…但是臣妾辦不到啊！在台灣這個蠻荒之地，銀行3:30就關門結算！"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "34DA432D-CC8B-4FD2-904A-F79627580A90",
+        "original_filename": "PDF document.jpeg",
+        "filename": "34DA432D-CC8B-4FD2-904A-F79627580A90.jpeg",
+        "date": "2025-05-23T13:17:57.524092+08:00",
+        "date_added": "2025-05-23T13:17:57.924947+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/34DA432D-CC8B-4FD2-904A-F79627580A90.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3332532,
+        "content_sha256": "de36874326a24427fd183181b0ca4a63aafb3f67f8f0cdd3faa75440ff9bb224",
+        "description": null,
+        "keywords": [],
+        "favorite": true,
+        "hidden": false,
+        "album_titles": [
+          "#IBKR #開戶  2025年5月23日 中午申請下午就成功了！ 產生從台灣銀行匯款到IBKR的匯款資料",
+          "#台股 #台幣升值 #換匯 #IBKR開戶成功 #看盤 #順藥漲停板 #元大台灣50反1 #大盤開高走低尾盤拉回 #小跌18.72 #IBKR開戶  2025年5月23日 一開盤就看到順藥漲停板！真刺眼！ 然後看到股市爆料同學會的駐哥Po文才知道可以買個台灣50反1。不過開盤開低走高這一段沒有操作！現在又跌下來了！台積電今天上下波動也蠻大的至少到現在10點半左右！11點開始花了兩個多小時開IBKR帳戶！拖了一年！今天美元指數一直往下跑，台幣繼續升值... 我太早買了！還好只是測試？！用$30.06的匯率換了台幣10萬元…下午2:12 從玉山銀行轉五萬元台幣到台灣銀行來測試一下換美金！沒有約定只能轉五萬元！下午3:23台幣又升值到最高$29.796！永豐銀行那邊換匯只有$30.049！想要看看台灣銀行怎麼樣？沒想到拖到時間已經3:38 ，如果早8分鐘就可以測試了！台灣3:30之後銀行就關門！但是表定價格是$30.05跟永豐差不多就不知道真正換的時候會不會又打折？星期一不知道是繼續大升級呢還是怎麼樣？！今天這樣總共換了20萬元！10萬元是在永豐銀行用$30.06換的！另外10萬元是在台灣銀行用$30.025換的！今天三大法人賣超36.45億元！外資賣超大約30億元！投信跟自營商幾乎抵銷！投信買了62自營商賣了68億元⋯空單口數又增加了！這張圖表給的這三個資訊我都不知道該怎麼解讀…下午4:30發現 IBKR 帳戶已經通過了而且叫我盡快匯款…但是臣妾辦不到啊！在台灣這個蠻荒之地，銀行3:30就關門結算！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "EBAE94CB-31C6-46C0-99A2-31662C4C2883",
+        "original_filename": "PDF document.jpeg",
+        "filename": "EBAE94CB-31C6-46C0-99A2-31662C4C2883.jpeg",
+        "date": "2025-05-23T13:17:57.524092+08:00",
+        "date_added": "2025-05-23T13:24:26.810386+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/E/EBAE94CB-31C6-46C0-99A2-31662C4C2883.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3332532,
+        "content_sha256": "de36874326a24427fd183181b0ca4a63aafb3f67f8f0cdd3faa75440ff9bb224",
+        "description": null,
+        "keywords": [],
+        "favorite": true,
+        "hidden": false,
+        "album_titles": [
+          "#IBKR #開戶  2025年5月23日 中午申請下午就成功了！ 產生從台灣銀行匯款到IBKR的匯款資料",
+          "#台股 #台幣升值 #換匯 #IBKR開戶成功 #看盤 #順藥漲停板 #元大台灣50反1 #大盤開高走低尾盤拉回 #小跌18.72 #IBKR開戶  2025年5月23日 一開盤就看到順藥漲停板！真刺眼！ 然後看到股市爆料同學會的駐哥Po文才知道可以買個台灣50反1。不過開盤開低走高這一段沒有操作！現在又跌下來了！台積電今天上下波動也蠻大的至少到現在10點半左右！11點開始花了兩個多小時開IBKR帳戶！拖了一年！今天美元指數一直往下跑，台幣繼續升值... 我太早買了！還好只是測試？！用$30.06的匯率換了台幣10萬元…下午2:12 從玉山銀行轉五萬元台幣到台灣銀行來測試一下換美金！沒有約定只能轉五萬元！下午3:23台幣又升值到最高$29.796！永豐銀行那邊換匯只有$30.049！想要看看台灣銀行怎麼樣？沒想到拖到時間已經3:38 ，如果早8分鐘就可以測試了！台灣3:30之後銀行就關門！但是表定價格是$30.05跟永豐差不多就不知道真正換的時候會不會又打折？星期一不知道是繼續大升級呢還是怎麼樣？！今天這樣總共換了20萬元！10萬元是在永豐銀行用$30.06換的！另外10萬元是在台灣銀行用$30.025換的！今天三大法人賣超36.45億元！外資賣超大約30億元！投信跟自營商幾乎抵銷！投信買了62自營商賣了68億元⋯空單口數又增加了！這張圖表給的這三個資訊我都不知道該怎麼解讀…下午4:30發現 IBKR 帳戶已經通過了而且叫我盡快匯款…但是臣妾辦不到啊！在台灣這個蠻荒之地，銀行3:30就關門結算！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "EBAE94CB-31C6-46C0-99A2-31662C4C2883",
+        "original_filename": "PDF document.jpeg",
+        "filename": "EBAE94CB-31C6-46C0-99A2-31662C4C2883.jpeg",
+        "date": "2025-05-23T13:17:57.524092+08:00",
+        "date_added": "2025-05-23T13:24:26.810386+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/E/EBAE94CB-31C6-46C0-99A2-31662C4C2883.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3332532,
+        "content_sha256": "de36874326a24427fd183181b0ca4a63aafb3f67f8f0cdd3faa75440ff9bb224",
+        "description": null,
+        "keywords": [],
+        "favorite": true,
+        "hidden": false,
+        "album_titles": [
+          "#IBKR #開戶  2025年5月23日 中午申請下午就成功了！ 產生從台灣銀行匯款到IBKR的匯款資料",
+          "#台股 #台幣升值 #換匯 #IBKR開戶成功 #看盤 #順藥漲停板 #元大台灣50反1 #大盤開高走低尾盤拉回 #小跌18.72 #IBKR開戶  2025年5月23日 一開盤就看到順藥漲停板！真刺眼！ 然後看到股市爆料同學會的駐哥Po文才知道可以買個台灣50反1。不過開盤開低走高這一段沒有操作！現在又跌下來了！台積電今天上下波動也蠻大的至少到現在10點半左右！11點開始花了兩個多小時開IBKR帳戶！拖了一年！今天美元指數一直往下跑，台幣繼續升值... 我太早買了！還好只是測試？！用$30.06的匯率換了台幣10萬元…下午2:12 從玉山銀行轉五萬元台幣到台灣銀行來測試一下換美金！沒有約定只能轉五萬元！下午3:23台幣又升值到最高$29.796！永豐銀行那邊換匯只有$30.049！想要看看台灣銀行怎麼樣？沒想到拖到時間已經3:38 ，如果早8分鐘就可以測試了！台灣3:30之後銀行就關門！但是表定價格是$30.05跟永豐差不多就不知道真正換的時候會不會又打折？星期一不知道是繼續大升級呢還是怎麼樣？！今天這樣總共換了20萬元！10萬元是在永豐銀行用$30.06換的！另外10萬元是在台灣銀行用$30.025換的！今天三大法人賣超36.45億元！外資賣超大約30億元！投信跟自營商幾乎抵銷！投信買了62自營商賣了68億元⋯空單口數又增加了！這張圖表給的這三個資訊我都不知道該怎麼解讀…下午4:30發現 IBKR 帳戶已經通過了而且叫我盡快匯款…但是臣妾辦不到啊！在台灣這個蠻荒之地，銀行3:30就關門結算！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "34DA432D-CC8B-4FD2-904A-F79627580A90",
+        "original_filename": "PDF document.jpeg",
+        "filename": "34DA432D-CC8B-4FD2-904A-F79627580A90.jpeg",
+        "date": "2025-05-23T13:17:57.524092+08:00",
+        "date_added": "2025-05-23T13:17:57.924947+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/34DA432D-CC8B-4FD2-904A-F79627580A90.jpeg",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 3332532,
+        "content_sha256": "de36874326a24427fd183181b0ca4a63aafb3f67f8f0cdd3faa75440ff9bb224",
+        "description": null,
+        "keywords": [],
+        "favorite": true,
+        "hidden": false,
+        "album_titles": [
+          "#IBKR #開戶  2025年5月23日 中午申請下午就成功了！ 產生從台灣銀行匯款到IBKR的匯款資料",
+          "#台股 #台幣升值 #換匯 #IBKR開戶成功 #看盤 #順藥漲停板 #元大台灣50反1 #大盤開高走低尾盤拉回 #小跌18.72 #IBKR開戶  2025年5月23日 一開盤就看到順藥漲停板！真刺眼！ 然後看到股市爆料同學會的駐哥Po文才知道可以買個台灣50反1。不過開盤開低走高這一段沒有操作！現在又跌下來了！台積電今天上下波動也蠻大的至少到現在10點半左右！11點開始花了兩個多小時開IBKR帳戶！拖了一年！今天美元指數一直往下跑，台幣繼續升值... 我太早買了！還好只是測試？！用$30.06的匯率換了台幣10萬元…下午2:12 從玉山銀行轉五萬元台幣到台灣銀行來測試一下換美金！沒有約定只能轉五萬元！下午3:23台幣又升值到最高$29.796！永豐銀行那邊換匯只有$30.049！想要看看台灣銀行怎麼樣？沒想到拖到時間已經3:38 ，如果早8分鐘就可以測試了！台灣3:30之後銀行就關門！但是表定價格是$30.05跟永豐差不多就不知道真正換的時候會不會又打折？星期一不知道是繼續大升級呢還是怎麼樣？！今天這樣總共換了20萬元！10萬元是在永豐銀行用$30.06換的！另外10萬元是在台灣銀行用$30.025換的！今天三大法人賣超36.45億元！外資賣超大約30億元！投信跟自營商幾乎抵銷！投信買了62自營商賣了68億元⋯空單口數又增加了！這張圖表給的這三個資訊我都不知道該怎麼解讀…下午4:30發現 IBKR 帳戶已經通過了而且叫我盡快匯款…但是臣妾辦不到啊！在台灣這個蠻荒之地，銀行3:30就關門結算！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('tmp_v4738292322033630852.mp4', '11-27 23:23:10.000000', 61974263), (('description', None), ('keywords', ('HIDE',)), ('favorite', False), ('hidden', False), ('album_titles', ('歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄',)), ('folder_paths', ('HIDE',))))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "cf6e2cdbc1970c3f302e472e8d3f72afd6706d2694473fee0a4f39edfdb2de3f": [
+        {
+          "uuid": "949A433A-9F07-444F-99C5-8B2D96EBF7CF",
+          "original_filename": "tmp_v4738292322033630852.mp4",
+          "filename": "949A433A-9F07-444F-99C5-8B2D96EBF7CF.mp4",
+          "date": "2019-11-27T23:23:10+08:00",
+          "date_added": "2019-12-04T14:15:05.954161+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/949A433A-9F07-444F-99C5-8B2D96EBF7CF.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 61974263,
+          "content_sha256": "cf6e2cdbc1970c3f302e472e8d3f72afd6706d2694473fee0a4f39edfdb2de3f",
+          "description": null,
+          "keywords": [
+            "HIDE"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+          ],
+          "folder_paths": [
+            "HIDE"
+          ],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "A68A820A-8014-4191-B335-B799F458F703",
+          "original_filename": "tmp_v4738292322033630852.mp4",
+          "filename": "A68A820A-8014-4191-B335-B799F458F703.mp4",
+          "date": "2019-11-27T23:23:10+08:00",
+          "date_added": "2019-12-12T09:52:59.523522+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/A68A820A-8014-4191-B335-B799F458F703.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 61974263,
+          "content_sha256": "cf6e2cdbc1970c3f302e472e8d3f72afd6706d2694473fee0a4f39edfdb2de3f",
+          "description": null,
+          "keywords": [
+            "HIDE"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+          ],
+          "folder_paths": [
+            "HIDE"
+          ],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "949A433A-9F07-444F-99C5-8B2D96EBF7CF",
+        "original_filename": "tmp_v4738292322033630852.mp4",
+        "filename": "949A433A-9F07-444F-99C5-8B2D96EBF7CF.mp4",
+        "date": "2019-11-27T23:23:10+08:00",
+        "date_added": "2019-12-04T14:15:05.954161+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/949A433A-9F07-444F-99C5-8B2D96EBF7CF.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 61974263,
+        "content_sha256": "cf6e2cdbc1970c3f302e472e8d3f72afd6706d2694473fee0a4f39edfdb2de3f",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "A68A820A-8014-4191-B335-B799F458F703",
+        "original_filename": "tmp_v4738292322033630852.mp4",
+        "filename": "A68A820A-8014-4191-B335-B799F458F703.mp4",
+        "date": "2019-11-27T23:23:10+08:00",
+        "date_added": "2019-12-12T09:52:59.523522+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/A68A820A-8014-4191-B335-B799F458F703.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 61974263,
+        "content_sha256": "cf6e2cdbc1970c3f302e472e8d3f72afd6706d2694473fee0a4f39edfdb2de3f",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "949A433A-9F07-444F-99C5-8B2D96EBF7CF",
+        "original_filename": "tmp_v4738292322033630852.mp4",
+        "filename": "949A433A-9F07-444F-99C5-8B2D96EBF7CF.mp4",
+        "date": "2019-11-27T23:23:10+08:00",
+        "date_added": "2019-12-04T14:15:05.954161+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/949A433A-9F07-444F-99C5-8B2D96EBF7CF.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 61974263,
+        "content_sha256": "cf6e2cdbc1970c3f302e472e8d3f72afd6706d2694473fee0a4f39edfdb2de3f",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "A68A820A-8014-4191-B335-B799F458F703",
+        "original_filename": "tmp_v4738292322033630852.mp4",
+        "filename": "A68A820A-8014-4191-B335-B799F458F703.mp4",
+        "date": "2019-11-27T23:23:10+08:00",
+        "date_added": "2019-12-12T09:52:59.523522+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/A68A820A-8014-4191-B335-B799F458F703.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 61974263,
+        "content_sha256": "cf6e2cdbc1970c3f302e472e8d3f72afd6706d2694473fee0a4f39edfdb2de3f",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('IMG_0209.MOV', '04-16 18:24:12.000000', 884844309), (('description', None), ('keywords', ()), ('favorite', False), ('hidden', False), ('album_titles', ('2021年4月16日上完瑜伽課，六點左右回到家發現整個家裡亂七八糟。媽媽居然說是爸爸要大掃除，但是中途因為要在妹妹不知道幹嗎，然後就把東西到處亂丟…完全沒有考慮別人（其實只有我跟小乖）所以他們三個人是一國就對了啦！只有他們才是人就對了！拍照攝影純正這整件荒謬但是卻又是日常（實在太悲哀）的事件！',)), ('folder_paths', ())))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "a0b2cc278d4b1c8673d2c496192f11fd83489bd558a929d0fb4062180ffdf5b5": [
+        {
+          "uuid": "3CA56E64-3CF4-4447-A97C-7A68371CBAF6",
+          "original_filename": "IMG_0209.MOV",
+          "filename": "3CA56E64-3CF4-4447-A97C-7A68371CBAF6.mov",
+          "date": "2021-04-16T18:24:12+08:00",
+          "date_added": "2021-04-16T18:25:32.792531+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/3CA56E64-3CF4-4447-A97C-7A68371CBAF6.mov",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 884844309,
+          "content_sha256": "a0b2cc278d4b1c8673d2c496192f11fd83489bd558a929d0fb4062180ffdf5b5",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2021年4月16日上完瑜伽課，六點左右回到家發現整個家裡亂七八糟。媽媽居然說是爸爸要大掃除，但是中途因為要在妹妹不知道幹嗎，然後就把東西到處亂丟…完全沒有考慮別人（其實只有我跟小乖）所以他們三個人是一國就對了啦！只有他們才是人就對了！拍照攝影純正這整件荒謬但是卻又是日常（實在太悲哀）的事件！"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "69CB81C5-9E31-495A-91EC-27F2E85931FB",
+          "original_filename": "IMG_0209.MOV",
+          "filename": "69CB81C5-9E31-495A-91EC-27F2E85931FB.mov",
+          "date": "2021-04-16T18:24:12+08:00",
+          "date_added": "2021-04-16T20:24:05.022936+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/69CB81C5-9E31-495A-91EC-27F2E85931FB.mov",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 884844309,
+          "content_sha256": "a0b2cc278d4b1c8673d2c496192f11fd83489bd558a929d0fb4062180ffdf5b5",
+          "description": null,
+          "keywords": [],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "2021年4月16日上完瑜伽課，六點左右回到家發現整個家裡亂七八糟。媽媽居然說是爸爸要大掃除，但是中途因為要在妹妹不知道幹嗎，然後就把東西到處亂丟…完全沒有考慮別人（其實只有我跟小乖）所以他們三個人是一國就對了啦！只有他們才是人就對了！拍照攝影純正這整件荒謬但是卻又是日常（實在太悲哀）的事件！"
+          ],
+          "folder_paths": [],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "3CA56E64-3CF4-4447-A97C-7A68371CBAF6",
+        "original_filename": "IMG_0209.MOV",
+        "filename": "3CA56E64-3CF4-4447-A97C-7A68371CBAF6.mov",
+        "date": "2021-04-16T18:24:12+08:00",
+        "date_added": "2021-04-16T18:25:32.792531+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/3CA56E64-3CF4-4447-A97C-7A68371CBAF6.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 884844309,
+        "content_sha256": "a0b2cc278d4b1c8673d2c496192f11fd83489bd558a929d0fb4062180ffdf5b5",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年4月16日上完瑜伽課，六點左右回到家發現整個家裡亂七八糟。媽媽居然說是爸爸要大掃除，但是中途因為要在妹妹不知道幹嗎，然後就把東西到處亂丟…完全沒有考慮別人（其實只有我跟小乖）所以他們三個人是一國就對了啦！只有他們才是人就對了！拍照攝影純正這整件荒謬但是卻又是日常（實在太悲哀）的事件！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "69CB81C5-9E31-495A-91EC-27F2E85931FB",
+        "original_filename": "IMG_0209.MOV",
+        "filename": "69CB81C5-9E31-495A-91EC-27F2E85931FB.mov",
+        "date": "2021-04-16T18:24:12+08:00",
+        "date_added": "2021-04-16T20:24:05.022936+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/69CB81C5-9E31-495A-91EC-27F2E85931FB.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 884844309,
+        "content_sha256": "a0b2cc278d4b1c8673d2c496192f11fd83489bd558a929d0fb4062180ffdf5b5",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年4月16日上完瑜伽課，六點左右回到家發現整個家裡亂七八糟。媽媽居然說是爸爸要大掃除，但是中途因為要在妹妹不知道幹嗎，然後就把東西到處亂丟…完全沒有考慮別人（其實只有我跟小乖）所以他們三個人是一國就對了啦！只有他們才是人就對了！拍照攝影純正這整件荒謬但是卻又是日常（實在太悲哀）的事件！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "3CA56E64-3CF4-4447-A97C-7A68371CBAF6",
+        "original_filename": "IMG_0209.MOV",
+        "filename": "3CA56E64-3CF4-4447-A97C-7A68371CBAF6.mov",
+        "date": "2021-04-16T18:24:12+08:00",
+        "date_added": "2021-04-16T18:25:32.792531+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/3/3CA56E64-3CF4-4447-A97C-7A68371CBAF6.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 884844309,
+        "content_sha256": "a0b2cc278d4b1c8673d2c496192f11fd83489bd558a929d0fb4062180ffdf5b5",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年4月16日上完瑜伽課，六點左右回到家發現整個家裡亂七八糟。媽媽居然說是爸爸要大掃除，但是中途因為要在妹妹不知道幹嗎，然後就把東西到處亂丟…完全沒有考慮別人（其實只有我跟小乖）所以他們三個人是一國就對了啦！只有他們才是人就對了！拍照攝影純正這整件荒謬但是卻又是日常（實在太悲哀）的事件！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "69CB81C5-9E31-495A-91EC-27F2E85931FB",
+        "original_filename": "IMG_0209.MOV",
+        "filename": "69CB81C5-9E31-495A-91EC-27F2E85931FB.mov",
+        "date": "2021-04-16T18:24:12+08:00",
+        "date_added": "2021-04-16T20:24:05.022936+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/6/69CB81C5-9E31-495A-91EC-27F2E85931FB.mov",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 884844309,
+        "content_sha256": "a0b2cc278d4b1c8673d2c496192f11fd83489bd558a929d0fb4062180ffdf5b5",
+        "description": null,
+        "keywords": [],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "2021年4月16日上完瑜伽課，六點左右回到家發現整個家裡亂七八糟。媽媽居然說是爸爸要大掃除，但是中途因為要在妹妹不知道幹嗎，然後就把東西到處亂丟…完全沒有考慮別人（其實只有我跟小乖）所以他們三個人是一國就對了啦！只有他們才是人就對了！拍照攝影純正這整件荒謬但是卻又是日常（實在太悲哀）的事件！"
+        ],
+        "folder_paths": [],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  },
+  {
+    "unique_id_repr": "(('tmp_v4738292321404693282.mp4', '11-27 23:16:29.000000', 62313726), (('description', None), ('keywords', ('HIDE',)), ('favorite', False), ('hidden', False), ('album_titles', ('歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄',)), ('folder_paths', ('HIDE',))))",
+    "asset_count": 2,
+    "status": "DELETABLE_DUPLICATE",
+    "reason": "SAME_UNIQUE_ID_AND_SAME_SHA256",
+    "sha_groups": {
+      "9bc6ba92bfa036b93fd3dd5903bb02f2f869c94cc8fc00c635e0bb2e00161038": [
+        {
+          "uuid": "BBB4F040-CC4C-43A3-8BB7-78F474EEBFD0",
+          "original_filename": "tmp_v4738292321404693282.mp4",
+          "filename": "BBB4F040-CC4C-43A3-8BB7-78F474EEBFD0.mp4",
+          "date": "2019-11-27T23:16:29+08:00",
+          "date_added": "2019-12-04T14:14:39.100296+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/BBB4F040-CC4C-43A3-8BB7-78F474EEBFD0.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 62313726,
+          "content_sha256": "9bc6ba92bfa036b93fd3dd5903bb02f2f869c94cc8fc00c635e0bb2e00161038",
+          "description": null,
+          "keywords": [
+            "HIDE"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+          ],
+          "folder_paths": [
+            "HIDE"
+          ],
+          "location": null,
+          "live_photo_marker": "None"
+        },
+        {
+          "uuid": "52F12EA2-AA7E-42B7-8DFB-B437F17AD120",
+          "original_filename": "tmp_v4738292321404693282.mp4",
+          "filename": "52F12EA2-AA7E-42B7-8DFB-B437F17AD120.mp4",
+          "date": "2019-11-27T23:16:29+08:00",
+          "date_added": "2019-12-12T09:51:18.165317+08:00",
+          "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/52F12EA2-AA7E-42B7-8DFB-B437F17AD120.mp4",
+          "asset_scope": "NORMAL_ORIGINALS",
+          "file_size_bytes": 62313726,
+          "content_sha256": "9bc6ba92bfa036b93fd3dd5903bb02f2f869c94cc8fc00c635e0bb2e00161038",
+          "description": null,
+          "keywords": [
+            "HIDE"
+          ],
+          "favorite": false,
+          "hidden": false,
+          "album_titles": [
+            "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+          ],
+          "folder_paths": [
+            "HIDE"
+          ],
+          "location": null,
+          "live_photo_marker": "None"
+        }
+      ]
+    },
+    "keep_assets": [
+      {
+        "uuid": "BBB4F040-CC4C-43A3-8BB7-78F474EEBFD0",
+        "original_filename": "tmp_v4738292321404693282.mp4",
+        "filename": "BBB4F040-CC4C-43A3-8BB7-78F474EEBFD0.mp4",
+        "date": "2019-11-27T23:16:29+08:00",
+        "date_added": "2019-12-04T14:14:39.100296+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/BBB4F040-CC4C-43A3-8BB7-78F474EEBFD0.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 62313726,
+        "content_sha256": "9bc6ba92bfa036b93fd3dd5903bb02f2f869c94cc8fc00c635e0bb2e00161038",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "delete_candidates": [
+      {
+        "uuid": "52F12EA2-AA7E-42B7-8DFB-B437F17AD120",
+        "original_filename": "tmp_v4738292321404693282.mp4",
+        "filename": "52F12EA2-AA7E-42B7-8DFB-B437F17AD120.mp4",
+        "date": "2019-11-27T23:16:29+08:00",
+        "date_added": "2019-12-12T09:51:18.165317+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/52F12EA2-AA7E-42B7-8DFB-B437F17AD120.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 62313726,
+        "content_sha256": "9bc6ba92bfa036b93fd3dd5903bb02f2f869c94cc8fc00c635e0bb2e00161038",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ],
+    "assets": [
+      {
+        "uuid": "BBB4F040-CC4C-43A3-8BB7-78F474EEBFD0",
+        "original_filename": "tmp_v4738292321404693282.mp4",
+        "filename": "BBB4F040-CC4C-43A3-8BB7-78F474EEBFD0.mp4",
+        "date": "2019-11-27T23:16:29+08:00",
+        "date_added": "2019-12-04T14:14:39.100296+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/BBB4F040-CC4C-43A3-8BB7-78F474EEBFD0.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 62313726,
+        "content_sha256": "9bc6ba92bfa036b93fd3dd5903bb02f2f869c94cc8fc00c635e0bb2e00161038",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      },
+      {
+        "uuid": "52F12EA2-AA7E-42B7-8DFB-B437F17AD120",
+        "original_filename": "tmp_v4738292321404693282.mp4",
+        "filename": "52F12EA2-AA7E-42B7-8DFB-B437F17AD120.mp4",
+        "date": "2019-11-27T23:16:29+08:00",
+        "date_added": "2019-12-12T09:51:18.165317+08:00",
+        "path": "/Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/52F12EA2-AA7E-42B7-8DFB-B437F17AD120.mp4",
+        "asset_scope": "NORMAL_ORIGINALS",
+        "file_size_bytes": 62313726,
+        "content_sha256": "9bc6ba92bfa036b93fd3dd5903bb02f2f869c94cc8fc00c635e0bb2e00161038",
+        "description": null,
+        "keywords": [
+          "HIDE"
+        ],
+        "favorite": false,
+        "hidden": false,
+        "album_titles": [
+          "歐美自拍 超級幼女 小蘿莉耍性感露奶又露屄"
+        ],
+        "folder_paths": [
+          "HIDE"
+        ],
+        "location": null,
+        "live_photo_marker": "None"
+      }
+    ]
+  }
+]
