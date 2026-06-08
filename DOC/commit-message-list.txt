@@ -1,0 +1,52 @@
+git commit \
+
+-m "Refactor Test 2 to compare backup against current default Photos Library" \
+-m "Replace the old snapshot_20260603 comparison target with current_default, pointing to the live default iCloud Photos Library at /Users/huohsien/Pictures/Photos Library.photoslibrary." \
+-m "Set backup_20250317 to the Sequoia-opened backup Photos Library on NEW-PRO-G40--20250315, using it as the single backup source for comparison." \
+-m "Remove snapshot from the active Test 2 workflow so the comparison now has only two real sides: backup_20250317 as source and current_default as target." \
+-m "Keep the optional test Photos Library path for future small-scale experiments."\
+
+-m "Update Test 2 inventory loading for current_default" \
+-m "Replace the old snapshot_20260603 path with current_default and use the Sequoia-opened backup_20250317 library as the backup source." \
+-m "Remove snapshot from the active Test 2 library path configuration, leaving only backup_20250317, current_default, and test." \
+-m "Rename snapshot-oriented comparison variables, diff record fields, and change types to current-oriented names." \
+-m "Add load_or_build_inventory so Test 2 can rebuild missing inventory caches instead of failing when current_default.inventory.pkl.gz does not exist."\
+
+
+-m "Classify current_default asset path scopes before comparison" \
+-m "Confirm that Photos UI photo and video counts match NORMAL_ORIGINALS exactly, while inventory_current has 41 extra special records." \
+-m "Identify the 41 extra current_default records as 39 PATH_NONE assets and 2 SCOPES_SYNDICATION assets." \
+-m "Confirm that the IMG_7372.JPG duplicate unique ID collision comes from SCOPES_SYNDICATION assets under scopes/syndication/originals, not from normal Photos Library originals." \
+-m "Prepare Test 2 to filter comparison inputs to NORMAL_ORIGINALS so Shared-with-You syndication records and pathless records do not pollute backup-vs-current repair analysis."\
+
+
+-m "Separate syndication assets from normal Photos inventory" \
+-m "Investigate a current_default unique ID collision where two IMG_7372.JPG records had different Photos UUIDs but identical filename-derived metadata, date, date_added, visible metadata, file size, and SHA256 content hash." \
+-m "Trace the collision to two files stored under Photos Library.photoslibrary/scopes/syndication/originals, indicating Shared-with-You or Messages-syndicated records rather than normal Photos Library originals." \
+-m "Add asset path scope classification during inventory construction so each asset is labeled as NORMAL_ORIGINALS, SCOPES_SYNDICATION, PATH_NONE, RESOURCES, or OTHER_PATH." \
+-m "Move SCOPES_SYNDICATION records out of inventory[\"assets\"] and into inventory[\"special_assets\"][\"SCOPES_SYNDICATION\"] so they are preserved for later forensic or ultimate-merge handling without participating in the main comparison." \
+-m "Keep PATH_NONE records in inventory[\"assets\"] for now so their behavior can be investigated separately in a later step." \
+-m "Prevent Shared-with-You syndication records from polluting photo_library_asset_unique_id audit and backup-vs-current repair comparison."
+
+
+
+
+git add photos_inventory.py
+git add photos_duplicate_cleanup_helpers.py
+git add Photos_Library_Duplicate_Cleanup.ipynb
+git add IMPORTANT_Photos_Library_Critical_Operation_Reports/
+
+git commit \
+-m "Complete duplicate cleanup v1 safety reporting" \
+-m "Extend Photos inventory assets with location and Live Photo safety metadata, including latitude, longitude, location, place, is_live_photo, and path_live_photo." \
+-m "Add serialization support for location and place metadata so osxphotos-derived objects can be preserved in inventory and operation reports." \
+-m "Keep location out of photo_library_asset_unique_id while making it part of the v1 keep and safety decision logic." \
+-m "Prefer keeping duplicate candidates with non-empty GPS or location metadata, then earliest date_added, then stable path order." \
+-m "Treat conflicting non-empty location values inside a duplicate candidate group as REPORT_ONLY in v1 instead of marking the group as deletable." \
+-m "Treat Live Photo candidates as REPORT_ONLY in v1 so still-image SHA256 alone never authorizes deletion of a Live Photo asset." \
+-m "Add safety_checks, location_values, shared_fields, differing_fields, keep_sort_key, keep_sort_rank, and keep_decision_reason to duplicate_analysis.json." \
+-m "Expand the operation report with duplicate_review_assets, assets_without_unique_id, live_photo_candidates, and richer location_conflicts outputs." \
+-m "Record that date_added remains excluded from the matching key because export, import, repair, PowerPhotos copy, and iCloud recovery can create new date_added values." \
+-m "Use date_added only as a keep preference after same unique_id and same SHA256 have already identified a duplicate candidate group." \
+-m "Rerun the current_default cleanup report with the completed v1 safety fields." \
+-m "Keep the cleanup workflow report-only and non-destructive."

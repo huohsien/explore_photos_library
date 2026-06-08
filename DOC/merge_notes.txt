@@ -1,0 +1,327 @@
+# Photos Library Merge Notes
+
+## 2026-06-05 — ASSET_MISSING_FROM_CURRENT manual inspection
+
+01. IMG_0003.PNG
+Status: BACKUP_ORIGINAL_MISSING_CURRENT_JPG_USED_AS_AUTHORITATIVE
+
+Backup side:
+- UUID: 7F2FBB82-3F67-41D7-8AA6-338515BFBFCE
+- Original filename: IMG_0003.PNG
+- Date: 2025-03-24 01:35:51 +08:00
+- Backup metadata caption:
+  iPhone 16 Pro Max 新機器資料轉移之後不知道在幹嘛會一直在背景做事情。如果一邊充電一邊使用的話就會過燙！
+- Photos.app cannot Export Unmodified Original from the backup working copy.
+- No file matching IMG_0003 was found inside the backup Photos Library package.
+- Package search by backup UUID found no usable PNG original.
+- Package search by backup UUID found only render / derivative files:
+  resources/renders/7/7F2FBB82-3F67-41D7-8AA6-338515BFBFCE.plist
+  resources/derivatives/masters/7/7F2FBB82-3F67-41D7-8AA6-338515BFBFCE_4_5005_c.jpeg
+- Backup derivative file info: JPEG, 282 × 612, about 46 KB.
+
+Current default side:
+- Corresponding current asset exists as IMG_0003.jpg.
+- Current UUID:
+  8FF23ADE-1953-4EC9-8BDD-79B828620ABD
+- Current original filename:
+  IMG_0003.jpg
+- Current stored filename:
+  8FF23ADE-1953-4EC9-8BDD-79B828620ABD.jpeg
+- Current date:
+  2025-03-24 01:35:51 +08:00
+- Current date added:
+  2025-03-24 22:15:57.327631 +08:00
+- Current original path:
+  /Users/huohsien/Pictures/Photos Library.photoslibrary/originals/8/8FF23ADE-1953-4EC9-8BDD-79B828620ABD.jpeg
+- Current asset scope:
+  NORMAL_ORIGINALS
+- Current file info:
+  JPEG, 1320 × 2868, about 958 KB
+- Current description/caption:
+  iPhone 16 Pro Max 新機器資料轉移之後不知道在幹嘛會一直在背景做事情。如果一邊充電一邊使用的話就會過燙！
+
+Interpretation:
+- Test2 reports backup IMG_0003.PNG as ASSET_MISSING_FROM_CURRENT because backup metadata says PNG while current_default has the corresponding asset as JPG/JPEG.
+- The backup PNG record is incomplete: metadata and derivative preview remain, but the original PNG file is missing.
+- The current_default JPG/JPEG is a normal asset with a valid file under originals/.
+- This is not a recoverable missing PNG from backup.
+- current_default is the authoritative surviving asset for this item.
+
+Final action:
+- Keep the current_default IMG_0003.jpg / 8FF23ADE-1953-4EC9-8BDD-79B828620ABD.jpeg.
+- Do not import IMG_0003.PNG from backup.
+- Delete the broken IMG_0003.PNG record from the backup_20250317 Photos Library working copy.
+- Rebuild backup_20250317 inventory cache after deletion.
+
+02. IMG_0024.JPG
+Status: COPIED_TO_CURRENT_BY_POWERPHOTOS
+Backup had IMG_0024.JPG.
+Current default did not have the corresponding asset.
+Copied from backup_20250317 to Default Library using PowerPhotos.
+PowerPhotos report: copy finished successfully.
+Destination count increased from 87,018 photos to 87,019 photos.
+
+03. IMG_1894.PNG
+Status: CURRENT_ASSET_EXISTS_BACKUP_RECORD_BROKEN_ALBUM_REPAIRED
+
+Backup side:
+- UUID: 6B815B80-CDA8-4AC0-8DD6-1C7EFF9BF84A
+- Original filename: IMG_1894.PNG
+- Date: 2025-03-23 22:35:56.575966 +08:00
+- Date added: 2025-03-23 22:35:56.577556 +08:00
+- Backup metadata target: NSFW / Tumblr Girls - 1
+- osxphotos path: None
+- Photos.app can display the image in the backup working copy, but Export Unmodified Original fails with Unknown error (-1).
+- osxphotos cannot provide a usable source path.
+- Direct package search did not find a usable original image file.
+
+Current default side:
+- IMG_1894.PNG exists in current_default.
+- Target folder created: NSFW.
+- Target album created inside NSFW: Tumblr Girls - 1.
+- Existing current asset added to NSFW / Tumblr Girls - 1.
+
+Interpretation:
+- backup_20250317 was captured while iCloud Photos synchronization was not stable.
+- This backup asset record is not a usable source for repair.
+- current_default is the authoritative source for this asset.
+
+Final action:
+- Delete the broken asset from the backup_20250317 Photos Library working copy.
+- Rebuild backup_20250317 inventory cache after deletion.
+- Treat this item as repaired by current_default album membership repair.
+
+04-1. IMG_1918.JPG （不放棄還在研究為什麼備份的Photos Library打開之後能夠看到照片但是卻沒有檔案也不能分享，研究一下這個技術）
+Status: UNRECOVERABLE_BROKEN_BACKUP_RECORD
+
+Backup side:
+- UUID: 5AD071AD-911C-425C-AF8F-542A8FD02D36
+- Original filename: IMG_1918.JPG
+- Date: 2025-03-24 01:40:36.244218 +08:00
+- osxphotos path: None
+- Photos.app can display the image in the backup working copy.
+- Photos.app cannot Export Unmodified Original.
+- AirDrop, Duplicate, and Edit with Preview also fail.
+- The backup record has no usable original image source.
+
+Current default side:
+- IMG_1918.JPG is not present in current_default.
+- No complete current asset is available for album repair.
+
+Interpretation:
+- backup_20250317 was captured while iCloud Photos synchronization was not stable.
+- This is an incomplete / broken backup record.
+- Unlike IMG_1894.PNG, this image does not exist in current_default.
+- This item is unrecoverable from the available sources.
+
+Final action:
+- Treat this item as lost / unrecoverable.
+- Delete the broken asset from the backup_20250317 Photos Library working copy.
+- Rebuild backup_20250317 inventory cache after deletion.
+
+04-2. IMG_1918.JPG
+Status: ORIGINAL_MISSING_DERIVATIVE_ONLY_BACKUP_RECORD
+
+Backup side:
+- UUID: 5AD071AD-911C-425C-AF8F-542A8FD02D36
+- Original filename: IMG_1918.JPG
+- Date: 2025-03-24 01:40:36.244218 +08:00
+- osxphotos path: None
+- Photos.app can display the image in the backup working copy.
+- Photos.app cannot Export Unmodified Original.
+- AirDrop, Duplicate, and Edit with Preview also fail.
+- No file matching IMG_1918 was found inside the backup Photos Library package.
+- Package search by UUID found only one derivative JPEG:
+  resources/derivatives/masters/5/5AD071AD-911C-425C-AF8F-542A8FD02D36_4_5005_c.jpeg
+- Derivative file info: JPEG, 360 × 480, about 53 KB.
+
+
+--------------------Use CLI explore and found this derivative--------------------------------------------------------------
+
+(explore_photos_library) Mac-Studio:explore_photos_library huohsien$ LIB="/Volumes/NEW-PRO-G40--20250315/Photos Library-iCloud-20250317（iCloud 20250325崩潰前最後的備份）--opened by macOS Sequoia on 20260604.photoslibrary"
+UUID="5AD071AD-911C-425C-AF8F-542A8FD02D36"
+(explore_photos_library) Mac-Studio:explore_photos_library huohsien$ find "$LIB" -iname "*$UUID*" -print
+/Volumes/NEW-PRO-G40--20250315/Photos Library-iCloud-20250317（iCloud 20250325崩潰前最後的備份）--opened by macOS Sequoia on 20260604.photoslibrary/resources/derivatives/masters/5/5AD071AD-911C-425C-AF8F-542A8FD02D36_4_5005_c.jpeg
+(explore_photos_library) Mac-Studio:explore_photos_library huohsien$ find "$LIB" -iname "*IMG_1918*" -print
+(explore_photos_library) Mac-Studio:explore_photos_library huohsien$ find "$LIB" -iname "*$UUID*" -print0 | while IFS= read -r -d '' f; do
+  ls -lh "$f"
+  file "$f"
+  echo "----"
+done
+
+-rw-r--r--@ 1 huohsien  staff    53K Mar 24  2025 /Volumes/NEW-PRO-G40--20250315/Photos Library-iCloud-20250317（iCloud 20250325崩潰前最後的備份）--opened by macOS Sequoia on 20260604.photoslibrary/resources/derivatives/masters/5/5AD071AD-911C-425C-AF8F-542A8FD02D36_4_5005_c.jpeg
+/Volumes/NEW-PRO-G40--20250315/Photos Library-iCloud-20250317（iCloud 20250325崩潰前最後的備份）--opened by macOS Sequoia on 20260604.photoslibrary/resources/derivatives/masters/5/5AD071AD-911C-425C-AF8F-542A8FD02D36_4_5005_c.jpeg: JPEG image data, JFIF standard 1.01, aspect ratio, density 72x72, segment length 16, Exif Standard: [TIFF image data, big-endian, direntries=1], baseline, precision 8, 360x480, components 3
+----
+(explore_photos_library) Mac-Studio:explore_photos_library huohsien$ 
+(explore_photos_library) Mac-Studio:explore_photos_library huohsien$ mkdir -p "$HOME/Desktop/IMG_1918_forensic"
+
+cp -p "$LIB/resources/derivatives/masters/5/5AD071AD-911C-425C-AF8F-542A8FD02D36_4_5005_c.jpeg" \
+  "$HOME/Desktop/IMG_1918_forensic/IMG_1918_derivative_360x480.jpeg"
+
+open "$HOME/Desktop/IMG_1918_forensic"
+(explore_photos_library) Mac-Studio:explore_photos_library huohsien$ 
+
+--------------------------------------------------------------------------------
+
+
+Current default side:
+- IMG_1918.JPG is not present in current_default.
+- No complete current asset is available for album repair.
+
+Interpretation:
+- The original image file is missing from the available Photos Libraries.
+- The backup record contains metadata plus a low-resolution derivative image only.
+- Photos.app can display the asset because it can use the derivative JPEG as a preview.
+- This is not a complete recoverable asset.
+
+Final action:
+- Keep the derivative JPEG as forensic evidence / optional low-resolution salvage.
+- Treat the original IMG_1918.JPG as lost unless another complete source is found later.
+- Review tomorrow before deleting the broken asset from the backup_20250317 Photos Library working copy.
+
+05. IMG_1893.PNG / IMG_1919.JPG / IMG_1920.JPG / IMG_1921.JPG / IMG_1922.JPG
+Status: BACKUP_PATH_NONE_CURRENT_NORMAL_EXISTS
+
+Context:
+- These five assets are the last five assets in the backup_20250317 Photos Library working copy.
+- In backup_20250317, all five asset records exist in the Photos database but have no usable original file path.
+- osxphotos reports them as:
+  path: None
+  asset_scope: PATH_NONE
+  file_size_bytes: None
+- Because file_size_bytes is None, these five backup records cannot produce the file-size based matching key.
+- These are not candidates for backup-to-current import, because current_default already has normal readable originals for all five assets.
+
+Backup side:
+
+1. IMG_1893.PNG
+- Backup UUID: FDC908D8-D96D-40CB-8E7F-1E4FCBA1E881
+- Original filename: IMG_1893.PNG
+- Date: 2025-03-23 22:35:42.627133 +08:00
+- Date added: 2025-03-23 22:35:42.629466 +08:00
+- osxphotos path: None
+- asset_scope: PATH_NONE
+
+2. IMG_1919.JPG
+- Backup UUID: 69C23999-003F-427A-8BB3-161419F04CC4
+- Original filename: IMG_1919.JPG
+- Date: 2025-03-24 01:41:49.803368 +08:00
+- Date added: 2025-03-24 01:41:49.805559 +08:00
+- osxphotos path: None
+- asset_scope: PATH_NONE
+
+3. IMG_1920.JPG
+- Backup UUID: 7235E127-7DED-4784-B459-9F075915CA86
+- Original filename: IMG_1920.JPG
+- Date: 2025-03-24 01:42:00.141726 +08:00
+- Date added: 2025-03-24 01:42:00.143351 +08:00
+- osxphotos path: None
+- asset_scope: PATH_NONE
+
+4. IMG_1921.JPG
+- Backup UUID: E5AC1C2A-0BB9-4204-92C2-52F0AA797958
+- Original filename: IMG_1921.JPG
+- Date: 2025-03-24 01:42:06.567800 +08:00
+- Date added: 2025-03-24 01:42:06.569643 +08:00
+- osxphotos path: None
+- asset_scope: PATH_NONE
+
+5. IMG_1922.JPG
+- Backup UUID: 7B4A842C-D9E2-4625-A208-C13904F9FC8F
+- Original filename: IMG_1922.JPG
+- Date: 2025-03-24 01:42:48.294716 +08:00
+- Date added: 2025-03-24 01:42:48.297185 +08:00
+- osxphotos path: None
+- asset_scope: PATH_NONE
+
+Current default side:
+- All five assets exist in current_default as NORMAL_ORIGINALS.
+- All five have valid files under:
+  /Users/huohsien/Pictures/Photos Library.photoslibrary/originals/
+- All five current_default files were verified by actual filesystem path, actual file size, and SHA256 read.
+
+1. IMG_1893.PNG
+- Current UUID: A2CF476E-F8E4-443D-9F03-92D9A03665DB
+- Current path:
+  /Users/huohsien/Pictures/Photos Library.photoslibrary/originals/A/A2CF476E-F8E4-443D-9F03-92D9A03665DB.png
+- asset_scope: NORMAL_ORIGINALS
+- file_size_bytes: 847300
+- actual file size: 847300
+- SHA256:
+  f5cbfcd75e764854f9fcb322bd6430a9bc9332ff46dd81ecfec903e22ae63480
+- Keywords:
+  HIDE, NSFW, NSFW_TUMBLR
+
+2. IMG_1919.JPG
+- Current UUID: 209A21E8-174C-43FA-876D-DEBF0A9DAE09
+- Current path:
+  /Users/huohsien/Pictures/Photos Library.photoslibrary/originals/2/209A21E8-174C-43FA-876D-DEBF0A9DAE09.jpeg
+- asset_scope: NORMAL_ORIGINALS
+- file_size_bytes: 109822
+- actual file size: 109822
+- SHA256:
+  0b9ad032fbfec8d255b739b5f4adfb2121a9e752c775638899599f2517d4dd9f
+- Keywords:
+  HIDE, NSFW
+
+3. IMG_1920.JPG
+- Current UUID: 58512464-6E9B-4A4E-B68C-318706C6D747
+- Current path:
+  /Users/huohsien/Pictures/Photos Library.photoslibrary/originals/5/58512464-6E9B-4A4E-B68C-318706C6D747.jpeg
+- asset_scope: NORMAL_ORIGINALS
+- file_size_bytes: 114350
+- actual file size: 114350
+- SHA256:
+  2e42372bf4935c45a0fd779c8003d1b15fa63ddf3a7b27b9f7eebf740606bd74
+- Keywords:
+  HIDE, NSFW
+
+4. IMG_1921.JPG
+- Current UUID: BCAF97B4-A92D-4DFE-89BC-5C63A8521A0B
+- Current path:
+  /Users/huohsien/Pictures/Photos Library.photoslibrary/originals/B/BCAF97B4-A92D-4DFE-89BC-5C63A8521A0B.jpeg
+- asset_scope: NORMAL_ORIGINALS
+- file_size_bytes: 198458
+- actual file size: 198458
+- SHA256:
+  881cf6c3e3ec241f6c6005b0a245beb39d05d5cdc50d339ff54ba3f84d636996
+- Keywords:
+  HIDE, NSFW
+
+5. IMG_1922.JPG
+- Current UUID: 902BE38E-3DC9-4CD8-8B65-695A75D202AF
+- Current path:
+  /Users/huohsien/Pictures/Photos Library.photoslibrary/originals/9/902BE38E-3DC9-4CD8-8B65-695A75D202AF.jpeg
+- asset_scope: NORMAL_ORIGINALS
+- file_size_bytes: 216909
+- actual file size: 216909
+- SHA256:
+  8c883f6cbcad51bc32651866fa0e7f223bc2ae215786e72a96da499d5b69e25c
+- Keywords:
+  HIDE, NSFW
+
+Interpretation:
+- The backup_20250317 working copy contains five broken PATH_NONE asset records.
+- These backup records have metadata but no usable original file path.
+- current_default contains normal readable original files for all five assets.
+- The current_default versions are verified by:
+  - exact original filename
+  - exact asset date
+  - NORMAL_ORIGINALS scope
+  - existing filesystem path
+  - actual file size matching inventory file_size_bytes
+  - successful SHA256 calculation
+- Therefore current_default is the authoritative surviving source for these five assets.
+- These five backup records do not need export/import repair.
+
+Final action:
+- Keep the five current_default assets.
+- Do not import these five assets from backup.
+- Delete the five broken PATH_NONE records from the backup_20250317 Photos Library working copy:
+  - IMG_1893.PNG
+  - IMG_1919.JPG
+  - IMG_1920.JPG
+  - IMG_1921.JPG
+  - IMG_1922.JPG
+- After deletion, rebuild backup_20250317 inventory cache and confirm:
+  backup assets without unique ID: 5 → 0

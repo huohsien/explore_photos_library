@@ -1,0 +1,411 @@
+Photos_Library_Duplicate_Cleanup.ipynb Desc. SPEC !!!!!
+
+# Apple Photos Library Duplicate Cleanup Definition Spec v0.1
+
+## Purpose
+
+This document defines how this project identifies duplicate assets inside an Apple Photos Library.
+
+The goal is not to preserve every internal Photos.app database state.
+The goal is to preserve the media content and the project-defined user-facing metadata.
+
+This duplicate cleanup logic may be used as a standalone notebook/tool and may also support future Photos Library merge workflows.
+
+## Core Asset Model
+
+Each Photos asset remains a normal asset dictionary.
+
+The duplicate cleanup process may add these derived fields to each asset:
+
+- photo_library_asset_base_id
+- photo_library_asset_unique_id
+- content_sha256
+
+No separate content group or metadata group data structure is required for v1.
+
+## Base ID
+
+The base ID represents the primary media identity used before project metadata is considered.
+
+Fields:
+
+- original_filename
+- no-year datetime
+- file_size_bytes
+
+Example:
+
+photo_library_asset_base_id =
+(
+  "IMG_1234.JPG",
+  "03-24 01:41:49.803368",
+  109822
+)
+
+Rationale:
+
+For a simple Photos Library, base_id may already be enough to behave like a unique ID.
+In a complex Photos Library with downloads, imports, repeated saves, and duplicates, base_id may collide.
+
+## ourmetadata
+
+In discussion, “ourmetadata” means the six metadata categories this project cares about:
+
+- description
+- keywords
+- favorite
+- hidden
+- album_titles
+- folder_paths
+
+This is a project definition.
+Other Photos.app internal/generated metadata is out of scope unless explicitly added later.
+
+## Album and Folder Rules
+
+album_titles means the titles of albums containing the asset.
+
+folder_paths means the folder paths relevant to the asset / album organization.
+
+album_titles are not expanded into album_full_paths in v1.
+
+If multiple albums have the same title, they may be treated as merge-compatible.
+If multiple albums with the same title exist under the same folder path, they are especially considered the same logical album target.
+
+## Unique ID
+
+The unique ID represents the project-defined asset identity.
+
+It is composed from:
+
+- base_id
+- canonicalized ourmetadata
+
+Example:
+
+photo_library_asset_unique_id =
+(
+  "IMG_1234.JPG",
+  "03-24 01:41:49.803368",
+  109822,
+  (
+    ("description", "example caption"),
+    ("keywords", ("HIDE", "NSFW")),
+    ("favorite", False),
+    ("hidden", False),
+    ("album_titles", ("Tumblr Girls - 1",)),
+    ("folder_paths", ("NSFW",))
+  )
+)
+
+If two assets have the same unique_id, they are identical according to this project’s asset identity definition.
+
+This still does not prove file content identity.
+Before deletion, SHA256 must also match.
+
+## Deletable Duplicate
+
+Two or more assets are considered deletable duplicates only if all of the following are true:
+
+1. Same photo_library_asset_unique_id.
+2. All candidates have readable original files.
+3. SHA256 can be calculated for each candidate.
+4. SHA256 values are identical.
+5. No v1 safety exclusion applies.
+
+This means:
+
+same base_id
++ same ourmetadata
++ same actual file content
+= deletable duplicate
+
+## SHA256 Rule
+
+Do not calculate SHA256 for the whole library by default.
+
+Only calculate SHA256 for duplicate candidates, normally assets with the same photo_library_asset_unique_id.
+
+After SHA256 is calculated, store it on the asset dictionary:
+
+asset["content_sha256"] = "..."
+
+Persistent SHA cache is optional and can be added later if repeated runs become expensive.
+
+## Live Photo Rule
+
+Live Photos require special handling.
+
+If an asset is detected as a Live Photo or has a live video component path, v1 should not auto-delete it based only on the still image SHA256.
+
+v1 behavior:
+
+- Detect or mark Live Photo candidates if possible.
+- Exclude Live Photo duplicate candidates from automatic deletion.
+- Report them for review.
+
+Future behavior:
+
+- Use combined content hash:
+  still image SHA256 + live video SHA256.
+- Only delete if both still image and live video components match.
+
+## Location Rule
+
+Location is not part of ourmetadata in v1.
+
+If duplicate candidates differ only by location:
+
+- Prefer keeping the asset with non-empty location.
+- If both have location and the values differ, mark LOCATION_CONFLICT.
+- Do not auto-delete LOCATION_CONFLICT cases in v1.
+
+## Out-of-Scope Metadata
+
+The following are not part of ourmetadata in v1:
+
+- UUID
+- package filename
+- filesystem path
+- date_added
+- full year datetime beyond the selected no-year datetime rule
+- People / face recognition data
+- Moments / generated grouping
+- screenshot / screen recording smart classification
+- shared / syndication state
+- timezone normalization details
+- Photos.app internal database state not explicitly included above
+
+These may influence keep preference or safety exclusions, but they do not define duplicate identity in v1.
+
+## Keep Rule
+
+When several assets are deletable duplicates, keep exactly one canonical asset.
+
+Suggested keep order:
+
+1. Candidate must have readable original file and successful SHA256.
+2. Prefer candidates without Live Photo ambiguity.
+3. Prefer candidates with richer optional metadata, such as non-empty location.
+4. Prefer earliest date_added.
+5. If still tied, use stable path string ordering.
+
+UUID is not used as semantic identity.
+
+## Delete Candidates
+
+All non-canonical assets in a deletable duplicate group become delete candidates.
+
+The tool should produce a delete candidate report before performing destructive operations.
+
+The report should include:
+
+- unique_id
+- kept asset
+- delete candidate assets
+- original_filename
+- date
+- date_added
+- path
+- file_size_bytes
+- content_sha256
+- album_titles
+- folder_paths
+- description
+- keywords
+- favorite
+- hidden
+- reason
+
+## Multiplicity Rule
+
+This project does not preserve duplicate record multiplicity.
+
+If two assets have the same unique_id and the same SHA256, then having multiple separate Photos database records is considered redundant.
+
+The project preserves:
+
+- media content
+- description
+- keywords
+- favorite
+- hidden
+- album_titles
+- folder_paths
+
+It does not preserve the fact that the same asset identity existed multiple times.
+
+## Notebook / Tool Name
+
+Suggested notebook name:
+
+Photos_Library_Duplicate_Cleanup.ipynb
+
+Purpose:
+
+A standalone notebook/tool that can inspect one Photos Library, find project-defined duplicates, produce a deletion report, and optionally delete redundant duplicate records after review.
+
+## High-Level Workflow
+
+1. Build inventory.
+2. Fill photo_library_asset_base_id.
+3. Fill photo_library_asset_unique_id using base_id + canonicalized ourmetadata.
+4. Group assets by photo_library_asset_unique_id.
+5. Candidate groups are groups with more than one asset.
+6. For each candidate group:
+   - verify readable original files
+   - calculate SHA256
+   - handle Live Photo exclusion
+   - handle location conflict exclusion
+7. If all candidates share the same SHA256 and no exclusion applies:
+   - select canonical keep asset
+   - mark others as delete candidates
+8. Produce delete candidate report.
+9. Review report.
+10. Delete candidates only after explicit confirmation.
+
+
+先修正命名
+
+你說的 ourmetadata 就當作我們討論時的 shorthand，可以。程式裡不要用這個名字。
+
+目前我建議只保留這幾個欄位名稱：
+
+photo_library_asset_base_id
+photo_library_asset_unique_id
+content_sha256
+
+不要再多一個 photo_library_asset_merge_metadata_id。
+
+實作上，unique_id 可以由：
+
+base_id + ourmetadata canonical tuple
+
+組成，但 ourmetadata canonical tuple 不一定要另外存成 asset dictionary 的一個永久欄位。可以只是 helper function 的結果。
+
+所以 asset dict 裡可以是：
+
+asset["photo_library_asset_base_id"] = (
+    original_filename,
+    no_year_datetime,
+    file_size_bytes,
+)
+
+asset["photo_library_asset_unique_id"] = (
+    original_filename,
+    no_year_datetime,
+    file_size_bytes,
+    (
+        ("description", normalized_description),
+        ("keywords", normalized_keywords),
+        ("favorite", favorite),
+        ("hidden", hidden),
+        ("album_titles", normalized_album_titles),
+        ("folder_paths", normalized_folder_paths),
+    ),
+)
+
+asset["content_sha256"] = sha256_or_none
+
+如果你覺得 unique_id 裡面太長，程式內部可以照這樣做；debug output 再把它印漂亮，不需要人眼一直看完整 tuple。
+
+ourmetadata 六類先定成這樣
+description
+keywords
+favorite
+hidden
+album_titles
+folder_paths
+
+Live Photo 問題
+
+這個要查清楚。osxphotos 確實有 Live Photo 影片 component 的概念：它的文件裡有 path_live_photo，意思是 Live Photo 的 video component path；不是 Live Photo 或影片 component 不在磁碟上時會回傳 None。osxphotos 也能查 Photos library 的 metadata，例如 filename、path、keywords、persons/faces、albums 等。
+
+所以 duplicate cleanup 裡可以這樣定：
+
+第一版：
+如果 asset 是 Live Photo，或偵測到 path_live_photo 不為 None，
+不要直接用單一 still image SHA 判斷可刪。
+先列入 Live Photo review / skip deletion。
+
+第二版：
+對 Live Photo 使用 combined content hash：
+still image SHA256 + live video SHA256。
+兩者都一樣才可刪。
+
+
+IMPORTANT_Photos_Library_Operation_Reports/
+└── 20260607-153000__Photos_Library_Duplicate_Cleanup__current_default/
+    ├── README.md
+    ├── delete_candidates.tsv
+    ├── deleted_assets.json
+    ├── kept_assets.json
+    ├── location_conflicts.tsv
+    └── execution_summary.txt
+
+
+
+
+
+
+
+# Photos Library Duplicate Cleanup Notebook
+# Apple Photos Library Duplicate Cleanup Definition Spec v0.1
+
+## Core Definitions
+
+base_id:
+- original_filename
+- no-year datetime
+- file_size_bytes
+
+ourmetadata:
+- description
+- keywords
+- favorite
+- hidden
+- album_titles
+- folder_paths
+
+unique_id:
+- base_id + canonicalized ourmetadata
+
+deletable duplicate:
+- same unique_id
+- same SHA256
+- readable original files
+- not excluded by v1 safety rules
+
+This project does not preserve duplicate record multiplicity.
+If two assets have the same unique_id and same SHA256, multiple Photos database records are considered redundant.
+
+## Safety Rules v1
+
+Live Photo:
+- Do not auto-delete Live Photo duplicate candidates in v1.
+- Report only.
+- Future version may compare still image SHA256 + paired video SHA256.
+
+Location:
+- Location is not part of ourmetadata.
+- Prefer keeping the asset with GPS/location.
+- If multiple candidates have conflicting GPS values, record discarded GPS values in the operation report.
+
+Generated / internal Photos metadata:
+- People, Moments, generated classification, screenshot classification, timezone normalization, shared/syndication state are not part of ourmetadata v1.
+- These fields do not define duplicate identity in v1.
+
+## Operation Report
+
+Every destructive cleanup run must create a permanent operation report folder.
+
+Folder name format:
+YYYYMMDD-HHMMSS__Photos_Library_Duplicate_Cleanup__<library_id>
+
+Example:
+20260607-153000__Photos_Library_Duplicate_Cleanup__current_default
+
+Suggested root folder:
+IMPORTANT_Photos_Library_Operation_Reports
+
+The report folder should be copied/backed up to Google Drive after each run.
