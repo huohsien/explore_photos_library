@@ -1,4 +1,4 @@
-#!/Users/huohsien/anaconda3/envs/explore_photos_library/bin/python
+#!/Users/huohsien/anaconda3/envs/explore_photos_library/bin/python3.11
 import sys
 from jupyterlab.jlpmapp import main
 if __name__ == '__main__':
