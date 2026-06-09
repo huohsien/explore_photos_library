@@ -210,6 +210,7 @@ def _make_photo_library_asset_unique_id(
     filename,
     date,
     file_size_bytes,
+    edited_duration_seconds,
 ):
     # Current proposed Photo Library asset unique ID.
     #
@@ -217,9 +218,14 @@ def _make_photo_library_asset_unique_id(
     #   1. full original_filename
     #   2. capture date converted to Asia/Taipei, year removed
     #   3. original file size in bytes
+    #   4. edited/rendered movie duration in seconds, if any
     #
     # date_added is intentionally excluded because repair/import operations
     # create a new date_added value.
+    #
+    # edited_duration_seconds is included because Photos can have two asset
+    # records that point to the same original movie file, while one record
+    # represents a trimmed/rendered version through path_edited.
     filename_for_id = original_filename or filename
 
     no_year_datetime = _format_no_year_taipei_datetime(date)
@@ -231,6 +237,7 @@ def _make_photo_library_asset_unique_id(
         filename_for_id,
         no_year_datetime,
         file_size_bytes,
+        edited_duration_seconds,
     )
 
 
@@ -244,11 +251,73 @@ def _get_file_size_bytes_from_asset(asset):
         return os.path.getsize(path)
     except OSError:
         return None
-    
+
+def _get_edited_duration_seconds_from_asset(asset):
+    # Return edited/rendered movie duration in seconds if available.
+    #
+    # Cost control:
+    # - If the asset has no edited/rendered path, return None.
+    # - If the asset is not a movie, return None.
+    # - Only edited movies call ffprobe.
+    #
+    # This is used to distinguish Photos assets that share the same original
+    # media file but represent different visible content after trimming/editing.
+    path_edited = asset.get("path_edited")
+
+    if not asset.get("is_movie"):
+        return None
+
+    if path_edited is None:
+        return None
+
+    if not os.path.exists(path_edited):
+        return None
+
+    import json
+    import shutil
+    import subprocess
+
+    ffprobe = shutil.which("ffprobe")
+
+    if ffprobe is None:
+        return None
+
+    command = [
+        ffprobe,
+        "-v",
+        "error",
+        "-print_format",
+        "json",
+        "-show_format",
+        str(path_edited),
+    ]
+
+    result = subprocess.run(
+        command,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+        check=False,
+    )
+
+    if result.returncode != 0:
+        return None
+
+    try:
+        data = json.loads(result.stdout)
+        duration = data.get("format", {}).get("duration")
+
+        if duration is None:
+            return None
+
+        return round(float(duration), 6)
+
+    except Exception:
+        return None
+
 def _folder_path_from_titles(folder_titles):
     # Build human-readable folder path.
     return "/".join(folder_titles)
-
 
 def _assert_same_field(existing_object, new_object, field_name, object_type):
     # Same UUID should not produce different metadata.
@@ -273,6 +342,12 @@ def _create_asset_object(osx_asset):
     path_live_photo = _get_attr(osx_asset, "path_live_photo", default=None)
     path_live_photo = str(path_live_photo) if path_live_photo else None
 
+    path_edited = _get_attr(osx_asset, "path_edited", default=None)
+    path_edited = str(path_edited) if path_edited else None
+
+    path_edited_live_photo = _get_attr(osx_asset, "path_edited_live_photo", default=None)
+    path_edited_live_photo = str(path_edited_live_photo) if path_edited_live_photo else None
+
     live_photo_value = _get_attr(osx_asset, "live_photo", default=None)
     is_live_photo = bool(live_photo_value) or bool(path_live_photo)
 
@@ -293,11 +368,29 @@ def _create_asset_object(osx_asset):
 
         "date": _to_iso_string(osx_asset.date),
         "date_added": _to_iso_string(osx_asset.date_added),
+        "date_modified": _to_iso_string(_get_attr(osx_asset, "date_modified", default=None)),
 
         "description": osx_asset.description,
         "keywords": tuple(osx_asset.keywords),
         "favorite": bool(osx_asset.favorite),
         "hidden": _get_attr(osx_asset, "hidden", default=None),
+
+        # Edited / adjustment metadata.
+        #
+        # Important for distinguishing assets that share the same original
+        # file but have different Photos-visible rendered content, such as
+        # a trimmed video.
+        "hasadjustments": bool(_get_attr(osx_asset, "hasadjustments", default=False)),
+        "adjustment_type": _get_attr(osx_asset, "adjustment_type", default=None),
+        "external_edit": bool(_get_attr(osx_asset, "external_edit", default=False)),
+        "uti_edited": _get_attr(osx_asset, "uti_edited", default=None),
+        "path_edited": path_edited,
+        "path_edited_live_photo": path_edited_live_photo,
+
+        # This is filled later by fill_photo_library_asset_unique_ids().
+        # It is intentionally not computed here, because duration probing
+        # may call ffprobe and should be isolated to the identity-fill step.
+        "edited_duration_seconds": None,
 
         # Safety-rule metadata for duplicate cleanup.
         #
@@ -540,19 +633,23 @@ def fill_photo_library_asset_unique_ids(inventory):
     #   1. original_filename or filename
     #   2. capture date converted to Asia/Taipei, year removed
     #   3. original file size in bytes
+    #   4. edited/rendered movie duration in seconds, if any
     #
     # date_added is intentionally not used because repaired/imported assets
     # receive a new date_added value.
     for asset in inventory["assets"]:
         file_size_bytes = _get_file_size_bytes_from_asset(asset)
+        edited_duration_seconds = _get_edited_duration_seconds_from_asset(asset)
 
         asset["file_size_bytes"] = file_size_bytes
+        asset["edited_duration_seconds"] = edited_duration_seconds
 
         asset["photo_library_asset_unique_id"] = _make_photo_library_asset_unique_id(
             original_filename=asset.get("original_filename"),
             filename=asset.get("filename"),
             date=asset.get("date"),
             file_size_bytes=file_size_bytes,
+            edited_duration_seconds=edited_duration_seconds,
         )
 
 def audit_photo_library_asset_unique_ids(
