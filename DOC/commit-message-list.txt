@@ -50,3 +50,26 @@ git commit \
 -m "Use date_added only as a keep preference after same unique_id and same SHA256 have already identified a duplicate candidate group." \
 -m "Rerun the current_default cleanup report with the completed v1 safety fields." \
 -m "Keep the cleanup workflow report-only and non-destructive."
+
+
+
+
+
+
+git add explorephotoslibrary.py
+git add Photos_Library_Duplicate_Cleanup.ipynb
+git add Photos_Library_Duplicate_Review.ipynb
+git add Photos_Library_Metadata_Based_Ultimate_Thorough_Merge--Test_1.ipynb
+git add Photos_Library_Metadata_Based_Ultimate_Thorough_Merge--Test_2.ipynb
+
+git diff --cached --name-status
+
+git commit \
+  -m "Consolidate Photos Library inventory and duplicate cleanup helpers" \
+  -m "Create explorephotoslibrary.py as the shared project helper module for inventory building, cache handling, cross-library matching keys, duplicate cleanup analysis, and operation report generation." \
+  -m "Move the duplicate cleanup workflow away from the older split helper modules so notebooks can import a single shared module with from explorephotoslibrary import *." \
+  -m "Add adjustment-aware matching support for Photos assets that share the same original file but represent different adjusted or rendered versions. The photo_library_asset_unique_id now keeps the original filename, no-year capture datetime, original file size, and a compact adjustment_signature." \
+  -m "Use adjustment_signature to distinguish edited videos by rendered duration and edited images by visible width and height. This prevents trimmed videos and cropped images from being incorrectly grouped as duplicate candidates when their original SHA256 values are identical." \
+  -m "Update duplicate cleanup reporting to include adjustment-related metadata such as hasadjustments, path_edited, edited_duration_seconds, adjustment_signature, visible dimensions, and original dimensions for forensic review." \
+  -m "Update notebooks to use the consolidated helper module. Keep legacy helper files for now as reference material until all notebooks are confirmed to no longer depend on them." \
+  -m "Do not include generated critical operation report folders in this source commit; those should remain external forensic artifacts unless intentionally archived in a separate private data commit."

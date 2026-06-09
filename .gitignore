@@ -16,4 +16,12 @@ __pycache__/
 *~
 *.swp
 *.swo
+
+# Generated duplicate-cleanup / forensic operation reports
+IMPORTANT_Photos_Library_Critical_Operation_Reports/
+
+# Generated inventory cache
 data/inventory_cache/
+
+# Local machine-specific picker/config history
+data/local_config/

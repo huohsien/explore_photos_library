@@ -39,6 +39,12 @@ __all__ = [
     "save_inventory_cache",
     "load_inventory_cache",
 
+    # Local file/folder picker and small config helpers
+    "load_json_file",
+    "save_json_file",
+    "choose_directory_path",
+    "choose_photos_library_path",
+
     # Duplicate cleanup / review report pipeline
     "fill_duplicate_cleanup_identity_fields",
     "group_assets_by_field",
@@ -941,6 +947,104 @@ def load_inventory_cache(cache_name, cache_dir="data/inventory_cache"):
 
     return inventory
 
+def load_json_file(path, default=None):
+    # Load a JSON file. Return default if the file does not exist.
+    path = os.fspath(path)
+
+    if not os.path.exists(path):
+        return default
+
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def save_json_file(path, data):
+    # Save JSON with UTF-8 and readable indentation.
+    path = os.fspath(path)
+    parent = os.path.dirname(path)
+
+    if parent:
+        os.makedirs(parent, exist_ok=True)
+
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def choose_directory_path(title="Select Folder", initial_dir=None):
+    # Open a folder picker and return the selected folder path.
+    #
+    # On macOS, .photoslibrary is a package directory, so selecting it
+    # should use askdirectory rather than askopenfilename.
+    try:
+        import tkinter as tk
+        from tkinter import filedialog
+    except Exception as error:
+        raise RuntimeError(
+            "tkinter is not available in this Python environment. "
+            "Use a hard-coded path instead."
+        ) from error
+
+    root = tk.Tk()
+    root.withdraw()
+    root.update()
+
+    selected_path = filedialog.askdirectory(
+        title=title,
+        initialdir=str(initial_dir or os.path.expanduser("~")),
+    )
+
+    root.destroy()
+
+    if not selected_path:
+        raise RuntimeError("No folder selected.")
+
+    return selected_path
+
+
+def choose_photos_library_path(initial_dir=None):
+    # Open a macOS picker and return the selected .photoslibrary package path.
+    #
+    # Important:
+    # - .photoslibrary is a macOS package.
+    # - AppleScript may return the POSIX path with a trailing slash.
+    # - Normalize the returned path before validating the suffix.
+    initial_dir = os.fspath(initial_dir or "/Volumes")
+
+    applescript = f'''
+set initialFolder to POSIX file "{initial_dir}"
+set selectedItem to choose file with prompt "Select Photos Library (.photoslibrary)" default location initialFolder
+return POSIX path of selectedItem
+'''
+
+    result = subprocess.run(
+        ["osascript", "-e", applescript],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+        check=False,
+    )
+
+    if result.returncode != 0:
+        raise RuntimeError(
+            "No Photos Library selected or picker failed.\n"
+            f"stderr: {result.stderr.strip()}"
+        )
+
+    selected_path = result.stdout.strip()
+
+    if not selected_path:
+        raise RuntimeError("No Photos Library selected.")
+
+    selected_path = selected_path.rstrip("/")
+
+    if not selected_path.endswith(".photoslibrary"):
+        raise RuntimeError(
+            "Selected path does not end with .photoslibrary:\n"
+            f"{selected_path}"
+        )
+
+    return selected_path
+
 # ------------------------------------------------------------
 # Duplicate cleanup / review report helpers
 # ------------------------------------------------------------
@@ -1225,6 +1329,67 @@ def _asset_location_value(asset):
 def _asset_has_location(asset):
     return _asset_location_value(asset) is not None
 
+def _get_existing_file_size(path):
+    if path is None:
+        return None
+
+    if not os.path.exists(path):
+        return None
+
+    try:
+        return os.path.getsize(path)
+    except OSError:
+        return None
+
+
+def _adjustment_metadata_profile_for_duplicate_cleanup(asset):
+    # Full adjustment metadata profile for duplicate cleanup safety.
+    #
+    # Important:
+    # - This is NOT part of photo_library_asset_unique_id.
+    # - photo_library_asset_unique_id is a matching/grouping key.
+    # - This profile is a stricter deletion-safety check after:
+    #     same photo_library_asset_unique_id + same original SHA256.
+    #
+    # Do not compare full absolute path_edited because Photos Libraries can
+    # move between volumes. Compare existence and rendered file size instead.
+    path_edited = asset.get("path_edited")
+    path_edited_live_photo = asset.get("path_edited_live_photo")
+
+    return (
+        ("hasadjustments", bool(asset.get("hasadjustments"))),
+        ("adjustment_type", asset.get("adjustment_type")),
+        ("external_edit", bool(asset.get("external_edit"))),
+        ("uti", asset.get("uti")),
+        ("uti_original", asset.get("uti_original")),
+        ("uti_edited", asset.get("uti_edited")),
+        ("path_edited_exists", path_edited is not None),
+        ("path_edited_file_size", _get_existing_file_size(path_edited)),
+        ("path_edited_live_photo_exists", path_edited_live_photo is not None),
+        ("path_edited_live_photo_file_size", _get_existing_file_size(path_edited_live_photo)),
+        ("edited_duration_seconds", asset.get("edited_duration_seconds")),
+        ("adjustment_signature", asset.get("adjustment_signature")),
+        ("width", asset.get("width")),
+        ("height", asset.get("height")),
+        ("original_width", asset.get("original_width")),
+        ("original_height", asset.get("original_height")),
+    )
+
+
+def _adjustment_metadata_profiles_for_group(group):
+    profiles = []
+
+    for asset in group:
+        profile = _adjustment_metadata_profile_for_duplicate_cleanup(asset)
+
+        if profile not in profiles:
+            profiles.append(profile)
+
+    return profiles
+
+
+def _group_has_adjustment_metadata_mismatch(group):
+    return len(_adjustment_metadata_profiles_for_group(group)) > 1
 
 def _location_values_for_group(group):
     return sorted(
@@ -1422,12 +1587,13 @@ def analyze_duplicate_candidate_groups(duplicate_candidate_groups):
     t0 = time.perf_counter()
 
     delete_decision_rule = {
-        "rule_version": "duplicate_cleanup_v1",
+        "rule_version": "duplicate_cleanup_v2",
         "deletable_condition": [
             "same photo_library_asset_unique_id",
             "readable original files",
             "successful SHA256 calculation",
-            "same SHA256",
+            "same original SHA256",
+            "same full adjustment metadata profile",
             "no Live Photo v1 exclusion",
             "no location conflict v1 exclusion",
         ],
@@ -1439,6 +1605,11 @@ def analyze_duplicate_candidate_groups(duplicate_candidate_groups):
         "matching_key_note": (
             "date_added is intentionally excluded from photo_library_asset_unique_id "
             "because export/import/repair operations can create a new date_added value."
+        ),
+        "adjustment_metadata_note": (
+            "adjustment_signature is part of the matching identity key, but duplicate cleanup "
+            "also requires a full adjustment metadata profile match before a same-SHA group "
+            "can be marked as DELETABLE_DUPLICATE."
         ),
     }
 
@@ -1457,9 +1628,11 @@ def analyze_duplicate_candidate_groups(duplicate_candidate_groups):
                 "location_conflict": False,
                 "unreadable_original": False,
                 "sha_error": False,
+                "adjustment_metadata_mismatch": False,
             },
             "location_values": _location_values_for_group(group),
             "sha_groups": {},
+            "adjustment_metadata_profiles": {},
             "shared_fields": {},
             "differing_fields": {},
             "keep_assets": [],
@@ -1516,6 +1689,12 @@ def analyze_duplicate_candidate_groups(duplicate_candidate_groups):
 
             sha_to_assets[sha256].append(asset)
 
+        for sha256, sha_group in sha_to_assets.items():
+            group_record["sha_groups"][sha256] = [
+                _summarize_asset_for_report(asset)
+                for asset in sha_group
+            ]
+
         if sha_errors:
             group_record["status"] = "REPORT_ONLY"
             group_record["reason"] = "SHA_ERROR"
@@ -1541,28 +1720,16 @@ def analyze_duplicate_candidate_groups(duplicate_candidate_groups):
             group_record["shared_fields"] = shared_fields
             group_record["differing_fields"] = differing_fields
 
-            for sha256, sha_group in sha_to_assets.items():
-                group_record["sha_groups"][sha256] = [
-                    _summarize_asset_for_report(asset)
-                    for asset in sha_group
-                ]
-
             analysis.append(group_record)
             continue
 
-        for sha256, sha_group in sha_to_assets.items():
-            group_record["sha_groups"][sha256] = [
-                _summarize_asset_for_report(asset)
-                for asset in sha_group
-            ]
-
-        deletable_sha_groups = {
+        same_sha_groups = {
             sha256: sha_group
             for sha256, sha_group in sha_to_assets.items()
             if len(sha_group) > 1
         }
 
-        if not deletable_sha_groups:
+        if not same_sha_groups:
             group_record["status"] = "NOT_DUPLICATE"
             group_record["reason"] = "UNIQUE_ID_COLLISION_BUT_SHA_DIFFERS"
             group_record["assets"] = [_summarize_asset_for_report(asset) for asset in group]
@@ -1574,14 +1741,41 @@ def analyze_duplicate_candidate_groups(duplicate_candidate_groups):
             analysis.append(group_record)
             continue
 
+        adjustment_metadata_mismatch_sha_groups = {
+            sha256: sha_group
+            for sha256, sha_group in same_sha_groups.items()
+            if _group_has_adjustment_metadata_mismatch(sha_group)
+        }
+
+        if adjustment_metadata_mismatch_sha_groups:
+            group_record["status"] = "NOT_DUPLICATE_ADJUSTED_VARIANT"
+            group_record["reason"] = "SAME_UNIQUE_ID_AND_SAME_SHA256_BUT_ADJUSTMENT_METADATA_DIFFERS"
+            group_record["safety_checks"]["adjustment_metadata_mismatch"] = True
+            group_record["assets"] = [_summarize_asset_for_report(asset) for asset in group]
+
+            group_record["adjustment_metadata_profiles"] = {
+                sha256: [
+                    repr(profile)
+                    for profile in _adjustment_metadata_profiles_for_group(sha_group)
+                ]
+                for sha256, sha_group in adjustment_metadata_mismatch_sha_groups.items()
+            }
+
+            shared_fields, differing_fields = _group_shared_and_differing_fields(group)
+            group_record["shared_fields"] = shared_fields
+            group_record["differing_fields"] = differing_fields
+
+            analysis.append(group_record)
+            continue
+
         group_record["status"] = "DELETABLE_DUPLICATE"
-        group_record["reason"] = "SAME_UNIQUE_ID_AND_SAME_SHA256"
+        group_record["reason"] = "SAME_UNIQUE_ID_AND_SAME_SHA256_AND_SAME_ADJUSTMENT_METADATA"
 
         delete_candidates = []
         keep_assets = []
         all_assets_with_decision = []
 
-        for sha256, sha_group in deletable_sha_groups.items():
+        for sha256, sha_group in same_sha_groups.items():
             sorted_group = _stable_sort_assets_for_keep(sha_group)
             keep_asset = sorted_group[0]
             delete_assets = sorted_group[1:]
@@ -1598,9 +1792,20 @@ def analyze_duplicate_candidate_groups(duplicate_candidate_groups):
             delete_candidates.extend(delete_assets)
             all_assets_with_decision.extend(sorted_group)
 
-        group_record["keep_assets"] = [_summarize_asset_for_report(asset) for asset in keep_assets]
-        group_record["delete_candidates"] = [_summarize_asset_for_report(asset) for asset in delete_candidates]
-        group_record["assets"] = [_summarize_asset_for_report(asset) for asset in all_assets_with_decision]
+        group_record["keep_assets"] = [
+            _summarize_asset_for_report(asset)
+            for asset in keep_assets
+        ]
+
+        group_record["delete_candidates"] = [
+            _summarize_asset_for_report(asset)
+            for asset in delete_candidates
+        ]
+
+        group_record["assets"] = [
+            _summarize_asset_for_report(asset)
+            for asset in all_assets_with_decision
+        ]
 
         for asset in group_record["keep_assets"]:
             asset["decision_role"] = "KEEP"
