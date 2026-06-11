@@ -1,0 +1,821 @@
+CURRENT DEFAULT Photos Library 剩餘 37 組 duplicate cleanup list
+
+V - 01. IMG_0392.PNG
+Date: 2019-03-07 00:40:11
+Size: 3,671,922
+Album:
+  妖狐 girls
+Folder:
+  HIDE
+Keywords:
+  HIDE
+
+建議保留:
+  UUID: 59044129-5534-4969-9D33-7632E619E3FB
+  Date Added: 2019-03-07 00:40:11
+
+建議刪除:
+  UUID: 150C5972-7C68-4A29-8530-D7FBDD95C246
+  Date Added: 2019-03-07 00:40:12
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 02. tmp_v4738285297174712779.mp4
+Date: 2019-10-23 13:13:07
+Size: 28,351,300
+Album:
+  Sex Fun Clips - 情色打掃 奶子露出來漂亮
+Folder:
+  HIDE
+Keywords:
+  HIDE
+
+建議保留:
+  UUID: BD6F9E12-C36D-487B-A8C0-7E6F1823AECB
+  Date Added: 2019-11-24 21:37:36
+
+建議刪除:
+  UUID: A813DA36-5594-4FB8-8989-6C69FC6BED64
+  Date Added: 2019-12-03 08:39:06
+
+判斷:
+  一個有 album/folder/keyword，一個沒有。保留有 metadata 的那個。
+
+
+V - 03. IMG_2115.PNG
+Date: 2026-05-26 07:34:48
+Size: 3,781,622
+Album:
+  小乖
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: E3E00C6F-CC87-4684-B76C-87FC2F37496E
+  Date Added: 2026-05-26 08:47:15
+
+建議刪除:
+  UUID: A02394D9-A9DB-4C46-BE29-EAEF96921032
+  Date Added: 2026-05-26 07:34:48
+
+判斷:
+  一個有 album/description，一個沒有。保留有 album/description 的那個。
+
+
+V - 04. IMG_5992.JPG
+Date: 2025-10-14 16:43:24
+Size: 3,161,240
+Album:
+  #用太極拳蹲馬步當運動 #突然想要這麼做 #30年沒有練太極拳 #強度非常強37分鐘內運動效果高 #後果很嚴重失眠跟隔天疼痛無法運動  2025年10月14日
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 3692A2D2-369D-4D84-A124-7295BCFA9D88
+  Date Added: 2025-10-14 16:43:25
+
+建議刪除:
+  UUID: 2FFA9682-6A5B-450C-98BF-83E7AAE07F86
+  Date Added: 2025-11-15 11:35:46
+
+判斷:
+  一個有 album，一個沒有。保留有 album 的那個。
+
+
+V - 05. IMG_2111.PNG
+Date: 2026-05-26 07:34:23
+Size: 2,092,271
+Album:
+  小乖
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 0B5352F1-5F1F-4132-B03E-EB4CD80AF629
+  Date Added: 2026-05-26 08:43:59
+
+建議刪除:
+  UUID: 22C14940-220F-40B4-9C00-87253A3E350D
+  Date Added: 2026-05-26 07:34:23
+
+判斷:
+  一個有 album/description，一個沒有。保留有 album/description 的那個。
+
+
+V - 06. IMG_4980.MOV
+Date: 2022-06-30 10:43:45
+Size: 9,065,316,678
+Album:
+  2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題...
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: CBD108F3-31B0-443C-BB89-6C3044786938
+  Date Added: 2022-06-30 11:02:34
+
+建議刪除:
+  UUID: F9496917-1F03-4B35-B608-9E9EBA9E688E
+  Date Added: 2023-11-05 16:54:59
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 07. IMG_4979.MOV
+Date: 2022-06-30 10:36:56
+Size: 3,979,998,295
+Album:
+  2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題...
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 0B0688FA-A4F0-42F1-AEFC-B64DD5E8C5BB
+  Date Added: 2022-06-30 10:43:24
+
+建議刪除:
+  UUID: DE9D8C6B-D52A-48F5-9B78-4005036A3A91
+  Date Added: 2023-11-05 16:54:48
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 08. IMG_5997.PNG
+Date: 2025-10-14 16:50:42
+Size: 206,233
+Album:
+  #用太極拳蹲馬步當運動 #突然想要這麼做 #30年沒有練太極拳 #強度非常強37分鐘內運動效果高 #後果很嚴重失眠跟隔天疼痛無法運動  2025年10月14日
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 54F1714C-4A58-47B1-B6DE-BB1B5687DFF5
+  Date Added: 2025-10-14 16:50:42
+
+建議刪除:
+  UUID: 36D57370-7428-421A-8DE3-C0FE29D213F5
+  Date Added: 2025-11-15 11:35:46
+
+判斷:
+  一個有 album，一個沒有。保留有 album 的那個。
+
+
+V - 09. RPReplay_Final1602716023.mp4
+Date: 2020-10-15 06:53:43
+Size: 2,247,805,300
+Album:
+  Chaturbate
+Folder:
+  []
+Keywords:
+  HIDE, NSFW
+
+建議保留:
+  UUID: DCCDD6A4-5A25-43A8-B140-BDFFE1C1B9F5
+  Date Added: 2020-10-15 06:54:42
+
+建議刪除:
+  UUID: C5B0CD8C-6288-4F77-AD76-2C0E828633DB
+  Date Added: 2020-10-28 14:10:42
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 10. -479944577823611629.mp4
+Date: 2021-07-29 23:28:42
+Size: 40,728,528
+Album:
+  []
+Folder:
+  []
+Keywords:
+  HIDE, NSFW
+
+建議保留:
+  UUID: D0B8F1CA-BED0-4448-81BF-62E831EDBAC1
+  Date Added: 2024-03-17 07:18:03
+
+建議刪除:
+  UUID: 6CDCCDF9-F7D7-433C-88CD-82CF4D112801
+  Date Added: 2024-03-17 07:28:53
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 11. IMG_4982.MOV
+Date: 2022-06-30 11:05:36
+Size: 3,047,941,792
+Album:
+  2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題...
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 4C6C5B1E-B0AF-4708-89C2-5CDA30A59497
+  Date Added: 2022-06-30 11:10:05
+
+建議刪除:
+  UUID: 88ACF87B-2767-4200-AF08-81F9AD569C5D
+  Date Added: 2023-11-05 16:55:08
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 12. IMG_2112.PNG
+Date: 2026-05-26 07:34:35
+Size: 4,939,667
+Album:
+  小乖
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 75550402-8898-49D6-B237-A21D7027F431
+  Date Added: 2026-05-26 08:43:59
+
+建議刪除:
+  UUID: B8227A9F-9BB6-45A9-B159-3447113EC6A2
+  Date Added: 2026-05-26 07:34:35
+
+判斷:
+  一個有 album/description，一個沒有。保留有 album/description 的那個。
+
+
+13. IMG_0210.JPG
+Date: 2022-02-27 17:53:32
+Size: 300,985
+Album:
+  2022年2月27日 周思慧後記...
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 236D0192-BB75-4413-9C19-4517FED46FDD
+  Date Added: 2022-02-27 17:53:32
+
+建議刪除:
+  UUID: 6C60DDC6-3A2A-47A7-9D9D-463A747DDFA7
+  Date Added: 2022-04-11 14:47:56
+
+判斷:
+  一個有 album，一個有 Favorite。
+  最保守做法：保留有 album 的 236D...，先手動設成 Favorite，再刪 6C60...。
+
+
+V - （相簿名稱不對， ChatGPT假正經！在備份的Photos Library處理的時候就沒這個問題）14. tmp_v4738292321404693282.mp4
+Date: 2019-11-27 23:16:29
+Size: 62,313,726
+Album:
+  [HIDE album title]
+Folder:
+  HIDE
+Keywords:
+  HIDE
+
+建議保留:
+  UUID: BBB4F040-CC4C-43A3-8BB7-78F474EEBFD0
+  Date Added: 2019-12-04 14:14:39
+
+建議刪除:
+  UUID: 52F12EA2-AA7E-42B7-8DFB-B437F17AD120
+  Date Added: 2019-12-12 09:51:18
+
+判斷:
+  保留 Favorite=True 的那個。
+
+
+V - 15. IMG_5995.PNG
+Date: 2025-10-14 16:49:23
+Size: 1,487,069
+Album:
+  #用太極拳蹲馬步當運動 #突然想要這麼做 #30年沒有練太極拳 #強度非常強37分鐘內運動效果高 #後果很嚴重失眠跟隔天疼痛無法運動  2025年10月14日
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 734633A2-F113-441C-B6E7-F7AD7DBA84F4
+  Date Added: 2025-10-14 16:49:24
+
+建議刪除:
+  UUID: 0D2595BB-B6BD-48BF-965E-BB97C4127420
+  Date Added: 2025-11-15 11:35:46
+
+判斷:
+  一個有 album，一個沒有。保留有 album 的那個。
+
+
+V - 16. 3320474716416102425.mp4
+Date: 2020-07-15 17:39:24
+Size: 18,221,849
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 2FD3FF73-4C44-4665-9028-5BB8FE1F70DE
+  Date Added: 2020-07-16 12:50:56
+
+建議刪除:
+  UUID: 6AEE4B90-469E-4DC4-881B-D92532402C5E
+  Date Added: 2020-07-16 12:52:03
+
+判斷:
+  無 metadata 差異，留早刪晚。
+
+
+V - 17. IMG_0053.heic
+Date: 2020-10-16 07:48:25
+Size: 1,944,352
+Album 差異:
+  Asset 1:
+    因為小乖自作聰明，把我一個多月前沒有參加瑜伽會所所說的話現在才實現。昨天炒飯居然沒有用飯是用花椰菜的假飯！搞得我澱粉缺乏。晚上已經要吃第三餐了，第二餐是一度讚牛肉麵，還是沒有飽。現在跑最後一個南洋進口份量感覺更少的蛋黃醬炒麵… 泡好把醬拌起來，聞起來超香的！
+
+  Asset 2:
+    在7-11（不是每一家都有）買的外國泡麵，口味蠻特殊的。沒有什麼料但是要30奇快。可能是東南亞的…
+
+建議保留:
+  UUID: 7C7AFEF8-515D-4270-A430-07657D5D6126
+  Date Added: 2020-10-16 07:50:50
+
+建議刪除:
+  UUID: 25F0DC0D-50AB-4C46-A52B-0B8A65DEBB29
+  Date Added: 2020-10-20 03:00:06
+
+判斷:
+  跟 IMG_0050 / IMG_0051 / IMG_0052 同一批。
+  若你已經決定合併兩個泡麵 album，就保留合併後代表 asset，刪另一張。
+  不建議未確認 album 合併狀態前直接刪。
+
+
+V - 18. tmp_v4738122593335909120.mp4
+Date: 2019-04-14 09:54:04
+Size: 34,109,764
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: A8C53182-8A95-4210-9D15-F4AF57C8E028
+  Date Added: 2019-04-14 09:54:23
+
+建議刪除:
+  UUID: 9199B232-49A2-4065-A98E-82A01F8001E5
+  Date Added: 2019-04-14 09:55:36
+
+判斷:
+  無 metadata 差異，留早刪晚。
+
+
+V - 19. IMG_0002.PNG
+Date: 2019-10-15 16:44:32
+Size: 10,466,428
+Album:
+  FB Pretty Girls
+Folder:
+  []
+Keywords:
+  HIDE, NSFW
+
+建議保留:
+  UUID: 5D21440B-4C31-40B7-96F1-F66CB24D7D5C
+  Date Added: 2019-10-15 16:44:33
+
+建議刪除:
+  UUID: 3034BC31-AEBA-4DFE-A3A1-379DA8B40F5D
+  Date Added: 2022-04-09 23:38:35
+
+判斷:
+  一個有 FB Pretty Girls，一個沒有 album。保留有 FB Pretty Girls 的那個。
+
+
+V - 20. IMG_2116.PNG
+Date: 2026-05-26 07:34:53
+Size: 2,326,461
+Album:
+  小乖
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 4DD28D06-863E-47BA-BE44-0B82A5707060
+  Date Added: 2026-05-26 08:47:15
+
+建議刪除:
+  UUID: 34AC5CA8-F78A-4922-BD38-3332FC15C4D8
+  Date Added: 2026-05-26 07:34:54
+
+判斷:
+  一個有 album/description，一個沒有。保留有 album/description 的那個。
+
+
+V - 21. IMG_0051.heic
+Date: 2020-10-16 07:46:48
+Size: 1,337,880
+Album 差異:
+  Asset 1:
+    因為小乖自作聰明，把我一個多月前沒有參加瑜伽會所所說的話現在才實現。昨天炒飯居然沒有用飯是用花椰菜的假飯！搞得我澱粉缺乏。晚上已經要吃第三餐了，第二餐是一度讚牛肉麵，還是沒有飽。現在跑最後一個南洋進口份量感覺更少的蛋黃醬炒麵… 泡好把醬拌起來，聞起來超香的！
+
+  Asset 2:
+    在7-11（不是每一家都有）買的外國泡麵，口味蠻特殊的。沒有什麼料但是要30奇快。可能是東南亞的…
+
+建議保留:
+  UUID: 330FCDD7-9EEB-40D2-99E8-FD43F3817D99
+  Date Added: 2020-10-16 07:50:50
+
+建議刪除:
+  UUID: 9EF1484D-986C-4186-9BF7-DBCFEC3726CC
+  Date Added: 2020-10-20 03:00:05
+
+判斷:
+  跟 IMG_0050 / IMG_0052 / IMG_0053 同一批。
+  若兩個泡麵 album 已合併，保留合併後代表 asset，刪另一張。
+
+
+V - 22. IMG_5993.JPG
+Date: 2025-10-14 16:43:32
+Size: 2,982,843
+Album:
+  #用太極拳蹲馬步當運動 #突然想要這麼做 #30年沒有練太極拳 #強度非常強37分鐘內運動效果高 #後果很嚴重失眠跟隔天疼痛無法運動  2025年10月14日
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 6369D2A2-5DBD-424D-9749-D02F0B5EC653
+  Date Added: 2025-10-14 16:43:32
+
+建議刪除:
+  UUID: CF84E6F7-E481-4C2F-BDDD-16D5296AE858
+  Date Added: 2025-11-15 11:35:46
+
+判斷:
+  一個有 album，一個沒有。保留有 album 的那個。
+
+
+V - 23. IMG_0079.JPG
+Date: 2019-09-22 14:10:56
+Size: 167,961
+Album:
+  []
+Folder:
+  []
+Keywords:
+  HIDE, NSFW
+
+建議保留:
+  UUID: BF6F742E-5BFF-4408-8F20-E410787AE260
+  Date Added: 2019-09-22 14:10:56
+
+建議刪除:
+  UUID: 5A2E5787-8A1B-4510-A0F2-BE7320168F7D
+  Date Added: 2022-04-09 23:38:35
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 24. IMG_2119.PNG
+Date: 2026-05-26 07:36:15
+Size: 2,835,591
+Album:
+  小乖
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 4B58AF46-5448-452B-A657-9BE47FA3D1B5
+  Date Added: 2026-05-26 08:47:15
+
+建議刪除:
+  UUID: 2C44F68D-DB9A-4E9E-B604-D3A32857EB34
+  Date Added: 2026-05-26 07:36:15
+
+判斷:
+  一個有 album/description，一個沒有。保留有 album/description 的那個。
+
+
+V - 25. IMG_0050.HEIC
+Date: 2020-10-16 07:46:29
+Size: 1,784,236
+Album 差異:
+  Asset 1:
+    因為小乖自作聰明，把我一個多月前沒有參加瑜伽會所所說的話現在才實現。昨天炒飯居然沒有用飯是用花椰菜的假飯！搞得我澱粉缺乏。晚上已經要吃第三餐了，第二餐是一度讚牛肉麵，還是沒有飽。現在跑最後一個南洋進口份量感覺更少的蛋黃醬炒麵… 泡好把醬拌起來，聞起來超香的！
+
+  Asset 2:
+    在7-11（不是每一家都有）買的外國泡麵，口味蠻特殊的。沒有什麼料但是要30奇快。可能是東南亞的…
+
+建議保留:
+  UUID: E4A7F238-8179-469F-9334-F877A703309C
+  Date Added: 2020-10-16 07:50:49
+
+建議刪除:
+  UUID: 18FFB2D4-1BC3-424F-8E9C-600DA99452C9
+  Date Added: 2020-10-20 03:00:05
+
+判斷:
+  跟 IMG_0051 / IMG_0052 / IMG_0053 同一批。
+  若兩個泡麵 album 已合併，保留合併後代表 asset，刪另一張。
+
+
+V - 26. IMG_0162.MOV
+Date: 2021-12-02 09:54:51
+Size: 212,366,216
+Album:
+  VR 什麼華人玩家團Line群組在討論把手怎麼使用，我就是愛拍愛現... 用Apple Watch兩種架子實驗剪接之後得到的效果
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: D65E0F5E-C700-4A57-B603-023DBA174AEC
+  Date Added: 2021-12-02 09:55:21
+
+建議刪除:
+  UUID: B42D157E-F6DD-4E12-9A5E-A8D57B8D5B5C
+  Date Added: 2021-12-02 10:05:42
+
+判斷:
+  一個有 album，一個沒有。保留有 album 的早期 asset。
+
+
+V - 27. IMG_5996.PNG
+Date: 2025-10-14 16:49:46
+Size: 534,971
+Album:
+  #用太極拳蹲馬步當運動 #突然想要這麼做 #30年沒有練太極拳 #強度非常強37分鐘內運動效果高 #後果很嚴重失眠跟隔天疼痛無法運動  2025年10月14日
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 565FC5E1-DE38-4539-9646-89F768142F78
+  Date Added: 2025-10-14 16:49:46
+
+建議刪除:
+  UUID: 8AABC548-FACC-4F67-B661-43C5DE630501
+  Date Added: 2025-11-15 11:35:46
+
+判斷:
+  一個有 album，一個沒有。保留有 album 的那個。
+
+
+V - 28. IMG_4983.MOV
+Date: 2022-06-30 11:11:08
+Size: 226,701,950
+Album:
+  2022年6月30日 BH 跑步機 技術 明憲 來解決新買的跑步機會發出聲音的問題...
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 68715E39-BC14-49E5-8857-FC915AE8BAAE
+  Date Added: 2022-06-30 11:11:52
+
+建議刪除:
+  UUID: BF15C6A0-9E09-450B-BA8D-A1C3A4B6ACC8
+  Date Added: 2023-11-05 16:55:16
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 29. IMG_0438.PNG
+Date: 2020-06-12 01:09:42
+Size: 11,332,478
+Album:
+  []
+Folder:
+  []
+Keywords:
+  HIDE, NSFW, NSFW_IG / HIDE, NSFW
+
+建議保留:
+  UUID: 3C32E5F5-70B5-49B4-B90B-6C2E3002CD51
+  Date Added: 2020-06-12 01:09:42
+
+建議刪除:
+  UUID: 0F6B7FD2-2497-4C3A-A01C-74DCE9785A66
+  Date Added: 2022-04-09 23:38:35
+
+判斷:
+  保留 metadata 較細、含 NSFW_IG 的那張。
+
+
+V - 30. tmp_v4738285297258698482.mp4
+Date: 2019-10-23 13:13:20
+Size: 17,906,144
+Album:
+  Sex Fun Clips - 情色打掃 奶子露出來漂亮
+Folder:
+  HIDE
+Keywords:
+  HIDE
+
+建議保留:
+  UUID: A636FFA1-F0CB-4C72-B28F-C573C607F222
+  Date Added: 2019-11-24 21:37:44
+
+建議刪除:
+  UUID: 98D402D7-5414-4E5D-956E-58AB8813513E
+  Date Added: 2019-12-03 08:35:59
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 31. IMG_5991.JPG
+Date: 2025-10-14 16:43:22
+Size: 3,182,700
+Album:
+  #用太極拳蹲馬步當運動 #突然想要這麼做 #30年沒有練太極拳 #強度非常強37分鐘內運動效果高 #後果很嚴重失眠跟隔天疼痛無法運動  2025年10月14日
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: F42477C7-0F6A-499A-AF9D-4D904FA5B29A
+  Date Added: 2025-10-14 16:43:22
+
+建議刪除:
+  UUID: BA6CE4DF-F2D9-431C-AF76-7B9C0C5DEFA7
+  Date Added: 2025-11-15 11:35:46
+
+判斷:
+  一個有 album，一個沒有。保留有 album 的那個。
+
+
+V - 32. IMG_0361.mp4
+Date: 2020-07-27 00:37:58
+Size: 413,958
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 38FD5C2F-9B8C-479D-B628-F60DDC92374F
+  Date Added: 2021-06-11 08:48:04
+
+建議刪除:
+  UUID: 39E70DAE-4AEF-4D56-A36F-5B4735001942
+  Date Added: 2021-06-11 19:44:17
+
+判斷:
+  無 metadata 差異，留早刪晚。
+
+
+V - 33. tmp_v4738292322033630852.mp4
+Date: 2019-11-27 23:23:10
+Size: 61,974,263
+Album:
+  [HIDE album title]
+Folder:
+  HIDE
+Keywords:
+  HIDE
+
+建議保留:
+  UUID: 949A433A-9F07-444F-99C5-8B2D96EBF7CF
+  Date Added: 2019-12-04 14:15:05
+
+建議刪除:
+  UUID: A68A820A-8014-4191-B335-B799F458F703
+  Date Added: 2019-12-12 09:52:59
+
+判斷:
+  保留 Favorite=True 的那個。
+
+
+V - 34. IMG_0052.heic
+Date: 2020-10-16 07:47:16
+Size: 1,135,086
+Album 差異:
+  Asset 1:
+    因為小乖自作聰明，把我一個多月前沒有參加瑜伽會所所說的話現在才實現。昨天炒飯居然沒有用飯是用花椰菜的假飯！搞得我澱粉缺乏。晚上已經要吃第三餐了，第二餐是一度讚牛肉麵，還是沒有飽。現在跑最後一個南洋進口份量感覺更少的蛋黃醬炒麵… 泡好把醬拌起來，聞起來超香的！
+
+  Asset 2:
+    在7-11（不是每一家都有）買的外國泡麵，口味蠻特殊的。沒有什麼料但是要30奇快。可能是東南亞的…
+
+建議保留:
+  UUID: B2B1CA58-3EDE-4F61-9FC2-2C9CA128E3AA
+  Date Added: 2020-10-16 07:50:50
+
+建議刪除:
+  UUID: D6033853-3DF0-4484-A38F-10A5A165612C
+  Date Added: 2020-10-20 03:00:06
+
+判斷:
+  跟 IMG_0050 / IMG_0051 / IMG_0053 同一批。
+  若兩個泡麵 album 已合併，保留合併後代表 asset，刪另一張。
+
+
+V - 35. IMG_2110.PNG
+Date: 2026-05-26 07:34:09
+Size: 3,585,907
+Album:
+  小乖
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 59686DFD-7486-4E46-9D84-E8000FAD6789
+  Date Added: 2026-05-26 08:43:59
+
+建議刪除:
+  UUID: 16EF86AF-E781-471C-85A2-F79E8BA32E58
+  Date Added: 2026-05-26 07:34:10
+
+判斷:
+  一個有 album/description，一個沒有。保留有 album/description 的那個。
+
+
+V - 36. IMG_5990.JPG
+Date: 2025-10-14 16:06:02
+Size: 3,223,550
+Album:
+  #用太極拳蹲馬步當運動 #突然想要這麼做 #30年沒有練太極拳 #強度非常強37分鐘內運動效果高 #後果很嚴重失眠跟隔天疼痛無法運動  2025年10月14日
+Folder:
+  []
+Keywords:
+  []
+
+建議保留:
+  UUID: 3496ADAE-EC4A-4A7D-B05A-5FB024154A5B
+  Date Added: 2025-10-14 16:06:03
+
+建議刪除:
+  UUID: 8D63C102-9D10-44B3-81A5-F7EB105D48CD
+  Date Added: 2025-11-15 11:35:46
+
+判斷:
+  一個有 album，一個沒有。保留有 album 的那個。
+
+
+V -37. ScreenRecording_10-13-2020 19-04-56_1.MP4
+Date: 2020-10-13 19:04:57
+Size: 24,142,549,378
+Album:
+  Chaturbate
+Folder:
+  []
+Keywords:
+  HIDE, NSFW
+
+建議保留:
+  UUID: 5B3262D3-324E-488B-8DC6-F7DD54EB2F7B
+  Date Added: 2020-10-14 09:26:43
+
+建議刪除:
+  UUID: 8E6FE27B-101A-4D93-BBFA-40C3052BAB65
+  Date Added: 2020-10-14 20:02:28
+
+判斷:
+  SHA 相同，metadata 看起來相同；雖然 width/height 有 886x612 vs 886x614 的小差異，但內容檔案相同。
+  保留較早 Date Added 的那個。

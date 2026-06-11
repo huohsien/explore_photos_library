@@ -1,0 +1,1459 @@
+01. IMG_1334.jpeg
+Date: 2011-11-20 14:50:36
+UUID: 2E53DF99-1D66-4B60-AF82-382165581532
+
+02. IMG_1323.JPG
+Date: 2011-11-20 14:57:54
+UUID: 73B8C09C-6F12-4A25-9616-342376038717
+
+03. IMG_1354.JPG
+Date: 2011-11-20 15:38:19
+UUID: 771B044C-F2CE-4265-AAB1-F7597A941549
+
+04. IMG_2024.JPG
+Date: 2012-02-05 11:40:18
+UUID: FD6DA6F5-8401-4407-9CBF-FE5CDADEB714
+
+05. IMG_2054.MOV
+Date: 2012-02-07 21:15:05
+UUID: CE2621A6-2BBB-4772-AC6E-14A66B86CA37
+Is Movie: True
+
+06. IMG_2828.JPG
+Date: 2012-09-21 17:09:52
+UUID: 009F7C1A-5078-495A-B2D7-1F65A75F894E
+
+07. IMG_2723.JPG
+Date: 2016-03-19 16:47:26
+UUID: 37D8EDD4-718B-4A24-9CF2-3D460CC14CBC
+
+08. IMG_7157.jpeg
+Date: 2020-12-31 08:33:22
+UUID: 79A8D073-84B5-4136-8274-F5E6E3030900
+
+09. IMG_2037.JPG
+Date: 2021-02-05 18:03:00
+UUID: 3F72A7D2-4A62-4647-BE91-1DFFF759BD41
+
+10. IMG_0135.jpeg
+Date: 2021-03-20 20:43:01
+UUID: F64DC6F0-F5C9-4C42-BF7A-765DEC3EC2B9
+
+11. IMG_0304.jpeg
+Date: 2021-03-31 23:04:18
+UUID: 416B7168-E0C5-47B1-BA21-5F8FF2FDE930
+
+12. IMG_4769.jpeg
+Date: 2021-09-17 20:55:14
+UUID: 87AD4A75-59E3-4B5D-8509-61E634DF3BE4
+
+13. IMG_5763.JPG
+Date: 2021-10-20 11:52:28
+UUID: 4DE92713-D352-48C8-85CB-0A73D6D068EE
+
+14. IMG_5839.jpeg
+Date: 2021-10-23 09:14:02
+UUID: FAAB1076-E063-4CAA-8769-13325E77DB56
+
+15. IMG_9425.jpeg
+Date: 2021-12-27 19:41:33
+UUID: 5E04C160-A9EB-42FB-837E-082C10EA0BB4
+
+16. IMG_6375.jpeg
+Date: 2023-04-12 19:10:20
+UUID: DA2C3A3A-6B1B-458E-B09D-4DE46DB0CB95
+
+17. IMG_7499.JPG
+Date: 2023-05-29 10:41:20
+UUID: 7E39EC15-D9D7-43A7-A9BD-8E9A4552A4D6
+
+18. IMG_9083.jpeg
+Date: 2023-07-13 14:55:01
+UUID: 20F72997-6EDA-46CD-8184-3A37FF75AE48
+
+19. IMG_3794.jpeg
+Date: 2024-01-02 19:59:55
+UUID: D02B7EE5-87E8-4C2E-B7EF-83BC3A9720B1
+
+20. IMG_9375.heic
+Date: 2024-07-22 21:27:34
+UUID: BDAF0B86-59BB-4ABE-8FA1-3AA5E4834C59
+
+21. IMG_1343.JPG
+Date: 2024-07-27 08:06:54
+UUID: 25350D3F-8527-4F31-9DEC-B0422519B9DF
+
+22. IMG_0344.jpg
+Date: 2024-08-19 18:11:38
+UUID: CC294F71-8164-403B-B359-836E410DF496
+
+23. IMG_4087.jpg
+Date: 2024-11-27 07:20:59
+UUID: 88E8371A-DFCA-4113-8CC7-50A494AB7D2E
+
+24. IMG_7370.jpeg
+Date: 2024-12-20 17:02:17
+UUID: BE6A60CB-DDD3-4A88-89D6-55C010C815F2
+
+25. 75637861168__F1134711-4E93-4A1D-BD4F-A9E9C3F2D489.fullsizerender.jpeg
+Date: 2024-12-20 17:10:10
+UUID: 627CDF1D-915C-4D5B-BC31-A0B1F27360EB
+
+26. IMG_2392.jpeg
+Date: 2025-01-21 15:09:50
+UUID: 01CBADB7-DB4D-4B4E-8388-A8570F8F2135
+
+27. IMG_3099.jpeg
+Date: 2025-01-21 15:10:07
+UUID: A93AF3CF-E85D-4B2C-AA6E-0CEA0370FCE6
+
+28. IMG_5984.jpeg
+Date: 2025-01-21 18:51:03
+UUID: 845D8C7D-8375-450E-9051-60A00898955C
+
+29. IMG_5985.jpeg
+Date: 2025-01-21 18:55:46
+UUID: 9802B9B3-A3C9-4C6F-895C-00B4616A4EC1
+
+30. IMG_5986.jpeg
+Date: 2025-01-21 18:56:56
+UUID: 409C7D86-70CE-4CB5-BF9F-400FF703F14A
+
+31. IMG_6724.JPG
+Date: 2025-02-08 10:38:04
+UUID: A974B111-37E6-4B31-8DBD-6AA8BF039123
+
+32. IMG_6723.JPG
+Date: 2025-02-08 10:38:06
+UUID: AE1A88BB-EEDD-4444-ADCC-0888DC07F234
+
+33. IMG_1765.jpeg
+Date: 2025-06-06 13:03:23
+UUID: CB5BD81F-4844-411B-B1C0-67A2BA0CC5C7
+
+34. IMG_1766.jpeg
+Date: 2025-06-06 13:48:36
+UUID: 690133C0-C6BA-4E06-8079-4FBCCB7E8C13
+
+35. IMG_7243.jpeg
+Date: 2026-01-18 15:29:43
+UUID: 96B3A5E0-8080-4130-B573-4BA95150CDE6
+
+36. IMG_7244.jpeg
+Date: 2026-01-18 15:29:52
+UUID: 8B4DF2A1-6631-433B-8D95-DDFDDBABA65A
+
+37. IMG_7414.jpeg
+Date: 2026-02-04 18:28:06
+UUID: 72539F07-6B88-4FBC-9822-70A9908876DA
+
+38. IMG_7415.jpeg
+Date: 2026-02-04 18:28:10
+UUID: F569B365-4E44-40C6-93E1-2300A747D9D7
+
+
+
+CURRENT DEFAULT assets without photo_library_asset_unique_id review list
+========================================================================================================================
+Asset count: 38
+
+Reason summary from previous debug:
+  path is None
+  file_size_bytes is None
+  adjustment_signature is None
+
+Interpretation:
+  These are Photos asset records without a usable original file path in the inventory.
+  They are not duplicate unique_id groups. They block preflight because no matching key can be generated.
+
+01. IMG_1334.jpeg
+UUID: 2E53DF99-1D66-4B60-AF82-382165581532
+Original File Name: IMG_1334.jpeg
+Filename: 2E53DF99-1D66-4B60-AF82-382165581532.jpeg
+Date: 2011-11-20 14:50:36
+Date Added: 2011-11-20 14:50:36
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+02. IMG_1323.JPG
+UUID: 73B8C09C-6F12-4A25-9616-342376038717
+Original File Name: IMG_1323.JPG
+Filename: 73B8C09C-6F12-4A25-9616-342376038717.jpeg
+Date: 2011-11-20 14:57:54
+Date Added: 2011-11-20 14:57:54
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+03. IMG_1354.JPG
+UUID: 771B044C-F2CE-4265-AAB1-F7597A941549
+Original File Name: IMG_1354.JPG
+Filename: 771B044C-F2CE-4265-AAB1-F7597A941549.jpeg
+Date: 2011-11-20 15:38:19
+Date Added: 2011-11-20 15:38:19
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+04. IMG_2024.JPG
+UUID: FD6DA6F5-8401-4407-9CBF-FE5CDADEB714
+Original File Name: IMG_2024.JPG
+Filename: FD6DA6F5-8401-4407-9CBF-FE5CDADEB714.jpeg
+Date: 2012-02-05 11:40:18
+Date Added: 2012-02-05 11:40:18
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+05. IMG_2054.MOV
+UUID: CE2621A6-2BBB-4772-AC6E-14A66B86CA37
+Original File Name: IMG_2054.MOV
+Filename: CE2621A6-2BBB-4772-AC6E-14A66B86CA37.mov
+Date: 2012-02-07 21:15:05
+Date Added: 2012-02-07 21:15:05
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: True
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+06. IMG_2828.JPG
+UUID: 009F7C1A-5078-495A-B2D7-1F65A75F894E
+Original File Name: IMG_2828.JPG
+Filename: 009F7C1A-5078-495A-B2D7-1F65A75F894E.jpeg
+Date: 2012-09-21 17:09:52
+Date Added: 2012-09-21 16:09:52
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+07. IMG_2723.JPG
+UUID: 37D8EDD4-718B-4A24-9CF2-3D460CC14CBC
+Original File Name: IMG_2723.JPG
+Filename: 37D8EDD4-718B-4A24-9CF2-3D460CC14CBC.jpeg
+Date: 2016-03-19 16:47:26
+Date Added: 2016-03-19 15:47:26
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+08. IMG_7157.jpeg
+UUID: 79A8D073-84B5-4136-8274-F5E6E3030900
+Original File Name: IMG_7157.jpeg
+Filename: 79A8D073-84B5-4136-8274-F5E6E3030900.jpeg
+Date: 2020-12-31 08:33:22
+Date Added: 2020-12-31 08:33:22
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+09. IMG_2037.JPG
+UUID: 3F72A7D2-4A62-4647-BE91-1DFFF759BD41
+Original File Name: IMG_2037.JPG
+Filename: 3F72A7D2-4A62-4647-BE91-1DFFF759BD41.jpeg
+Date: 2021-02-05 18:03:00
+Date Added: 2021-02-05 18:03:00
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+10. IMG_0135.jpeg
+UUID: F64DC6F0-F5C9-4C42-BF7A-765DEC3EC2B9
+Original File Name: IMG_0135.jpeg
+Filename: F64DC6F0-F5C9-4C42-BF7A-765DEC3EC2B9.jpeg
+Date: 2021-03-20 20:43:01
+Date Added: 2021-03-20 20:43:01
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+11. IMG_0304.jpeg
+UUID: 416B7168-E0C5-47B1-BA21-5F8FF2FDE930
+Original File Name: IMG_0304.jpeg
+Filename: 416B7168-E0C5-47B1-BA21-5F8FF2FDE930.jpeg
+Date: 2021-03-31 23:04:18
+Date Added: 2021-03-31 23:04:18
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+12. IMG_4769.jpeg
+UUID: 87AD4A75-59E3-4B5D-8509-61E634DF3BE4
+Original File Name: IMG_4769.jpeg
+Filename: 87AD4A75-59E3-4B5D-8509-61E634DF3BE4.jpeg
+Date: 2021-09-17 20:55:14
+Date Added: 2021-09-17 20:55:14
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+13. IMG_5763.JPG
+UUID: 4DE92713-D352-48C8-85CB-0A73D6D068EE
+Original File Name: IMG_5763.JPG
+Filename: 4DE92713-D352-48C8-85CB-0A73D6D068EE.jpeg
+Date: 2021-10-20 11:52:28
+Date Added: 2021-10-20 11:52:28
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+14. IMG_5839.jpeg
+UUID: FAAB1076-E063-4CAA-8769-13325E77DB56
+Original File Name: IMG_5839.jpeg
+Filename: FAAB1076-E063-4CAA-8769-13325E77DB56.jpeg
+Date: 2021-10-23 09:14:02
+Date Added: 2021-10-23 09:14:02
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+15. IMG_9425.jpeg
+UUID: 5E04C160-A9EB-42FB-837E-082C10EA0BB4
+Original File Name: IMG_9425.jpeg
+Filename: 5E04C160-A9EB-42FB-837E-082C10EA0BB4.jpeg
+Date: 2021-12-27 19:41:33
+Date Added: 2021-12-27 19:41:33
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+16. IMG_6375.jpeg
+UUID: DA2C3A3A-6B1B-458E-B09D-4DE46DB0CB95
+Original File Name: IMG_6375.jpeg
+Filename: DA2C3A3A-6B1B-458E-B09D-4DE46DB0CB95.jpeg
+Date: 2023-04-12 19:10:20
+Date Added: 2023-04-12 19:10:20
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+17. IMG_7499.JPG
+UUID: 7E39EC15-D9D7-43A7-A9BD-8E9A4552A4D6
+Original File Name: IMG_7499.JPG
+Filename: 7E39EC15-D9D7-43A7-A9BD-8E9A4552A4D6.jpeg
+Date: 2023-05-29 10:41:20
+Date Added: 2023-05-29 10:41:20
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+18. IMG_9083.jpeg
+UUID: 20F72997-6EDA-46CD-8184-3A37FF75AE48
+Original File Name: IMG_9083.jpeg
+Filename: 20F72997-6EDA-46CD-8184-3A37FF75AE48.jpeg
+Date: 2023-07-13 14:55:01
+Date Added: 2023-07-13 14:55:01
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+19. IMG_3794.jpeg
+UUID: D02B7EE5-87E8-4C2E-B7EF-83BC3A9720B1
+Original File Name: IMG_3794.jpeg
+Filename: D02B7EE5-87E8-4C2E-B7EF-83BC3A9720B1.jpeg
+Date: 2024-01-02 19:59:55
+Date Added: 2024-01-02 19:59:55
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+20. IMG_9375.heic
+UUID: BDAF0B86-59BB-4ABE-8FA1-3AA5E4834C59
+Original File Name: IMG_9375.heic
+Filename: BDAF0B86-59BB-4ABE-8FA1-3AA5E4834C59.heic
+Date: 2024-07-22 21:27:34
+Date Added: 2024-07-22 21:27:34
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+21. IMG_1343.JPG
+UUID: 25350D3F-8527-4F31-9DEC-B0422519B9DF
+Original File Name: IMG_1343.JPG
+Filename: 25350D3F-8527-4F31-9DEC-B0422519B9DF.jpeg
+Date: 2024-07-27 08:06:54
+Date Added: 2024-07-27 08:06:54
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+22. IMG_0344.jpg
+UUID: CC294F71-8164-403B-B359-836E410DF496
+Original File Name: IMG_0344.jpg
+Filename: CC294F71-8164-403B-B359-836E410DF496.jpeg
+Date: 2024-08-19 18:11:38
+Date Added: 2024-08-19 18:11:38
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+23. IMG_4087.jpg
+UUID: 88E8371A-DFCA-4113-8CC7-50A494AB7D2E
+Original File Name: IMG_4087.jpg
+Filename: 88E8371A-DFCA-4113-8CC7-50A494AB7D2E.jpeg
+Date: 2024-11-27 07:20:59
+Date Added: 2024-11-27 07:20:59
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+24. IMG_7370.jpeg
+UUID: BE6A60CB-DDD3-4A88-89D6-55C010C815F2
+Original File Name: IMG_7370.jpeg
+Filename: BE6A60CB-DDD3-4A88-89D6-55C010C815F2.jpeg
+Date: 2024-12-20 17:02:17
+Date Added: 2024-12-20 17:02:17
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+25. 75637861168__F1134711-4E93-4A1D-BD4F-A9E9C3F2D489.fullsizerender.jpeg
+UUID: 627CDF1D-915C-4D5B-BC31-A0B1F27360EB
+Original File Name: 75637861168__F1134711-4E93-4A1D-BD4F-A9E9C3F2D489.fullsizerender.jpeg
+Filename: 627CDF1D-915C-4D5B-BC31-A0B1F27360EB.jpeg
+Date: 2024-12-20 17:10:10
+Date Added: 2024-12-20 17:10:10
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+26. IMG_2392.jpeg
+UUID: 01CBADB7-DB4D-4B4E-8388-A8570F8F2135
+Original File Name: IMG_2392.jpeg
+Filename: 01CBADB7-DB4D-4B4E-8388-A8570F8F2135.jpeg
+Date: 2025-01-21 15:09:50
+Date Added: 2025-01-21 15:09:50
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+27. IMG_3099.jpeg
+UUID: A93AF3CF-E85D-4B2C-AA6E-0CEA0370FCE6
+Original File Name: IMG_3099.jpeg
+Filename: A93AF3CF-E85D-4B2C-AA6E-0CEA0370FCE6.jpeg
+Date: 2025-01-21 15:10:07
+Date Added: 2025-01-21 15:10:07
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+28. IMG_5984.jpeg
+UUID: 845D8C7D-8375-450E-9051-60A00898955C
+Original File Name: IMG_5984.jpeg
+Filename: 845D8C7D-8375-450E-9051-60A00898955C.jpeg
+Date: 2025-01-21 18:51:03
+Date Added: 2025-01-21 18:51:03
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+29. IMG_5985.jpeg
+UUID: 9802B9B3-A3C9-4C6F-895C-00B4616A4EC1
+Original File Name: IMG_5985.jpeg
+Filename: 9802B9B3-A3C9-4C6F-895C-00B4616A4EC1.jpeg
+Date: 2025-01-21 18:55:46
+Date Added: 2025-01-21 18:55:46
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+30. IMG_5986.jpeg
+UUID: 409C7D86-70CE-4CB5-BF9F-400FF703F14A
+Original File Name: IMG_5986.jpeg
+Filename: 409C7D86-70CE-4CB5-BF9F-400FF703F14A.jpeg
+Date: 2025-01-21 18:56:56
+Date Added: 2025-01-21 18:56:56
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+31. IMG_6724.JPG
+UUID: A974B111-37E6-4B31-8DBD-6AA8BF039123
+Original File Name: IMG_6724.JPG
+Filename: A974B111-37E6-4B31-8DBD-6AA8BF039123.jpeg
+Date: 2025-02-08 10:38:04
+Date Added: 2025-02-08 10:38:04
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+32. IMG_6723.JPG
+UUID: AE1A88BB-EEDD-4444-ADCC-0888DC07F234
+Original File Name: IMG_6723.JPG
+Filename: AE1A88BB-EEDD-4444-ADCC-0888DC07F234.jpeg
+Date: 2025-02-08 10:38:06
+Date Added: 2025-02-08 10:38:06
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+33. IMG_1765.jpeg
+UUID: CB5BD81F-4844-411B-B1C0-67A2BA0CC5C7
+Original File Name: IMG_1765.jpeg
+Filename: CB5BD81F-4844-411B-B1C0-67A2BA0CC5C7.jpeg
+Date: 2025-06-06 13:03:23
+Date Added: 2025-06-06 13:03:23
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+34. IMG_1766.jpeg
+UUID: 690133C0-C6BA-4E06-8079-4FBCCB7E8C13
+Original File Name: IMG_1766.jpeg
+Filename: 690133C0-C6BA-4E06-8079-4FBCCB7E8C13.jpeg
+Date: 2025-06-06 13:48:36
+Date Added: 2025-06-06 13:48:36
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+35. IMG_7243.jpeg
+UUID: 96B3A5E0-8080-4130-B573-4BA95150CDE6
+Original File Name: IMG_7243.jpeg
+Filename: 96B3A5E0-8080-4130-B573-4BA95150CDE6.jpeg
+Date: 2026-01-18 15:29:43
+Date Added: 2026-01-18 15:29:43
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+36. IMG_7244.jpeg
+UUID: 8B4DF2A1-6631-433B-8D95-DDFDDBABA65A
+Original File Name: IMG_7244.jpeg
+Filename: 8B4DF2A1-6631-433B-8D95-DDFDDBABA65A.jpeg
+Date: 2026-01-18 15:29:52
+Date Added: 2026-01-18 15:29:52
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+37. IMG_7414.jpeg
+UUID: 72539F07-6B88-4FBC-9822-70A9908876DA
+Original File Name: IMG_7414.jpeg
+Filename: 72539F07-6B88-4FBC-9822-70A9908876DA.jpeg
+Date: 2026-02-04 18:28:06
+Date Added: 2026-02-04 18:28:06
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------
+
+38. IMG_7415.jpeg
+UUID: F569B365-4E44-40C6-93E1-2300A747D9D7
+Original File Name: IMG_7415.jpeg
+Filename: F569B365-4E44-40C6-93E1-2300A747D9D7.jpeg
+Date: 2026-02-04 18:28:10
+Date Added: 2026-02-04 18:28:10
+File Size: None
+Adjustment Signature: None
+Path: None
+Path Exists: None
+Is Movie: False
+Has Adjustments: False
+Path Edited: None
+Asset Scope: PATH_NONE
+Favorite: False
+Hidden: False
+Album:
+  []
+Folder:
+  []
+Keywords:
+  []
+Description:
+  []
+
+判斷:
+  path 是 None，所以目前無法產生 photo_library_asset_unique_id / matching key。
+  請在 Photos 內用 Date / Filename / Album / Description 檢查這是不是：
+    1. iCloud 尚未下載完成的 asset
+    2. 已刪除但 database 尚未完全清掉的 asset
+    3. 只剩 metadata、沒有 original file 的殘留 record
+    4. 特殊 shared / cloud / hidden / recently deleted 狀態
+------------------------------------------------------------------------------------------------------------------------

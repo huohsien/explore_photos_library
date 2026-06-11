@@ -1,0 +1,212 @@
+Disappeared adjusted-image groups for manual Photos review
+Reason: These disappeared after adjustment_signature was fixed.
+Meaning: They were probably false duplicate candidates.
+Action: Check visually in Photos by image name + Date Added + Albums.
+
+================================================================================
+1. IMG_0245.JPG
+================================================================================
+
+Asset 1
+  Date Added: 2022-11-11T22:43:53.966928+08:00
+  Has Adjustments: False
+  Albums:
+    - 2022年11月11日 周思慧 番外篇 今天突然想念她，上微信沒看到她的信息。覺得自己該放下了。但是忍不住又問她最近過得怎麼樣。然後我正在寫這段話的時候她好像回應了！ 唉！結果從10:46聊到11:08，22分鐘！我見好就收！
+
+Asset 2
+  Date Added: 2022-11-13T04:54:03.277919+08:00
+  Has Adjustments: True
+  Adjustment Type: 2
+  External Edit: False
+  UTI: public.jpeg
+  UTI Original: public.jpeg
+  UTI Edited: public.jpeg
+  Adjustment Signature: (670, 1081)
+  Albums:
+    - 2022年11月11日 周思慧 番外篇 今天突然想念她，上微信沒看到她的信息。覺得自己該放下了。但是忍不住又問她最近過得怎麼樣。然後我正在寫這段話的時候她好像回應了！ 唉！結果從10:46聊到11:08，22分鐘！我見好就收！
+
+================================================================================
+2. PDF document-1.jpeg
+================================================================================
+
+Asset 1
+  Date Added: 2021-04-17T17:15:03.404507+08:00
+  Has Adjustments: True
+  Adjustment Type: 2
+  External Edit: False
+  UTI: public.jpeg
+  UTI Original: public.jpeg
+  UTI Edited: public.jpeg
+  Adjustment Signature: (1625, 5881)
+  Albums:
+    - 2021年4月17日，小乖說我有病，買了3000兩百多的漁夫鮮撈... $3000免運費打九二折省兩百多！結果他媽的收到訂購失敗通知。浪費了我一個小時的時間！我就寫Line過去罵人…看看他們怎麼處理！
+
+Asset 2
+  Date Added: 2021-04-17T17:15:44.660951+08:00
+  Has Adjustments: True
+  Adjustment Type: 2
+  External Edit: False
+  UTI: public.jpeg
+  UTI Original: public.jpeg
+  UTI Edited: public.jpeg
+  Adjustment Signature: (1625, 4138)
+  Albums:
+    - 2021年4月17日，小乖說我有病，買了3000兩百多的漁夫鮮撈... $3000免運費打九二折省兩百多！結果他媽的收到訂購失敗通知。浪費了我一個小時的時間！我就寫Line過去罵人…看看他們怎麼處理！
+
+================================================================================
+3. IMG_0234.PNG
+================================================================================
+
+Asset 1
+  Date Added: 2020-11-19T00:23:16.642755+08:00
+  Has Adjustments: True
+  Adjustment Type: 2
+  External Edit: False
+  UTI: public.jpeg
+  UTI Original: public.png
+  UTI Edited: public.jpeg
+  Adjustment Signature: (724, 487)
+
+Asset 2
+  Date Added: 2020-11-19T00:23:29.247762+08:00
+  Has Adjustments: True
+  Adjustment Type: 2
+  External Edit: False
+  UTI: public.jpeg
+  UTI Original: public.png
+  UTI Edited: public.jpeg
+  Adjustment Signature: (724, 194)
+
+================================================================================
+4. IMG_0106.JPG
+================================================================================
+
+Asset 1
+  Date Added: 2021-12-15T19:26:49.506998+08:00
+  Has Adjustments: True
+  Adjustment Type: 3
+  External Edit: False
+  UTI: public.jpeg
+  UTI Original: public.jpeg
+  UTI Edited: public.jpeg
+  Adjustment Signature: (3024, 3024)
+  Albums:
+    - 2021年12月15日 跟林欒菲還有林艾蓮 去她弟弟公司附近的 林艾蓮很愛吃的 七輪燒肉！吃了一個半小時就很飽，因為中間有點個鍋巴…橫膈膜不好吃因為是台灣牛，或許是這個關係，其他都很好吃！總共花了$3234！林艾蓮一個人喝啤酒就花了$360！然後還說很便宜！金錢觀價值觀差好多！ 上次一個人就要2000多塊吃不飽。這次我沒事幹嘛裝大方，這個錢都可以買一個精英頭盔電池版本。VR群組的人都捨不得買的！ 一頓飯就沒了！最雞歪的就是那個酒了！那個一小杯啤酒要$120！他媽的貴！
+
+Asset 2
+  Date Added: 2021-12-15T21:51:40.174364+08:00
+  Has Adjustments: True
+  Adjustment Type: 2
+  External Edit: False
+  UTI: public.jpeg
+  UTI Original: public.jpeg
+  UTI Edited: public.jpeg
+  Adjustment Signature: (1389, 2760)
+  Albums:
+    - 2021年12月15日 跟林欒菲還有林艾蓮 去她弟弟公司附近的 林艾蓮很愛吃的 七輪燒肉！吃了一個半小時就很飽，因為中間有點個鍋巴…橫膈膜不好吃因為是台灣牛，或許是這個關係，其他都很好吃！總共花了$3234！林艾蓮一個人喝啤酒就花了$360！然後還說很便宜！金錢觀價值觀差好多！ 上次一個人就要2000多塊吃不飽。這次我沒事幹嘛裝大方，這個錢都可以買一個精英頭盔電池版本。VR群組的人都捨不得買的！ 一頓飯就沒了！最雞歪的就是那個酒了！那個一小杯啤酒要$120！他媽的貴！
+
+
+
+
+
+2026-06-09 TODO — Photos Library Duplicate Cleanup 下一步
+
+目前狀態：
+- 2026-06-08 晚上已 commit：
+  57197fc0 Combine photos_inventory.py and photos_duplicate_cleanup_helpers.py into explorephotoslibrary.py
+- 這個 commit 已完成：
+  1. 新增 explorephotoslibrary.py。
+  2. 將 photos_inventory.py 與 photos_duplicate_cleanup_helpers.py 的主要功能整合到 explorephotoslibrary.py。
+  3. 更新 Duplicate Cleanup / Duplicate Review / Test 1 / Test 2 notebooks 使用 explorephotoslibrary.py。
+  4. 新增 photo_library_asset_unique_id 的第四欄 adjustment_signature。
+  5. adjustment_signature 目前設計：
+     - None：沒有有用的 adjustment signal。
+     - edited video duration rounded to 0.1 seconds：用來區分完整影片與 trimmed video。
+     - Photos-visible width/height：用來區分 adjusted/cropped images。
+  6. 新增 Photos_Library_Duplicate_Review_video_metadata.ipynb。
+  7. 最新 duplicate cleanup report：
+     - run_timestamp: 20260608-202149
+     - duplicate_candidate_group_count: 13
+     - delete_candidate_asset_count: 13
+     - keep_asset_count: 13
+
+目前 git 狀態提醒：
+- local branch ahead of origin/main by 1 commit，明天可以再決定要不要 push。
+- 還沒有 commit 的東西：
+  - DOC/commit-message-list.txt：temporary，不急。
+  - photos_inventory.py：modified，但這次沒有 commit，明天先不要亂 add。
+  - 20260608-dup. assets case needed to be verified in backup Photos Library Visually.txt：你自己記錄明天要用眼睛確認的 4 個 case。
+  - IMPORTANT_Photos_Library_Critical_Operation_Reports/...：generated reports，不進 source commit。
+  - Photos_Library_Metadata_Based_Ultimate_Thorough_Merge--Test_1_explorephotoslibrary_cache_fallback.ipynb：fallback notebook，暫時不 commit。
+
+明天第一件事：
+1. 用 Photos app 目視檢查這 4 組今天從 duplicate candidates 消失的 case：
+   - IMG_0245.JPG
+   - PDF document-1.jpeg
+   - IMG_0234.PNG
+   - IMG_0106.JPG
+
+目的：
+- 確認它們是不是「同 original file，但 Photos-visible result 不同」。
+- 如果是，就是新版 adjustment_signature 正確把 false duplicate 拆開。
+- 不要刪這 4 組，除非目視確認真的完全不需要保留其中一個 visible version。
+
+明天第二件事，也是最重要的程式缺口：
+2. 加上 full adjustment metadata safety comparison。
+
+目前已完成的是：
+- compact adjustment_signature 進 photo_library_asset_unique_id。
+
+但還沒完成的是：
+- 當 same photo_library_asset_unique_id + same original SHA256 被判定為 duplicate candidate 後，
+  還要再做 full adjustment metadata comparison。
+- 這是第二層安全檢查，應該補上。
+
+新規則應該是：
+
+same photo_library_asset_unique_id
++ same original SHA256
++ location / live photo / unreadable file safety checks 通過
++ full adjustment metadata profile 一致
+→ 才能 DELETABLE_DUPLICATE
+
+如果 full adjustment metadata profile 不一致：
+→ 不可列為 DELETABLE_DUPLICATE
+→ 改成 REVIEW_ONLY / ADJUSTMENT_METADATA_CONFLICT
+
+full adjustment metadata profile 至少比較：
+
+- hasadjustments
+- adjustment_type
+- external_edit
+- uti
+- uti_original
+- uti_edited
+- path_edited 是否存在，不要直接比較完整絕對 path
+- path_edited_file_size
+- edited_duration_seconds
+- width
+- height
+- original_width
+- original_height
+- adjustment_signature
+
+設計理由：
+- adjustment_signature 是 compact key，主要是給 cross-library matching / uniqueness audit 用。
+- duplicate cleanup 是刪除前安全判斷，應該比 matching key 更保守。
+- 所以 duplicate cleanup 不能只靠 compact adjustment_signature。
+- 只要 adjustment metadata profile 有差異，就應該先報告、人工 review，不要自動列為 deletable duplicate。
+
+明天可能的 commit 主題：
+Add full adjustment metadata safety checks to duplicate cleanup
+
+commit message 方向：
+- Add a second-layer adjustment metadata comparison before marking duplicate candidates as deletable.
+- Treat same unique ID and same original SHA256 as necessary but not sufficient for deletion.
+- Report adjustment metadata conflicts as review-only instead of deletable duplicates.
+- Compare adjustment profile fields such as hasadjustments, adjustment_type, external_edit, UTI fields, edited render existence, edited render file size, edited duration, visible dimensions, original dimensions, and adjustment_signature.
+
+不要忘記：
+- 今天 commit 沒有寫 full adjustment metadata comparison，這是正確的，因為還沒做。
+- 明天做完第二層 safety check 後，再開一個小 commit。
+- 不要把 generated report folders / cache / fallback notebook 混進 source commit。

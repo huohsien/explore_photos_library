@@ -1,0 +1,331 @@
+BACKUP 剩餘 16 組 duplicate cleanup list
+
+V - 01. IMG_0392.PNG
+Date: 2019-03-07 00:40:11
+Size: 3,671,922
+Album:
+  妖狐 girls
+Folder:
+  HIDE
+Keywords:
+  HIDE
+
+建議保留:
+  UUID: DAFF633A-15D2-404E-8E6F-638CEF508B5F
+  Date Added: 2019-03-07 00:40:11
+
+建議刪除:
+  UUID: 1995EBB7-F166-468F-9145-215ACF2705AB
+  Date Added: 2019-03-07 00:40:12
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+02. IMG_0002.PNG
+Date: 2019-10-15 16:44:32
+Size: 10,466,428
+Album 差異:
+  Asset 1:
+    Pretty Girls
+    Folder: NSFW
+    Keywords: HIDE, NSFW
+
+  Asset 2:
+    FB Pretty Girls
+    Folder: []
+    Keywords: HIDE
+
+建議:
+  這組不要隨便刪。
+  先決定你要保留哪個分類：
+    - 如果現在以 NSFW / Pretty Girls 為主，保留 32CFFD08...
+    - 如果你想保留 FB Pretty Girls 這個原分類，保留 77767A8C...
+  最保守做法:
+    保留一個 asset，先補齊兩邊 album/keyword，再刪另一個。
+
+
+V - 03. RPReplay_Final1602716023.mp4
+Date: 2020-10-15 06:53:43
+Size: 2,247,805,300
+Album:
+  Chaturbate
+Folder:
+  NSFW
+Keywords:
+  HIDE, NSFW
+
+建議保留:
+  UUID: 5067292E-79F0-4AA8-AE9D-559058DDEC4A
+  Date Added: 2020-10-15 06:54:42
+
+建議刪除:
+  UUID: B83F62F5-5275-4576-BB0B-82F883B6052C
+  Date Added: 2020-10-28 14:10:42
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 04. 3320474716416102425.mp4
+Date: 2020-07-15 17:39:24
+Size: 18,221,849
+Album:
+  []
+Folder:
+  []
+Keywords:
+  ()
+
+建議保留:
+  UUID: E283EE8B-0503-44C4-9368-BA7408BFDCF4
+  Date Added: 2020-07-16 12:50:56
+
+建議刪除:
+  UUID: 314CAD3B-A8F9-4609-BF60-BCB60C9F4A7F
+  Date Added: 2020-07-16 12:52:03
+
+判斷:
+  無 album/folder/keyword，留早刪晚即可。
+
+
+V - 05. IMG_0361.mp4
+Date: 2020-07-27 00:37:58
+Size: 413,958
+Album:
+  []
+Folder:
+  []
+Keywords:
+  ()
+
+建議保留:
+  UUID: 867F7BC6-69F0-49C2-89D6-24A81423A3E9
+  Date Added: 2021-06-11 08:48:04
+
+建議刪除:
+  UUID: 492D4033-C6AB-4F24-9023-F02F1144AB55
+  Date Added: 2021-06-11 19:44:17
+
+判斷:
+  無 metadata 差異，留早刪晚。
+
+
+V - 06. IMG_0050.HEIC
+Date: 2020-10-16 07:46:29
+Size: 1,784,236
+Album 差異:
+  Asset 1:
+    因為小乖自作聰明，把我一個多月前沒有參加瑜伽會所所說的話現在才實現。昨天炒飯居然沒有用飯是用花椰菜的假飯！搞得我澱粉缺乏。晚上已經要吃第三餐了，第二餐是一度讚牛肉麵，還是沒有飽。現在跑最後一個南洋進口份量感覺更少的蛋黃醬炒麵… 泡好把醬拌起來，聞起來超香的！
+
+  Asset 2:
+    在7-11（不是每一家都有）買的外國泡麵，口味蠻特殊的。沒有什麼料但是要30奇快。可能是東南亞的…
+
+建議:
+  跟你已經處理掉的 IMG_0052.heic 同一類。
+  先把兩個 album membership 合併到保留 asset，再刪另一個。
+  這組不要直接刪。
+
+
+V - 07. IMG_0053.heic
+Date: 2020-10-16 07:48:25
+Size: 1,944,352
+Album 差異:
+  Asset 1:
+    因為小乖自作聰明，把我一個多月前沒有參加瑜伽會所所說的話現在才實現。昨天炒飯居然沒有用飯是用花椰菜的假飯！搞得我澱粉缺乏。晚上已經要吃第三餐了，第二餐是一度讚牛肉麵，還是沒有飽。現在跑最後一個南洋進口份量感覺更少的蛋黃醬炒麵… 泡好把醬拌起來，聞起來超香的！
+
+  Asset 2:
+    在7-11（不是每一家都有）買的外國泡麵，口味蠻特殊的。沒有什麼料但是要30奇快。可能是東南亞的…
+
+建議:
+  跟 IMG_0050 / IMG_0051 / 已處理的 IMG_0052 同一批。
+  先補 album，再刪 duplicate。
+
+
+V - 08. IMG_0210.JPG
+Date: 2022-02-27 17:53:32
+Size: 300,985
+Album:
+  2022年2月27日 周思慧後記 這些照片都是我去撩撥他，她才傳給我的…我犯賤！然後周思慧還是有 get到我的意思，傳讓她曬太陽的照片。沒有P圖 臉胖嘟嘟的，有點醜... 100斤果然太重了！我好像整個人都被開解出來了！我果然是顏控...
+
+建議保留:
+  UUID: 010DE949-4852-43ED-92BC-39CB36D6C495
+  Date Added: 2022-02-27 17:53:32
+
+建議刪除:
+  UUID: 26D6A8A7-6652-4D8A-AA5C-7D445945824F
+  Date Added: 2022-04-11 14:47:56
+
+判斷:
+  一個有 album，一個沒有。保留有 album 的早期 asset。
+
+
+V - 09. -479944577823611629.mp4
+Date: 2021-07-29 23:28:42
+Size: 40,728,528
+Album:
+  （隱藏內容）TG Girls -1
+Folder:
+  NSFW
+Keywords:
+  HIDE, NSFW
+
+建議保留:
+  UUID: F6B5D7E7-469C-4565-BACC-1184FE9D0656
+  Date Added: 2024-03-17 07:18:03
+
+建議刪除:
+  UUID: 2DC94ED5-6E8E-4AA6-9CA8-ECE82228FE7C
+  Date Added: 2024-03-17 07:28:53
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 10. IMG_0438.PNG
+Date: 2020-06-12 01:09:42
+Size: 11,332,478
+Album 差異:
+  Asset 1:
+    IG Pretty Girls
+    Folder: NSFW
+    Keywords: HIDE, NSFW, NSFW_IG
+
+  Asset 2:
+    Pretty Girls
+    Folder: NSFW
+    Keywords: HIDE, NSFW
+
+建議:
+  不要直接刪。
+  比較保守是保留 IG Pretty Girls / NSFW_IG 那個，因為 metadata 較細。
+  若 Pretty Girls 也要保留，就先把 representative asset 加進 Pretty Girls，再刪另一個。
+
+建議保留傾向:
+  UUID: 5DFCE3A9-3A15-441C-968C-A16B59BA199E
+  Date Added: 2020-06-12 01:09:42
+
+
+V - 11. IMG_0051.heic
+Date: 2020-10-16 07:46:48
+Size: 1,337,880
+Album 差異:
+  Asset 1:
+    因為小乖自作聰明，把我一個多月前沒有參加瑜伽會所所說的話現在才實現。昨天炒飯居然沒有用飯是用花椰菜的假飯！搞得我澱粉缺乏。晚上已經要吃第三餐了，第二餐是一度讚牛肉麵，還是沒有飽。現在跑最後一個南洋進口份量感覺更少的蛋黃醬炒麵… 泡好把醬拌起來，聞起來超香的！
+
+  Asset 2:
+    在7-11（不是每一家都有）買的外國泡麵，口味蠻特殊的。沒有什麼料但是要30奇快。可能是東南亞的…
+
+建議:
+  跟 IMG_0050 / IMG_0053 同一批。
+  先補 album，再刪 duplicate。
+
+
+V - 12. tmp_v4738122593335909120.mp4
+Date: 2019-04-14 09:54:04
+Size: 34,109,764
+Album:
+  []
+Folder:
+  []
+Keywords:
+  ()
+
+建議保留:
+  UUID: 96ED2D63-5446-43F7-BED3-4B8E568BCC1A
+  Date Added: 2019-04-14 09:54:23
+
+建議刪除:
+  UUID: D0DF33BE-8226-4B49-8937-3512A85A2D97
+  Date Added: 2019-04-14 09:55:36
+
+判斷:
+  無 metadata 差異，留早刪晚。
+
+
+V - 13. tmp_v4738285297258698482.mp4
+Date: 2019-10-23 13:13:20
+Size: 17,906,144
+Album:
+  Sex Fun Clips - 情色打掃 奶子露出來漂亮
+Folder:
+  HIDE
+Keywords:
+  HIDE
+
+建議保留:
+  UUID: 75BB0B66-3411-45E9-938B-E02A28DBF2D9
+  Date Added: 2019-11-24 21:37:44
+
+建議刪除:
+  UUID: 43DD31BB-3A23-407B-B13C-2FC845C16EEA
+  Date Added: 2019-12-03 08:35:59
+
+判斷:
+  metadata 相同，留早刪晚。
+
+
+V - 14. tmp_v4738285297174712779.mp4
+Date: 2019-10-23 13:13:07
+Size: 28,351,300
+Album 差異:
+  Asset 1:
+    Sex Fun Clips - 情色打掃 奶子露出來漂亮
+    Folder: HIDE
+    Keywords: HIDE
+
+  Asset 2:
+    []
+    Folder: []
+    Keywords: ()
+
+建議保留:
+  UUID: F99587B7-4536-4FE1-9CEF-40B3D087AC15
+  Date Added: 2019-11-24 21:37:36
+
+建議刪除:
+  UUID: 3944D432-90B6-49D7-81AA-210D8A800FA5
+  Date Added: 2019-12-03 08:39:06
+
+判斷:
+  保留有 album/folder/keyword 的那個。
+
+
+V - 15. IMG_0162.MOV
+Date: 2021-12-02 09:54:51
+Size: 212,366,216
+Album:
+  VR 什麼華人玩家團Line群組在討論把手怎麼使用，我就是愛拍愛現... 用Apple Watch兩種架子實驗剪接之後得到的效果
+
+建議保留:
+  UUID: 715C13EF-3449-4978-9455-65485A6985A7
+  Date Added: 2021-12-02 09:55:21
+
+建議刪除:
+  UUID: AE973049-E9B0-4B5A-9B5A-629C19CB0AD6
+  Date Added: 2021-12-02 10:05:42
+
+判斷:
+  保留有 album 的早期 asset。
+
+
+V - 16. IMG_0079.JPG
+Date: 2019-09-22 14:10:56
+Size: 167,961
+Album:
+  Pretty Girls
+Folder:
+  NSFW
+Keywords:
+  HIDE, NSFW
+
+建議保留:
+  UUID: 226AED8F-4BB1-40BB-AB88-9B63A66A0A3F
+  Date Added: 2019-09-22 14:10:56
+
+建議刪除:
+  UUID: C19E7785-A529-42E7-9EDB-A8224EF5B265
+  Date Added: 2022-04-09 23:38:35
+
+判斷:
+  metadata 相同，留早刪晚。
