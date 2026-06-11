@@ -118,27 +118,46 @@ def _get_attr(obj, name, default=None):
 
     return value
 
-def _classify_asset_path_string(path):
-    # Classify where an asset file lives inside a Photos Library.
+def _classify_osx_asset_scope(osx_asset, path):
+    # Classify where an osxphotos asset belongs in this project.
     #
     # NORMAL_ORIGINALS:
     #   Regular Photos Library originals that should participate in
     #   backup-vs-current comparison.
     #
     # SCOPES_SYNDICATION:
-    #   Shared-with-You / Messages syndicated items stored under
-    #   Photos Library.photoslibrary/scopes/syndication/.
-    #   These are visible through Photos-related UI but are not normal
-    #   saved Photos Library originals, so they must not participate in
-    #   the main repair comparison.
+    #   Shared-with-You / Messages syndicated records that are not saved as
+    #   normal Photos Library originals.
     #
     # PATH_NONE:
     #   Photos database has an asset record, but osxphotos did not provide
-    #   a local file path. Keep this in assets for now; investigate later.
+    #   a local file path, and the record is not identified as syndication.
     #
     # UNKNOWN_PATH:
-    #   Any path pattern we have not explicitly classified yet. Do not
-    #   silently treat this as a normal original.
+    #   Any path pattern we have not explicitly classified yet.
+    syndicated = bool(_get_attr(osx_asset, "syndicated", default=False))
+    saved_to_library = bool(_get_attr(osx_asset, "saved_to_library", default=False))
+
+    if syndicated and not saved_to_library:
+        return "SCOPES_SYNDICATION"
+
+    if path is None:
+        return "PATH_NONE"
+
+    path_string = str(path)
+
+    if "/scopes/syndication/" in path_string:
+        return "SCOPES_SYNDICATION"
+
+    if "/originals/" in path_string:
+        return "NORMAL_ORIGINALS"
+
+    return "UNKNOWN_PATH"
+
+
+def _classify_asset_path_string(path):
+    # Backward-compatible path-only classifier for already-built inventory
+    # objects or older callers that do not have the raw osxphotos object.
     if path is None:
         return "PATH_NONE"
 
@@ -155,7 +174,7 @@ def _classify_asset_path_string(path):
 
 def classify_asset_path_scope(asset):
     # Public helper for already-built inventory asset objects.
-    return _classify_asset_path_string(asset.get("path"))
+    return asset.get("asset_scope") or _classify_asset_path_string(asset.get("path"))
 
 # ------------------------------------------------------------
 # Internal Photo Library asset unique ID helpers
@@ -189,14 +208,12 @@ def _to_taipei_datetime(value):
 
 
 def _format_no_year_taipei_datetime(value):
-    # Format asset capture date for matching.
-    #
-    # Year is removed because the user may intentionally change years
-    # for Photos sorting.
     dt = _to_taipei_datetime(value)
 
     if dt is None:
         return None
+
+    centisecond = dt.microsecond // 10000
 
     return (
         f"{dt.month:02d}-"
@@ -204,9 +221,8 @@ def _format_no_year_taipei_datetime(value):
         f"{dt.hour:02d}:"
         f"{dt.minute:02d}:"
         f"{dt.second:02d}."
-        f"{dt.microsecond:06d}"
+        f"{centisecond:02d}"
     )
-
 
 def _format_full_taipei_datetime(value):
     # Format full date_added for matching.
@@ -397,7 +413,19 @@ def _assert_same_field(existing_object, new_object, field_name, object_type):
 def _create_asset_object(osx_asset):
     # Create one Asset object from one osxphotos asset.
     path = str(osx_asset.path) if osx_asset.path else None
-    asset_scope = _classify_asset_path_string(path)
+    asset_scope = _classify_osx_asset_scope(osx_asset, path)
+
+    syndicated = bool(_get_attr(osx_asset, "syndicated", default=False))
+    saved_to_library = bool(_get_attr(osx_asset, "saved_to_library", default=False))
+    ismissing = bool(_get_attr(osx_asset, "ismissing", default=False))
+    original_filesize = _get_attr(osx_asset, "original_filesize", default=None)
+
+    path_derivatives = _get_attr(osx_asset, "path_derivatives", default=[])
+    path_derivatives = tuple(
+        str(path_derivative)
+        for path_derivative in (path_derivatives or [])
+        if path_derivative
+    )
 
     path_live_photo = _get_attr(osx_asset, "path_live_photo", default=None)
     path_live_photo = str(path_live_photo) if path_live_photo else None
@@ -424,6 +452,14 @@ def _create_asset_object(osx_asset):
         "path": path,
         "asset_scope": asset_scope,
 
+        # Shared-with-You / Messages syndication state from osxphotos.
+        # These fields are kept even when the asset is moved to special_assets.
+        "syndicated": syndicated,
+        "saved_to_library": saved_to_library,
+        "ismissing": ismissing,
+        "original_filesize": original_filesize,
+        "path_derivatives": path_derivatives,
+
         "is_movie": bool(osx_asset.ismovie),
 
         "date": _to_iso_string(osx_asset.date),
@@ -436,19 +472,12 @@ def _create_asset_object(osx_asset):
         "hidden": _get_attr(osx_asset, "hidden", default=None),
 
         # Photos-visible dimensions.
-        #
-        # For edited/cropped images, width/height can differ from
-        # original_width/original_height and must be available for
-        # adjustment_signature.
         "width": _get_attr(osx_asset, "width", default=None),
         "height": _get_attr(osx_asset, "height", default=None),
         "original_width": _get_attr(osx_asset, "original_width", default=None),
         "original_height": _get_attr(osx_asset, "original_height", default=None),
 
         # Edited / adjustment metadata.
-        #
-        # path_edited points to Photos rendered content when an asset has
-        # adjustments, for example cropped images or trimmed videos.
         "hasadjustments": bool(_get_attr(osx_asset, "hasadjustments", default=False)),
         "adjustment_type": _get_attr(osx_asset, "adjustment_type", default=None),
         "external_edit": bool(_get_attr(osx_asset, "external_edit", default=False)),
@@ -467,9 +496,6 @@ def _create_asset_object(osx_asset):
         "photo_library_asset_unique_id": None,
 
         # Safety-rule metadata for duplicate cleanup.
-        #
-        # Location is not part of photo_library_asset_unique_id,
-        # but it affects keep/delete safety decisions.
         "latitude": latitude,
         "longitude": longitude,
         "location": _to_serializable_string(location),
@@ -480,8 +506,8 @@ def _create_asset_object(osx_asset):
         "is_live_photo": is_live_photo,
         "path_live_photo": path_live_photo,
 
-        "albums": {},   # album_uuid -> Album object
-        "folders": {},  # folder_uuid -> Folder object
+        "albums": {},
+        "folders": {},
     }
 
 def _create_album_object(album_info):
@@ -585,35 +611,35 @@ def build_inventory(osx_assets):
     # Build inventory from osxphotos assets.
     #
     # Important boundary:
-    # inventory["assets"] is the main comparison input and should only contain
-    # normal Photos Library assets plus unresolved PATH_NONE records for now.
+    # inventory["assets"] is the main comparison input and should contain
+    # normal Photos Library originals plus unresolved non-syndication PATH_NONE
+    # records only.
     #
-    # SCOPES_SYNDICATION assets are kept separately because they are
-    # Shared-with-You / Messages syndicated records, not normal saved Photos
-    # Library originals. Including them in inventory["assets"] pollutes
-    # unique-ID audit and backup-vs-current repair comparison.
+    # Shared-with-You / Messages syndicated records are kept separately in
+    # special_assets. They are not discarded. They are preserved for the
+    # Messages attachment recovery / solidify pipeline.
     inventory = {
-        "assets": [],          # list[Asset object] for formal comparison
+        "assets": [],
         "special_assets": {
             "SCOPES_SYNDICATION": [],
         },
-        "albums": {},          # album_uuid -> Album object
-        "folders": {},         # folder_uuid -> Folder object
+        "albums": {},
+        "folders": {},
         "errors": [],
     }
 
     seen_asset_uuids = set()
-    seen_syndication_asset_uuids = set()
+    seen_special_asset_uuids = set()
 
     for index, osx_asset in enumerate(osx_assets, start=1):
         asset = _create_asset_object(osx_asset)
         asset_uuid = asset["uuid"]
 
         if asset["asset_scope"] == "SCOPES_SYNDICATION":
-            if asset_uuid in seen_syndication_asset_uuids:
-                raise RuntimeError(f"Duplicate syndication asset UUID: {asset_uuid}")
+            if asset_uuid in seen_special_asset_uuids:
+                raise RuntimeError(f"Duplicate special asset UUID: {asset_uuid}")
 
-            seen_syndication_asset_uuids.add(asset_uuid)
+            seen_special_asset_uuids.add(asset_uuid)
             inventory["special_assets"]["SCOPES_SYNDICATION"].append(asset)
 
             if index % 10000 == 0:
@@ -659,6 +685,13 @@ def print_inventory_summary(inventory):
     print("inventory assets:", len(inventory["assets"]))
     print("inventory albums:", len(inventory["albums"]))
     print("inventory folders:", len(inventory["folders"]))
+
+    special_assets = inventory.get("special_assets") or {}
+
+    if special_assets:
+        print("special assets:")
+        for scope, assets in sorted(special_assets.items()):
+            print(f"  {scope}: {len(assets)}")
 
     hidden_count = sum(
         1
@@ -1001,23 +1034,30 @@ def choose_directory_path(title="Select Folder", initial_dir=None):
     return selected_path
 
 
-def choose_photos_library_path(initial_dir=None):
+def choose_photos_library_path(initial_dir=None, prompt="Select Photos Library (.photoslibrary)"):
     # Open a macOS picker and return the selected .photoslibrary package path.
     #
-    # Important:
-    # - .photoslibrary is a macOS package.
-    # - AppleScript may return the POSIX path with a trailing slash.
-    # - Normalize the returned path before validating the suffix.
+    # .photoslibrary is a macOS package. AppleScript choose file works better
+    # than tkinter.askdirectory for selecting this kind of package.
+    #
+    # prompt is optional so old notebook calls remain compatible.
     initial_dir = os.fspath(initial_dir or "/Volumes")
 
-    applescript = f'''
-set initialFolder to POSIX file "{initial_dir}"
-set selectedItem to choose file with prompt "Select Photos Library (.photoslibrary)" default location initialFolder
-return POSIX path of selectedItem
+    if not os.path.exists(initial_dir):
+        initial_dir = "/Volumes"
+
+    applescript = '''
+on run argv
+    set initialFolderPath to item 1 of argv
+    set pickerPrompt to item 2 of argv
+    set initialFolder to POSIX file initialFolderPath
+    set selectedItem to choose file with prompt pickerPrompt default location initialFolder
+    return POSIX path of selectedItem
+end run
 '''
 
     result = subprocess.run(
-        ["osascript", "-e", applescript],
+        ["osascript", "-e", applescript, initial_dir, prompt],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
