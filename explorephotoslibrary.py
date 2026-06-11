@@ -20,8 +20,9 @@ import subprocess
 import time
 from collections import defaultdict, Counter
 from datetime import datetime
+from enum import Enum
+from pathlib import Path
 from zoneinfo import ZoneInfo
-
 
 __all__ = [
     # Inventory building / cache / search
@@ -44,6 +45,14 @@ __all__ = [
     "save_json_file",
     "choose_directory_path",
     "choose_photos_library_path",
+
+    # Cross-library comparison / missing-current review
+    "compare_inventories",
+    "summarize_diff_records",
+    "filter_diff_records",
+    "print_missing_current_review",
+    "write_missing_current_review_report",
+    "print_missing_current_review_report_summary",
 
     # Duplicate cleanup / review report pipeline
     "fill_duplicate_cleanup_identity_fields",
@@ -118,28 +127,18 @@ def _get_attr(obj, name, default=None):
 
     return value
 
-def _classify_osx_asset_scope(osx_asset, path):
-    # Classify where an osxphotos asset belongs in this project.
+def _get_asset_local_file_status(osx_asset, path):
+    # Classify this Photos asset for inventory routing.
     #
-    # NORMAL_ORIGINALS:
-    #   Regular Photos Library originals that should participate in
-    #   backup-vs-current comparison.
-    #
-    # SCOPES_SYNDICATION:
-    #   Shared-with-You / Messages syndicated records that are not saved as
-    #   normal Photos Library originals.
-    #
-    # PATH_NONE:
-    #   Photos database has an asset record, but osxphotos did not provide
-    #   a local file path, and the record is not identified as syndication.
-    #
-    # UNKNOWN_PATH:
-    #   Any path pattern we have not explicitly classified yet.
+    # Rule:
+    # - syndicated is an osxphotos / Photos database flag.
+    # - If osxphotos says syndicated=True, trust the flag.
+    # - Only when syndicated=False do we inspect path to decide whether this
+    #   is a normal local original, path-none, or unknown path structure.
     syndicated = bool(_get_attr(osx_asset, "syndicated", default=False))
-    saved_to_library = bool(_get_attr(osx_asset, "saved_to_library", default=False))
 
-    if syndicated and not saved_to_library:
-        return "SCOPES_SYNDICATION"
+    if syndicated:
+        return "SYNDICATED"
 
     if path is None:
         return "PATH_NONE"
@@ -147,34 +146,42 @@ def _classify_osx_asset_scope(osx_asset, path):
     path_string = str(path)
 
     if "/scopes/syndication/" in path_string:
-        return "SCOPES_SYNDICATION"
+        return "UNKNOWN_PATH"
 
     if "/originals/" in path_string:
-        return "NORMAL_ORIGINALS"
+        return "NORMAL"
 
     return "UNKNOWN_PATH"
 
-
-def _classify_asset_path_string(path):
-    # Backward-compatible path-only classifier for already-built inventory
-    # objects or older callers that do not have the raw osxphotos object.
+def _get_local_file_status_from_path(path):
+    # Path-only fallback for older cached inventory objects or old callers.
+    # Core inventory build should use _get_asset_local_file_status(), because
+    # only the osxphotos asset object has the authoritative syndicated flag.
     if path is None:
         return "PATH_NONE"
 
     path_string = str(path)
 
     if "/scopes/syndication/" in path_string:
-        return "SCOPES_SYNDICATION"
+        return "SYNDICATED"
 
     if "/originals/" in path_string:
-        return "NORMAL_ORIGINALS"
+        return "NORMAL"
 
     return "UNKNOWN_PATH"
+
+def get_asset_local_file_status(asset):
+    # Public helper for already-built inventory asset dictionaries.
+    return (
+        asset.get("local_file_status")
+        or asset.get("asset_scope")
+        or _get_local_file_status_from_path(asset.get("path"))
+    )
 
 
 def classify_asset_path_scope(asset):
-    # Public helper for already-built inventory asset objects.
-    return asset.get("asset_scope") or _classify_asset_path_string(asset.get("path"))
+    # Backward-compatible wrapper for older notebook cells.
+    return get_asset_local_file_status(asset)
 
 # ------------------------------------------------------------
 # Internal Photo Library asset unique ID helpers
@@ -246,43 +253,98 @@ def _make_photo_library_asset_unique_id(
     original_filename,
     filename,
     date,
-    file_size_bytes,
+    file_size,
     adjustment_signature,
+    sha256=None,
 ):
-    # Current proposed Photo Library asset unique ID.
-    #
-    # Main purpose:
-    #   Cross-library matching.
-    #
-    # Scheme:
-    #   1. full original_filename
-    #   2. capture date converted to Asia/Taipei, year removed
-    #   3. original file size in bytes
-    #   4. adjustment_signature
-    #
-    # date_added is intentionally excluded because repair/import operations
-    # create a new date_added value.
-    #
-    # adjustment_signature is intentionally compact:
-    #   - None for no useful adjustment signal
-    #   - float for edited video duration
-    #   - (width, height) for edited image visible size
-    filename_for_id = original_filename or filename
+    original_filename = original_filename or filename
+    date = _format_no_year_taipei_datetime(date)
 
-    no_year_datetime = _format_no_year_taipei_datetime(date)
-
-    if filename_for_id is None or no_year_datetime is None or file_size_bytes is None:
+    if original_filename is None or date is None or file_size is None:
         return None
 
     return (
-        filename_for_id,
-        no_year_datetime,
-        file_size_bytes,
+        original_filename,
+        date,
+        file_size,
         adjustment_signature,
+        sha256,
     )
 
+def finalize_photo_library_asset_unique_ids(inventory):
+    first_four_to_assets = defaultdict(list)
 
-def _get_file_size_bytes_from_asset(asset):
+    for asset in inventory["assets"]:
+        file_size = _get_file_size_from_asset(asset)
+        adjustment_signature = _make_adjustment_signature(asset)
+
+        unique_id = _make_photo_library_asset_unique_id(
+            original_filename=asset.get("original_filename"),
+            filename=asset.get("filename"),
+            date=asset.get("date"),
+            file_size=file_size,
+            adjustment_signature=adjustment_signature,
+            sha256=None,
+        )
+
+        if unique_id is None:
+            print("FATAL: cannot create photo_library_asset_unique_id")
+            print(json.dumps(asset, ensure_ascii=False, indent=2, default=str))
+            raise RuntimeError("Cannot create photo_library_asset_unique_id")
+
+        asset["photo_library_asset_unique_id"] = unique_id
+        first_four_to_assets[unique_id[:4]].append(asset)
+
+    for first_four, group in first_four_to_assets.items():
+        if len(group) <= 1:
+            continue
+
+        for asset in group:
+            path = asset.get("path")
+
+            if path is None:
+                print("FATAL: SHA required but asset path is None")
+                print("first four:", first_four)
+                print(json.dumps(asset, ensure_ascii=False, indent=2, default=str))
+                raise RuntimeError("SHA required but asset path is None")
+
+            if not os.path.exists(path):
+                print("FATAL: SHA required but asset path does not exist")
+                print("first four:", first_four)
+                print(json.dumps(asset, ensure_ascii=False, indent=2, default=str))
+                raise RuntimeError("SHA required but asset path does not exist")
+
+            sha256 = _sha256_file(path)
+
+            asset["photo_library_asset_unique_id"] = (
+                first_four[0],
+                first_four[1],
+                first_four[2],
+                first_four[3],
+                sha256,
+            )
+
+    final_unique_id_to_assets = defaultdict(list)
+
+    for asset in inventory["assets"]:
+        final_unique_id_to_assets[asset["photo_library_asset_unique_id"]].append(asset)
+
+    for unique_id, group in final_unique_id_to_assets.items():
+        if len(group) <= 1:
+            continue
+
+        print("FATAL: photo_library_asset_unique_id collision")
+        print("photo_library_asset_unique_id:", unique_id)
+        print("asset count:", len(group))
+
+        for asset in group:
+            print(json.dumps(asset, ensure_ascii=False, indent=2, default=str))
+
+        raise RuntimeError("photo_library_asset_unique_id collision")
+
+    return inventory
+
+def _get_file_size_from_asset(asset):
     path = asset.get("path")
 
     if path is None:
@@ -293,17 +355,16 @@ def _get_file_size_bytes_from_asset(asset):
     except OSError:
         return None
 
+
+def _get_file_size_bytes_from_asset(asset):
+    # Backward-compatible wrapper for old notebook/helper callers.
+    return _get_file_size_from_asset(asset)
+
 def _get_edited_duration_seconds_from_asset(asset):
-    # Return edited/rendered movie duration in seconds if available.
-    #
-    # Cost control:
-    # - If the asset has no edited/rendered path, return None.
-    # - If the asset is not a movie, return None.
-    # - Only edited movies call ffprobe.
-    #
-    # This distinguishes Photos assets that share the same original media file
-    # but represent different visible content after trimming/editing.
     if not asset.get("is_movie"):
+        return None
+
+    if not asset.get("hasadjustments"):
         return None
 
     path_edited = asset.get("path_edited")
@@ -353,26 +414,11 @@ def _get_edited_duration_seconds_from_asset(asset):
         return None
 
 def _make_adjustment_signature(asset):
-    # Compact fourth element for photo_library_asset_unique_id.
-    #
-    # Purpose:
-    # - photo_library_asset_unique_id is mainly for cross-library matching.
-    # - This adjustment_signature only separates Photos assets that share the
-    #   same original file but represent different adjusted/rendered versions.
-    #
-    # Value shape:
-    # - None: no useful adjustment signal.
-    # - float: edited video duration in seconds, rounded to 0.1 sec.
-    # - tuple[int, int]: edited image visible width/height.
-    path_edited = asset.get("path_edited")
-    path_edited_live_photo = asset.get("path_edited_live_photo")
-    has_adjustment = bool(asset.get("hasadjustments"))
-
-    if not has_adjustment and path_edited is None and path_edited_live_photo is None:
+    if not asset.get("hasadjustments"):
         return None
 
     if asset.get("is_movie"):
-        edited_duration_seconds = asset.get("edited_duration_seconds")
+        edited_duration_seconds = _get_edited_duration_seconds_from_asset(asset)
 
         if edited_duration_seconds is None:
             return None
@@ -388,7 +434,7 @@ def _make_adjustment_signature(asset):
     return (
         int(width),
         int(height),
-    )  
+    )
 
 def _folder_path_from_titles(folder_titles):
     # Build human-readable folder path.
@@ -411,9 +457,8 @@ def _assert_same_field(existing_object, new_object, field_name, object_type):
 # ------------------------------------------------------------
 
 def _create_asset_object(osx_asset):
-    # Create one Asset object from one osxphotos asset.
     path = str(osx_asset.path) if osx_asset.path else None
-    asset_scope = _classify_osx_asset_scope(osx_asset, path)
+    local_file_status = _get_asset_local_file_status(osx_asset, path)
 
     syndicated = bool(_get_attr(osx_asset, "syndicated", default=False))
     saved_to_library = bool(_get_attr(osx_asset, "saved_to_library", default=False))
@@ -447,13 +492,16 @@ def _create_asset_object(osx_asset):
     return {
         "uuid": osx_asset.uuid,
 
-        "filename": osx_asset.filename,
         "original_filename": osx_asset.original_filename,
+        "filename": osx_asset.filename,
         "path": path,
-        "asset_scope": asset_scope,
 
-        # Shared-with-You / Messages syndication state from osxphotos.
-        # These fields are kept even when the asset is moved to special_assets.
+        # Kept only so build_inventory() can route the asset.
+        # NORMAL assets will have this removed before entering inventory["assets"].
+        "local_file_status": local_file_status,
+
+        # Kept for special_assets buckets only.
+        # NORMAL assets will have these removed before entering inventory["assets"].
         "syndicated": syndicated,
         "saved_to_library": saved_to_library,
         "ismissing": ismissing,
@@ -471,43 +519,33 @@ def _create_asset_object(osx_asset):
         "favorite": bool(osx_asset.favorite),
         "hidden": _get_attr(osx_asset, "hidden", default=None),
 
-        # Photos-visible dimensions.
         "width": _get_attr(osx_asset, "width", default=None),
         "height": _get_attr(osx_asset, "height", default=None),
         "original_width": _get_attr(osx_asset, "original_width", default=None),
         "original_height": _get_attr(osx_asset, "original_height", default=None),
 
-        # Edited / adjustment metadata.
         "hasadjustments": bool(_get_attr(osx_asset, "hasadjustments", default=False)),
         "adjustment_type": _get_attr(osx_asset, "adjustment_type", default=None),
         "external_edit": bool(_get_attr(osx_asset, "external_edit", default=False)),
         "uti": _get_attr(osx_asset, "uti", default=None),
         "uti_original": _get_attr(osx_asset, "uti_original", default=None),
         "uti_edited": _get_attr(osx_asset, "uti_edited", default=None),
+
         "path_edited": path_edited,
+        "path_live_photo": path_live_photo,
         "path_edited_live_photo": path_edited_live_photo,
+        "is_live_photo": is_live_photo,
 
-        # Filled later by fill_photo_library_asset_unique_ids() or
-        # fill_duplicate_cleanup_identity_fields().
-        "file_size_bytes": None,
-        "edited_duration_seconds": None,
-        "adjustment_signature": None,
-        "photo_library_asset_base_id": None,
-        "photo_library_asset_unique_id": None,
-
-        # Safety-rule metadata for duplicate cleanup.
         "latitude": latitude,
         "longitude": longitude,
         "location": _to_serializable_string(location),
         "place": _to_serializable_string(place),
 
-        # Live Photo is not part of photo_library_asset_unique_id,
-        # but Live Photo candidates must not be auto-deleted in v1.
-        "is_live_photo": is_live_photo,
-        "path_live_photo": path_live_photo,
-
         "albums": {},
         "folders": {},
+
+        # Finalized during build_inventory().
+        "photo_library_asset_unique_id": None,
     }
 
 def _create_album_object(album_info):
@@ -608,20 +646,12 @@ def _get_folder_objects_from_album_info(inventory, album_info):
 # ------------------------------------------------------------
 
 def build_inventory(osx_assets):
-    # Build inventory from osxphotos assets.
-    #
-    # Important boundary:
-    # inventory["assets"] is the main comparison input and should contain
-    # normal Photos Library originals plus unresolved non-syndication PATH_NONE
-    # records only.
-    #
-    # Shared-with-You / Messages syndicated records are kept separately in
-    # special_assets. They are not discarded. They are preserved for the
-    # Messages attachment recovery / solidify pipeline.
     inventory = {
         "assets": [],
         "special_assets": {
-            "SCOPES_SYNDICATION": [],
+            "SYNDICATED": [],
+            "PATH_NONE": [],
+            "UNKNOWN_PATH": [],
         },
         "albums": {},
         "folders": {},
@@ -634,13 +664,14 @@ def build_inventory(osx_assets):
     for index, osx_asset in enumerate(osx_assets, start=1):
         asset = _create_asset_object(osx_asset)
         asset_uuid = asset["uuid"]
+        local_file_status = asset.get("local_file_status")
 
-        if asset["asset_scope"] == "SCOPES_SYNDICATION":
+        if local_file_status != "NORMAL":
             if asset_uuid in seen_special_asset_uuids:
                 raise RuntimeError(f"Duplicate special asset UUID: {asset_uuid}")
 
             seen_special_asset_uuids.add(asset_uuid)
-            inventory["special_assets"]["SCOPES_SYNDICATION"].append(asset)
+            inventory["special_assets"][local_file_status].append(asset)
 
             if index % 10000 == 0:
                 print("processed assets:", index)
@@ -651,6 +682,14 @@ def build_inventory(osx_assets):
             raise RuntimeError(f"Duplicate asset UUID: {asset_uuid}")
 
         seen_asset_uuids.add(asset_uuid)
+
+        # NORMAL assets do not need local-file-status / special-state fields.
+        asset.pop("local_file_status", None)
+        asset.pop("syndicated", None)
+        asset.pop("saved_to_library", None)
+        asset.pop("ismissing", None)
+        asset.pop("original_filesize", None)
+        asset.pop("path_derivatives", None)
 
         for album_info in osx_asset.album_info:
             album = _get_or_create_album(
@@ -673,6 +712,8 @@ def build_inventory(osx_assets):
 
         if index % 10000 == 0:
             print("processed assets:", index)
+
+    finalize_photo_library_asset_unique_ids(inventory)
 
     return inventory
 
@@ -734,31 +775,8 @@ def print_inventory_summary(inventory):
 # ------------------------------------------------------------
 
 def fill_photo_library_asset_unique_ids(inventory):
-    # Fill or refresh photo_library_asset_unique_id for all assets.
-    #
-    # Current scheme uses:
-    #   1. original_filename or filename
-    #   2. capture date converted to Asia/Taipei, year removed
-    #   3. original file size in bytes
-    #   4. adjustment_signature
-    #
-    # date_added is intentionally not used because repaired/imported assets
-    # receive a new date_added value.
-    for asset in inventory["assets"]:
-        file_size_bytes = _get_file_size_bytes_from_asset(asset)
-        edited_duration_seconds = _get_edited_duration_seconds_from_asset(asset)
-
-        asset["file_size_bytes"] = file_size_bytes
-        asset["edited_duration_seconds"] = edited_duration_seconds
-        asset["adjustment_signature"] = _make_adjustment_signature(asset)
-
-        asset["photo_library_asset_unique_id"] = _make_photo_library_asset_unique_id(
-            original_filename=asset.get("original_filename"),
-            filename=asset.get("filename"),
-            date=asset.get("date"),
-            file_size_bytes=file_size_bytes,
-            adjustment_signature=asset.get("adjustment_signature"),
-        )
+    # Backward-compatible wrapper for old notebook cells.
+    return finalize_photo_library_asset_unique_ids(inventory)
 
 def audit_photo_library_asset_unique_ids(
     inventory,
@@ -2376,3 +2394,780 @@ This report folder should be copied/backed up to Google Drive:
         "status_counts": status_counts,
         "safety_counts": safety_counts,
     }
+
+
+# ------------------------------------------------------------
+# Cross-library comparison helpers
+# ------------------------------------------------------------
+
+class _ChangeType(str, Enum):
+    ASSET_MISSING_FROM_CURRENT = "ASSET_MISSING_FROM_CURRENT"
+    ASSET_PRESENT_IN_CURRENT_AS_SYNDICATED = "ASSET_PRESENT_IN_CURRENT_AS_SYNDICATED"
+    ASSET_NEW_IN_CURRENT = "ASSET_NEW_IN_CURRENT"
+    ASSET_METADATA_CHANGED = "ASSET_METADATA_CHANGED"
+    ASSET_ALBUM_MEMBERSHIP_CHANGED = "ASSET_ALBUM_MEMBERSHIP_CHANGED"
+    ASSET_FOLDER_PATHS_CHANGED = "ASSET_FOLDER_PATHS_CHANGED"
+    ALBUM_MISSING_FROM_CURRENT = "ALBUM_MISSING_FROM_CURRENT"
+    ALBUM_NEW_IN_CURRENT = "ALBUM_NEW_IN_CURRENT"
+    ALBUM_FOLDER_PATHS_CHANGED = "ALBUM_FOLDER_PATHS_CHANGED"
+    FOLDER_MISSING_FROM_CURRENT = "FOLDER_MISSING_FROM_CURRENT"
+    FOLDER_NEW_IN_CURRENT = "FOLDER_NEW_IN_CURRENT"
+
+
+_CHANGE_TYPE_DESCRIPTIONS = {
+    _ChangeType.ASSET_MISSING_FROM_CURRENT:
+        "Asset exists in backup normal assets, and no matching current normal asset or current syndicated asset was found.",
+    _ChangeType.ASSET_PRESENT_IN_CURRENT_AS_SYNDICATED:
+        "Asset exists in backup normal assets, and exists in current special_assets/SYNDICATED. This is not true current-missing.",
+    _ChangeType.ASSET_NEW_IN_CURRENT:
+        "Asset exists in current normal assets but not in backup normal assets. Usually normal because current library is later.",
+    _ChangeType.ASSET_METADATA_CHANGED:
+        "Same asset identity exists in both libraries, but metadata differs.",
+    _ChangeType.ASSET_ALBUM_MEMBERSHIP_CHANGED:
+        "Same asset identity exists in both libraries, but album membership differs.",
+    _ChangeType.ASSET_FOLDER_PATHS_CHANGED:
+        "Same asset identity exists in both libraries, but folder paths differ.",
+    _ChangeType.ALBUM_MISSING_FROM_CURRENT:
+        "Album title exists in backup but not in current.",
+    _ChangeType.ALBUM_NEW_IN_CURRENT:
+        "Album title exists in current but not in backup.",
+    _ChangeType.ALBUM_FOLDER_PATHS_CHANGED:
+        "Album title exists in both libraries, but the album folder path differs.",
+    _ChangeType.FOLDER_MISSING_FROM_CURRENT:
+        "Folder path exists in backup but not in current.",
+    _ChangeType.FOLDER_NEW_IN_CURRENT:
+        "Folder path exists in current but not in backup.",
+}
+
+
+def _change_type_value(change_type):
+    if isinstance(change_type, _ChangeType):
+        return change_type.value
+    return str(change_type)
+
+
+def _change_type_description(change_type):
+    if not isinstance(change_type, _ChangeType):
+        try:
+            change_type = _ChangeType(change_type)
+        except ValueError:
+            return ""
+    return _CHANGE_TYPE_DESCRIPTIONS.get(change_type, "")
+
+
+def _add_diff(diff_records, change_type, scope, backup_object=None, current_object=None,
+              backup_value=None, current_value=None, note=None):
+    diff_records.append({
+        "change_type": _change_type_value(change_type),
+        "scope": scope,
+        "backup_object": backup_object,
+        "current_object": current_object,
+        "backup_value": backup_value,
+        "current_value": current_value,
+        "description": _change_type_description(change_type),
+        "note": note,
+    })
+
+
+def _sort_asset_ids(asset_ids):
+    return sorted(asset_ids, key=repr)
+
+
+def _asset_display_name(asset):
+    if asset is None:
+        return None
+    return {
+        "uuid": asset.get("uuid"),
+        "original_filename": asset.get("original_filename"),
+        "filename": asset.get("filename"),
+        "date": asset.get("date"),
+        "photo_library_asset_unique_id": asset.get("photo_library_asset_unique_id"),
+    }
+
+
+def _album_display_name(album):
+    if album is None:
+        return None
+    return {
+        "uuid": album.get("uuid"),
+        "title": album.get("title"),
+        "folder_paths": _album_folder_paths(album),
+    }
+
+
+def _folder_display_name(folder):
+    if folder is None:
+        return None
+    return {
+        "uuid": folder.get("uuid"),
+        "title": folder.get("title"),
+        "path": folder.get("path"),
+    }
+
+
+def _normalize_compare_scalar_value(value):
+    if value is None:
+        return None
+    if isinstance(value, list):
+        return tuple(value)
+    if isinstance(value, tuple):
+        return tuple(value)
+    if isinstance(value, dict):
+        return repr(value)
+    return value
+
+
+def _normalize_compare_string_tuple(values):
+    if not values:
+        return tuple()
+    normalized = []
+    for value in values:
+        if value is None:
+            continue
+        text = str(value).strip()
+        if text:
+            normalized.append(text)
+    return tuple(sorted(set(normalized)))
+
+
+def _compare_asset_album_titles(asset):
+    albums = asset.get("albums") or {}
+    return _normalize_compare_string_tuple(
+        album.get("title")
+        for album in albums.values()
+        if album.get("title")
+    )
+
+
+def _album_folder_paths(album):
+    # Return folder paths for one album.
+    folders = album.get("folders") or {}
+    return sorted(
+        folder.get("path") or folder.get("title")
+        for folder in folders.values()
+        if folder.get("path") or folder.get("title")
+    )
+
+
+def _make_asset_index_for_compare(inventory):
+    index = {}
+    for asset in inventory.get("assets") or []:
+        unique_id = asset.get("photo_library_asset_unique_id")
+        if unique_id is None:
+            raise RuntimeError("Normal asset has no photo_library_asset_unique_id:\n" f"{asset}")
+        if unique_id in index:
+            raise RuntimeError("Duplicate photo_library_asset_unique_id while making asset index:\n" f"{unique_id}")
+        index[unique_id] = asset
+    return index
+
+
+def _make_asset_key4_for_special_lookup(asset):
+    unique_id = asset.get("photo_library_asset_unique_id")
+    if unique_id is not None:
+        return tuple(unique_id[:4])
+
+    file_size = _get_file_size_from_asset(asset)
+    adjustment_signature = _make_adjustment_signature(asset)
+
+    unique_id = _make_photo_library_asset_unique_id(
+        original_filename=asset.get("original_filename"),
+        filename=asset.get("filename"),
+        date=asset.get("date"),
+        file_size=file_size,
+        adjustment_signature=adjustment_signature,
+        sha256=None,
+    )
+    if unique_id is None:
+        return None
+    return tuple(unique_id[:4])
+
+
+def _make_special_asset_key4_index(inventory, bucket_names=("SYNDICATED",)):
+    index = {}
+    special_assets = inventory.get("special_assets") or {}
+    for bucket_name in bucket_names:
+        for asset in special_assets.get(bucket_name, []):
+            key4 = _make_asset_key4_for_special_lookup(asset)
+            if key4 is None:
+                continue
+            index.setdefault(key4, []).append(asset)
+    return index
+
+
+def _make_album_title_index(inventory):
+    index = {}
+    for album in (inventory.get("albums") or {}).values():
+        title = album.get("title")
+        if title is None:
+            continue
+        index.setdefault(title, []).append(album)
+    return index
+
+
+def _make_folder_path_index(inventory):
+    index = {}
+    for folder in (inventory.get("folders") or {}).values():
+        path = folder.get("path") or folder.get("title")
+        if path is None:
+            continue
+        index.setdefault(path, []).append(folder)
+    return index
+
+
+def _compare_asset_existence(inventory_backup, inventory_current, diff_records):
+    backup_assets = _make_asset_index_for_compare(inventory_backup)
+    current_assets = _make_asset_index_for_compare(inventory_current)
+    current_syndicated_by_key4 = _make_special_asset_key4_index(
+        inventory_current,
+        bucket_names=("SYNDICATED",),
+    )
+    backup_ids = set(backup_assets)
+    current_ids = set(current_assets)
+
+    for asset_id in _sort_asset_ids(backup_ids - current_ids):
+        backup_asset = backup_assets[asset_id]
+        asset_key4 = tuple(asset_id[:4])
+        current_syndicated_matches = current_syndicated_by_key4.get(asset_key4, [])
+        if current_syndicated_matches:
+            _add_diff(
+                diff_records=diff_records,
+                change_type=_ChangeType.ASSET_PRESENT_IN_CURRENT_AS_SYNDICATED,
+                scope="asset",
+                backup_object=backup_asset,
+                current_object=current_syndicated_matches,
+                backup_value=_asset_display_name(backup_asset),
+                current_value=[_asset_display_name(current_asset) for current_asset in current_syndicated_matches],
+                note=(
+                    "Backup normal asset is not present in current normal assets, "
+                    "but a matching current special_assets/SYNDICATED asset exists by "
+                    "original_filename/date/file_size/adjustment_signature. "
+                    "Do not treat as true current-missing."
+                ),
+            )
+            continue
+
+        _add_diff(
+            diff_records=diff_records,
+            change_type=_ChangeType.ASSET_MISSING_FROM_CURRENT,
+            scope="asset",
+            backup_object=backup_asset,
+            current_object=None,
+            backup_value=_asset_display_name(backup_asset),
+            current_value=None,
+            note="Asset exists in backup normal assets, and no matching current normal asset or current syndicated asset was found.",
+        )
+
+    for asset_id in _sort_asset_ids(current_ids - backup_ids):
+        current_asset = current_assets[asset_id]
+        _add_diff(
+            diff_records=diff_records,
+            change_type=_ChangeType.ASSET_NEW_IN_CURRENT,
+            scope="asset",
+            backup_object=None,
+            current_object=current_asset,
+            backup_value=None,
+            current_value=_asset_display_name(current_asset),
+            note="Asset exists in current normal assets but not in backup normal assets.",
+        )
+
+
+def _compare_asset_metadata(inventory_backup, inventory_current, diff_records):
+    backup_assets = _make_asset_index_for_compare(inventory_backup)
+    current_assets = _make_asset_index_for_compare(inventory_current)
+    common_ids = set(backup_assets) & set(current_assets)
+    metadata_fields = ["description", "keywords", "favorite", "hidden"]
+
+    for asset_id in _sort_asset_ids(common_ids):
+        backup_asset = backup_assets[asset_id]
+        current_asset = current_assets[asset_id]
+        changed_fields = {}
+
+        for field_name in metadata_fields:
+            backup_value = _normalize_compare_scalar_value(backup_asset.get(field_name))
+            current_value = _normalize_compare_scalar_value(current_asset.get(field_name))
+            if backup_value == current_value:
+                continue
+            changed_fields[field_name] = {"backup": backup_value, "current": current_value}
+
+        if not changed_fields:
+            continue
+
+        _add_diff(
+            diff_records=diff_records,
+            change_type=_ChangeType.ASSET_METADATA_CHANGED,
+            scope="asset",
+            backup_object=backup_asset,
+            current_object=current_asset,
+            backup_value=changed_fields,
+            current_value=changed_fields,
+            note="Same normal asset identity exists in both libraries, but metadata differs.",
+        )
+
+
+def _compare_asset_album_membership(inventory_backup, inventory_current, diff_records):
+    backup_assets = _make_asset_index_for_compare(inventory_backup)
+    current_assets = _make_asset_index_for_compare(inventory_current)
+    common_ids = set(backup_assets) & set(current_assets)
+
+    for asset_id in _sort_asset_ids(common_ids):
+        backup_asset = backup_assets[asset_id]
+        current_asset = current_assets[asset_id]
+        backup_album_titles = set(_compare_asset_album_titles(backup_asset))
+        current_album_titles = set(_compare_asset_album_titles(current_asset))
+        if backup_album_titles == current_album_titles:
+            continue
+
+        _add_diff(
+            diff_records=diff_records,
+            change_type=_ChangeType.ASSET_ALBUM_MEMBERSHIP_CHANGED,
+            scope="asset",
+            backup_object=backup_asset,
+            current_object=current_asset,
+            backup_value=sorted(backup_album_titles),
+            current_value=sorted(current_album_titles),
+            note="Same normal asset identity exists in both libraries, but album membership differs.",
+        )
+
+
+def _compare_asset_folder_paths(inventory_backup, inventory_current, diff_records):
+    backup_assets = _make_asset_index_for_compare(inventory_backup)
+    current_assets = _make_asset_index_for_compare(inventory_current)
+    common_ids = set(backup_assets) & set(current_assets)
+
+    for asset_id in _sort_asset_ids(common_ids):
+        backup_asset = backup_assets[asset_id]
+        current_asset = current_assets[asset_id]
+        backup_paths = set(_asset_folder_paths(backup_asset))
+        current_paths = set(_asset_folder_paths(current_asset))
+        if backup_paths == current_paths:
+            continue
+
+        _add_diff(
+            diff_records=diff_records,
+            change_type=_ChangeType.ASSET_FOLDER_PATHS_CHANGED,
+            scope="asset",
+            backup_object=backup_asset,
+            current_object=current_asset,
+            backup_value=sorted(backup_paths),
+            current_value=sorted(current_paths),
+            note="Same normal asset identity exists in both libraries, but folder paths differ.",
+        )
+
+
+def _compare_album_existence_and_folder_paths(inventory_backup, inventory_current, diff_records):
+    backup_album_index = _make_album_title_index(inventory_backup)
+    current_album_index = _make_album_title_index(inventory_current)
+    backup_titles = set(backup_album_index)
+    current_titles = set(current_album_index)
+
+    for title in sorted(backup_titles - current_titles):
+        backup_albums = backup_album_index[title]
+        _add_diff(
+            diff_records=diff_records,
+            change_type=_ChangeType.ALBUM_MISSING_FROM_CURRENT,
+            scope="album",
+            backup_object=backup_albums,
+            current_object=None,
+            backup_value=[_album_display_name(album) for album in backup_albums],
+            current_value=None,
+            note="Album title exists in backup but not in current.",
+        )
+
+    for title in sorted(current_titles - backup_titles):
+        current_albums = current_album_index[title]
+        _add_diff(
+            diff_records=diff_records,
+            change_type=_ChangeType.ALBUM_NEW_IN_CURRENT,
+            scope="album",
+            backup_object=None,
+            current_object=current_albums,
+            backup_value=None,
+            current_value=[_album_display_name(album) for album in current_albums],
+            note="Album title exists in current but not in backup.",
+        )
+
+    for title in sorted(backup_titles & current_titles):
+        backup_albums = backup_album_index[title]
+        current_albums = current_album_index[title]
+        if len(backup_albums) != 1 or len(current_albums) != 1:
+            continue
+        backup_album = backup_albums[0]
+        current_album = current_albums[0]
+        backup_paths = set(_album_folder_paths(backup_album))
+        current_paths = set(_album_folder_paths(current_album))
+        if backup_paths == current_paths:
+            continue
+
+        _add_diff(
+            diff_records=diff_records,
+            change_type=_ChangeType.ALBUM_FOLDER_PATHS_CHANGED,
+            scope="album",
+            backup_object=backup_album,
+            current_object=current_album,
+            backup_value=sorted(backup_paths),
+            current_value=sorted(current_paths),
+            note="Album title exists in both libraries, but folder path differs.",
+        )
+
+
+def _compare_folder_paths(inventory_backup, inventory_current, diff_records):
+    backup_folder_index = _make_folder_path_index(inventory_backup)
+    current_folder_index = _make_folder_path_index(inventory_current)
+    backup_paths = set(backup_folder_index)
+    current_paths = set(current_folder_index)
+
+    for path in sorted(backup_paths - current_paths):
+        backup_folders = backup_folder_index[path]
+        _add_diff(
+            diff_records=diff_records,
+            change_type=_ChangeType.FOLDER_MISSING_FROM_CURRENT,
+            scope="folder",
+            backup_object=backup_folders,
+            current_object=None,
+            backup_value=[_folder_display_name(folder) for folder in backup_folders],
+            current_value=None,
+            note="Folder path exists in backup but not in current.",
+        )
+
+    for path in sorted(current_paths - backup_paths):
+        current_folders = current_folder_index[path]
+        _add_diff(
+            diff_records=diff_records,
+            change_type=_ChangeType.FOLDER_NEW_IN_CURRENT,
+            scope="folder",
+            backup_object=None,
+            current_object=current_folders,
+            backup_value=None,
+            current_value=[_folder_display_name(folder) for folder in current_folders],
+            note="Folder path exists in current but not in backup.",
+        )
+
+
+def compare_inventories(inventory_backup, inventory_current):
+    diff_records = []
+    _compare_asset_existence(inventory_backup, inventory_current, diff_records)
+    _compare_asset_metadata(inventory_backup, inventory_current, diff_records)
+    _compare_asset_album_membership(inventory_backup, inventory_current, diff_records)
+    _compare_asset_folder_paths(inventory_backup, inventory_current, diff_records)
+    _compare_album_existence_and_folder_paths(inventory_backup, inventory_current, diff_records)
+    _compare_folder_paths(inventory_backup, inventory_current, diff_records)
+    return diff_records
+
+
+def filter_diff_records(diff_records, change_type):
+    change_type = _change_type_value(change_type)
+    return [record for record in diff_records if record.get("change_type") == change_type]
+
+
+def summarize_diff_records(diff_records):
+    print("diff record count:", len(diff_records))
+    print()
+    counts = Counter(record.get("change_type") for record in diff_records)
+    print("change_type counts")
+    print("-" * 80)
+    for change_type, count in sorted(counts.items()):
+        print(f"{change_type}: {count}")
+
+    print()
+    scope_counts = Counter(record.get("scope") for record in diff_records)
+    print("scope counts")
+    print("-" * 80)
+    for scope, count in sorted(scope_counts.items()):
+        print(f"{scope}: {count}")
+
+
+# ------------------------------------------------------------
+# ASSET_MISSING_FROM_CURRENT review report helpers
+# ------------------------------------------------------------
+
+def _format_file_size_for_review(value):
+    if value is None:
+        return "-"
+    try:
+        return f"{int(value):,} bytes"
+    except Exception:
+        return str(value)
+
+
+def _asset_original_resolution(asset):
+    original_width = asset.get("original_width")
+    original_height = asset.get("original_height")
+    if original_width is None or original_height is None:
+        return "-"
+    return f"{original_width}x{original_height}"
+
+
+def _asset_current_candidate_line(asset, prefix="  current_candidate"):
+    unique_id = asset.get("photo_library_asset_unique_id")
+    date_key = unique_id[1] if unique_id and len(unique_id) > 1 else "-"
+    file_size = unique_id[2] if unique_id and len(unique_id) > 2 else _get_file_size_from_asset(asset)
+    adjustment_signature = unique_id[3] if unique_id and len(unique_id) > 3 else _make_adjustment_signature(asset)
+    path = asset.get("path")
+    scope = asset.get("local_file_status") or "NORMAL"
+
+    return (
+        f"{prefix}: "
+        f"{scope} | "
+        f"uuid={asset.get('uuid')} | "
+        f"date_key={date_key} | "
+        f"file_size={_format_file_size_for_review(file_size)} | "
+        f"adjustment_signature={adjustment_signature} | "
+        f"original_size={_asset_original_resolution(asset)} | "
+        f"hasadjustments={asset.get('hasadjustments')} | "
+        f"path_exists={None if path is None else os.path.exists(path)}"
+    )
+
+
+def _build_current_filename_candidate_index(inventory_current):
+    index = defaultdict(list)
+    for asset in inventory_current.get("assets") or []:
+        filename = asset.get("original_filename") or asset.get("filename")
+        if filename:
+            index[filename].append(asset)
+
+    for bucket_name, assets in (inventory_current.get("special_assets") or {}).items():
+        for asset in assets:
+            filename = asset.get("original_filename") or asset.get("filename")
+            if filename:
+                candidate = dict(asset)
+                candidate["local_file_status"] = bucket_name
+                index[filename].append(candidate)
+    return index
+
+
+def _missing_current_review_rows(missing_records, inventory_current):
+    current_filename_index = _build_current_filename_candidate_index(inventory_current)
+    rows = []
+
+    for index, record in enumerate(missing_records, start=1):
+        asset = record.get("backup_object") or {}
+        path = asset.get("path")
+        unique_id = asset.get("photo_library_asset_unique_id")
+        original_filename = asset.get("original_filename") or asset.get("filename")
+        current_candidates = current_filename_index.get(original_filename, [])
+
+        row = {
+            "index": index,
+            "change_type": record.get("change_type"),
+            "description": record.get("description"),
+            "note": record.get("note"),
+            "uuid": asset.get("uuid"),
+            "original_filename": original_filename,
+            "unique_id_repr": repr(unique_id),
+            "date": asset.get("date"),
+            "date_added": asset.get("date_added"),
+            "date_modified": asset.get("date_modified"),
+            "is_movie": asset.get("is_movie"),
+            "file_size": unique_id[2] if unique_id and len(unique_id) > 2 else _get_file_size_from_asset(asset),
+            "original_resolution": _asset_original_resolution(asset),
+            "hasadjustments": asset.get("hasadjustments"),
+            "adjustment_signature": unique_id[3] if unique_id and len(unique_id) > 3 else _make_adjustment_signature(asset),
+            "path_exists": None if path is None else os.path.exists(path),
+            "path": path,
+            "path_edited": asset.get("path_edited"),
+            "description_text": asset.get("description") or "-",
+            "keywords": list(asset.get("keywords") or []),
+            "favorite": asset.get("favorite"),
+            "hidden": asset.get("hidden"),
+            "first_album": (list(_compare_asset_album_titles(asset)) or ["-"])[0],
+            "all_albums": list(_compare_asset_album_titles(asset)),
+            "folders": list(_asset_folder_paths(asset)),
+            "current_candidate_count_same_original_filename": len(current_candidates),
+            "current_candidates": current_candidates,
+        }
+        rows.append(row)
+
+    return rows
+
+
+def _write_missing_review_txt(path, rows):
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("=" * 120 + "\n")
+        f.write("Section 5A: Compact ASSET_MISSING_FROM_CURRENT review list\n")
+        f.write("=" * 120 + "\n")
+        f.write(f"matched record count: {len(rows)}\n\n")
+
+        f.write("Quick counts\n")
+        f.write("-" * 120 + "\n")
+        f.write(f"is_movie: {dict(Counter(row.get('is_movie') for row in rows))}\n")
+        f.write(f"hasadjustments: {dict(Counter(row.get('hasadjustments') for row in rows))}\n")
+        f.write(f"favorite: {dict(Counter(row.get('favorite') for row in rows))}\n")
+        f.write(f"hidden: {dict(Counter(row.get('hidden') for row in rows))}\n")
+        f.write(f"path_exists: {dict(Counter(row.get('path_exists') for row in rows))}\n\n")
+
+        f.write("=" * 120 + "\n")
+        f.write("One-by-one manual verification checklist\n")
+        f.write("=" * 120 + "\n\n")
+
+        for row in rows:
+            f.write(f"{row['index']:02d}. {row.get('original_filename')}\n")
+            f.write("-" * 120 + "\n")
+            f.write(f"change_type: {row.get('change_type')}\n")
+            f.write(f"description: {row.get('description')}\n")
+            f.write(f"note: {row.get('note')}\n")
+            f.write(f"uuid: {row.get('uuid')}\n")
+            f.write(f"unique_id: {row.get('unique_id_repr')}\n")
+            f.write(f"date: {row.get('date')}\n")
+            f.write(f"date_added: {row.get('date_added')}\n")
+            f.write(f"date_modified: {row.get('date_modified')}\n")
+            f.write(f"file_size: {_format_file_size_for_review(row.get('file_size'))}\n")
+            f.write(f"original_size: {row.get('original_resolution')}\n")
+            f.write(f"hasadjustments: {row.get('hasadjustments')}\n")
+            f.write(f"adjustment_signature: {row.get('adjustment_signature')}\n")
+            f.write(f"path_exists: {row.get('path_exists')}\n")
+            f.write(f"path: {row.get('path')}\n")
+            f.write(f"path_edited: {row.get('path_edited')}\n")
+            f.write(f"description_text: {row.get('description_text')}\n")
+            f.write(f"keywords: {row.get('keywords')}\n")
+            f.write(f"favorite: {row.get('favorite')}\n")
+            f.write(f"hidden: {row.get('hidden')}\n")
+            f.write(f"first_album: {row.get('first_album')}\n")
+            f.write(f"all_albums: {row.get('all_albums')}\n")
+            f.write(f"folders: {row.get('folders')}\n")
+            f.write("current candidates with same original_filename: "
+                    f"{row.get('current_candidate_count_same_original_filename')}\n")
+
+            for candidate_index, candidate in enumerate(row.get("current_candidates") or [], start=1):
+                if candidate_index > 5:
+                    f.write("  ... more current candidates not printed\n")
+                    break
+                f.write(_asset_current_candidate_line(candidate, prefix=f"  current_candidate_{candidate_index}") + "\n")
+            f.write("\n")
+
+
+def _write_missing_review_tsv(path, rows):
+    fieldnames = [
+        "index", "change_type", "uuid", "original_filename", "date", "date_added",
+        "date_modified", "is_movie", "file_size", "original_resolution", "hasadjustments",
+        "adjustment_signature", "path_exists", "path", "path_edited", "description_text",
+        "keywords", "favorite", "hidden", "first_album", "all_albums", "folders",
+        "current_candidate_count_same_original_filename",
+    ]
+    with open(path, "w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames, delimiter="\t", extrasaction="ignore")
+        writer.writeheader()
+        for row in rows:
+            writer.writerow({key: _stringify_tsv_value(row.get(key)) for key in fieldnames})
+
+
+
+def _print_missing_review_rows(rows, max_current_candidates=5):
+    print("=" * 120)
+    print("Section 5A: Compact ASSET_MISSING_FROM_CURRENT review list")
+    print("=" * 120)
+    print(f"matched record count: {len(rows)}")
+    print()
+
+    print("Quick counts")
+    print("-" * 120)
+    print(f"is_movie: {dict(Counter(row.get('is_movie') for row in rows))}")
+    print(f"hasadjustments: {dict(Counter(row.get('hasadjustments') for row in rows))}")
+    print(f"favorite: {dict(Counter(row.get('favorite') for row in rows))}")
+    print(f"hidden: {dict(Counter(row.get('hidden') for row in rows))}")
+    print(f"path_exists: {dict(Counter(row.get('path_exists') for row in rows))}")
+    print()
+
+    print("=" * 120)
+    print("One-by-one manual verification checklist")
+    print("=" * 120)
+    print()
+
+    for row in rows:
+        print(f"{row['index']:02d}. {row.get('original_filename')}")
+        print("-" * 120)
+        print(f"change_type: {row.get('change_type')}")
+        print(f"description: {row.get('description')}")
+        print(f"note: {row.get('note')}")
+        print(f"uuid: {row.get('uuid')}")
+        print(f"unique_id: {row.get('unique_id_repr')}")
+        print(f"date: {row.get('date')}")
+        print(f"date_added: {row.get('date_added')}")
+        print(f"date_modified: {row.get('date_modified')}")
+        print(f"file_size: {_format_file_size_for_review(row.get('file_size'))}")
+        print(f"original_size: {row.get('original_resolution')}")
+        print(f"hasadjustments: {row.get('hasadjustments')}")
+        print(f"adjustment_signature: {row.get('adjustment_signature')}")
+        print(f"path_exists: {row.get('path_exists')}")
+        print(f"path: {row.get('path')}")
+        print(f"path_edited: {row.get('path_edited')}")
+        print(f"description_text: {row.get('description_text')}")
+        print(f"keywords: {row.get('keywords')}")
+        print(f"favorite: {row.get('favorite')}")
+        print(f"hidden: {row.get('hidden')}")
+        print(f"first_album: {row.get('first_album')}")
+        print(f"all_albums: {row.get('all_albums')}")
+        print(f"folders: {row.get('folders')}")
+        print(
+            "current candidates with same original_filename: "
+            f"{row.get('current_candidate_count_same_original_filename')}"
+        )
+
+        for candidate_index, candidate in enumerate(row.get("current_candidates") or [], start=1):
+            if candidate_index > max_current_candidates:
+                print("  ... more current candidates not printed")
+                break
+            print(
+                _asset_current_candidate_line(
+                    candidate,
+                    prefix=f"  current_candidate_{candidate_index}",
+                )
+            )
+        print()
+
+
+def print_missing_current_review(
+    diff_records,
+    inventory_current,
+    max_current_candidates=5,
+):
+    missing_records = filter_diff_records(diff_records, _ChangeType.ASSET_MISSING_FROM_CURRENT)
+    rows = _missing_current_review_rows(
+        missing_records=missing_records,
+        inventory_current=inventory_current,
+    )
+
+    _print_missing_review_rows(
+        rows=rows,
+        max_current_candidates=max_current_candidates,
+    )
+
+    return {
+        "matched_record_count": len(rows),
+        "rows": rows,
+    }
+
+
+def write_missing_current_review_report(
+    diff_records,
+    inventory_current,
+    output_dir,
+    report_name_prefix="asset_missing_from_current_review",
+):
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    missing_records = filter_diff_records(diff_records, _ChangeType.ASSET_MISSING_FROM_CURRENT)
+    rows = _missing_current_review_rows(missing_records=missing_records, inventory_current=inventory_current)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    txt_path = output_dir / f"{report_name_prefix}_{timestamp}.txt"
+    tsv_path = output_dir / f"{report_name_prefix}_{timestamp}.tsv"
+
+    _write_missing_review_txt(txt_path, rows)
+    _write_missing_review_tsv(tsv_path, rows)
+
+    return {
+        "matched_record_count": len(rows),
+        "text_report_path": txt_path,
+        "tsv_report_path": tsv_path,
+        "rows": rows,
+    }
+
+
+def print_missing_current_review_report_summary(result):
+    print("ASSET_MISSING_FROM_CURRENT review")
+    print("-" * 80)
+    print("matched record count:", result.get("matched_record_count"))
+    print("text report:", result.get("text_report_path"))
+    print("tsv report:", result.get("tsv_report_path"))
+
