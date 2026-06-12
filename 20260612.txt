@@ -1,0 +1,119 @@
+2026-06-12｜Photos Library Test 2 checkpoint
+
+今天完成的主要事情：
+
+1. 修正 syndicated asset routing
+
+原本 explorephotoslibrary.py 會把 osxphotos 回報 syndicated=True 的 asset 直接放進 special_assets["SYNDICATED"]。
+
+今天確認這個邏輯不對，因為 current_default 裡有很多 syndicated=True 的 asset 其實有正常 /originals/ local file，可以取得 file size，也能算 SHA。
+
+已改成：
+
+- syndicated=True 但有正常 /originals/ local original：
+  放進 inventory["assets"]，參與正常 comparison。
+
+- syndicated=True 但沒有正常 /originals/ local original：
+  放進 special_assets["SYNDICATED_NO_NORMAL_ORIGINAL"]。
+
+- normal asset 保留 syndicated property，之後可以看出這張是否來自分享 / syndication。
+
+2. 修改 photo_library_asset_unique_id 的時間精度
+
+原本 identity key 的 date component 精確到 centisecond。
+
+今天改成只到秒：
+
+(original_filename, MM-DD HH:MM:SS, file_size, adjustment_signature, sha256_if_needed)
+
+理由：
+
+- Photos / iCloud / syndicated / migration 可能讓 sub-second timestamp 漂移。
+- 秒級時間搭配 file size、adjustment_signature、必要時 SHA，對這個 project 比較實用。
+- 改成秒後曾暴露 backup 裡 IMG_8638.jpeg 有一組完全相同 SHA 的 duplicate，已手動確認並刪除一張。
+
+3. Section 5 missing-current 從 14 降到 13
+
+修正 syndicated routing + 秒級 date identity 後，IMG_8638.jpeg 從 ASSET_MISSING_FROM_CURRENT 清單消失。
+
+4. 發現並處理大姑丈往生49天 album 裡缺的兩張 burst photos
+
+目標 album：
+
+#到大姑姑家 #大姑丈往生49天  2025年2月8日 早上8:40就被媽媽敲門叫！匆匆忙忙刷牙後隨便抓了衣服褲子穿夾腳拖就出門！九點鐘過新生南路的馬路，不確定幾點鐘到達最晚一定是在9:15之前！已經開始唸！法會過程我參加的大約35分鐘左右？！11:30之前大家自己共修念佛，大咪跟爸爸學法器！
+
+Backup album 原本是：
+
+- 10 Photos
+- 3 Videos
+
+Current Default album 原本是：
+
+- 8 Photos
+- 3 Videos
+
+缺的兩張 visible photos 是：
+
+- IMG_3669.JPG
+  Date: 2025-02-08 11:10:48 +08:00
+  Backup burst_total: 10
+
+- IMG_3689.JPG
+  Date: 2025-02-08 11:15:31 +08:00
+  Backup burst_total: 10
+
+用 PowerPhotos 從 backup_20250317 copy 這兩張到 current_default，然後在 Apple Photos 裡手動把兩張加入目標 album。
+
+結果：
+
+- Current Default album 變成 10 Photos, 3 Videos。
+- Rebuild / rerun 後，ASSET_MISSING_FROM_CURRENT 從 13 降到 11。
+- 最新剩餘 missing-current count: 11。
+
+5. 留下的問題：PowerPhotos copy burst 後造成 burst 膨脹
+
+PowerPhotos copy 後：
+
+- IMG_3669.JPG 在 current_default 裡變成 Burst (21 Photos)
+- IMG_3689.JPG 在 current_default 裡變成 Burst (21 Photos)
+
+檢查結果顯示：
+
+- unique uuid count: 21
+- unique path count: 21
+- unique sha count: 10
+
+也就是 PowerPhotos 很可能把 burst hidden members 重複匯入，造成 10 張內容變成 21 個 asset / paths，其中多數是成對 duplicate，key photo 甚至出現 x3 identity。
+
+暫時決定：
+
+- 不處理 burst 膨脹。
+- 不刪除任何 burst member。
+- 因為 visible album 已修好，comparison 也已經從 13 降到 11。
+- 明天再評估是否要清理這些 hidden burst duplicates。
+
+6. Git commit
+
+已 commit 並 push：
+
+commit eddf7187dd846c3f1ef1d6c4c0bbe6687577698b
+
+Message:
+
+Refine Photos Library asset routing and identity precision
+
+Route syndicated assets with normal /originals/ local files into the normal comparable asset inventory while preserving the syndicated flag.
+
+Keep only syndicated assets without normal local originals in a special bucket.
+
+Use second-level local datetime precision in the asset identity key, relying on file size, adjustment signature, and SHA256 fallback to resolve collisions.
+
+7. 下一步
+
+明天繼續看剩下 11 張 ASSET_MISSING_FROM_CURRENT。
+
+目前剩下 11 張裡，只有一張 hasadjustments=True：
+
+- IMG_0244.PNG
+
+所以明天優先看 IMG_0244.PNG。
