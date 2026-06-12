@@ -128,45 +128,72 @@ def _get_attr(obj, name, default=None):
     return value
 
 def _get_asset_local_file_status(osx_asset, path):
-    # Classify this Photos asset for inventory routing.
+    # Custom inventory routing status.
     #
-    # Rule:
-    # - syndicated is an osxphotos / Photos database flag.
-    # - If osxphotos says syndicated=True, trust the flag.
-    # - Only when syndicated=False do we inspect path to decide whether this
-    #   is a normal local original, path-none, or unknown path structure.
+    # This is NOT an osxphotos attribute.
+    #
+    # Main rule:
+    # - A usable Photos Library local original belongs in inventory["assets"],
+    #   even if osxphotos says syndicated=True.
+    # - syndicated=True is source/share metadata, not by itself a special bucket.
+    # - Only assets without a normal /originals/ local file go to special_assets.
     syndicated = bool(_get_attr(osx_asset, "syndicated", default=False))
 
-    if syndicated:
-        return "SYNDICATED"
-
     if path is None:
+        if syndicated:
+            return "SYNDICATED_NO_NORMAL_ORIGINAL"
+
         return "PATH_NONE"
 
     path_string = str(path)
 
-    if "/scopes/syndication/" in path_string:
-        return "UNKNOWN_PATH"
+    try:
+        path_exists = os.path.exists(path_string)
+    except OSError:
+        path_exists = False
 
-    if "/originals/" in path_string:
+    if not path_exists:
+        if syndicated:
+            return "SYNDICATED_NO_NORMAL_ORIGINAL"
+
+        return "PATH_MISSING"
+
+    # Normal Photos Library original:
+    #   .../Something.photoslibrary/originals/...
+    #
+    # Do not use plain "/originals/" because
+    # .../scopes/syndication/originals/... also contains that substring.
+    if ".photoslibrary/originals/" in path_string:
         return "NORMAL"
+
+    if syndicated:
+        return "SYNDICATED_NO_NORMAL_ORIGINAL"
 
     return "UNKNOWN_PATH"
 
 def _get_local_file_status_from_path(path):
     # Path-only fallback for older cached inventory objects or old callers.
-    # Core inventory build should use _get_asset_local_file_status(), because
-    # only the osxphotos asset object has the authoritative syndicated flag.
+    #
+    # This cannot know whether the asset was syndicated unless the cached
+    # asset still has that flag. It only classifies the path shape.
     if path is None:
         return "PATH_NONE"
 
     path_string = str(path)
 
-    if "/scopes/syndication/" in path_string:
-        return "SYNDICATED"
+    try:
+        path_exists = os.path.exists(path_string)
+    except OSError:
+        path_exists = False
 
-    if "/originals/" in path_string:
+    if not path_exists:
+        return "PATH_MISSING"
+
+    if ".photoslibrary/originals/" in path_string:
         return "NORMAL"
+
+    if ".photoslibrary/scopes/syndication/" in path_string:
+        return "SYNDICATED_NO_NORMAL_ORIGINAL"
 
     return "UNKNOWN_PATH"
 
@@ -215,20 +242,35 @@ def _to_taipei_datetime(value):
 
 
 def _format_no_year_taipei_datetime(value):
+    # Format the Photos asset datetime used in our cross-library identity key.
+    #
+    # Design decision, 2026-06-12:
+    # Use local Taipei time down to whole seconds only.
+    #
+    # Reason:
+    # Across Photos Library versions / iCloud / syndication / migration,
+    # sub-second values can drift even when the asset is effectively the same
+    # item. Whole-second precision is strict enough for our identity key when
+    # combined with:
+    #
+    #   original_filename
+    #   file_size
+    #   adjustment_signature
+    #   SHA256 fallback for collisions
+    #
+    # Do not include year here because the project intentionally compares
+    # date-without-year for imported / repaired assets.
     dt = _to_taipei_datetime(value)
 
     if dt is None:
         return None
-
-    centisecond = dt.microsecond // 10000
 
     return (
         f"{dt.month:02d}-"
         f"{dt.day:02d} "
         f"{dt.hour:02d}:"
         f"{dt.minute:02d}:"
-        f"{dt.second:02d}."
-        f"{centisecond:02d}"
+        f"{dt.second:02d}"
     )
 
 def _format_full_taipei_datetime(value):
@@ -649,8 +691,9 @@ def build_inventory(osx_assets):
     inventory = {
         "assets": [],
         "special_assets": {
-            "SYNDICATED": [],
+            "SYNDICATED_NO_NORMAL_ORIGINAL": [],
             "PATH_NONE": [],
+            "PATH_MISSING": [],
             "UNKNOWN_PATH": [],
         },
         "albums": {},
@@ -671,6 +714,10 @@ def build_inventory(osx_assets):
                 raise RuntimeError(f"Duplicate special asset UUID: {asset_uuid}")
 
             seen_special_asset_uuids.add(asset_uuid)
+
+            if local_file_status not in inventory["special_assets"]:
+                inventory["special_assets"][local_file_status] = []
+
             inventory["special_assets"][local_file_status].append(asset)
 
             if index % 10000 == 0:
@@ -683,9 +730,16 @@ def build_inventory(osx_assets):
 
         seen_asset_uuids.add(asset_uuid)
 
-        # NORMAL assets do not need local-file-status / special-state fields.
+        # NORMAL assets do not need routing-only / special-diagnostic fields.
+        #
+        # Keep:
+        # - syndicated
+        #
+        # Reason:
+        # syndicated=True is useful source/share metadata even when the asset
+        # has a normal /originals/ local file and participates in normal
+        # comparison.
         asset.pop("local_file_status", None)
-        asset.pop("syndicated", None)
         asset.pop("saved_to_library", None)
         asset.pop("ismissing", None)
         asset.pop("original_filesize", None)
