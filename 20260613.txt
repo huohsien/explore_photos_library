@@ -1,0 +1,204 @@
+2026-06-13｜Photos Library Repair checkpoint
+
+今天做了什麼：
+
+1. 繼續處理 Test 2 的 ASSET_MISSING_FROM_CURRENT。
+
+昨天剩下 11 筆 backup 有、current default 沒有的 assets。今天先處理這 11 筆。
+
+其中 10 張普通 image 透過 PowerPhotos 從 Backup Library 的 staging album copy 到 Current Default，asset 本身大致成功補回。
+
+2. IMG_0244.PNG 的 annotation 問題
+
+IMG_0244.PNG 是 screenshot + annotation。PowerPhotos 兩次 copy 都失敗，失敗項目確定是這張。
+
+後來決定不再追求保留可修改 annotation recipe，而是採用 flattened image workaround：
+
+* 把原本 annotated PNG 轉成不可再編輯的 JPEG 視覺結果。
+* Backup 與 Current Default 都改成 flattened JPEG。
+* 原本可修改的 PNG 刪除。
+* 在 description 記錄原因：annotation 無法正常匯出，只好用壓縮 JPEG 方式保存視覺結果。
+
+這代表 IMG_0244 不再是 reversible annotation case，而是一般 JPEG asset。
+
+3. Section 5 現在 ASSET_MISSING_FROM_CURRENT 幾乎清掉
+
+後來 Section 5 只剩 1 筆：
+
+* IMG_0244.JPEG
+* Date: 2024-04-03 11:33:36
+* Has Adjustments: False
+* Edited Render: No
+* Album path: 股票 / #台股 #當沖 #致茂 ...
+
+這代表原本 11 張 missing-current 基本上已經處理到只剩 flattened replacement 的同步狀態問題。
+
+4. 發現真正更大的問題：album / folder membership 沒有正確恢復
+
+PowerPhotos copy staging album 的結果顯示：
+
+* asset 本身會進 Current Default
+* keywords 似乎保留
+* 但原本的 album membership 不一定保留
+* 原本的 folder / album path 不會自動恢復
+* copy staging會進 Current Default
+* keywords 似乎保留
+* 但原本的 album membership 不一定保留 album 只會把照片放進 staging album，不會把每張照片原本分散所屬的 albums/folders 全部修回去
+
+這是今天最重要的發現。
+
+5. 已經量化過更大的 organization damage
+
+先前 comparison summary 顯示：
+
+diff record count: 60833
+
+change_type counts:
+
+* ALBUM_FOLDER_PATHS_CHANGED: 318
+* ALBUM_MISSING_FROM_CURRENT: 48
+* ALBUM_NEW_IN_CURRENT: 853
+* ASSET_ALBUM_MEMBERSHIP_CHANGED: 12630
+* ASSET_FOLDER_PATHS_CHANGED: 19286
+* ASSET_METADATA_CHANGED: 3965
+* ASSET_MISSING_FROM_CURRENT: 1
+* ASSET_NEW_IN_CURRENT: 23724
+* FOLDER_MISSING_FROM_CURRENT: 5
+* FOLDER_NEW_IN_CURRENT: 3
+
+scope counts:
+
+* album: 1219
+* asset: 59606
+* folder: 8
+
+這表示真正的大問題不是一張一張 asset missing，而是 organization layer damage：
+
+* folders 少了
+* albums 少了
+* albums 的 folder path 改變
+* assets 還在 Current，但是 membership / folder path 不完整
+
+6. 重新理解問題層級
+
+真正應該優先處理的是：
+
+A. FOLDER_MISSING_FROM_CURRENT: 5
+B. ALBUM_MISSING_FROM_CURRENT: 48
+C. ALBUM_FOLDER_PATHS_CHANGED: 318
+D. 最後才是 ASSET_ALBUM_MEMBERSHIP_CHANGED / ASSET_FOLDER_PATHS_CHANGED
+
+因為 asset-level 的 12,630 / 19,286 很可能是上層 folder / album 結構壞掉造成的連鎖結果。
+
+例如：
+
+* 一個 missing album 有 5,000 張照片，就會造成 5,000 筆 asset album membership changed。
+* 一個 folder 裡有 10 個 albums，每個 album 有 1,000 張，若 folder path 壞掉，就可能造成 10,000 筆 asset folder path changed。
+
+所以不能從 12,630 張一張一張手工修，要從 album/folder 層級修。
+
+7. PowerPhotos copy whole album 的問題
+
+如果用 PowerPhotos 從 Backup copy 整個 missing album 到 Current：
+
+* 可能會建立正確 album
+* 但 Current 裡本來已經存在的照片可能又被 import 一份
+* 造成 duplicate
+* 新 import 的照片 Date Added 會變成今天
+* Recently Added 會被污染
+* 後面還要刪 duplicate，非常麻煩且危險
+
+所以 PowerPhotos copy album 不能作為大規模修復策略，只能作為小量或最後 fallback。
+
+8. 正確方向：Python manifest + Swift PhotoKit repair tool
+
+現在比較合理的架構是：
+
+Python / osxphotos:
+
+* 繼續做 forensic comparison
+* 找出 missing albums、broken album paths、asset membership loss
+* 產生 TSV / JSON repair manifest
+
+Swift / PhotoKit tool:
+
+* 讀 manifest
+* 在 Current Photos Library 建立 folder / album
+* 找到 Current 裡已存在的 assets
+* 把既有 assets 加進指定 album
+* 不重新 import
+* 不製造 duplicate
+* 不污染 Recently Added
+
+這才是自動化的核心。
+
+9. 明天第一個技術目標
+
+不是刪 duplicate，也不是重新 import。
+
+明天要驗證：
+
+PhotoKit tool 能不能根據 Python 產生的 current asset identifier，精準找到 Current Photos Library 裡的同一個 PHAsset，然後把它加入指定 album。
+
+最小測試：
+
+* Python 產生一個小 TSV，只放 1 個 test album + 2 或 3 個 current assets。
+* Swift PhotoKit tool 讀 TSV。
+* 在 Current Default 裡建立一個測試 album。
+* 把這幾個既有 PHAsset 加進 test album。
+* 確認：
+
+  * 沒有 duplicate
+  * Recently Added 沒有新增照片
+  * 原 asset Date Added 不變
+  * album membership 成功
+
+10. explorephotoslibrary.py 今天不要 commit
+
+今天臨時把 Section 5 從 first_album / all_albums / folders 改成 album_paths。
+
+方向是對的，因為 album_paths 可以顯示真正的 folder / album path，例如：
+
+* HIDE / Pinterest Girls
+* NSFW / Pretty Girls
+* 股票 / #台股 #當沖 #致茂 ...
+
+但目前改法可能有退化，因為原本欄位被取代掉了。
+
+明天應該改成：
+
+保留：
+
+* first_album
+* all_albums
+* folders
+
+新增：
+
+* album_paths
+
+不要取代原欄位。
+
+今晚不要 commit code。明天先看 git diff，再整理成乾淨版本。
+
+11. 明天的實際順序
+
+A. 先不要 commit。
+B. 先看 git diff。
+C. 修正 Section 5：保留原欄位，新增 album_paths。
+D. 產生 album/folder impact report：
+
+* missing folder list
+* missing album list
+* album folder path changed list
+* 每個 album 影響幾張 assets
+* 每個 missing album 裡有多少 assets 已經存在 current
+  E. 選一個小 album 做 PhotoKit repair prototype。
+  F. 成功後再考慮大量 TSV manifest repair。
+
+今晚結論：
+
+* 不 commit。
+* 不再用 PowerPhotos 大量 copy album。
+* 不手工修幾千張。
+* 明天進入「Python 產生 repair manifest + Swift PhotoKit 自動補 album membership」的新階段。

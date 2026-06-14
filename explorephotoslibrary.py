@@ -291,6 +291,59 @@ def _format_full_taipei_datetime(value):
     )
 
 
+def _normalize_filename_extension_for_asset_identity(original_filename, filename=None):
+    # Preserve the main filename exactly, but normalize the extension case.
+    #
+    # Photos / AirDrop / import-export can produce:
+    #
+    #   IMG_0244.JPEG
+    #   IMG_0244.jpeg
+    #
+    # These should be treated as the same asset identity when date/file_size/etc.
+    # also match. Do NOT lower-case the filename stem, only the extension.
+    name = original_filename or filename
+
+    if name is None:
+        return None
+
+    text = str(name)
+
+    if "." not in text:
+        return text
+
+    stem, extension = text.rsplit(".", 1)
+
+    if not stem or not extension:
+        return text
+
+    return f"{stem}.{extension.lower()}"
+
+
+def _normalize_photo_library_asset_unique_id_for_compare(unique_id):
+    # Normalize existing cached unique IDs without rebuilding inventory.
+    #
+    # Inventory cache may already contain:
+    #   ('IMG_0244.JPEG', '04-03 11:33:36', 470736, None, None)
+    #
+    # Current inventory may contain:
+    #   ('IMG_0244.jpeg', '04-03 11:33:36', 470736, None, None)
+    #
+    # For comparison, these should become the same key.
+    if unique_id is None:
+        return None
+
+    if len(unique_id) < 5:
+        return unique_id
+
+    return (
+        _normalize_filename_extension_for_asset_identity(unique_id[0]),
+        unique_id[1],
+        unique_id[2],
+        unique_id[3],
+        unique_id[4],
+    )
+
+
 def _make_photo_library_asset_unique_id(
     original_filename,
     filename,
@@ -299,7 +352,11 @@ def _make_photo_library_asset_unique_id(
     adjustment_signature,
     sha256=None,
 ):
-    original_filename = original_filename or filename
+    original_filename = _normalize_filename_extension_for_asset_identity(
+        original_filename=original_filename,
+        filename=filename,
+    )
+
     date = _format_no_year_taipei_datetime(date)
 
     if original_filename is None or date is None or file_size is None:
@@ -2603,22 +2660,77 @@ def _album_folder_paths(album):
     )
 
 
+def _asset_album_paths(asset):
+    # Return full album paths for one asset.
+    #
+    # asset["folders"] is only the union of all folders touched by this asset.
+    # That loses album-folder mapping.
+    #
+    # asset["albums"][album_uuid] is an album object.
+    # album["folders"] is the folder chain for that specific album.
+    #
+    # So the manual repair path should be:
+    #   deepest album folder path / album title
+    #
+    # Examples:
+    #   HIDE / Pinterest Girls
+    #   NSFW / Pretty Girls
+    #   FB Pretty Girls
+    albums = asset.get("albums") or {}
+    album_paths = []
+
+    for album in albums.values():
+        album_title = album.get("title")
+        if not album_title:
+            continue
+
+        folder_paths = _album_folder_paths(album)
+
+        if folder_paths:
+            deepest_folder_path = sorted(
+                folder_paths,
+                key=lambda value: (value.count("/"), len(value)),
+            )[-1]
+            album_paths.append(f"{deepest_folder_path} / {album_title}")
+        else:
+            album_paths.append(album_title)
+
+    return _normalize_compare_string_tuple(album_paths)
+
+
 def _make_asset_index_for_compare(inventory):
     index = {}
-    for asset in inventory.get("assets") or []:
-        unique_id = asset.get("photo_library_asset_unique_id")
-        if unique_id is None:
-            raise RuntimeError("Normal asset has no photo_library_asset_unique_id:\n" f"{asset}")
-        if unique_id in index:
-            raise RuntimeError("Duplicate photo_library_asset_unique_id while making asset index:\n" f"{unique_id}")
-        index[unique_id] = asset
-    return index
 
+    for asset in inventory.get("assets") or []:
+        raw_unique_id = asset.get("photo_library_asset_unique_id")
+
+        if raw_unique_id is None:
+            raise RuntimeError("Normal asset has no photo_library_asset_unique_id:\n" f"{asset}")
+
+        compare_unique_id = _normalize_photo_library_asset_unique_id_for_compare(raw_unique_id)
+
+        if compare_unique_id in index:
+            print("FATAL: Duplicate normalized photo_library_asset_unique_id while making asset index")
+            print("normalized unique_id:", compare_unique_id)
+            print("existing asset uuid:", index[compare_unique_id].get("uuid"))
+            print("existing original_filename:", index[compare_unique_id].get("original_filename"))
+            print("new asset uuid:", asset.get("uuid"))
+            print("new original_filename:", asset.get("original_filename"))
+            raise RuntimeError(
+                "Duplicate normalized photo_library_asset_unique_id while making asset index:\n"
+                f"{compare_unique_id}"
+            )
+
+        index[compare_unique_id] = asset
+
+    return index
 
 def _make_asset_key4_for_special_lookup(asset):
     unique_id = asset.get("photo_library_asset_unique_id")
+
     if unique_id is not None:
-        return tuple(unique_id[:4])
+        compare_unique_id = _normalize_photo_library_asset_unique_id_for_compare(unique_id)
+        return tuple(compare_unique_id[:4])
 
     file_size = _get_file_size_from_asset(asset)
     adjustment_signature = _make_adjustment_signature(asset)
@@ -2631,10 +2743,12 @@ def _make_asset_key4_for_special_lookup(asset):
         adjustment_signature=adjustment_signature,
         sha256=None,
     )
+
     if unique_id is None:
         return None
-    return tuple(unique_id[:4])
 
+    compare_unique_id = _normalize_photo_library_asset_unique_id_for_compare(unique_id)
+    return tuple(compare_unique_id[:4])
 
 def _make_special_asset_key4_index(inventory, bucket_names=("SYNDICATED",)):
     index = {}
@@ -3023,9 +3137,7 @@ def _missing_current_review_rows(missing_records, inventory_current):
             "keywords": list(asset.get("keywords") or []),
             "favorite": asset.get("favorite"),
             "hidden": asset.get("hidden"),
-            "first_album": (list(_compare_asset_album_titles(asset)) or ["-"])[0],
-            "all_albums": list(_compare_asset_album_titles(asset)),
-            "folders": list(_asset_folder_paths(asset)),
+            "album_paths": list(_asset_album_paths(asset)),
             "current_candidate_count_same_original_filename": len(current_candidates),
             "current_candidates": current_candidates,
         }
@@ -3075,9 +3187,7 @@ def _write_missing_review_txt(path, rows):
             f.write(f"keywords: {row.get('keywords')}\n")
             f.write(f"favorite: {row.get('favorite')}\n")
             f.write(f"hidden: {row.get('hidden')}\n")
-            f.write(f"first_album: {row.get('first_album')}\n")
-            f.write(f"all_albums: {row.get('all_albums')}\n")
-            f.write(f"folders: {row.get('folders')}\n")
+            f.write(f"album_paths: {row.get('album_paths')}\n")
             f.write("current candidates with same original_filename: "
                     f"{row.get('current_candidate_count_same_original_filename')}\n")
 
@@ -3094,7 +3204,7 @@ def _write_missing_review_tsv(path, rows):
         "index", "change_type", "uuid", "original_filename", "date", "date_added",
         "date_modified", "is_movie", "file_size", "original_resolution", "hasadjustments",
         "adjustment_signature", "path_exists", "path", "path_edited", "description_text",
-        "keywords", "favorite", "hidden", "first_album", "all_albums", "folders",
+        "keywords", "favorite", "hidden", "album_paths",
         "current_candidate_count_same_original_filename",
     ]
     with open(path, "w", encoding="utf-8", newline="") as f:
@@ -3148,9 +3258,7 @@ def _print_missing_review_rows(rows, max_current_candidates=5):
         print(f"keywords: {row.get('keywords')}")
         print(f"favorite: {row.get('favorite')}")
         print(f"hidden: {row.get('hidden')}")
-        print(f"first_album: {row.get('first_album')}")
-        print(f"all_albums: {row.get('all_albums')}")
-        print(f"folders: {row.get('folders')}")
+        print(f"album_paths: {row.get('album_paths')}")
         print(
             "current candidates with same original_filename: "
             f"{row.get('current_candidate_count_same_original_filename')}"
