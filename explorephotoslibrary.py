@@ -30,7 +30,6 @@ __all__ = [
     "print_inventory_summary",
     "classify_asset_path_scope",
     "fill_photo_library_asset_unique_ids",
-    "audit_photo_library_asset_unique_ids",
     "find_folders_by_title_keyword",
     "find_albums_by_title_keyword",
     "find_assets_by_description_keyword",
@@ -894,7 +893,12 @@ def audit_photo_library_asset_unique_ids(
     label="Photos Library",
     max_duplicate_groups_to_print=20,
 ):
-    # Check whether photo_library_asset_unique_id is unique inside one library.
+    # LEGACY REPORT HELPER.
+    #
+    # This function is no longer part of the main notebook workflow.
+    # build_inventory() finalizes and validates photo_library_asset_unique_id
+    # before returning inventory. Section 2 now prints a lightweight identity
+    # summary for loaded/built inventories.  
     key_to_assets = {}
     assets_without_unique_id = []
 
