@@ -3153,7 +3153,7 @@ def _missing_current_review_rows(missing_records, inventory_current):
 def _write_missing_review_txt(path, rows):
     with open(path, "w", encoding="utf-8") as f:
         f.write("=" * 120 + "\n")
-        f.write("Section 5: Compact ASSET_MISSING_FROM_CURRENT review list\n")
+        f.write("ASSET_MISSING_FROM_CURRENT review list\n")
         f.write("=" * 120 + "\n")
         f.write(f"matched record count: {len(rows)}\n\n")
 
@@ -3221,7 +3221,7 @@ def _write_missing_review_tsv(path, rows):
 
 def _print_missing_review_rows(rows, max_current_candidates=5):
     print("=" * 120)
-    print("Section 5: Compact ASSET_MISSING_FROM_CURRENT review list")
+    print("Compact ASSET_MISSING_FROM_CURRENT review list")
     print("=" * 120)
     print(f"matched record count: {len(rows)}")
     print()
