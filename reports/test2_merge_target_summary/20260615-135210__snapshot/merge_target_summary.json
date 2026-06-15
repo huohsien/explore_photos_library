@@ -1,0 +1,21 @@
+{
+  "run_timestamp": "2026-06-15T13:52:10",
+  "label": "snapshot",
+  "diff_record_count": 46068,
+  "change_type_counts": {
+    "ALBUM_FOLDER_PATHS_CHANGED": 318,
+    "ALBUM_MISSING_FROM_CURRENT": 45,
+    "ALBUM_NEW_IN_CURRENT": 854,
+    "ASSET_ALBUM_MEMBERSHIP_CHANGED": 5362,
+    "ASSET_FOLDER_PATHS_CHANGED": 11746,
+    "ASSET_METADATA_CHANGED": 3963,
+    "ASSET_NEW_IN_CURRENT": 23772,
+    "FOLDER_MISSING_FROM_CURRENT": 5,
+    "FOLDER_NEW_IN_CURRENT": 3
+  },
+  "scope_counts": {
+    "album": 1217,
+    "asset": 44843,
+    "folder": 8
+  }
+}

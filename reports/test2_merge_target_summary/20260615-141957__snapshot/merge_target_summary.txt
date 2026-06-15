@@ -1,0 +1,25 @@
+========================================================================================================================
+Cross-library merge target summary
+========================================================================================================================
+
+run_timestamp: 2026-06-15T14:19:57
+label: snapshot
+diff_record_count: 39251
+
+change_type counts
+------------------------------------------------------------------------------------------------------------------------
+ALBUM_FOLDER_PATHS_CHANGED: 272
+ALBUM_MISSING_FROM_CURRENT: 37
+ALBUM_NEW_IN_CURRENT: 855
+ASSET_ALBUM_MEMBERSHIP_CHANGED: 2774
+ASSET_FOLDER_PATHS_CHANGED: 7572
+ASSET_METADATA_CHANGED: 3963
+ASSET_NEW_IN_CURRENT: 23772
+FOLDER_MISSING_FROM_CURRENT: 3
+FOLDER_NEW_IN_CURRENT: 3
+
+scope counts
+------------------------------------------------------------------------------------------------------------------------
+album: 1164
+asset: 38081
+folder: 6
