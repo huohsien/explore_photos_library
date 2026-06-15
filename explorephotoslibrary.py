@@ -45,13 +45,15 @@ __all__ = [
     "choose_directory_path",
     "choose_photos_library_path",
 
-    # Cross-library comparison / missing-current review
+    # Cross-library comparison / reports
     "compare_inventories",
     "summarize_diff_records",
     "filter_diff_records",
     "print_missing_current_review",
     "write_missing_current_review_report",
     "print_missing_current_review_report_summary",
+    "write_cross_library_inventory_diff_summary_report",
+    "write_folder_album_membership_comparison_report",
 
     # Duplicate cleanup / review report pipeline
     "fill_duplicate_cleanup_identity_fields",
@@ -60,7 +62,6 @@ __all__ = [
     "count_records_by_status",
     "write_operation_report",
 ]
-
 
 # ------------------------------------------------------------
 # Internal basic helpers
@@ -3047,6 +3048,405 @@ def summarize_diff_records(diff_records):
     for scope, count in sorted(scope_counts.items()):
         print(f"{scope}: {count}")
 
+def write_cross_library_inventory_diff_summary_report(
+    inventory_backup,
+    inventory_current,
+    report_root,
+    label="snapshot",
+):
+    report_root = Path(report_root)
+    report_root.mkdir(parents=True, exist_ok=True)
+
+    run_time = datetime.now()
+    safe_label = str(label).strip().replace(" ", "_").replace("/", "_")
+    report_dir = report_root / f"{run_time:%Y%m%d-%H%M%S}__{safe_label}"
+    report_dir.mkdir(parents=True, exist_ok=False)
+
+    report_path = report_dir / "cross_library_inventory_diff_summary_report.txt"
+
+    diff_records = compare_inventories(
+        inventory_backup=inventory_backup,
+        inventory_current=inventory_current,
+    )
+
+    change_type_counts = dict(
+        sorted(Counter(record.get("change_type") for record in diff_records).items())
+    )
+
+    scope_counts = dict(
+        sorted(Counter(record.get("scope") for record in diff_records).items())
+    )
+
+    inventory_counts = {
+        "backup_assets": len(inventory_backup.get("assets") or []),
+        "current_assets": len(inventory_current.get("assets") or []),
+        "backup_albums": len(inventory_backup.get("albums") or {}),
+        "current_albums": len(inventory_current.get("albums") or {}),
+        "backup_folders": len(inventory_backup.get("folders") or {}),
+        "current_folders": len(inventory_current.get("folders") or {}),
+    }
+
+    lines = [
+        "report_type\tcross_library_inventory_diff_summary",
+        f"run_timestamp\t{run_time.isoformat(timespec='seconds')}",
+        f"label\t{label}",
+        f"diff_record_count\t{len(diff_records)}",
+        "",
+        "inventory_counts",
+    ]
+
+    lines.extend(
+        f"{key}\t{value}"
+        for key, value in inventory_counts.items()
+    )
+
+    lines.append("")
+    lines.append("change_type_counts")
+    lines.extend(
+        f"{key}\t{value}"
+        for key, value in change_type_counts.items()
+    )
+
+    lines.append("")
+    lines.append("scope_counts")
+    lines.extend(
+        f"{key}\t{value}"
+        for key, value in scope_counts.items()
+    )
+
+    report_path.write_text(
+        "\n".join(lines) + "\n",
+        encoding="utf-8",
+    )
+
+    return diff_records, {
+        "report_path": str(report_path),
+        "diff_record_count": len(diff_records),
+        "inventory_counts": inventory_counts,
+        "change_type_counts": change_type_counts,
+        "scope_counts": scope_counts,
+    }
+
+
+def write_folder_album_membership_comparison_report(
+    inventory_backup,
+    inventory_current,
+    report_root,
+    label="whole_library",
+    target_root_folder_path=None,
+    include_ok_rows=False,
+):
+    def norm_path(path):
+        if path is None:
+            return ""
+
+        text = str(path).strip().replace("\\", "/").replace(" / ", "/")
+        return " / ".join(part.strip() for part in text.split("/") if part.strip())
+
+    def full_album_path(album):
+        title = str(album.get("title") or "").strip()
+
+        if not title:
+            return None
+
+        folder_paths = [
+            norm_path(folder.get("path") or folder.get("title"))
+            for folder in (album.get("folders") or {}).values()
+            if folder.get("path") or folder.get("title")
+        ]
+
+        folder_paths = [path for path in folder_paths if path]
+
+        folder_path = ""
+        if folder_paths:
+            folder_path = sorted(
+                folder_paths,
+                key=lambda value: (value.count(" / "), len(value)),
+            )[-1]
+
+        return f"{folder_path} / {title}" if folder_path else title
+
+    def under_target(path):
+        if target_root_folder_path is None:
+            return True
+
+        root = norm_path(target_root_folder_path)
+
+        if not root:
+            return True
+
+        return path == root or path.startswith(root + " / ")
+
+    def root_folder(path):
+        parts = [part.strip() for part in str(path).split(" / ") if part.strip()]
+        return parts[0] if len(parts) > 1 else "[ROOT_ALBUMS]"
+
+    def asset_key(asset):
+        unique_id = asset.get("photo_library_asset_unique_id")
+
+        if unique_id is not None:
+            return "unique_id:" + repr(tuple(unique_id))
+
+        uuid = asset.get("uuid")
+        return "uuid:" + str(uuid) if uuid else None
+
+    def short_date(value):
+        return str(value)[:10] if value else ""
+
+    def checksum(keys):
+        return hashlib.sha256("\n".join(sorted(keys)).encode("utf-8")).hexdigest()[:16]
+
+    def collect_catalog(inventory):
+        path_counts = Counter()
+        info_by_path = {}
+
+        for album in (inventory.get("albums") or {}).values():
+            path = full_album_path(album)
+
+            if not path or not under_target(path):
+                continue
+
+            path_counts[path] += 1
+
+            info_by_path.setdefault(path, {
+                "root_folder": root_folder(path),
+                "album_path": path,
+            })
+
+        return path_counts, info_by_path
+
+    def collect_members(inventory):
+        members = defaultdict(set)
+        no_album_assets = set()
+        date_by_key = {}
+        date_added_by_key = {}
+
+        for asset in inventory.get("assets") or []:
+            key = asset_key(asset)
+
+            if key is None:
+                continue
+
+            date_by_key[key] = short_date(asset.get("date"))
+            date_added_by_key[key] = short_date(asset.get("date_added"))
+
+            albums = asset.get("albums") or {}
+
+            if not albums:
+                no_album_assets.add(key)
+                continue
+
+            for album in albums.values():
+                path = full_album_path(album)
+
+                if path and under_target(path):
+                    members[path].add(key)
+
+        return members, no_album_assets, date_by_key, date_added_by_key
+
+    def date_range(keys, date_by_key):
+        dates = sorted(date_by_key.get(key) for key in keys if date_by_key.get(key))
+        return (dates[0], dates[-1]) if dates else ("", "")
+
+    report_root = Path(report_root)
+    report_root.mkdir(parents=True, exist_ok=True)
+
+    run_time = datetime.now()
+    safe_label = str(label).strip().replace(" ", "_").replace("/", "_")
+    report_dir = report_root / f"{run_time:%Y%m%d-%H%M%S}__{safe_label}"
+    report_dir.mkdir(parents=True, exist_ok=False)
+
+    report_path = report_dir / "folder_album_membership_comparison_report.txt"
+
+    backup_counts, backup_info = collect_catalog(inventory_backup)
+    current_counts, current_info = collect_catalog(inventory_current)
+
+    backup_members, backup_no_album, backup_dates, backup_date_added = collect_members(inventory_backup)
+    current_members, current_no_album, current_dates, current_date_added = collect_members(inventory_current)
+
+    all_paths = sorted(set(backup_counts) | set(current_counts))
+
+    rows = []
+
+    for path in all_paths:
+        b_members = backup_members.get(path, set())
+        c_members = current_members.get(path, set())
+
+        missing = b_members - c_members
+        extra = c_members - b_members
+
+        if path in backup_counts and path not in current_counts:
+            status = "MISSING_ALBUM_IN_CURRENT"
+        elif path in current_counts and path not in backup_counts:
+            status = "CURRENT_ONLY_ALBUM"
+        elif missing or extra:
+            status = "MEMBERSHIP_DIFF"
+        else:
+            status = "OK"
+
+        b_date_min, b_date_max = date_range(b_members, backup_dates)
+        c_date_min, c_date_max = date_range(c_members, current_dates)
+        b_added_min, b_added_max = date_range(b_members, backup_date_added)
+        c_added_min, c_added_max = date_range(c_members, current_date_added)
+
+        rows.append({
+            "status": status,
+            "root_folder": (backup_info.get(path) or current_info.get(path) or {}).get("root_folder", root_folder(path)),
+            "album_path": path,
+            "backup_album_objects": backup_counts.get(path, 0),
+            "current_album_objects": current_counts.get(path, 0),
+            "backup_assets": len(b_members),
+            "current_assets": len(c_members),
+            "missing_assets_in_current": len(missing),
+            "extra_assets_in_current": len(extra),
+            "backup_date_min": b_date_min,
+            "backup_date_max": b_date_max,
+            "current_date_min": c_date_min,
+            "current_date_max": c_date_max,
+            "backup_date_added_min": b_added_min,
+            "backup_date_added_max": b_added_max,
+            "current_date_added_min": c_added_min,
+            "current_date_added_max": c_added_max,
+            "backup_checksum": checksum(b_members),
+            "current_checksum": checksum(c_members),
+        })
+
+    status_counts = Counter(row["status"] for row in rows)
+
+    root_rows = []
+
+    for name in sorted(set(row["root_folder"] for row in rows)):
+        group = [row for row in rows if row["root_folder"] == name]
+
+        root_rows.append({
+            "root_folder": name,
+            "backup_album_paths": sum(row["backup_album_objects"] > 0 for row in group),
+            "current_album_paths": sum(row["current_album_objects"] > 0 for row in group),
+            "missing_album_paths_in_current": sum(row["status"] == "MISSING_ALBUM_IN_CURRENT" for row in group),
+            "current_only_album_paths": sum(row["status"] == "CURRENT_ONLY_ALBUM" for row in group),
+            "membership_diff_album_paths": sum(row["status"] == "MEMBERSHIP_DIFF" for row in group),
+            "ok_album_paths": sum(row["status"] == "OK" for row in group),
+        })
+
+    root_rows.sort(
+        key=lambda row: (
+            -row["missing_album_paths_in_current"],
+            -row["membership_diff_album_paths"],
+            -row["current_only_album_paths"],
+            row["root_folder"],
+        )
+    )
+
+    detail_rows = [
+        row for row in rows
+        if include_ok_rows or row["status"] != "OK"
+    ]
+
+    detail_rows.sort(
+        key=lambda row: (
+            {
+                "MISSING_ALBUM_IN_CURRENT": 0,
+                "MEMBERSHIP_DIFF": 1,
+                "CURRENT_ONLY_ALBUM": 2,
+                "OK": 3,
+            }.get(row["status"], 9),
+            row["root_folder"],
+            row["album_path"],
+        )
+    )
+
+    fields = [
+        "status",
+        "root_folder",
+        "album_path",
+        "backup_album_objects",
+        "current_album_objects",
+        "backup_assets",
+        "current_assets",
+        "missing_assets_in_current",
+        "extra_assets_in_current",
+        "backup_date_min",
+        "backup_date_max",
+        "current_date_min",
+        "current_date_max",
+        "backup_date_added_min",
+        "backup_date_added_max",
+        "current_date_added_min",
+        "current_date_added_max",
+        "backup_checksum",
+        "current_checksum",
+    ]
+
+    lines = [
+        "report_type\tfolder_album_membership_comparison",
+        f"run_timestamp\t{run_time.isoformat(timespec='seconds')}",
+        f"label\t{label}",
+        f"target_root_folder_path\t{target_root_folder_path}",
+        f"include_ok_rows\t{include_ok_rows}",
+        "",
+        "summary",
+        f"backup_unique_album_paths\t{len(backup_counts)}",
+        f"current_unique_album_paths\t{len(current_counts)}",
+        f"all_unique_album_paths\t{len(all_paths)}",
+        f"backup_no_album_assets\t{len(backup_no_album)}",
+        f"current_no_album_assets\t{len(current_no_album)}",
+    ]
+
+    lines.extend(
+        f"status_count\t{status}\t{count}"
+        for status, count in sorted(status_counts.items())
+    )
+
+    lines.append("")
+    lines.append("root_folder_breakdown")
+    lines.append(
+        "\t".join([
+            "root_folder",
+            "backup_album_paths",
+            "current_album_paths",
+            "missing_album_paths_in_current",
+            "current_only_album_paths",
+            "membership_diff_album_paths",
+            "ok_album_paths",
+        ])
+    )
+
+    for row in root_rows:
+        lines.append(
+            "\t".join(str(row[key]) for key in [
+                "root_folder",
+                "backup_album_paths",
+                "current_album_paths",
+                "missing_album_paths_in_current",
+                "current_only_album_paths",
+                "membership_diff_album_paths",
+                "ok_album_paths",
+            ])
+        )
+
+    lines.append("")
+    lines.append("album_details")
+    lines.append("\t".join(fields))
+
+    for row in detail_rows:
+        lines.append(
+            "\t".join(str(row.get(field, "")) for field in fields)
+        )
+
+    report_path.write_text(
+        "\n".join(lines) + "\n",
+        encoding="utf-8",
+    )
+
+    return {
+        "report_path": str(report_path),
+        "backup_unique_album_paths": len(backup_counts),
+        "current_unique_album_paths": len(current_counts),
+        "all_unique_album_paths": len(all_paths),
+        "status_counts": dict(sorted(status_counts.items())),
+        "root_folder_count": len(root_rows),
+        "detail_row_count": len(detail_rows),
+    }
 
 # ------------------------------------------------------------
 # ASSET_MISSING_FROM_CURRENT review report helpers
