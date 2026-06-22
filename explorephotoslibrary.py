@@ -3128,6 +3128,7 @@ def write_cross_library_inventory_diff_summary_report(
     }
 
 
+
 def write_folder_album_membership_comparison_report(
     inventory_backup,
     inventory_current,
@@ -3136,12 +3137,71 @@ def write_folder_album_membership_comparison_report(
     target_root_folder_path=None,
     include_ok_rows=False,
 ):
+    """
+    Write REPORT-01 — Backup-Centric Restoration Dashboard.
+
+    This report proves whether Backup-required information has been preserved
+    in Current. It does not report Current-only additions.
+
+    AlbumPath means:
+        deepest folder path + album title,
+        or title alone for a root-level album.
+
+    Asset-level preservation buckets are intentionally separate:
+    - date
+    - description
+    - keywords
+    - GPS present in Backup but missing in Current
+    - GPS present in both libraries but coordinates differ beyond tolerance
+    - media / adjustment-related metadata
+
+    GPS comparison uses only latitude and longitude. Reverse-geocoded place
+    presentation is not used because it can be regenerated differently by
+    different Photos libraries / OS versions while the coordinates are intact.
+    """
+
+    GPS_DECIMAL_PLACES = 4
+
+    MEDIA_AND_ADJUSTMENT_FIELDS = (
+        "is_movie",
+        "is_live_photo",
+        "width",
+        "height",
+        "original_width",
+        "original_height",
+        "hasadjustments",
+        "adjustment_type",
+        "external_edit",
+        "uti",
+        "uti_original",
+        "uti_edited",
+    )
+
     def norm_path(path):
         if path is None:
             return ""
 
-        text = str(path).strip().replace("\\", "/").replace(" / ", "/")
-        return " / ".join(part.strip() for part in text.split("/") if part.strip())
+        value = str(path).strip().replace("\\", "/").replace(" / ", "/")
+        return " / ".join(
+            part.strip()
+            for part in value.split("/")
+            if part.strip()
+        )
+
+    def normalized_text(value):
+        if value is None:
+            return None
+
+        value = str(value)
+
+        return value if value != "" else None
+
+    def normalized_keyword_set(asset):
+        return {
+            str(keyword)
+            for keyword in (asset.get("keywords") or ())
+            if keyword is not None and str(keyword) != ""
+        }
 
     def full_album_path(album):
         title = str(album.get("title") or "").strip()
@@ -3154,17 +3214,17 @@ def write_folder_album_membership_comparison_report(
             for folder in (album.get("folders") or {}).values()
             if folder.get("path") or folder.get("title")
         ]
-
         folder_paths = [path for path in folder_paths if path]
 
-        folder_path = ""
-        if folder_paths:
-            folder_path = sorted(
-                folder_paths,
-                key=lambda value: (value.count(" / "), len(value)),
-            )[-1]
+        if not folder_paths:
+            return title
 
-        return f"{folder_path} / {title}" if folder_path else title
+        deepest_folder_path = sorted(
+            folder_paths,
+            key=lambda value: (value.count(" / "), len(value), value),
+        )[-1]
+
+        return f"{deepest_folder_path} / {title}"
 
     def under_target(path):
         if target_root_folder_path is None:
@@ -3178,75 +3238,156 @@ def write_folder_album_membership_comparison_report(
         return path == root or path.startswith(root + " / ")
 
     def root_folder(path):
-        parts = [part.strip() for part in str(path).split(" / ") if part.strip()]
+        parts = [
+            part.strip()
+            for part in str(path).split(" / ")
+            if part.strip()
+        ]
+
         return parts[0] if len(parts) > 1 else "[ROOT_ALBUMS]"
 
     def asset_key(asset):
         unique_id = asset.get("photo_library_asset_unique_id")
 
-        if unique_id is not None:
-            return "unique_id:" + repr(tuple(unique_id))
+        if unique_id is None:
+            raise RuntimeError(
+                "REPORT-01 requires every normal inventory asset to have "
+                "photo_library_asset_unique_id."
+            )
 
-        uuid = asset.get("uuid")
-        return "uuid:" + str(uuid) if uuid else None
+        return _normalize_photo_library_asset_unique_id_for_compare(unique_id)
 
-    def short_date(value):
-        return str(value)[:10] if value else ""
+    def canonical_value(value):
+        if isinstance(value, dict):
+            return tuple(
+                (str(key), canonical_value(item))
+                for key, item in sorted(
+                    value.items(),
+                    key=lambda pair: str(pair[0]),
+                )
+            )
 
-    def checksum(keys):
-        return hashlib.sha256("\n".join(sorted(keys)).encode("utf-8")).hexdigest()[:16]
+        if isinstance(value, (list, tuple)):
+            return tuple(canonical_value(item) for item in value)
 
-    def collect_catalog(inventory):
-        path_counts = Counter()
-        info_by_path = {}
+        return value
 
-        for album in (inventory.get("albums") or {}).values():
-            path = full_album_path(album)
+    def full_gps(asset):
+        latitude = asset.get("latitude")
+        longitude = asset.get("longitude")
 
-            if not path or not under_target(path):
-                continue
+        if latitude is None or longitude is None:
+            return None
 
-            path_counts[path] += 1
+        try:
+            return (float(latitude), float(longitude))
+        except (TypeError, ValueError):
+            return None
 
-            info_by_path.setdefault(path, {
-                "root_folder": root_folder(path),
-                "album_path": path,
-            })
+    def rounded_gps(gps):
+        if gps is None:
+            return None
 
-        return path_counts, info_by_path
+        return (
+            round(gps[0], GPS_DECIMAL_PLACES),
+            round(gps[1], GPS_DECIMAL_PLACES),
+        )
 
-    def collect_members(inventory):
-        members = defaultdict(set)
-        no_album_assets = set()
-        date_by_key = {}
-        date_added_by_key = {}
+    def media_adjustment_differences(backup_asset, current_asset):
+        changes = {}
+
+        for field_name in MEDIA_AND_ADJUSTMENT_FIELDS:
+            backup_value = canonical_value(backup_asset.get(field_name))
+            current_value = canonical_value(current_asset.get(field_name))
+
+            if backup_value != current_value:
+                changes[field_name] = {
+                    "backup": backup_value,
+                    "current": current_value,
+                }
+
+        return changes
+
+    def collect_asset_index(inventory):
+        index = {}
 
         for asset in inventory.get("assets") or []:
             key = asset_key(asset)
 
-            if key is None:
-                continue
+            if key in index:
+                raise RuntimeError(
+                    "Duplicate normalized photo_library_asset_unique_id in "
+                    "REPORT-01 asset index:\n"
+                    f"{key!r}"
+                )
 
-            date_by_key[key] = short_date(asset.get("date"))
-            date_added_by_key[key] = short_date(asset.get("date_added"))
+            index[key] = asset
 
-            albums = asset.get("albums") or {}
+        return index
 
-            if not albums:
-                no_album_assets.add(key)
-                continue
+    def collect_folder_paths(inventory):
+        paths = set()
 
-            for album in albums.values():
+        for folder in (inventory.get("folders") or {}).values():
+            path = norm_path(folder.get("path") or folder.get("title"))
+
+            if path and under_target(path):
+                paths.add(path)
+
+        return paths
+
+    def collect_album_catalog(inventory):
+        albums_by_path = defaultdict(list)
+
+        for album in (inventory.get("albums") or {}).values():
+            path = full_album_path(album)
+
+            if path and under_target(path):
+                albums_by_path[path].append(album)
+
+        return {
+            path: sorted(
+                albums,
+                key=lambda album: (
+                    str(album.get("uuid") or ""),
+                    str(album.get("title") or ""),
+                ),
+            )
+            for path, albums in albums_by_path.items()
+        }
+
+    def collect_members_by_album_path(inventory):
+        members_by_path = defaultdict(set)
+
+        for asset in inventory.get("assets") or []:
+            key = asset_key(asset)
+
+            for album in (asset.get("albums") or {}).values():
                 path = full_album_path(album)
 
                 if path and under_target(path):
-                    members[path].add(key)
+                    members_by_path[path].add(key)
 
-        return members, no_album_assets, date_by_key, date_added_by_key
+        return members_by_path
 
-    def date_range(keys, date_by_key):
-        dates = sorted(date_by_key.get(key) for key in keys if date_by_key.get(key))
-        return (dates[0], dates[-1]) if dates else ("", "")
+    def write_table(lines, title, fields, rows):
+        lines.append("")
+        lines.append(title)
+        lines.append("\t".join(fields))
+
+        for row in rows:
+            lines.append(
+                "\t".join(
+                    json.dumps(
+                        row.get(field),
+                        ensure_ascii=False,
+                        default=str,
+                    )
+                    if isinstance(row.get(field), (dict, list, tuple))
+                    else str(row.get(field, ""))
+                    for field in fields
+                )
+            )
 
     report_root = Path(report_root)
     report_root.mkdir(parents=True, exist_ok=True)
@@ -3255,198 +3396,600 @@ def write_folder_album_membership_comparison_report(
     safe_label = str(label).strip().replace(" ", "_").replace("/", "_")
     report_dir = report_root / f"{run_time:%Y%m%d-%H%M%S}__{safe_label}"
     report_dir.mkdir(parents=True, exist_ok=False)
-
     report_path = report_dir / "folder_album_membership_comparison_report.txt"
 
-    backup_counts, backup_info = collect_catalog(inventory_backup)
-    current_counts, current_info = collect_catalog(inventory_current)
+    backup_asset_index = collect_asset_index(inventory_backup)
+    current_asset_index = collect_asset_index(inventory_current)
 
-    backup_members, backup_no_album, backup_dates, backup_date_added = collect_members(inventory_backup)
-    current_members, current_no_album, current_dates, current_date_added = collect_members(inventory_current)
+    backup_asset_keys = set(backup_asset_index)
+    current_asset_keys = set(current_asset_index)
 
-    all_paths = sorted(set(backup_counts) | set(current_counts))
+    missing_backup_asset_keys = sorted(
+        backup_asset_keys - current_asset_keys,
+        key=repr,
+    )
 
-    rows = []
+    date_difference_rows = []
+    description_difference_rows = []
+    keyword_missing_rows = []
+    gps_missing_rows = []
+    gps_different_rows = []
+    media_adjustment_difference_rows = []
 
-    for path in all_paths:
-        b_members = backup_members.get(path, set())
-        c_members = current_members.get(path, set())
+    for key in sorted(backup_asset_keys & current_asset_keys, key=repr):
+        backup_asset = backup_asset_index[key]
+        current_asset = current_asset_index[key]
 
-        missing = b_members - c_members
-        extra = c_members - b_members
+        common = {
+            "original_filename": backup_asset.get("original_filename"),
+            "backup_date": backup_asset.get("date"),
+            "current_date": current_asset.get("date"),
+            "asset_key": f"unique_id:{key!r}",
+        }
 
-        if path in backup_counts and path not in current_counts:
-            status = "MISSING_ALBUM_IN_CURRENT"
-        elif path in current_counts and path not in backup_counts:
-            status = "CURRENT_ONLY_ALBUM"
-        elif missing or extra:
-            status = "MEMBERSHIP_DIFF"
-        else:
-            status = "OK"
+        if backup_asset.get("date") != current_asset.get("date"):
+            date_difference_rows.append(dict(common))
 
-        b_date_min, b_date_max = date_range(b_members, backup_dates)
-        c_date_min, c_date_max = date_range(c_members, current_dates)
-        b_added_min, b_added_max = date_range(b_members, backup_date_added)
-        c_added_min, c_added_max = date_range(c_members, current_date_added)
+        backup_description = normalized_text(backup_asset.get("description"))
+        current_description = normalized_text(current_asset.get("description"))
 
-        rows.append({
-            "status": status,
-            "root_folder": (backup_info.get(path) or current_info.get(path) or {}).get("root_folder", root_folder(path)),
+        if backup_description is not None and backup_description != current_description:
+            description_difference_rows.append({
+                **common,
+                "backup_description": backup_description,
+                "current_description": current_description,
+            })
+
+        backup_keywords = normalized_keyword_set(backup_asset)
+        current_keywords = normalized_keyword_set(current_asset)
+        missing_keywords = sorted(backup_keywords - current_keywords)
+
+        if missing_keywords:
+            keyword_missing_rows.append({
+                **common,
+                "backup_keywords": sorted(backup_keywords),
+                "current_keywords": sorted(current_keywords),
+                "keywords_missing_from_current": missing_keywords,
+            })
+
+        backup_gps = full_gps(backup_asset)
+        current_gps = full_gps(current_asset)
+
+        if backup_gps is not None and current_gps is None:
+            gps_missing_rows.append({
+                **common,
+                "backup_latitude": backup_gps[0],
+                "backup_longitude": backup_gps[1],
+                "current_latitude": current_asset.get("latitude"),
+                "current_longitude": current_asset.get("longitude"),
+            })
+
+        elif backup_gps is not None and current_gps is not None:
+            rounded_backup_gps = rounded_gps(backup_gps)
+            rounded_current_gps = rounded_gps(current_gps)
+
+            if rounded_backup_gps != rounded_current_gps:
+                gps_different_rows.append({
+                    **common,
+                    "backup_latitude": backup_gps[0],
+                    "backup_longitude": backup_gps[1],
+                    "current_latitude": current_gps[0],
+                    "current_longitude": current_gps[1],
+                    "rounded_backup_latitude": rounded_backup_gps[0],
+                    "rounded_backup_longitude": rounded_backup_gps[1],
+                    "rounded_current_latitude": rounded_current_gps[0],
+                    "rounded_current_longitude": rounded_current_gps[1],
+                    "gps_decimal_places_used": GPS_DECIMAL_PLACES,
+                })
+
+        media_adjustment_changes = media_adjustment_differences(
+            backup_asset,
+            current_asset,
+        )
+
+        if media_adjustment_changes:
+            media_adjustment_difference_rows.append({
+                **common,
+                "changed_media_adjustment_fields": sorted(
+                    media_adjustment_changes
+                ),
+                "media_adjustment_differences": media_adjustment_changes,
+            })
+
+    backup_folder_paths = collect_folder_paths(inventory_backup)
+    current_folder_paths = collect_folder_paths(inventory_current)
+    missing_backup_folder_paths = sorted(
+        backup_folder_paths - current_folder_paths
+    )
+
+    backup_albums_by_path = collect_album_catalog(inventory_backup)
+    current_albums_by_path = collect_album_catalog(inventory_current)
+
+    backup_members_by_path = collect_members_by_album_path(inventory_backup)
+    current_members_by_path = collect_members_by_album_path(inventory_current)
+
+    backup_album_paths = set(backup_albums_by_path)
+    current_album_paths = set(current_albums_by_path)
+
+    backup_multiple_album_paths = sorted(
+        path
+        for path, albums in backup_albums_by_path.items()
+        if len(albums) > 1
+    )
+
+    current_multiple_album_paths = sorted(
+        path
+        for path, albums in current_albums_by_path.items()
+        if len(albums) > 1
+    )
+
+    missing_backup_album_paths = sorted(
+        backup_album_paths - current_album_paths
+    )
+
+    membership_difference_rows = []
+    membership_not_evaluated_rows = []
+
+    for path in sorted(backup_album_paths & current_album_paths):
+        backup_album_count = len(backup_albums_by_path[path])
+        current_album_count = len(current_albums_by_path[path])
+
+        if backup_album_count != 1 or current_album_count != 1:
+            membership_not_evaluated_rows.append({
+                "root_folder": root_folder(path),
+                "album_path": path,
+                "backup_albums": backup_album_count,
+                "current_albums": current_album_count,
+                "reason": (
+                    "Membership comparison skipped because this AlbumPath "
+                    "is counted in one or both multiple-albums buckets."
+                ),
+            })
+            continue
+
+        backup_members = backup_members_by_path.get(path, set())
+        current_members = current_members_by_path.get(path, set())
+        missing_backup_members = backup_members - current_members
+
+        if not missing_backup_members:
+            continue
+
+        membership_difference_rows.append({
+            "root_folder": root_folder(path),
             "album_path": path,
-            "backup_album_objects": backup_counts.get(path, 0),
-            "current_album_objects": current_counts.get(path, 0),
-            "backup_assets": len(b_members),
-            "current_assets": len(c_members),
-            "missing_assets_in_current": len(missing),
-            "extra_assets_in_current": len(extra),
-            "backup_date_min": b_date_min,
-            "backup_date_max": b_date_max,
-            "current_date_min": c_date_min,
-            "current_date_max": c_date_max,
-            "backup_date_added_min": b_added_min,
-            "backup_date_added_max": b_added_max,
-            "current_date_added_min": c_added_min,
-            "current_date_added_max": c_added_max,
-            "backup_checksum": checksum(b_members),
-            "current_checksum": checksum(c_members),
+            "backup_albums": backup_album_count,
+            "current_albums": current_album_count,
+            "backup_assets": len(backup_members),
+            "current_assets": len(current_members),
+            "backup_members_missing_from_current": len(
+                missing_backup_members
+            ),
+            "missing_asset_unique_ids": [
+                repr(key)
+                for key in sorted(missing_backup_members, key=repr)
+            ],
         })
 
-    status_counts = Counter(row["status"] for row in rows)
+    missing_backup_asset_rows = [
+        {
+            "original_filename": backup_asset_index[key].get(
+                "original_filename"
+            ),
+            "date": backup_asset_index[key].get("date"),
+            "uuid": backup_asset_index[key].get("uuid"),
+            "asset_key": f"unique_id:{key!r}",
+        }
+        for key in missing_backup_asset_keys
+    ]
+
+    missing_backup_folder_rows = [
+        {
+            "root_folder": root_folder(path),
+            "folder_path": path,
+        }
+        for path in missing_backup_folder_paths
+    ]
+
+    missing_backup_album_rows = [
+        {
+            "root_folder": root_folder(path),
+            "album_path": path,
+            "backup_albums": len(backup_albums_by_path[path]),
+            "backup_assets": len(backup_members_by_path.get(path, set())),
+        }
+        for path in missing_backup_album_paths
+    ]
+
+    backup_multiple_album_rows = [
+        {
+            "root_folder": root_folder(path),
+            "album_path": path,
+            "backup_albums": len(backup_albums_by_path[path]),
+            "backup_album_uuids": [
+                album.get("uuid")
+                for album in backup_albums_by_path[path]
+            ],
+        }
+        for path in backup_multiple_album_paths
+    ]
+
+    current_multiple_album_rows = [
+        {
+            "root_folder": root_folder(path),
+            "album_path": path,
+            "current_albums": len(current_albums_by_path[path]),
+            "current_album_uuids": [
+                album.get("uuid")
+                for album in current_albums_by_path[path]
+            ],
+        }
+        for path in current_multiple_album_paths
+    ]
+
+    dashboard_counts = {
+        "Backup Assets Missing from Current": len(
+            missing_backup_asset_rows
+        ),
+        "Backup Asset Dates Different from Current": len(
+            date_difference_rows
+        ),
+        "Backup Asset Descriptions Missing or Different in Current": len(
+            description_difference_rows
+        ),
+        "Backup Keywords Missing from Current": len(
+            keyword_missing_rows
+        ),
+        "Backup GPS Present but Missing from Current": len(
+            gps_missing_rows
+        ),
+        "Backup and Current GPS Coordinates Differ": len(
+            gps_different_rows
+        ),
+        "Backup Media or Adjustment Metadata Different from Current": len(
+            media_adjustment_difference_rows
+        ),
+        "Backup Folder Paths Missing from Current": len(
+            missing_backup_folder_rows
+        ),
+        "Backup Album Paths Missing from Current": len(
+            missing_backup_album_rows
+        ),
+        "Backup Album Members Missing from Current Albums at Matching Album Paths": len(
+            membership_difference_rows
+        ),
+        "Backup Album Paths Associated with Multiple Albums": len(
+            backup_multiple_album_rows
+        ),
+        "Current Album Paths Associated with Multiple Albums": len(
+            current_multiple_album_rows
+        ),
+    }
+
+    all_backup_required_information_present_in_current = all(
+        count == 0
+        for count in dashboard_counts.values()
+    )
+
+    root_names = set()
+
+    for collection in (
+        missing_backup_folder_rows,
+        missing_backup_album_rows,
+        membership_difference_rows,
+        backup_multiple_album_rows,
+        current_multiple_album_rows,
+    ):
+        root_names.update(
+            row.get("root_folder")
+            for row in collection
+            if row.get("root_folder")
+        )
 
     root_rows = []
 
-    for name in sorted(set(row["root_folder"] for row in rows)):
-        group = [row for row in rows if row["root_folder"] == name]
-
+    for root_name in sorted(root_names):
         root_rows.append({
-            "root_folder": name,
-            "backup_album_paths": sum(row["backup_album_objects"] > 0 for row in group),
-            "current_album_paths": sum(row["current_album_objects"] > 0 for row in group),
-            "missing_album_paths_in_current": sum(row["status"] == "MISSING_ALBUM_IN_CURRENT" for row in group),
-            "current_only_album_paths": sum(row["status"] == "CURRENT_ONLY_ALBUM" for row in group),
-            "membership_diff_album_paths": sum(row["status"] == "MEMBERSHIP_DIFF" for row in group),
-            "ok_album_paths": sum(row["status"] == "OK" for row in group),
+            "root_folder": root_name,
+            "backup_folder_paths_missing_from_current": sum(
+                row["root_folder"] == root_name
+                for row in missing_backup_folder_rows
+            ),
+            "backup_album_paths_missing_from_current": sum(
+                row["root_folder"] == root_name
+                for row in missing_backup_album_rows
+            ),
+            "backup_album_members_missing_from_current_at_matching_album_paths": sum(
+                row["root_folder"] == root_name
+                for row in membership_difference_rows
+            ),
+            "backup_album_paths_associated_with_multiple_albums": sum(
+                row["root_folder"] == root_name
+                for row in backup_multiple_album_rows
+            ),
+            "current_album_paths_associated_with_multiple_albums": sum(
+                row["root_folder"] == root_name
+                for row in current_multiple_album_rows
+            ),
         })
 
     root_rows.sort(
         key=lambda row: (
-            -row["missing_album_paths_in_current"],
-            -row["membership_diff_album_paths"],
-            -row["current_only_album_paths"],
+            -sum(
+                value
+                for key, value in row.items()
+                if key != "root_folder"
+            ),
             row["root_folder"],
         )
     )
-
-    detail_rows = [
-        row for row in rows
-        if include_ok_rows or row["status"] != "OK"
-    ]
-
-    detail_rows.sort(
-        key=lambda row: (
-            {
-                "MISSING_ALBUM_IN_CURRENT": 0,
-                "MEMBERSHIP_DIFF": 1,
-                "CURRENT_ONLY_ALBUM": 2,
-                "OK": 3,
-            }.get(row["status"], 9),
-            row["root_folder"],
-            row["album_path"],
-        )
-    )
-
-    fields = [
-        "status",
-        "root_folder",
-        "album_path",
-        "backup_album_objects",
-        "current_album_objects",
-        "backup_assets",
-        "current_assets",
-        "missing_assets_in_current",
-        "extra_assets_in_current",
-        "backup_date_min",
-        "backup_date_max",
-        "current_date_min",
-        "current_date_max",
-        "backup_date_added_min",
-        "backup_date_added_max",
-        "current_date_added_min",
-        "current_date_added_max",
-        "backup_checksum",
-        "current_checksum",
-    ]
 
     lines = [
-        "report_type\tfolder_album_membership_comparison",
-        f"run_timestamp\t{run_time.isoformat(timespec='seconds')}",
-        f"label\t{label}",
-        f"target_root_folder_path\t{target_root_folder_path}",
-        f"include_ok_rows\t{include_ok_rows}",
+        "=" * 120,
+        "BACKUP-CENTRIC PHOTOS LIBRARY RESTORATION DASHBOARD",
+        "=" * 120,
+        f"run_timestamp: {run_time.isoformat(timespec='seconds')}",
+        f"label: {label}",
+        f"target_root_folder_path: {target_root_folder_path}",
+        f"include_ok_rows: {include_ok_rows}",
         "",
-        "summary",
-        f"backup_unique_album_paths\t{len(backup_counts)}",
-        f"current_unique_album_paths\t{len(current_counts)}",
-        f"all_unique_album_paths\t{len(all_paths)}",
-        f"backup_no_album_assets\t{len(backup_no_album)}",
-        f"current_no_album_assets\t{len(current_no_album)}",
+        "Scope",
+        "-" * 120,
+        "This report checks only whether Backup-required information is present in Current.",
+        "Current-only assets, folders, AlbumPaths, album members, and syndication state are outside this report's scope.",
+        "AlbumPath means deepest folder path + album title; a root-level album uses its title alone.",
+        "",
+        "Asset Metadata Preservation Rules",
+        "-" * 120,
+        "Date: Backup and Current dates must match.",
+        "Description: if Backup has a description, Current must preserve the same description.",
+        "Keywords: every Backup keyword must still be present in Current; Current may have additional keywords.",
+        f"GPS: compare latitude and longitude only; coordinates are rounded to {GPS_DECIMAL_PLACES} decimal places before comparison.",
+        "Media / adjustment metadata: compare media type, dimensions, adjustment state, and UTI fields.",
+        "",
+        "Dashboard — all counts must reach 0 before this Backup-to-Current restoration stage is complete",
+        "-" * 120,
     ]
 
-    lines.extend(
-        f"status_count\t{status}\t{count}"
-        for status, count in sorted(status_counts.items())
-    )
+    for title, count in dashboard_counts.items():
+        lines.append(f"{title}: {count}")
 
-    lines.append("")
-    lines.append("root_folder_breakdown")
-    lines.append(
-        "\t".join([
+    lines.extend([
+        "",
+        "All Backup-Required Information Present in Current: "
+        + ("YES" if all_backup_required_information_present_in_current else "NO"),
+        "",
+        "Inventory Counts",
+        "-" * 120,
+        f"Backup normal assets: {len(backup_asset_index)}",
+        f"Current normal assets: {len(current_asset_index)}",
+        f"Backup folder paths: {len(backup_folder_paths)}",
+        f"Current folder paths: {len(current_folder_paths)}",
+        f"Backup AlbumPaths: {len(backup_album_paths)}",
+        f"Current AlbumPaths: {len(current_album_paths)}",
+    ])
+
+    write_table(
+        lines,
+        "Root Folder Breakdown",
+        [
             "root_folder",
-            "backup_album_paths",
-            "current_album_paths",
-            "missing_album_paths_in_current",
-            "current_only_album_paths",
-            "membership_diff_album_paths",
-            "ok_album_paths",
-        ])
+            "backup_folder_paths_missing_from_current",
+            "backup_album_paths_missing_from_current",
+            "backup_album_members_missing_from_current_at_matching_album_paths",
+            "backup_album_paths_associated_with_multiple_albums",
+            "current_album_paths_associated_with_multiple_albums",
+        ],
+        root_rows,
     )
 
-    for row in root_rows:
-        lines.append(
-            "\t".join(str(row[key]) for key in [
-                "root_folder",
-                "backup_album_paths",
-                "current_album_paths",
-                "missing_album_paths_in_current",
-                "current_only_album_paths",
-                "membership_diff_album_paths",
-                "ok_album_paths",
-            ])
-        )
-
-    lines.append("")
-    lines.append("album_details")
-    lines.append("\t".join(fields))
-
-    for row in detail_rows:
-        lines.append(
-            "\t".join(str(row.get(field, "")) for field in fields)
-        )
-
-    report_path.write_text(
-        "\n".join(lines) + "\n",
-        encoding="utf-8",
+    write_table(
+        lines,
+        "Backup Assets Missing from Current",
+        ["original_filename", "date", "uuid", "asset_key"],
+        missing_backup_asset_rows,
     )
+
+    write_table(
+        lines,
+        "Backup Asset Dates Different from Current",
+        ["original_filename", "backup_date", "current_date", "asset_key"],
+        date_difference_rows,
+    )
+
+    write_table(
+        lines,
+        "Backup Asset Descriptions Missing or Different in Current",
+        [
+            "original_filename",
+            "backup_date",
+            "current_date",
+            "backup_description",
+            "current_description",
+            "asset_key",
+        ],
+        description_difference_rows,
+    )
+
+    write_table(
+        lines,
+        "Backup Keywords Missing from Current",
+        [
+            "original_filename",
+            "backup_date",
+            "current_date",
+            "backup_keywords",
+            "current_keywords",
+            "keywords_missing_from_current",
+            "asset_key",
+        ],
+        keyword_missing_rows,
+    )
+
+    write_table(
+        lines,
+        "Backup GPS Present but Missing from Current",
+        [
+            "original_filename",
+            "backup_date",
+            "current_date",
+            "backup_latitude",
+            "backup_longitude",
+            "current_latitude",
+            "current_longitude",
+            "asset_key",
+        ],
+        gps_missing_rows,
+    )
+
+    write_table(
+        lines,
+        "Backup and Current GPS Coordinates Differ",
+        [
+            "original_filename",
+            "backup_date",
+            "current_date",
+            "backup_latitude",
+            "backup_longitude",
+            "current_latitude",
+            "current_longitude",
+            "rounded_backup_latitude",
+            "rounded_backup_longitude",
+            "rounded_current_latitude",
+            "rounded_current_longitude",
+            "gps_decimal_places_used",
+            "asset_key",
+        ],
+        gps_different_rows,
+    )
+
+    write_table(
+        lines,
+        "Backup Media or Adjustment Metadata Different from Current",
+        [
+            "original_filename",
+            "backup_date",
+            "current_date",
+            "changed_media_adjustment_fields",
+            "media_adjustment_differences",
+            "asset_key",
+        ],
+        media_adjustment_difference_rows,
+    )
+
+    write_table(
+        lines,
+        "Backup Folder Paths Missing from Current",
+        ["root_folder", "folder_path"],
+        missing_backup_folder_rows,
+    )
+
+    write_table(
+        lines,
+        "Backup Album Paths Missing from Current",
+        ["root_folder", "album_path", "backup_albums", "backup_assets"],
+        missing_backup_album_rows,
+    )
+
+    write_table(
+        lines,
+        "Backup Album Members Missing from Current Albums at Matching Album Paths",
+        [
+            "root_folder",
+            "album_path",
+            "backup_albums",
+            "current_albums",
+            "backup_assets",
+            "current_assets",
+            "backup_members_missing_from_current",
+            "missing_asset_unique_ids",
+        ],
+        membership_difference_rows,
+    )
+
+    write_table(
+        lines,
+        "Backup Album Paths Associated with Multiple Albums",
+        [
+            "root_folder",
+            "album_path",
+            "backup_albums",
+            "backup_album_uuids",
+        ],
+        backup_multiple_album_rows,
+    )
+
+    write_table(
+        lines,
+        "Current Album Paths Associated with Multiple Albums",
+        [
+            "root_folder",
+            "album_path",
+            "current_albums",
+            "current_album_uuids",
+        ],
+        current_multiple_album_rows,
+    )
+
+    write_table(
+        lines,
+        "Album Paths Not Evaluated for Membership Due to Multiple Albums",
+        [
+            "root_folder",
+            "album_path",
+            "backup_albums",
+            "current_albums",
+            "reason",
+        ],
+        membership_not_evaluated_rows,
+    )
+
+    report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     return {
         "report_path": str(report_path),
-        "backup_unique_album_paths": len(backup_counts),
-        "current_unique_album_paths": len(current_counts),
-        "all_unique_album_paths": len(all_paths),
-        "status_counts": dict(sorted(status_counts.items())),
+        "dashboard_counts": dashboard_counts,
+        "all_backup_required_information_present_in_current": (
+            all_backup_required_information_present_in_current
+        ),
+        "backup_normal_asset_count": len(backup_asset_index),
+        "current_normal_asset_count": len(current_asset_index),
+        "backup_folder_path_count": len(backup_folder_paths),
+        "current_folder_path_count": len(current_folder_paths),
+        "backup_album_path_count": len(backup_album_paths),
+        "current_album_path_count": len(current_album_paths),
         "root_folder_count": len(root_rows),
-        "detail_row_count": len(detail_rows),
+        "asset_detail_row_counts": {
+            "backup_assets_missing_from_current": len(
+                missing_backup_asset_rows
+            ),
+            "backup_asset_dates_different_from_current": len(
+                date_difference_rows
+            ),
+            "backup_asset_descriptions_missing_or_different_in_current": len(
+                description_difference_rows
+            ),
+            "backup_keywords_missing_from_current": len(
+                keyword_missing_rows
+            ),
+            "backup_gps_present_but_missing_from_current": len(
+                gps_missing_rows
+            ),
+            "backup_and_current_gps_coordinates_differ": len(
+                gps_different_rows
+            ),
+            "backup_media_or_adjustment_metadata_different_from_current": len(
+                media_adjustment_difference_rows
+            ),
+        },
+        "folder_detail_row_count": len(missing_backup_folder_rows),
+        "album_detail_row_count": (
+            len(missing_backup_album_rows)
+            + len(membership_difference_rows)
+            + len(backup_multiple_album_rows)
+            + len(current_multiple_album_rows)
+        ),
     }
+
 
 # ------------------------------------------------------------
 # ASSET_MISSING_FROM_CURRENT review report helpers
