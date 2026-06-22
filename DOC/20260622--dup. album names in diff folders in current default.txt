@@ -1,0 +1,65 @@
+Backup canonical album	另一個 Current album	結果
+NSFW / Sexy Girls	HIDE / Sexy Girls，8 張	完全不重疊；不是 duplicate
+NSFW / Pretty Girls	HIDE / Pretty Girls，5 張	那 5 張雖在 NSFW 的 773 張之中，但 HIDE album 是不同語意位置；不能自動刪
+V - NSFW / TG 色情CosPlay，387 張	[ROOT_ALBUMS] / TG 色情CosPlay，459 張	共同 387，root 多 72；這才是你看到的錯位 duplicate，需要先 merge
+V - NSFW / SPY_PRETTY_GIRLS / 妹仔 路邊隨拍，Backup 20 張	Current 同一路徑 27 張	Current 多 7 張；不是 cross-path duplicate，也不應刪
+
+
+
+2026-06-22 — Default Current: NSFW Cross-Path Same-Title Album Review
+
+Scope
+
+* All album paths below refer to the Default Current iCloud Photos Library.
+* Backup is ground truth only. Do not manually modify the Backup library.
+
+Important count clarification
+
+* “#給資料夾置頂用” is not 96 albums.
+* Current has 32 album objects with that title.
+* The review expands them across three Backup target paths, producing 96 review entries. Ignore this group for this repair pass.
+
+Manual-review cases
+
+1. NSFW / Sexy Girls versus HIDE / Sexy Girls
+
+* Membership overlap: 0.
+* These are not duplicates.
+* Do not delete either one as part of structural repair.
+* Deleting one would be a personal organization decision only.
+
+2. NSFW / Pretty Girls versus HIDE / Pretty Girls
+
+* HIDE has 5 members, all also present in NSFW / Pretty Girls.
+* This is not an automatic repair deletion because HIDE may be intentional semantic organization.
+* Deleting the HIDE album would not delete its photos, but would remove that separate HIDE album membership/container.
+
+3. NSFW / TG 色情CosPlay versus [ROOT_ALBUMS] / TG 色情CosPlay
+
+* Backup canonical path: NSFW / TG 色情CosPlay, 387 assets.
+* Current NSFW album: 387 assets, matching Backup.
+* Current root album: 459 assets.
+* The root album has 72 members not currently in the NSFW target.
+* Do not delete the root album yet.
+* First determine whether those 72 assets should be added to NSFW / TG 色情CosPlay; only after that can the root album container be removed safely.
+
+4. NSFW / SPY_PRETTY_GIRLS / 妹仔 路邊隨拍
+
+* Current has 27 members versus Backup’s 20.
+* This is not a duplicate-path problem.
+* It is a Current-superset / later-membership issue and should not be deleted.
+
+關於 #給資料夾置頂用：**不是 96 個 album objects。**Current 裡實際是 32 個同 title、同一張 asset 的 album containers；而 Backup 的 NSFW scope 裡剛好有三個不同路徑也叫這個名字，所以 REPAIR-02 對三個 target 各自比對全部 32 個，才膨脹成 96 個 review entries。
+
+至於 TG 色情CosPlay 的 root 那 459 張：不能直接推論其中多出的 72 張一定是 Backup snapshot 之後新增的資產。
+
+目前只能確定：
+
+Backup canonical NSFW album:       387
+Current canonical NSFW album:      387
+Current root album:                459
+root-only relative to NSFW:         72
+
+那 72 張可能是 snapshot 後新增；也可能是 snapshot 前就存在於 Backup，但當時屬於別的 album、沒有在 Backup 的 NSFW / TG 色情CosPlay membership 裡；還可能是 crash / 重建過程中，root album container 被重建並累積了舊資產。459 − 387 = 72 只是 album membership 差異，不是資產建立時間的證據。Current 的 root album 被記成 Current-only container，也只代表這個 album container 不在 Backup，不代表其中每張 asset 都是後來新增。
+
+所以 Sexy Girls、Pretty Girls 你可以依自己的整理意圖手動處理；但 TG 色情CosPlay 先不要刪 root，下一步應該是把那 72 張逐筆分成「Backup 原本已有」和「真的只在 Current 才有」，再決定要不要手動加進 NSFW target。
