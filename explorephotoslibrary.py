@@ -291,6 +291,29 @@ def _format_full_taipei_datetime(value):
     )
 
 
+def _format_taipei_datetime_to_seconds(value):
+    # REPORT-01 date preservation comparator.
+    #
+    # Keep the full calendar date, including year, because year is meaningful
+    # metadata and may have been intentionally corrected by the user.
+    #
+    # Discard only microseconds because Photos / iCloud / migration can produce
+    # harmless sub-second precision drift between libraries.
+    dt = _to_taipei_datetime(value)
+
+    if dt is None:
+        return None
+
+    return (
+        f"{dt.year:04d}-"
+        f"{dt.month:02d}-"
+        f"{dt.day:02d} "
+        f"{dt.hour:02d}:"
+        f"{dt.minute:02d}:"
+        f"{dt.second:02d}"
+    )
+
+
 def _normalize_filename_extension_for_asset_identity(original_filename, filename=None):
     # Preserve the main filename exactly, but normalize the extension case.
     #
@@ -3427,8 +3450,19 @@ def write_folder_album_membership_comparison_report(
             "asset_key": f"unique_id:{key!r}",
         }
 
-        if backup_asset.get("date") != current_asset.get("date"):
-            date_difference_rows.append(dict(common))
+        backup_date_to_seconds = _format_taipei_datetime_to_seconds(
+            backup_asset.get("date")
+        )
+        current_date_to_seconds = _format_taipei_datetime_to_seconds(
+            current_asset.get("date")
+        )
+
+        if backup_date_to_seconds != current_date_to_seconds:
+            date_difference_rows.append({
+                **common,
+                "backup_date_to_seconds": backup_date_to_seconds,
+                "current_date_to_seconds": current_date_to_seconds,
+            })
 
         backup_description = normalized_text(backup_asset.get("description"))
         current_description = normalized_text(current_asset.get("description"))
@@ -3792,7 +3826,14 @@ def write_folder_album_membership_comparison_report(
     write_table(
         lines,
         "Backup Asset Dates Different from Current",
-        ["original_filename", "backup_date", "current_date", "asset_key"],
+        [
+            "original_filename",
+            "backup_date",
+            "current_date",
+            "backup_date_to_seconds",
+            "current_date_to_seconds",
+            "asset_key",
+        ],
         date_difference_rows,
     )
 
