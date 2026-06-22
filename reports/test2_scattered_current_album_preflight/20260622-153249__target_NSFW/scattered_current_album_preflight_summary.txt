@@ -1,0 +1,26 @@
+REPAIR-02 v3 — deep same-title preflight
+====================================================================================================
+run_timestamp	2026-06-22T15:32:49
+target_parent_folder_path	NSFW
+backup_album_target_count	65
+same_title_candidate_rows	161
+
+status_counts
+ALREADY_AT_TARGET_PATH	58
+TARGET_EXACT_PLUS_EXTRA_SAME_TITLE_CANDIDATES	6
+SAME_TITLE_MEMBERSHIP_MISMATCH	1
+
+candidate_path_relation_counts
+OUTSIDE_TARGET_PATH	96
+AT_TARGET_PATH	65
+
+candidate_membership_relation_counts
+EXACT_BACKUP_MEMBERSHIP	157
+CURRENT_SUPERSET_OF_BACKUP	2
+DISJOINT_FROM_BACKUP	1
+CURRENT_SUBSET_OF_BACKUP	1
+
+move_source_path_counts
+
+summary_tsv	reports/test2_scattered_current_album_preflight/20260622-153249__target_NSFW/scattered_current_album_preflight.tsv
+candidate_tsv	reports/test2_scattered_current_album_preflight/20260622-153249__target_NSFW/scattered_current_album_candidates.tsv

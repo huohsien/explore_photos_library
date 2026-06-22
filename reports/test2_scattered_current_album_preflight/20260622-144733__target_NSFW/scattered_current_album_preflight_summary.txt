@@ -1,0 +1,14 @@
+MOVE_EXISTING_ALBUM_ONLY preflight
+====================================================================================================
+run_timestamp	2026-06-22T14:47:33
+target_parent_folder_path	NSFW
+backup_album_target_count	65
+
+status_counts
+ALREADY_AT_TARGET_PATH	61
+MULTIPLE_EXACT_MATCHES	3
+SAME_TITLE_MEMBERSHIP_MISMATCH	1
+
+move_source_path_counts
+
+review_tsv	reports/test2_scattered_current_album_preflight/20260622-144733__target_NSFW/scattered_current_album_preflight.tsv
