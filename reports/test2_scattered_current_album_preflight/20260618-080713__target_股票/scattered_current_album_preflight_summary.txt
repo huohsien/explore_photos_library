@@ -1,0 +1,16 @@
+MOVE_EXISTING_ALBUM_ONLY preflight
+====================================================================================================
+run_timestamp	2026-06-18T08:07:13
+target_parent_folder_path	股票
+backup_album_target_count	305
+
+status_counts
+MOVE_READY	188
+ALREADY_AT_TARGET_PATH	88
+NO_MATCHING_CURRENT_ALBUM	27
+MULTIPLE_EXACT_MATCHES	2
+
+move_source_path_counts
+[ROOT_ALBUMS]	188
+
+review_tsv	reports/test2_scattered_current_album_preflight/20260618-080713__target_股票/scattered_current_album_preflight.tsv
