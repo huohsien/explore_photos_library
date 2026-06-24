@@ -1,0 +1,97 @@
+========================================================================================================================
+BACKUP-CENTRIC PHOTOS LIBRARY RESTORATION DASHBOARD
+========================================================================================================================
+run_timestamp: 2026-06-23T21:15:08
+label: whole_library
+target_root_folder_path: None
+include_ok_rows: False
+
+Scope
+------------------------------------------------------------------------------------------------------------------------
+This report checks only whether Backup-required information is present in Current.
+Current-only assets, folders, AlbumPaths, album members, and syndication state are outside this report's scope.
+AlbumPath means deepest folder path + album title; a root-level album uses its title alone.
+
+Asset Metadata Preservation Rules
+------------------------------------------------------------------------------------------------------------------------
+Date: Backup and Current dates must match.
+Description: if Backup has a description, Current must preserve the same description.
+Keywords: every Backup keyword must still be present in Current; Current may have additional keywords.
+GPS: compare latitude and longitude only; coordinates are rounded to 4 decimal places before comparison.
+Media / adjustment metadata: compare media type, dimensions, adjustment state, and UTI fields.
+
+Dashboard — all counts must reach 0 before this Backup-to-Current restoration stage is complete
+------------------------------------------------------------------------------------------------------------------------
+Backup Assets Missing from Current: 0
+Backup Asset Dates Different from Current: 0
+Backup Asset Descriptions Missing or Different in Current: 0
+Backup Keywords Missing from Current: 1
+Backup GPS Present but Missing from Current: 0
+Backup and Current GPS Coordinates Differ: 0
+Backup Media or Adjustment Metadata Different from Current: 2
+Backup Folder Paths Missing from Current: 0
+Backup Album Paths Missing from Current: 0
+Backup Album Members Missing from Current Albums at Matching Album Paths: 3
+Backup Album Paths Associated with Multiple Albums: 0
+Current Album Paths Associated with Multiple Albums: 0
+
+All Backup-Required Information Present in Current: NO
+
+Inventory Counts
+------------------------------------------------------------------------------------------------------------------------
+Backup normal assets: 71571
+Current normal assets: 96595
+Backup folder paths: 35
+Current folder paths: 35
+Backup AlbumPaths: 5110
+Current AlbumPaths: 5980
+
+Root Folder Breakdown
+root_folder	backup_folder_paths_missing_from_current	backup_album_paths_missing_from_current	backup_album_members_missing_from_current_at_matching_album_paths	backup_album_paths_associated_with_multiple_albums	current_album_paths_associated_with_multiple_albums
+HIDE	0	0	2	0	0
+[ROOT_ALBUMS]	0	0	1	0	0
+
+Backup Assets Missing from Current
+original_filename	date	uuid	asset_key
+
+Backup Asset Dates Different from Current
+original_filename	backup_date	current_date	backup_date_to_seconds	current_date_to_seconds	asset_key
+
+Backup Asset Descriptions Missing or Different in Current
+original_filename	backup_date	current_date	backup_description	current_description	asset_key
+
+Backup Keywords Missing from Current
+original_filename	backup_date	current_date	backup_keywords	current_keywords	keywords_missing_from_current	asset_key
+IMG_0014.PNG	2020-05-25T22:35:32+08:00	2020-05-25T22:35:32+08:00	["HIDE", "NSFW", "NSFW_IG"]	["HIDE", "NSFW"]	["NSFW_IG"]	unique_id:('IMG_0014.png', '05-25 22:35:32', 5753250, (935, 1364), None)
+
+Backup GPS Present but Missing from Current
+original_filename	backup_date	current_date	backup_latitude	backup_longitude	current_latitude	current_longitude	asset_key
+
+Backup and Current GPS Coordinates Differ
+original_filename	backup_date	current_date	backup_latitude	backup_longitude	current_latitude	current_longitude	rounded_backup_latitude	rounded_backup_longitude	rounded_current_latitude	rounded_current_longitude	gps_decimal_places_used	asset_key
+
+Backup Media or Adjustment Metadata Different from Current
+original_filename	backup_date	current_date	changed_media_adjustment_fields	media_adjustment_differences	asset_key
+IMG_3003.JPG	2025-03-01T17:41:40.924000+08:00	2025-03-01T17:41:40.924000+08:00	["adjustment_type"]	{"adjustment_type": {"backup": 3, "current": 2}}	unique_id:('IMG_3003.jpg', '03-01 17:41:40', 4181261, (4032, 2268), None)
+IMG_3004.JPG	2025-03-01T17:44:56.298000+08:00	2025-03-01T17:44:56.298000+08:00	["adjustment_type"]	{"adjustment_type": {"backup": 3, "current": 2}}	unique_id:('IMG_3004.jpg', '03-01 17:44:56', 7167603, (5712, 3213), None)
+
+Backup Folder Paths Missing from Current
+root_folder	folder_path
+
+Backup Album Paths Missing from Current
+root_folder	album_path	backup_albums	backup_assets
+
+Backup Album Members Missing from Current Albums at Matching Album Paths
+root_folder	album_path	backup_albums	current_albums	backup_assets	current_assets	backup_members_missing_from_current	missing_asset_unique_ids
+HIDE	HIDE / Girls-3	1	1	1012	1011	1	["('IMG_0024.jpg', '05-21 11:19:16', 251286, None, None)"]
+HIDE	HIDE / 外送茶莊性感美女	1	1	128	20	108	["('-5661449389225649283.mp4', '10-22 00:07:17', 925838, None, None)", "('DeliveryTeaAds.png', '07-05 02:42:08', 1379277, None, None)", "('IMG_0004.jpg', '07-30 11:11:45', 100551, None, None)", "('IMG_0005.jpg', '07-30 11:11:45', 87535, None, None)", "('IMG_0007.jpg', '07-30 11:11:45', 103098, None, None)", "('IMG_0009.jpg', '07-30 11:15:14', 32671, None, None)", "('IMG_0010.jpg', '07-30 11:15:14', 121003, None, None)", "('IMG_0011.jpg', '07-30 11:15:14', 115677, None, None)", "('IMG_0012.jpg', '07-30 11:15:14', 73427, None, None)", "('IMG_0013.jpg', '07-30 11:15:14', 58754, None, None)", "('IMG_0070.png', '11-03 15:29:56', 7612646, None, None)", "('IMG_0071.jpg', '11-03 15:30:00', 60149, None, None)", "('IMG_0072.jpg', '11-03 15:30:00', 66287, None, None)", "('IMG_0137.png', '11-07 19:38:27', 8869193, None, None)", "('IMG_0138.jpg', '11-07 19:38:31', 142902, None, None)", "('IMG_0166.jpg', '12-02 10:56:10', 85408, None, None)", "('IMG_0167.jpg', '12-02 10:56:11', 59355, None, None)", "('IMG_0168.jpg', '12-02 10:56:11', 62849, None, None)", "('IMG_0169.jpg', '12-02 11:09:20', 59561, None, None)", "('IMG_0170.jpg', '12-02 11:09:21', 65242, None, None)", "('IMG_0171.jpg', '12-02 11:09:21', 58513, None, None)", "('IMG_0172.png', '12-02 11:10:49', 3132619, (970, 1685), None)", "('IMG_0177.png', '11-08 18:21:57', 4584407, None, None)", "('IMG_0179.png', '11-08 18:24:37', 8651677, None, None)", "('IMG_0181.jpg', '11-08 18:24:41', 154141, None, None)", "('IMG_0187.jpg', '10-16 06:18:37', 77806, None, None)", "('IMG_0211.jpg', '12-04 11:25:45', 89229, None, None)", "('IMG_0212.jpg', '12-04 11:25:46', 70017, None, None)", "('IMG_0213.jpg', '12-04 11:25:46', 85475, None, None)", "('IMG_0214.jpg', '12-04 11:25:46', 73127, None, None)", "('IMG_0215.jpg', '12-04 11:25:46', 56841, None, None)", "('IMG_0216.png', '11-11 00:21:02', 7575926, None, None)", "('IMG_0218.jpg', '11-11 00:21:06', 86617, None, None)", "('IMG_0219.jpg', '11-11 00:26:28', 106878, None, None)", "('IMG_0220.jpg', '11-11 00:26:28', 114965, None, None)", "('IMG_0221.jpg', '12-18 12:02:16', 69489, None, None)", "('IMG_0221.png', '11-11 00:26:24', 4535762, None, None)", "('IMG_0222.jpg', '12-18 12:02:17', 73088, None, None)", "('IMG_0256.png', '11-12 00:06:21', 7086216, None, None)", "('IMG_0257.jpg', '11-12 00:06:25', 64438, None, None)", "('IMG_0259.jpg', '11-12 00:06:25', 67233, None, None)", "('IMG_0260.png', '11-12 00:08:58', 7308736, None, None)", "('IMG_0262.jpg', '11-12 00:09:03', 142570, None, None)", "('IMG_0263.jpg', '11-12 00:09:03', 125177, None, None)", "('IMG_0267.png', '11-12 00:22:48', 8052709, (1284, 2240), None)", "('IMG_0273.jpg', '11-20 04:03:14', 46016, None, None)", "('IMG_0274.jpg', '11-20 04:03:14', 80893, None, None)", "('IMG_0275.jpg', '11-20 04:03:14', 83073, None, None)", "('IMG_0286.jpg', '12-20 12:36:56', 176752, None, None)", "('IMG_0287.jpg', '12-20 12:36:56', 146629, None, None)", "('IMG_0353.png', '11-14 21:47:37', 8420728, None, None)", "('IMG_0354.jpg', '11-14 21:47:41', 48434, None, None)", "('IMG_0355.jpg', '11-14 21:47:41', 84448, None, None)", "('IMG_0356.jpg', '11-14 21:47:41', 44449, None, None)", "('IMG_0357.jpg', '11-14 21:47:41', 85648, None, None)", "('IMG_0387.jpg', '10-19 03:30:51', 82736, None, None)", "('IMG_0388.jpg', '10-19 03:30:51', 78431, None, None)", "('IMG_0389.jpg', '10-19 03:33:24', 184376, None, None)", "('IMG_0459.jpg', '10-21 17:46:40', 124182, None, None)", "('IMG_0460.jpg', '10-21 17:48:07', 72733, None, None)", "('IMG_0461.jpg', '10-21 17:48:07', 56349, None, None)", "('IMG_0462.jpg', '10-21 17:48:07', 53537, None, None)", "('IMG_0464.png', '11-18 05:56:47', 7544679, None, None)", "('IMG_0465.jpg', '11-18 05:56:50', 137199, None, None)", "('IMG_0466.jpg', '11-18 05:56:50', 156631, None, None)", "('IMG_0609.jpg', '08-30 00:12:22', 82226, None, None)", "('IMG_0610.jpg', '08-30 00:12:22', 53857, None, None)", "('IMG_0611.jpg', '08-30 00:12:22', 200176, None, None)", "('IMG_0613.jpg', '08-30 00:14:33', 158627, None, None)", "('IMG_2332.jpg', '05-06 10:21:30', 313744, None, None)", "('IMG_2335.jpg', '05-06 10:22:20', 217219, None, None)", "('IMG_2336.jpg', '05-06 10:22:20', 243161, None, None)", "('IMG_3565.jpg', '09-22 06:59:20', 102730, None, None)", "('IMG_3566.png', '09-22 06:59:29', 2818989, None, None)", "('IMG_4416.jpg', '06-18 00:15:09', 30378, None, None)", "('IMG_4619.png', '06-22 10:12:12', 8972503, (1284, 2093), None)", "('IMG_4620.jpg', '06-22 10:12:27', 58909, None, None)", "('IMG_4621.jpg', '06-22 10:12:27', 55527, None, None)", "('IMG_6253.jpg', '07-19 10:59:19', 208416, None, None)", "('IMG_6254.jpg', '07-19 10:59:26', 230407, None, None)", "('IMG_6832.jpg', '07-28 17:54:20', 125184, None, None)", "('IMG_6833.jpg', '07-28 17:54:20', 115006, None, None)", "('IMG_6834.jpg', '07-28 17:54:20', 99784, None, None)", "('IMG_6835.png', '07-28 17:54:30', 7619063, (1284, 2191), None)", "('IMG_6920.jpg', '07-29 18:45:25', 160154, None, None)", "('IMG_6921.jpg', '07-29 18:45:25', 180329, None, None)", "('IMG_7096.jpg', '08-01 09:25:50', 113347, None, None)", "('IMG_7098.jpg', '08-01 09:25:51', 147921, None, None)", "('IMG_7099.png', '08-01 09:26:10', 7369308, None, None)", "('IMG_7548.jpg', '08-08 09:48:03', 43580, None, None)", "('IMG_7549.jpg', '08-08 09:48:03', 34868, None, None)", "('IMG_7550.jpg', '08-08 09:48:03', 57479, None, None)", "('IMG_7551.jpg', '08-08 09:48:03', 60615, None, None)", "('IMG_7552.png', '08-08 09:47:58', 4651595, None, None)", "('IMG_7557.png', '08-08 09:49:11', 6885251, None, None)", "('IMG_7558.jpg', '08-08 09:49:22', 54365, None, None)", "('IMG_7559.jpg', '08-08 09:49:22', 56990, None, None)", "('IMG_7560.jpg', '08-08 09:49:22', 57742, None, None)", "('IMG_8830.png', '09-12 09:18:36', 9529983, None, None)", "('IMG_8831.jpg', '09-12 09:18:40', 177002, None, None)", "('IMG_8833.png', '09-12 09:18:55', 7658234, None, None)", "('IMG_8834.jpg', '09-12 09:18:58', 118034, None, None)", "('IMG_8835.jpg', '09-12 09:18:58', 111057, None, None)", "('IMG_8836.jpg', '09-12 09:18:58', 109916, None, None)", "('IMG_9442.jpg', '10-02 11:49:54', 151576, None, None)", "('IMG_9443.jpg', '10-02 11:49:54', 126422, None, None)", "('IMG_9444.jpg', '10-02 11:49:54', 127893, None, None)", "('IMG_9667.jpg', '10-19 13:01:27', 138735, None, None)"]
+[ROOT_ALBUMS]	𝕏	1	1	4	20	3	["('IMG_1068.jpg', '10-22 19:00:16', 507295, None, None)", "('IMG_1069.jpg', '10-22 19:00:23', 611149, None, None)", "('IMG_1070.jpg', '10-22 19:00:40', 1964248, None, None)"]
+
+Backup Album Paths Associated with Multiple Albums
+root_folder	album_path	backup_albums	backup_album_uuids
+
+Current Album Paths Associated with Multiple Albums
+root_folder	album_path	current_albums	current_album_uuids
+
+Album Paths Not Evaluated for Membership Due to Multiple Albums
+root_folder	album_path	backup_albums	current_albums	reason
