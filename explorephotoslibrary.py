@@ -3174,6 +3174,8 @@ def write_folder_album_membership_comparison_report(
     - date
     - description
     - keywords
+    - favorite flag
+    - hidden flag
     - GPS present in Backup but missing in Current
     - GPS present in both libraries but coordinates differ beyond tolerance
     - media / adjustment-related metadata
@@ -3225,6 +3227,35 @@ def write_folder_album_membership_comparison_report(
             for keyword in (asset.get("keywords") or ())
             if keyword is not None and str(keyword) != ""
         }
+
+    def strict_boolean_flag(asset, field_name):
+        """Return a boolean Photos flag, or stop REPORT-01 if it is unknown.
+
+        The final certificate must not silently treat an unavailable flag as a
+        successful comparison. build_inventory() always stores favorite as a
+        bool, and normally stores hidden as a bool when the installed
+        osxphotos version exposes that Photos property.
+        """
+        value = asset.get(field_name)
+
+        if isinstance(value, bool):
+            return value
+
+        # Defensive compatibility for older serialized inventory caches that
+        # may contain 0 / 1 rather than Python bool values.
+        if type(value) is int and value in (0, 1):
+            return bool(value)
+
+        raise RuntimeError(
+            "REPORT-01 cannot audit "
+            f"{field_name!r} because the inventory value is not a known "
+            "Boolean. Rebuild the inventory with an osxphotos version that "
+            "exposes this Photos property, then rerun REPORT-01.\n"
+            f"field={field_name!r}\n"
+            f"value={value!r}\n"
+            f"original_filename={asset.get('original_filename')!r}\n"
+            f"uuid={asset.get('uuid')!r}"
+        )
 
     def full_album_path(album):
         title = str(album.get("title") or "").strip()
@@ -3435,6 +3466,8 @@ def write_folder_album_membership_comparison_report(
     date_difference_rows = []
     description_difference_rows = []
     keyword_missing_rows = []
+    favorite_difference_rows = []
+    hidden_difference_rows = []
     gps_missing_rows = []
     gps_different_rows = []
     media_adjustment_difference_rows = []
@@ -3484,6 +3517,26 @@ def write_folder_album_membership_comparison_report(
                 "backup_keywords": sorted(backup_keywords),
                 "current_keywords": sorted(current_keywords),
                 "keywords_missing_from_current": missing_keywords,
+            })
+
+        backup_favorite = strict_boolean_flag(backup_asset, "favorite")
+        current_favorite = strict_boolean_flag(current_asset, "favorite")
+
+        if backup_favorite != current_favorite:
+            favorite_difference_rows.append({
+                **common,
+                "backup_favorite": backup_favorite,
+                "current_favorite": current_favorite,
+            })
+
+        backup_hidden = strict_boolean_flag(backup_asset, "hidden")
+        current_hidden = strict_boolean_flag(current_asset, "hidden")
+
+        if backup_hidden != current_hidden:
+            hidden_difference_rows.append({
+                **common,
+                "backup_hidden": backup_hidden,
+                "current_hidden": current_hidden,
             })
 
         backup_gps = full_gps(backup_asset)
@@ -3673,6 +3726,12 @@ def write_folder_album_membership_comparison_report(
         "Backup Keywords Missing from Current": len(
             keyword_missing_rows
         ),
+        "Backup Asset Favorites Different from Current": len(
+            favorite_difference_rows
+        ),
+        "Backup Asset Hidden Flags Different from Current": len(
+            hidden_difference_rows
+        ),
         "Backup GPS Present but Missing from Current": len(
             gps_missing_rows
         ),
@@ -3777,6 +3836,9 @@ def write_folder_album_membership_comparison_report(
         "Date: Backup and Current dates must match.",
         "Description: if Backup has a description, Current must preserve the same description.",
         "Keywords: every Backup keyword must still be present in Current; Current may have additional keywords.",
+        "Favorite: Backup and Current favorite flags must match exactly.",
+        "Hidden: Backup and Current hidden flags must match exactly.",
+        "Favorite / hidden availability: each matched asset must expose a known Boolean value; REPORT-01 stops rather than treating an unknown value as a pass.",
         f"GPS: compare latitude and longitude only; coordinates are rounded to {GPS_DECIMAL_PLACES} decimal places before comparison.",
         "Media / adjustment metadata: compare media type, dimensions, adjustment state, and UTI fields.",
         "",
@@ -3864,6 +3926,34 @@ def write_folder_album_membership_comparison_report(
             "asset_key",
         ],
         keyword_missing_rows,
+    )
+
+    write_table(
+        lines,
+        "Backup Asset Favorites Different from Current",
+        [
+            "original_filename",
+            "backup_date",
+            "current_date",
+            "backup_favorite",
+            "current_favorite",
+            "asset_key",
+        ],
+        favorite_difference_rows,
+    )
+
+    write_table(
+        lines,
+        "Backup Asset Hidden Flags Different from Current",
+        [
+            "original_filename",
+            "backup_date",
+            "current_date",
+            "backup_hidden",
+            "current_hidden",
+            "asset_key",
+        ],
+        hidden_difference_rows,
     )
 
     write_table(
@@ -4011,6 +4101,12 @@ def write_folder_album_membership_comparison_report(
             ),
             "backup_keywords_missing_from_current": len(
                 keyword_missing_rows
+            ),
+            "backup_asset_favorites_different_from_current": len(
+                favorite_difference_rows
+            ),
+            "backup_asset_hidden_flags_different_from_current": len(
+                hidden_difference_rows
             ),
             "backup_gps_present_but_missing_from_current": len(
                 gps_missing_rows

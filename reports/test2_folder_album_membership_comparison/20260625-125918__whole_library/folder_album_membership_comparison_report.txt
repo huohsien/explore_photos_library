@@ -1,0 +1,121 @@
+========================================================================================================================
+BACKUP-CENTRIC PHOTOS LIBRARY RESTORATION DASHBOARD
+========================================================================================================================
+run_timestamp: 2026-06-25T12:59:18
+label: whole_library
+target_root_folder_path: None
+include_ok_rows: False
+
+Scope
+------------------------------------------------------------------------------------------------------------------------
+This report checks only whether Backup-required information is present in Current.
+Current-only assets, folders, AlbumPaths, album members, and syndication state are outside this report's scope.
+AlbumPath means deepest folder path + album title; a root-level album uses its title alone.
+
+Asset Metadata Preservation Rules
+------------------------------------------------------------------------------------------------------------------------
+Date: Backup and Current dates must match.
+Description: if Backup has a description, Current must preserve the same description.
+Keywords: every Backup keyword must still be present in Current; Current may have additional keywords.
+Favorite: Backup and Current favorite flags must match exactly.
+Hidden: Backup and Current hidden flags must match exactly.
+Favorite / hidden availability: each matched asset must expose a known Boolean value; REPORT-01 stops rather than treating an unknown value as a pass.
+GPS: compare latitude and longitude only; coordinates are rounded to 4 decimal places before comparison.
+Media / adjustment metadata: compare media type, dimensions, adjustment state, and UTI fields.
+
+Dashboard — all counts must reach 0 before this Backup-to-Current restoration stage is complete
+------------------------------------------------------------------------------------------------------------------------
+Backup Assets Missing from Current: 0
+Backup Asset Dates Different from Current: 0
+Backup Asset Descriptions Missing or Different in Current: 0
+Backup Keywords Missing from Current: 0
+Backup Asset Favorites Different from Current: 21
+Backup Asset Hidden Flags Different from Current: 0
+Backup GPS Present but Missing from Current: 0
+Backup and Current GPS Coordinates Differ: 0
+Backup Media or Adjustment Metadata Different from Current: 0
+Backup Folder Paths Missing from Current: 0
+Backup Album Paths Missing from Current: 0
+Backup Album Members Missing from Current Albums at Matching Album Paths: 0
+Backup Album Paths Associated with Multiple Albums: 0
+Current Album Paths Associated with Multiple Albums: 0
+
+All Backup-Required Information Present in Current: NO
+
+Inventory Counts
+------------------------------------------------------------------------------------------------------------------------
+Backup normal assets: 71571
+Current normal assets: 96834
+Backup folder paths: 35
+Current folder paths: 35
+Backup AlbumPaths: 5110
+Current AlbumPaths: 5988
+
+Root Folder Breakdown
+root_folder	backup_folder_paths_missing_from_current	backup_album_paths_missing_from_current	backup_album_members_missing_from_current_at_matching_album_paths	backup_album_paths_associated_with_multiple_albums	current_album_paths_associated_with_multiple_albums
+
+Backup Assets Missing from Current
+original_filename	date	uuid	asset_key
+
+Backup Asset Dates Different from Current
+original_filename	backup_date	current_date	backup_date_to_seconds	current_date_to_seconds	asset_key
+
+Backup Asset Descriptions Missing or Different in Current
+original_filename	backup_date	current_date	backup_description	current_description	asset_key
+
+Backup Keywords Missing from Current
+original_filename	backup_date	current_date	backup_keywords	current_keywords	keywords_missing_from_current	asset_key
+
+Backup Asset Favorites Different from Current
+original_filename	backup_date	current_date	backup_favorite	current_favorite	asset_key
+8188525167230255886.mp4	2022-05-22T09:43:18+08:00	2022-05-22T09:43:18+08:00	False	True	unique_id:('8188525167230255886.mp4', '05-22 09:43:18', 13930164, None, None)
+IMG_0050.HEIC	2020-10-16T07:46:29.061001+08:00	2020-10-16T07:46:29.061000+08:00	True	False	unique_id:('IMG_0050.heic', '10-16 07:46:29', 1784236, None, None)
+IMG_0120.JPG	2018-01-11T20:25:07.301522+08:00	2018-01-11T20:25:07.301521+08:00	False	True	unique_id:('IMG_0120.jpg', '01-11 20:25:07', 95536, None, None)
+IMG_0164.PNG	2120-11-28T13:18:00+08:00	2120-11-28T13:18:00+08:00	False	True	unique_id:('IMG_0164.png', '11-28 13:18:00', 1786134, None, None)
+IMG_0165.PNG	2120-11-28T13:19:00+08:00	2120-11-28T13:19:00+08:00	False	True	unique_id:('IMG_0165.png', '11-28 13:19:00', 1443983, None, None)
+IMG_0166.PNG	2120-11-28T13:19:00+08:00	2120-11-28T13:19:00+08:00	False	True	unique_id:('IMG_0166.png', '11-28 13:19:00', 1950569, None, None)
+IMG_0167.PNG	2120-11-28T13:19:00+08:00	2120-11-28T13:19:00+08:00	False	True	unique_id:('IMG_0167.png', '11-28 13:19:00', 1930060, None, None)
+IMG_0231.JPG	2022-01-14T21:22:59.259642+08:00	2022-01-14T21:22:59.259642+08:00	False	True	unique_id:('IMG_0231.jpg', '01-14 21:22:59', 148207, None, None)
+IMG_0234.JPG	2022-01-15T09:32:32.443341+08:00	2022-01-15T09:32:32.443341+08:00	False	True	unique_id:('IMG_0234.jpg', '01-15 09:32:32', 2423489, None, None)
+IMG_0235.JPG	2022-01-15T09:32:36.304370+08:00	2022-01-15T09:32:36.304370+08:00	False	True	unique_id:('IMG_0235.jpg', '01-15 09:32:36', 2141488, None, None)
+IMG_0334.MOV	2020-05-09T21:07:13+08:00	2020-05-09T21:07:13+08:00	False	True	unique_id:('IMG_0334.mov', '05-09 21:07:13', 39050571, None, None)
+IMG_1391.MOV	2025-03-17T22:41:31+08:00	2025-03-17T22:41:31+08:00	False	True	unique_id:('IMG_1391.mov', '03-17 22:41:31', 6315385, None, None)
+IMG_1392.MOV	2025-03-17T22:41:45+08:00	2025-03-17T22:41:45+08:00	False	True	unique_id:('IMG_1392.mov', '03-17 22:41:45', 42985354, None, None)
+IMG_1637.PNG	2025-03-20T09:49:43+08:00	2025-03-20T09:49:43+08:00	True	False	unique_id:('IMG_1637.png', '03-20 09:49:43', 8603277, None, None)
+IMG_1638.PNG	2025-03-20T09:49:56+08:00	2025-03-20T09:49:56+08:00	True	False	unique_id:('IMG_1638.png', '03-20 09:49:56', 6975756, (1320, 2868), None)
+IMG_3704.MOV	2025-02-08T11:29:36+08:00	2025-02-08T11:29:36+08:00	True	False	unique_id:('IMG_3704.mov', '02-08 11:29:36', 47264659, None, None)
+IMG_4980.MOV	2022-06-30T10:43:45+08:00	2022-06-30T10:43:45+08:00	True	False	unique_id:('IMG_4980.mov', '06-30 10:43:45', 9065316678, None, None)
+IMG_5796.JPG	2024-06-14T21:24:00.403287+08:00	2024-06-14T21:24:00.403290+08:00	False	True	unique_id:('IMG_5796.jpg', '06-14 21:24:00', 217161, None, None)
+IMG_8638.jpeg	2024-06-20T20:59:24.146912+08:00	2024-06-20T20:59:24.051900+08:00	False	True	unique_id:('IMG_8638.jpeg', '06-20 20:59:24', 481195, None, None)
+ImageDrain-20241124T220241.356Z.jpeg	2024-11-25T06:02:41.356074+08:00	2024-11-25T06:02:41.356075+08:00	False	True	unique_id:('ImageDrain-20241124T220241.356Z.jpeg', '11-25 06:02:41', 292146, None, None)
+tmp_v4738292322033630852.mp4	2019-11-27T23:23:10+08:00	2019-11-27T23:23:10+08:00	False	True	unique_id:('tmp_v4738292322033630852.mp4', '11-27 23:23:10', 61974263, None, None)
+
+Backup Asset Hidden Flags Different from Current
+original_filename	backup_date	current_date	backup_hidden	current_hidden	asset_key
+
+Backup GPS Present but Missing from Current
+original_filename	backup_date	current_date	backup_latitude	backup_longitude	current_latitude	current_longitude	asset_key
+
+Backup and Current GPS Coordinates Differ
+original_filename	backup_date	current_date	backup_latitude	backup_longitude	current_latitude	current_longitude	rounded_backup_latitude	rounded_backup_longitude	rounded_current_latitude	rounded_current_longitude	gps_decimal_places_used	asset_key
+
+Backup Media or Adjustment Metadata Different from Current
+original_filename	backup_date	current_date	changed_media_adjustment_fields	media_adjustment_differences	asset_key
+
+Backup Folder Paths Missing from Current
+root_folder	folder_path
+
+Backup Album Paths Missing from Current
+root_folder	album_path	backup_albums	backup_assets
+
+Backup Album Members Missing from Current Albums at Matching Album Paths
+root_folder	album_path	backup_albums	current_albums	backup_assets	current_assets	backup_members_missing_from_current	missing_asset_unique_ids
+
+Backup Album Paths Associated with Multiple Albums
+root_folder	album_path	backup_albums	backup_album_uuids
+
+Current Album Paths Associated with Multiple Albums
+root_folder	album_path	current_albums	current_album_uuids
+
+Album Paths Not Evaluated for Membership Due to Multiple Albums
+root_folder	album_path	backup_albums	current_albums	reason
