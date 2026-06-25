@@ -1,0 +1,23 @@
+report_type	cross_library_inventory_diff_summary
+run_timestamp	2026-06-24T14:09:37
+label	snapshot
+diff_record_count	30603
+
+inventory_counts
+backup_assets	71571
+current_assets	96722
+backup_albums	5110
+current_albums	5985
+backup_folders	35
+current_folders	35
+
+change_type_counts
+ALBUM_MISSING_FROM_CURRENT	3
+ALBUM_NEW_IN_CURRENT	876
+ASSET_ALBUM_MEMBERSHIP_CHANGED	609
+ASSET_METADATA_CHANGED	3964
+ASSET_NEW_IN_CURRENT	25151
+
+scope_counts
+album	879
+asset	29724
